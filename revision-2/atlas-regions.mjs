@@ -9,6 +9,7 @@ export const atlasSources = {
 };
 
 export const atlasExclusions = {
+ valor:{rectangles:[],redHalo:[0,696,558,705],reason:'Remove Blaze’s red halo within the last nine rows of Valor’s quadrant, selecting only pixels where 20*G < 9*R. Preserve the gold centerline and original canvas. The mixed halo includes 23 selected center-region pixels with alpha at most 18/255.'},
  rivera:{rectangles:[[201,691,386,706]],reason:'Remove the Silvah crown tips below Rivera.'},
  nexus:{rectangles:[[727,690,923,706]],reason:'Remove the Aurum crown tips below Nexus. Their merged glow cannot be separated losslessly; the boundary follows the narrow junction below the silver tip.'},
  silvah:{rectangles:[[546,935,557,992]],reason:'Remove the edge of Aurum’s gold orbit sphere. This also removes a small shared fringe of green glow with alpha at most 29/255.'},
@@ -29,6 +30,25 @@ export function excludeNeighborPixels(data, region, rectangles) {
    const offset=((y-region.top)*region.width+x-region.left)*4;
    if(data[offset+3])clearedPixels++;
    data.fill(0,offset,offset+4);
+  }
+ }
+ return clearedPixels;
+}
+
+// This source-pinned correction is intentionally bounded to Valor’s seam.
+// A horizontal trim would also cut the declining gold tail. The red halo
+// instead grows toward the neighboring fire card; keep the gold centerline.
+export function excludeRedHaloPixels(data, region, bounds) {
+ if(data.length!==region.width*region.height*4)throw Error('Expected an RGBA tile');
+ if(bounds.length!==4||!bounds.every(Number.isInteger))throw Error('Invalid halo bounds');
+ const [left,top,right,bottom]=bounds;
+ if(left<region.left||top<region.top||right>region.left+region.width||bottom>region.top+region.height||right<=left||bottom<=top)throw Error('Halo exclusion escapes its tile');
+ let clearedPixels=0;
+ for(let y=top;y<bottom;y++)for(let x=left;x<right;x++){
+  const offset=((y-region.top)*region.width+x-region.left)*4;
+  if(data[offset+3]&&20*data[offset+1]<9*data[offset]){
+   if(data[offset+3]>60)throw Error('Halo exclusion would remove an unaudited opaque pixel');
+   data.fill(0,offset,offset+4);clearedPixels++;
   }
  }
  return clearedPixels;

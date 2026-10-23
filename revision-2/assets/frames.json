@@ -12,8 +12,18 @@
     "isolation": {
       "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
       "excludedRectangles": [],
-      "clearedNontransparentPixels": 0,
-      "note": "Original quadrant retained; no identifiable neighboring solid contour to remove."
+      "clearedNontransparentPixels": 2370,
+      "redHaloExclusion": {
+        "bounds": [
+          0,
+          696,
+          558,
+          705
+        ],
+        "rule": "20*G < 9*R; alpha <= 60",
+        "clearedNontransparentPixels": 2370
+      },
+      "note": "Remove Blaze’s red halo within the last nine rows of Valor’s quadrant, selecting only pixels where 20*G < 9*R. Preserve the gold centerline and original canvas. The mixed halo includes 23 selected center-region pixels with alpha at most 18/255."
     },
     "output": [
       300,

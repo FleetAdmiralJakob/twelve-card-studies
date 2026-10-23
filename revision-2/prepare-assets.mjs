@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {cards} from './cards.mjs';
-import {atlasSources,atlasExclusions,excludeNeighborPixels} from './atlas-regions.mjs';
+import {atlasSources,atlasExclusions,excludeNeighborPixels,excludeRedHaloPixels} from './atlas-regions.mjs';
 await mkdir('revision-2/assets/frames',{recursive:true});
 const provenance=[];
 for(const [row,atlas] of ['a','b','c'].entries()){
@@ -16,10 +16,11 @@ for(const [row,atlas] of ['a','b','c'].entries()){
   const region={left,top,width:Math.floor(width/2),height:Math.floor(height/2)};
   let original=await sharp(source).extract(region).png().toBuffer();
   const exclusion=atlasExclusions[theme];
-  let clearedPixels=0;
+  let clearedPixels=0,clearedHaloPixels=0;
   if(exclusion){
    const {data,info}=await sharp(original).ensureAlpha().raw().toBuffer({resolveWithObject:true});
    clearedPixels=excludeNeighborPixels(data,region,exclusion.rectangles);
+   if(exclusion.redHalo)clearedHaloPixels=excludeRedHaloPixels(data,region,exclusion.redHalo);
    original=await sharp(data,{raw:info}).png().toBuffer();
   }
   // Remove neighboring artwork in place; never recenter, tighten or stretch
@@ -29,7 +30,7 @@ for(const [row,atlas] of ['a','b','c'].entries()){
    await pipeline.clone().webp({quality:86,alphaQuality:95,effort:6}).toFile(`revision-2/assets/frames/${theme}${suffix}.webp`);
    await pipeline.clone().avif({quality:63,effort:5}).toFile(`revision-2/assets/frames/${theme}${suffix}.avif`);
   }
-  provenance.push({theme,source:input,sourceSha256,sourceRegion:region,isolation:{coordinateSystem:'absolute source pixels; [left,top,right,bottom), upper bounds exclusive',excludedRectangles:exclusion?.rectangles||[],clearedNontransparentPixels:clearedPixels,note:exclusion?.reason||'Original quadrant retained; no identifiable neighboring solid contour to remove.'},output:[300,380],highResolution:[600,760]});
+  provenance.push({theme,source:input,sourceSha256,sourceRegion:region,isolation:{coordinateSystem:'absolute source pixels; [left,top,right,bottom), upper bounds exclusive',excludedRectangles:exclusion?.rectangles||[],clearedNontransparentPixels:clearedPixels+clearedHaloPixels,...(exclusion?.redHalo?{redHaloExclusion:{bounds:exclusion.redHalo,rule:'20*G < 9*R; alpha <= 60',clearedNontransparentPixels:clearedHaloPixels}}:{}),note:exclusion?.reason||'Original quadrant retained; no identifiable neighboring solid contour to remove.'},output:[300,380],highResolution:[600,760]});
  }
 }
 await sharp('revision-2/assets/reference.png').resize(1000).webp({quality:82}).toFile('revision-2/assets/reference-preview.webp');
