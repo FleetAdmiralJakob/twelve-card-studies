@@ -12,7 +12,7 @@ The hub, every edition and all reports include **GitHub** and **View source** li
 
 Production builds require the complete Revision 2 measurement snapshot selected by `revision-2/benchmarks/latest.json`. Missing, incomplete or stale measurements fail the build; see the [benchmark workflow](revision-2/benchmarks/README.md) for measurement and selection commands.
 
-The hybrid ZIP uses `VERCEL_URL` (or `VERCEL_PROJECT_PRODUCTION_URL`) for its links back to the deployed collection. Set optional `CARD_SITE_ORIGIN=https://your-domain.example` to use a stable custom domain instead. Without deployment variables, local builds use `http://localhost:4173`. Card edits are stored per browser/origin, so they do not transfer automatically between the tailnet and a new domain.
+Production builds use `VERCEL_PROJECT_PRODUCTION_URL` for both hybrid ZIPs' links back to the public collection, avoiding the login-protected generated deployment URL. Preview builds use `VERCEL_URL`, with the production domain as a fallback. Set optional `CARD_SITE_ORIGIN=https://your-domain.example` to override either with a specific domain. Without deployment variables, local builds use `http://localhost:4173`. Card edits are stored per browser/origin, so they do not transfer automatically between the tailnet and a new domain.
 
 To build and check the exact static output locally:
 

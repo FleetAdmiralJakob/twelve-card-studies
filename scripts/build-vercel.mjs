@@ -23,9 +23,16 @@ try {
   if (error.code !== 'ENOENT') throw error;
 }
 
+// Generated deployment URLs may require Vercel authentication even when the
+// production domain is public. Portable ZIP navigation must use that public
+// domain for production builds; explicit custom/Tailnet origins still win.
+const buildEnvironment = { ...process.env };
+if (!buildEnvironment.CARD_SITE_ORIGIN && buildEnvironment.VERCEL_ENV === 'production' && buildEnvironment.VERCEL_PROJECT_PRODUCTION_URL) {
+  buildEnvironment.CARD_SITE_ORIGIN = `https://${buildEnvironment.VERCEL_PROJECT_PRODUCTION_URL}`;
+}
 for (const script of ['build.mjs', 'benchmarks/four-build-report.mjs', 'revision-2/build.mjs', 'revision-2/build-hub.mjs', 'revision-2/benchmarks/report.mjs']) {
   if (script === 'revision-2/benchmarks/report.mjs') await normalizeRevision2Gzip();
-  const result = spawnSync(process.execPath, [script], { cwd: root, stdio: 'inherit' });
+  const result = spawnSync(process.execPath, [script], { cwd: root, stdio: 'inherit', env: buildEnvironment });
   if (result.error) throw result.error;
   assert.equal(result.status, 0, `${script} failed; refusing to publish an unvalidated build`);
 }
