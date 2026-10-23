@@ -1,6 +1,33 @@
 # The Twelve
 
-Twelve football cards in four separately preserved editions, hosted privately on the tailnet:
+Twelve football cards in four separately preserved editions. Includes all artwork, editable cards, PNG export, comparison reports and source downloads. The site deploys as static files on Vercel; it needs no database, server functions or API keys.
+
+## Deploy to Vercel
+
+Import [FleetAdmiralJakob/twelve-card-studies](https://github.com/FleetAdmiralJakob/twelve-card-studies) into Vercel. Use the repository root and the **Other** framework preset. The committed `vercel.json` supplies the install command (`npm ci`), build command (`npm run build:vercel`) and output directory (`site`). Node.js 24 is selected in `package.json`. No environment variables are required for a standard Vercel deployment.
+
+The build includes all four versions, both reports and their JSON data, the reference, original-aspect PNG export, and `/source/*` downloads. V1 stays at `/`; the other editions are `/css/`, `/basic/` and `/hybrid/`. V4 remains reachable from every edition. Vercel serves the site independently of the original Windows machine and tailnet.
+
+The hybrid ZIP uses `VERCEL_URL` (or `VERCEL_PROJECT_PRODUCTION_URL`) for its links back to the deployed collection. Set optional `CARD_SITE_ORIGIN=https://your-domain.example` to use a stable custom domain instead. Without deployment variables, local builds use `http://localhost:4173`. Card edits are stored per browser/origin, so they do not transfer automatically between the tailnet and a new domain.
+
+To build and check the exact static output locally:
+
+```sh
+npm ci
+npm run build:vercel
+npm run check:routes
+npm run preview
+```
+
+Open http://localhost:4173. Use `npm run preview -- --port 4180` to select another port. The route check verifies generated files, navigation, downloads, cache/security headers and redirects. It does not rerun browser performance benchmarks. A GitHub Actions workflow runs the install, static build and route check on Linux.
+
+`site/`, `dist/`, generated pages, hashed asset copies and local captures are ignored by Git. Original AVIF/WebP assets, atlas sources, fonts/licenses, the reference and benchmark snapshots remain tracked. `.gitattributes` preserves exact file bytes on Windows and Linux because the benchmark validation uses source and HTML hashes. The static builder publishes only its allowlisted output, not the source workspace. ZIP timestamps and the static report snapshot date are fixed for reproducible builds.
+
+Vercel references: [project configuration](https://vercel.com/docs/project-configuration/vercel-json), [Node.js versions](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions), [deployment environment variables](https://vercel.com/docs/environment-variables/system-environment-variables).
+
+## Existing tailnet site
+
+The original private host remains available:
 
 - [V1 · SVG](http://jakobs-pc.taile7e918.ts.net:8787/)
 - [V2 · CSS polygons](http://jakobs-pc.taile7e918.ts.net:8787/css/)
@@ -13,9 +40,11 @@ Connect the viewing device to the tailnet and keep the Windows PC awake. Downloa
 
 ## Run and build
 
-Normal serving needs only Node.js, with no package installation:
+For the development file server, install and build once after cloning, then start it:
 
 ```sh
+npm ci
+npm run build
 npm start
 ```
 
