@@ -21,4 +21,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build:vercel
+        id: build
+      - name: Diagnose Revision 2 fingerprint differences
+        if: failure() && steps.build.outcome == 'failure'
+        run: node scripts/diagnose-r2-fingerprints.mjs
       - run: npm run check:routes

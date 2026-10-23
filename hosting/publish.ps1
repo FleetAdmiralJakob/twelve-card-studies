@@ -67,10 +67,13 @@ await import(new URL('./releases/' + release + '/hosting/serve.mjs', import.meta
   Start-ScheduledTask -TaskName 'TwelveCardCollection'
   $cardReady = $false
   $cardExpectedHub = ($cardInventory | Where-Object { $_.path -eq 'index.html' }).sha256
+  # PowerShell's HTTP handler can append compression encodings even when the
+  # caller requests identity. Every supported ETag still pins the same raw hub.
+  $cardExpectedTags = @(('"' + $cardExpectedHub + '"'), ('"' + $cardExpectedHub + '-br"'), ('"' + $cardExpectedHub + '-gzip"'))
   for ($cardAttempt = 0; $cardAttempt -lt 30; $cardAttempt++) {
     try {
       $cardResponse = Invoke-WebRequest -Uri 'http://127.0.0.1:18787/collections/' -Method Head -Headers @{ 'Accept-Encoding' = 'identity' } -TimeoutSec 2
-      if ($cardResponse.StatusCode -eq 200 -and $cardResponse.Headers['ETag'] -eq ('"' + $cardExpectedHub + '"')) { $cardReady = $true; break }
+      if ($cardResponse.StatusCode -eq 200 -and $cardExpectedTags -contains [string]$cardResponse.Headers['ETag']) { $cardReady = $true; break }
     } catch { }
     Start-Sleep -Milliseconds 500
   }
