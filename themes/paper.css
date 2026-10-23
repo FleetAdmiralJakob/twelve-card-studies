@@ -1,0 +1,41 @@
+.card--parchment,
+.card--doodle,
+.card--ink,
+.card--steampunk {
+  background: transparent;
+  border: 0;
+  --ink: #292a22;
+  --accent: #d5b577;
+}
+
+.paper-artwork { display: block; width: 100%; height: 100%; overflow: visible; }
+.card--parchment .card-art { filter: drop-shadow(1px 3px 2px #0009); }
+.card--parchment .card-rating { top: 30px; left: 29px; }
+.card--parchment .card-name { top: 198px; transform: rotate(-1deg); font-style: italic; }
+.card--parchment .card-stats { top: 232px; left: 25px; right: 21px; }
+.card--parchment .card-flag { top: 276px; --flag-width: 32px; }
+.card--parchment .card-emblem { display: none; }
+
+.card--doodle { --ink: #1d2526; --accent: #e5c348; }
+.card--doodle .card-rating { top: 28px; left: 24px; }
+.card--doodle .card-name { top: 205px; transform: rotate(.3deg); font-style: italic; }
+.card--doodle .card-stats { top: 235px; left: 20px; right: 20px; }
+.card--doodle .card-flag { top: 279px; --flag-width: 29px; left: 94.67px; }
+.card--doodle .card-emblem { display: none; }
+.card--doodle .card-art { filter: drop-shadow(1px 4px 3px #0006); }
+
+.card--ink { --ink: #282922; --accent: #b3412e; }
+.card--ink .card-rating { top: 34px; left: 24px; }
+.card--ink .card-name { top: 207px; }
+.card--ink .card-stats { top: 240px; left: 19px; right: 19px; }
+.card--ink .card-flag { top: 284px; --flag-width: 29px; }
+.card--ink .card-emblem { display: none; }
+.card--ink .card-art { filter: drop-shadow(1px 4px 3px #0007); }
+
+.card--steampunk { --ink: #d7c8a2; --accent: #ac8244; }
+.card--steampunk .card-rating { top: 55px; left: 31px; }
+.card--steampunk .card-name { top: 194px; color: #262923; transform: rotate(-12deg); text-shadow: 0 1px #f3e8cc66; }
+.card--steampunk .card-stats { top: 243px; left: 26px; right: 25px; }
+.card--steampunk .card-flag { top: 287px; --flag-width: 27px; }
+.card--steampunk .card-emblem { top: 111px; left: 34px; }
+.card--steampunk .card-art { filter: drop-shadow(1px 4px 3px #000b); }

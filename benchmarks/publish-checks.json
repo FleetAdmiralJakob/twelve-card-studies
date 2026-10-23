@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-23T15:09:01.251Z",
+  "origin": "http://jakobs-pc.taile7e918.ts.net:8787",
+  "routes": [
+    {
+      "edition": "svg",
+      "status": 200,
+      "hash": "dd3b4dd9cb40613d3d311c210168424e21cd266c709ff37f24e3f6d8cde7aec6",
+      "sourceDownload": true
+    },
+    {
+      "edition": "css",
+      "status": 200,
+      "hash": "38f2e2cb0514ef307d7376b025865d03968eca143f333bba87dfbfe10d9016c8",
+      "sourceDownload": true
+    },
+    {
+      "edition": "basic",
+      "status": 200,
+      "hash": "f38522d826c31e4d22d4cfbe6b8ee5732df4b1f4c7cbeaa6edfeb05ac446b752",
+      "sourceDownload": true
+    },
+    {
+      "path": "/bench/",
+      "status": 200
+    },
+    {
+      "path": "/bench/data.json",
+      "status": 200
+    },
+    {
+      "path": "/reference",
+      "status": 200
+    }
+  ],
+  "browsers": [
+    {
+      "engine": "chromium",
+      "reportControls": true,
+      "rawDownload": true,
+      "mobileOverflow": false,
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+node_modules/
+dist/
+site/
+.vercel/
+.env
+.env.*
+!.env.example
+*.log
+*.err
+.DS_Store
+Thumbs.db
+
+# Generated edition pages and content-addressed copies. Original assets stay tracked.
+/css/index.html
+/basic/index.html
+/hybrid/index.html
+/hybrid/assets/*.*.*
+/hybrid/assets/*.woff2
+/bench-four/
+
+# Local captures and previews, not inputs to the website build.
+/benchmarks/screenshots/
+/benchmarks/portable-hybrid/
+/benchmarks/report.html
+/benchmarks/inline.html
+/benchmarks/four-inline.html
+/benchmarks/four-combined.json
+/benchmarks/*.partial.json
+/benchmarks/vercel-*.json
+/inline-preview.html
+/preview.mjs
+**/.*-preview.html
+
+# bench/index.html and benchmarks/combined.json are intentional historical inputs.

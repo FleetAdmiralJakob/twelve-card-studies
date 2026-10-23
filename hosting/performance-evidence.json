@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-21",
+  "environment": "Windows PC, Chrome154, browser viewport simulation. No CPU/network throttling. Hosted tailnet URLs tested from hosting PC, not from MacBook.",
+  "method": "hosting/profile-browser.js opens all 12 dialogs and samples 90 mobile scrolling frames. It samples 120 hover-motion frames only in an edition that ships that interaction. dialogTwoFrameMs includes SVG image.decode() plus two requestAnimationFrame callbacks, not just JavaScript event-handler time. Mobile means a resized desktop browser; the original final mobile run includes a new navigation, while CSS mobile paint data refers to its earlier desktop navigation.",
+  "originalFinalMobile": {
+    "url": "http://jakobs-pc.taile7e918.ts.net:8787/",
+    "viewport": [
+      390,
+      844
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "time": "2026-10-21T17:02:30.669Z",
+    "domElements": 485,
+    "images": 12,
+    "svg": 7,
+    "canvas": 0,
+    "cardCount": 12,
+    "firstContentfulPaintMs": 40,
+    "transferBytes": 233000,
+    "domReadyMs": 110.5,
+    "synchronousClickMs": [
+      8.5,
+      3.3,
+      2.6,
+      3.8,
+      2.4,
+      2.3,
+      2.4,
+      3.3,
+      3.4,
+      1.6,
+      2.1,
+      1.7
+    ],
+    "dialogTwoFrameMs": [
+      11.6,
+      116.8,
+      106.6,
+      99.6,
+      109.1,
+      106.9,
+      119.6,
+      106.8,
+      121.8,
+      92.9,
+      114.8,
+      115.2
+    ],
+    "motionFrames": null,
+    "scrollFrames": {
+      "medianMs": 16.7,
+      "p95Ms": 16.7,
+      "maxMs": 16.8,
+      "framesOver33ms": 0,
+      "samples": 90
+    },
+    "horizontalOverflow": false
+  },
+  "cssDesktop": {
+    "url": "http://jakobs-pc.taile7e918.ts.net:8787/css/",
+    "viewport": [
+      1080,
+      792
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "time": "2026-10-21T16:47:23.628Z",
+    "domElements": 2902,
+    "images": 0,
+    "svg": 0,
+    "canvas": 0,
+    "cardCount": 12,
+    "firstContentfulPaintMs": 7480,
+    "transferBytes": 259341,
+    "domReadyMs": 7459.79999999702,
+    "synchronousClickMs": [
+      25.5,
+      19.8,
+      13.6,
+      11.5,
+      13.9,
+      12.3,
+      11.3,
+      12.2,
+      11.8,
+      11.9,
+      13.6,
+      7.1
+    ],
+    "dialogTwoFrameMs": [
+      35.3,
+      68.9,
+      31.8,
+      32.4,
+      49.4,
+      51,
+      48.7,
+      29.5,
+      33.7,
+      34.6,
+      133.2,
+      43.3
+    ],
+    "motionFrames": {
+      "medianMs": 16.7,
+      "p95Ms": 16.8,
+      "maxMs": 16.8,
+      "framesOver33ms": 0,
+      "samples": 120
+    },
+    "scrollFrames": null,
+    "horizontalOverflow": false
+  },
+  "cssMobile": {
+    "url": "http://jakobs-pc.taile7e918.ts.net:8787/css/",
+    "viewport": [
+      390,
+      844
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "time": "2026-10-21T16:55:38.763Z",
+    "domElements": 2902,
+    "images": 0,
+    "svg": 0,
+    "canvas": 0,
+    "cardCount": 12,
+    "firstContentfulPaintMs": 184,
+    "transferBytes": 259341,
+    "domReadyMs": 73.6000000089407,
+    "synchronousClickMs": [
+      14.9,
+      13.4,
+      12.7,
+      13.4,
+      16.6,
+      16.6,
+      16.5,
+      8.5,
+      12.6,
+      9.2,
+      10.1,
+      13.9
+    ],
+    "dialogTwoFrameMs": [
+      23.2,
+      51.6,
+      33.8,
+      34.2,
+      43.8,
+      47.1,
+      33.3,
+      31.9,
+      34.9,
+      34.7,
+      68,
+      30.3
+    ],
+    "motionFrames": {
+      "medianMs": 16.7,
+      "p95Ms": 16.8,
+      "maxMs": 16.8,
+      "framesOver33ms": 0,
+      "samples": 120
+    },
+    "scrollFrames": {
+      "medianMs": 16.7,
+      "p95Ms": 16.7,
+      "maxMs": 16.8,
+      "framesOver33ms": 0,
+      "samples": 90
+    },
+    "horizontalOverflow": false
+  },
+  "desktopOriginalBeforeHoverRemoval": {
+    "url": "http://jakobs-pc.taile7e918.ts.net:8787/",
+    "viewport": [
+      1080,
+      792
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "time": "2026-10-21T16:59:44.359Z",
+    "domElements": 485,
+    "images": 12,
+    "svg": 7,
+    "canvas": 0,
+    "cardCount": 12,
+    "firstContentfulPaintMs": 168,
+    "transferBytes": 233047,
+    "domReadyMs": 139.30000001192093,
+    "synchronousClickMs": [
+      9.4,
+      4.4,
+      2.2,
+      4,
+      2.5,
+      2.7,
+      2.8,
+      2.6,
+      2.6,
+      2.2,
+      2,
+      3
+    ],
+    "dialogTwoFrameMs": [
+      13,
+      249.5,
+      199.3,
+      187.8,
+      209.3,
+      196.7,
+      216,
+      198.7,
+      206.6,
+      192.7,
+      209.7,
+      201.3
+    ],
+    "motionFrames": {
+      "medianMs": 16.8,
+      "p95Ms": 33.4,
+      "maxMs": 100,
+      "framesOver33ms": 20,
+      "samples": 120
+    },
+    "scrollFrames": null,
+    "horizontalOverflow": false
+  },
+  "cssNavigationFollowup": {
+    "FCPms": 184,
+    "domReadyMs": 73.6,
+    "fetchStartMs": 0.2,
+    "responseEndMs": 15,
+    "gzipBodyBytes": 259041
+  },
+  "initialNavigationOutlier": "CSS desktop first navigation reported FCP 7480 ms; DNS started at 7297.1 ms. Observed delay before the request, cause not proven. Subsequent navigation FCP was 184 ms. Both observations are retained.",
+  "optimizationDecision": "Forced animation of the padded original SVG drawings measured p95 33.4 ms and a 100 ms maximum frame. This optional hover animation was removed. The shipped original uses static cards with working dialog interactions; final mobile scrolling measured p95 16.7 ms, maximum 16.8 ms. The CSS edition retains hover motion with p95 16.8 ms.",
+  "interpretation": "Both editions' mobile scrolling measured about 60 fps on this PC. CSS desktop enlarged-card measurements ranged 29.5–133.2 ms; original desktop before hover removal ranged 13–249.5 ms. Original final mobile ranged 11.6–121.8 ms. There is a measurable initial rendering cost; no claim of zero latency or guaranteed performance on other hardware/Safari.",
+  "visualAcceptance": "Reference row geometry, colors, themes, ratings, positions, stats and country flags recreated. Illustration detail differs from the reference; not pixel-identical or an undisputed bet win.",
+  "verifiedInteractions": [
+    "All 12 card dialogs",
+    "72 stats per edition",
+    "Country flag proportions and spacing",
+    "Player name edits",
+    "Previous/next keyboard wrapping",
+    "Escape closes dialogs and restores scrolling",
+    "Version links",
+    "Reference route returns200 image/png",
+    "CSS proof dialog",
+    "No horizontal overflow at desktop/mobile viewports"
+  ]
+}

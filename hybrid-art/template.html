@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1113">
+  <meta name="description" content="Twelve illustrated football cards. Choose a design, make your player, and keep your own edition.">
+  <title>The Twelve — Hybrid Edition</title>
+  <!--STYLES-->
+</head>
+<body>
+  <main aria-label="The twelve football card designs, hybrid edition">
+    <h1 class="sr-only">The Twelve — Hybrid Edition</h1>
+    <section class="collection" aria-label="Twelve collectible player cards">
+      <div class="canvas" id="gallery"><!--GALLERY--></div>
+    </section>
+    <footer class="collection-footer">
+      <div class="collection-meta">
+        <span class="collection-count">THE TWELVE <span>/</span> IV</span>
+        <span class="collection-hint">Select a card to make it yours</span>
+        <button type="button" class="text-button mobile-editor" id="open-editor">Edit a card <span aria-hidden="true">↗</span></button>
+      </div>
+      <nav class="edition-nav" aria-label="Website edition and resources">
+        <a href="/" aria-label="Version 1">V1</a>
+        <a href="/css/" aria-label="Version 2">V2</a>
+        <a href="/basic/" aria-label="Version 3">V3</a>
+        <a href="/hybrid/" aria-current="page" aria-label="Version 4, hybrid edition">V4</a>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <a href="/compare/">Compare</a>
+        <a href="/reference">Reference</a>
+        <a class="download-link" href="/source/hybrid" download>Download edition <span aria-hidden="true">↓</span></a>
+      </nav>
+    </footer>
+  </main>
+
+  <dialog id="card-dialog" class="card-dialog" aria-labelledby="detail-title" aria-describedby="detail-description">
+    <button type="button" class="close-button" data-close aria-label="Close card editor" autofocus>×</button>
+    <div class="detail-layout">
+      <figure class="detail-stage" id="detail-stage">
+        <div class="detail-artwork" id="detail-artwork" role="img" aria-label="Your player card"></div>
+        <figcaption class="preview-caption"><span>LIVE PREVIEW</span><span id="preview-edit-state">Original edition</span></figcaption>
+        <nav class="detail-navigation" aria-label="Choose a card design">
+          <button type="button" id="previous-card" class="nav-button" aria-label="Previous card">←</button>
+          <span id="detail-position" aria-live="polite" aria-atomic="true">01 / 12</span>
+          <button type="button" id="next-card" class="nav-button" aria-label="Next card">→</button>
+        </nav>
+        <p class="keyboard-hint"><kbd>←</kbd> <kbd>→</kbd> browse <span>·</span> <kbd>Esc</kbd> close</p>
+      </figure>
+
+      <aside class="detail-copy" aria-label="Edit your player card">
+        <header class="detail-heading">
+          <p class="eyebrow" id="detail-number">CARD 01 / THE TWELVE</p>
+          <h2 id="detail-title"></h2>
+          <p class="detail-description" id="detail-description"></p>
+        </header>
+        <form id="card-editor" autocomplete="off" novalidate>
+          <div class="editor-field">
+            <label class="field-label" for="player-name">Player name</label>
+            <input id="player-name" name="name" type="text" maxlength="18" autocomplete="off" spellcheck="false" placeholder="PLAYER NAME" aria-describedby="name-help">
+            <p class="field-help" id="name-help">Up to 18 characters. Leave blank for the original.</p>
+          </div>
+          <div class="editor-row">
+            <div class="editor-field">
+              <label class="field-label" for="player-rating">Overall rating</label>
+              <input id="player-rating" name="rating" type="number" min="1" max="99" step="1" inputmode="numeric" required aria-describedby="rating-help">
+            </div>
+            <div class="editor-field">
+              <label class="field-label" for="player-position">Position</label>
+              <select id="player-position" name="position">
+                <option value="ST">ST · Striker</option>
+                <option value="CF">CF · Centre forward</option>
+                <option value="LW">LW · Left wing</option>
+                <option value="RW">RW · Right wing</option>
+                <option value="CAM">CAM · Attacking midfield</option>
+                <option value="LM">LM · Left midfield</option>
+                <option value="CM">CM · Centre midfield</option>
+                <option value="RM">RM · Right midfield</option>
+                <option value="CDM">CDM · Defensive midfield</option>
+                <option value="LWB">LWB · Left wing-back</option>
+                <option value="RWB">RWB · Right wing-back</option>
+                <option value="LB">LB · Left-back</option>
+                <option value="CB">CB · Centre-back</option>
+                <option value="RB">RB · Right-back</option>
+                <option value="GK">GK · Goalkeeper</option>
+              </select>
+            </div>
+          </div>
+          <div class="editor-field">
+            <label class="field-label" for="player-country">Country</label>
+            <select id="player-country" name="country">
+              <option value="argentina">Argentina</option>
+              <option value="brazil">Brazil</option>
+              <option value="england">England</option>
+              <option value="france">France</option>
+              <option value="germany">Germany</option>
+              <option value="italy">Italy</option>
+              <option value="netherlands">Netherlands</option>
+              <option value="portugal">Portugal</option>
+              <option value="korea">South Korea</option>
+              <option value="spain">Spain</option>
+            </select>
+          </div>
+          <fieldset class="attributes">
+            <legend>Attributes <span id="stat-kind">Outfield</span></legend>
+            <div class="stats-editor">
+              <div class="stat-field"><label for="stat-0"><span data-stat-abbr>PAC</span><span data-stat-name>Pace</span></label><input id="stat-0" name="stat-0" data-stat="0" type="number" min="1" max="99" step="1" inputmode="numeric" required aria-describedby="rating-help"></div>
+              <div class="stat-field"><label for="stat-1"><span data-stat-abbr>SHO</span><span data-stat-name>Shooting</span></label><input id="stat-1" name="stat-1" data-stat="1" type="number" min="1" max="99" step="1" inputmode="numeric" required aria-describedby="rating-help"></div>
+              <div class="stat-field"><label for="stat-2"><span data-stat-abbr>PAS</span><span data-stat-name>Passing</span></label><input id="stat-2" name="stat-2" data-stat="2" type="number" min="1" max="99" step="1" inputmode="numeric" required aria-describedby="rating-help"></div>
+              <div class="stat-field"><label for="stat-3"><span data-stat-abbr>DRI</span><span data-stat-name>Dribbling</span></label><input id="stat-3" name="stat-3" data-stat="3" type="number" min="1" max="99" step="1" inputmode="numeric" required aria-describedby="rating-help"></div>
+              <div class="stat-field"><label for="stat-4"><span data-stat-abbr>DEF</span><span data-stat-name>Defending</span></label><input id="stat-4" name="stat-4" data-stat="4" type="number" min="1" max="99" step="1" inputmode="numeric" required aria-describedby="rating-help"></div>
+              <div class="stat-field"><label for="stat-5"><span data-stat-abbr>PHY</span><span data-stat-name>Physical</span></label><input id="stat-5" name="stat-5" data-stat="5" type="number" min="1" max="99" step="1" inputmode="numeric" required aria-describedby="rating-help"></div>
+            </div>
+            <p class="field-help" id="rating-help">Overall rating and attributes: 1–99.</p>
+          </fieldset>
+          <p class="editor-feedback" id="editor-feedback" role="status" aria-live="polite"></p>
+          <div class="editor-actions">
+            <button type="button" class="primary-button" id="export-card">Save card as PNG <span aria-hidden="true">↓</span></button>
+            <p class="save-status" id="save-status" role="status" aria-live="polite">Changes stay on this device.</p>
+            <p class="export-status" id="export-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+        <div class="reset-actions">
+          <button type="button" class="text-button" id="reset-card" disabled>Reset this card</button>
+          <button type="button" class="text-button" id="reset-all" disabled>Reset all 12</button>
+        </div>
+        <section class="reset-confirm" id="reset-confirm" role="group" aria-labelledby="reset-message" hidden>
+          <p id="reset-message"></p>
+          <div class="confirm-actions">
+            <button type="button" class="secondary-button" id="cancel-reset">Keep editing</button>
+            <button type="button" class="secondary-button confirm-button" id="confirm-reset" aria-describedby="reset-message">Reset card</button>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </dialog>
+  <noscript><p class="noscript">Enable JavaScript to edit and save your player cards.</p></noscript>
+  <!--SCRIPT-->
+</body>
+</html>

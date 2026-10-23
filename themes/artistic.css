@@ -1,0 +1,31 @@
+.card--blueprint { --ink: #e4cf97; --accent: #c8af74; }
+.card--blueprint .card-rating { left: 21px; top: 27px; }
+.card--blueprint .card-name { top: 197px; color: #e4ce93; letter-spacing: 1px; }
+.card--blueprint .card-stats { top: 230px; }
+.card--blueprint .card-flag { top: 274px; --flag-width: 34px; }
+.card--blueprint .card-emblem { display: none; }
+.card--blueprint .card-art { filter: drop-shadow(0 4px 3px #0008); }
+
+.card--comic { --ink: #f6e5b9; --accent: #f8ce13; }
+.card--comic .card-rating { left: 29px; top: 28px; color: #42130d; transform: rotate(3deg); }
+.card--comic .card-name { top: 188px; left: 13px; width: 178px; color: #0d1510; font-style: italic; font-weight: 900; font-size: 24px; letter-spacing: -.6px; transform: rotate(-2deg); }
+.card--comic .card-stats { top: 235px; left: 17px; width: 169px; color: #ffe4aa; }
+.card--comic .card-flag { top: 282px; --flag-width: 34px; }
+.card--comic .card-emblem { display: none; }
+.card--comic .card-art { filter: drop-shadow(0 4px 2px #000b); }
+
+.card--forest { --ink: #e9e7cd; --accent: #91a835; }
+.card--forest .card-rating { left: 30px; top: 52px; }
+.card--forest .card-name { top: 201px; left: 26px; width: 151px; color: #191f18; font-size: 20px; }
+.card--forest .card-stats { top: 232px; left: 26px; width: 153px; }
+.card--forest .card-flag { top: 276px; --flag-width: 33px; }
+.card--forest .card-art { filter: drop-shadow(0 4px 4px #000b); }
+.card--forest .card-emblem { top: 116px; left: 31px; color: #7c9b23; }
+
+.card--cathedral { --ink: #e8c755; --accent: #d5b247; }
+.card--cathedral .card-rating { left: 22px; top: 61px; color: #e5c344; }
+.card--cathedral .card-name { top: 213px; left: 29px; width: 141px; color: #24241b; font-family: Georgia, 'Times New Roman', serif; font-size: 19px; font-weight: 700; letter-spacing: -.7px; }
+.card--cathedral .card-stats { top: 242px; left: 24px; width: 153px; }
+.card--cathedral .card-flag { top: 286px; --flag-width: 28px; }
+.card--cathedral .card-emblem { display: none; }
+.card--cathedral .card-art { filter: drop-shadow(0 4px 3px #000b); }

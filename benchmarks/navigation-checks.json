@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-23T16:14:18.418Z",
+  "results": [
+    {
+      "engine": "chromium",
+      "width": 1080,
+      "from": "/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "width": 1080,
+      "from": "/css/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "width": 1080,
+      "from": "/basic/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "from": "/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "from": "/css/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "from": "/basic/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "width": 1080,
+      "from": "/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "width": 1080,
+      "from": "/css/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "width": 1080,
+      "from": "/basic/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "from": "/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "from": "/css/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "from": "/basic/",
+      "to": "/hybrid/",
+      "back": true,
+      "overflow": false
+    }
+  ],
+  "narrow320": true
+}

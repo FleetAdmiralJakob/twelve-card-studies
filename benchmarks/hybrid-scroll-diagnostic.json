@@ -1,0 +1,678 @@
+{
+  "date": "2026-10-23T16:02:13.977Z",
+  "note": "Separate diagnostic, injected CSS; same profileFour workload. Not part of the published 64-run comparison.",
+  "runs": [
+    {
+      "round": 1,
+      "variant": "baseline",
+      "css": "",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 19,
+        "max": 24,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 47,
+        "p95": 94,
+        "max": 94,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 31,
+        "max": 152,
+        "over33ms": 3
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 16,
+        "max": 18,
+        "over33ms": 0
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 1,
+      "variant": "visibility",
+      "css": "@media(max-width:760px){.card-slot{content-visibility:auto;contain-intrinsic-block-size:310px}}",
+      "baseline": {
+        "n": 30,
+        "median": 15,
+        "p95": 29,
+        "max": 29,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 46,
+        "p95": 63,
+        "max": 63,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 30,
+        "max": 32,
+        "over33ms": 0
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 16,
+        "max": 18,
+        "over33ms": 0
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 1,
+      "variant": "paint",
+      "css": "@media(max-width:760px){.card-slot{contain:paint}}",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 17,
+        "max": 27,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 47,
+        "p95": 81,
+        "max": 81,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 30,
+        "max": 32,
+        "over33ms": 0
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 17,
+        "max": 34,
+        "over33ms": 1
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 1,
+      "variant": "layer",
+      "css": "@media(max-width:760px){.card-motion{transform:translateZ(0)}}",
+      "baseline": {
+        "n": 30,
+        "median": 15,
+        "p95": 29,
+        "max": 30,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 48,
+        "p95": 65,
+        "max": 65,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 15,
+        "p95": 31,
+        "max": 62,
+        "over33ms": 3
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 16,
+        "max": 19,
+        "over33ms": 0
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 2,
+      "variant": "visibility",
+      "css": "@media(max-width:760px){.card-slot{content-visibility:auto;contain-intrinsic-block-size:310px}}",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 19,
+        "max": 29,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 47,
+        "p95": 70,
+        "max": 70,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 30,
+        "max": 32,
+        "over33ms": 0
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 16,
+        "max": 18,
+        "over33ms": 0
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 2,
+      "variant": "paint",
+      "css": "@media(max-width:760px){.card-slot{contain:paint}}",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 17,
+        "max": 28,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 46,
+        "p95": 61,
+        "max": 61,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 30,
+        "max": 31,
+        "over33ms": 0
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 19,
+        "max": 25,
+        "over33ms": 0
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 2,
+      "variant": "layer",
+      "css": "@media(max-width:760px){.card-motion{transform:translateZ(0)}}",
+      "baseline": {
+        "n": 30,
+        "median": 15,
+        "p95": 20,
+        "max": 29,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 58,
+        "p95": 92,
+        "max": 92,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 15,
+        "p95": 31,
+        "max": 39,
+        "over33ms": 3
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 16,
+        "max": 38,
+        "over33ms": 1
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 2,
+      "variant": "baseline",
+      "css": "",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 17,
+        "max": 22,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 46,
+        "p95": 93,
+        "max": 93,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 28,
+        "max": 31,
+        "over33ms": 0
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 16,
+        "max": 19,
+        "over33ms": 0
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 3,
+      "variant": "paint",
+      "css": "@media(max-width:760px){.card-slot{contain:paint}}",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 26,
+        "max": 28,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 46,
+        "p95": 66,
+        "max": 66,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 31,
+        "max": 48,
+        "over33ms": 2
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 23,
+        "max": 99,
+        "over33ms": 3
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 3,
+      "variant": "layer",
+      "css": "@media(max-width:760px){.card-motion{transform:translateZ(0)}}",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 30,
+        "max": 30,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 60,
+        "p95": 66,
+        "max": 66,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 32,
+        "max": 64,
+        "over33ms": 6
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 22,
+        "max": 39,
+        "over33ms": 2
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 3,
+      "variant": "baseline",
+      "css": "",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 17,
+        "max": 21,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 47,
+        "p95": 64,
+        "max": 64,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 27,
+        "max": 32,
+        "over33ms": 0
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 22,
+        "max": 62,
+        "over33ms": 2
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 3,
+      "variant": "visibility",
+      "css": "@media(max-width:760px){.card-slot{content-visibility:auto;contain-intrinsic-block-size:310px}}",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 17,
+        "max": 27,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 46,
+        "p95": 64,
+        "max": 64,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 31,
+        "max": 32,
+        "over33ms": 0
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 23,
+        "max": 69,
+        "over33ms": 4
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 4,
+      "variant": "layer",
+      "css": "@media(max-width:760px){.card-motion{transform:translateZ(0)}}",
+      "baseline": {
+        "n": 30,
+        "median": 15,
+        "p95": 30,
+        "max": 30,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 47,
+        "p95": 80,
+        "max": 80,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 15,
+        "p95": 30,
+        "max": 36,
+        "over33ms": 1
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 16,
+        "max": 19,
+        "over33ms": 0
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 4,
+      "variant": "baseline",
+      "css": "",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 19,
+        "max": 29,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 46,
+        "p95": 76,
+        "max": 76,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 15,
+        "p95": 29,
+        "max": 34,
+        "over33ms": 1
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 16,
+        "max": 17,
+        "over33ms": 0
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 4,
+      "variant": "visibility",
+      "css": "@media(max-width:760px){.card-slot{content-visibility:auto;contain-intrinsic-block-size:310px}}",
+      "baseline": {
+        "n": 30,
+        "median": 15,
+        "p95": 28,
+        "max": 31,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 47,
+        "p95": 64,
+        "max": 64,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 30,
+        "max": 31,
+        "over33ms": 0
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 16,
+        "max": 17,
+        "over33ms": 0
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    },
+    {
+      "round": 4,
+      "variant": "paint",
+      "css": "@media(max-width:760px){.card-slot{contain:paint}}",
+      "baseline": {
+        "n": 30,
+        "median": 16,
+        "p95": 26,
+        "max": 26,
+        "over33ms": 0
+      },
+      "open": {
+        "n": 12,
+        "median": 46,
+        "p95": 65,
+        "max": 65,
+        "over33ms": 12
+      },
+      "browse": {
+        "n": 180,
+        "median": 16,
+        "p95": 29,
+        "max": 33,
+        "over33ms": 0
+      },
+      "scroll": {
+        "n": 180,
+        "median": 15,
+        "p95": 16,
+        "max": 19,
+        "over33ms": 0
+      },
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "dialogOpened": true,
+        "wrap": true,
+        "editPersisted": true,
+        "brokenImages": []
+      }
+    }
+  ]
+}

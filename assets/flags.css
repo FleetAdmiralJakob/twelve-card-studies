@@ -1,0 +1,12 @@
+/* Local SVG flags from Flagpedia / FlagCDN, based on Wikimedia Commons.
+   Source and download date: flags/SOURCES.md. */
+.flag--england { --flag-ratio: 800 / 480; background-image: url('flags/england.svg'); }
+.flag--korea { --flag-ratio: 900 / 600; background-image: url('flags/korea.svg'); }
+.flag--netherlands { --flag-ratio: 900 / 600; background-image: url('flags/netherlands.svg'); }
+.flag--brazil { --flag-ratio: 1000 / 700; background-image: url('flags/brazil.svg'); }
+.flag--italy { --flag-ratio: 1500 / 1000; background-image: url('flags/italy.svg'); }
+.flag--france { --flag-ratio: 900 / 600; background-image: url('flags/france.svg'); }
+.flag--spain { --flag-ratio: 750 / 500; background-image: url('flags/spain.svg'); }
+.flag--portugal { --flag-ratio: 600 / 400; background-image: url('flags/portugal.svg'); }
+.flag--argentina { --flag-ratio: 800 / 500; background-image: url('flags/argentina.svg'); }
+.flag--germany { --flag-ratio: 1000 / 600; background-image: url('flags/germany.svg'); }

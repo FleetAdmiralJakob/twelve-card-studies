@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1113">
+  <meta name="description" content="Twelve football card studies. Parchment, neon, stained glass, comic ink, and worlds in between. Crafted in CSS and vector artwork.">
+  <title>The Twelve — SVG Edition</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M5 3h22v23l-11 5-11-5z' fill='%23111517' stroke='%23d8bc76' stroke-width='2'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23d8bc76' font-size='18' font-family='serif'%3E12%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/flags.css">
+  <link rel="stylesheet" href="themes/paper.css">
+  <link rel="stylesheet" href="themes/electric.css">
+  <link rel="stylesheet" href="themes/artistic.css">
+  <link rel="stylesheet" href="assets/editions.css">
+</head>
+<body>
+  <main aria-label="The twelve football card designs">
+    <h1 class="sr-only">The Twelve — Football Card Collection</h1>
+    <section class="collection" aria-label="Twelve collectible player cards">
+      <div class="canvas" id="gallery"></div>
+    </section>
+    <footer class="collection-footer" style="height:auto;min-height:36px;flex-wrap:wrap;row-gap:0">
+      <span class="collection-count">THE TWELVE <span> / </span> CARD STUDIES</span>
+      <nav class="edition-nav" aria-label="Website edition" style="flex-wrap:wrap;row-gap:0;white-space:nowrap"><span aria-current="page">V1 · SVG</span><a href="/css/">V2 · Polygone</a><a href="/basic/">V3 · Grundformen</a><a href="/hybrid/">V4 · Hybrid</a><a href="/compare/">Benchmarks</a></nav>
+      <button class="text-button reference-button" id="view-reference" type="button">View reference <span aria-hidden="true">↗</span></button>
+    </footer>
+  </main>
+
+  <dialog id="card-dialog" class="card-dialog" aria-labelledby="detail-title">
+    <button type="button" class="close-button" data-close aria-label="Close card details">×</button>
+    <div class="detail-layout">
+      <div class="detail-artwork" id="detail-artwork"></div>
+      <div class="detail-copy">
+        <p class="eyebrow" id="detail-number"></p>
+        <h2 id="detail-title"></h2>
+        <p class="detail-description" id="detail-description"></p>
+        <div class="detail-rule"></div>
+        <label class="field-label" for="player-name">PLAYER NAME</label>
+        <input id="player-name" name="player-name" type="text" maxlength="18" autocomplete="off" spellcheck="false" placeholder="PLAYER NAME">
+        <p class="field-help">Make this edition yours.</p>
+        <div class="detail-navigation">
+          <button type="button" id="previous-card" class="nav-button" aria-label="Previous card">←</button>
+          <span id="detail-position"></span>
+          <button type="button" id="next-card" class="nav-button" aria-label="Next card">→</button>
+        </div>
+        <p class="keyboard-hint">← → to browse <span>·</span> ESC to close</p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="reference-dialog" class="reference-dialog" aria-label="Original reference image">
+    <button type="button" class="close-button" data-close aria-label="Close reference">×</button>
+    <img data-src="assets/reference.png" alt="Original reference with five football cards in the top row and seven in the bottom row" width="1080" height="792">
+    <p>THE ORIGINAL REFERENCE</p>
+  </dialog>
+  <noscript><p class="noscript">Please enable JavaScript to display the twelve individually drawn cards.</p></noscript>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+.card--parchment,
+.card--doodle,
+.card--ink,
+.card--steampunk {
+  background: transparent;
+  border: 0;
+  --ink: #292a22;
+  --accent: #d5b577;
+}
+
+.paper-artwork { display: block; width: 100%; height: 100%; overflow: visible; }
+.card--parchment .card-art { filter: drop-shadow(1px 3px 2px #0009); }
+.card--parchment .card-rating { top: 30px; left: 29px; }
+.card--parchment .card-name { top: 198px; transform: rotate(-1deg); font-style: italic; }
+.card--parchment .card-stats { top: 232px; left: 25px; right: 21px; }
+.card--parchment .card-flag { top: 276px; --flag-width: 32px; }
+.card--parchment .card-emblem { display: none; }
+
+.card--doodle { --ink: #1d2526; --accent: #e5c348; }
+.card--doodle .card-rating { top: 28px; left: 24px; }
+.card--doodle .card-name { top: 205px; transform: rotate(.3deg); font-style: italic; }
+.card--doodle .card-stats { top: 235px; left: 20px; right: 20px; }
+.card--doodle .card-flag { top: 279px; --flag-width: 29px; left: 94.67px; }
+.card--doodle .card-emblem { display: none; }
+.card--doodle .card-art { filter: drop-shadow(1px 4px 3px #0006); }
+
+.card--ink { --ink: #282922; --accent: #b3412e; }
+.card--ink .card-rating { top: 34px; left: 24px; }
+.card--ink .card-name { top: 207px; }
+.card--ink .card-stats { top: 240px; left: 19px; right: 19px; }
+.card--ink .card-flag { top: 284px; --flag-width: 29px; }
+.card--ink .card-emblem { display: none; }
+.card--ink .card-art { filter: drop-shadow(1px 4px 3px #0007); }
+
+.card--steampunk { --ink: #d7c8a2; --accent: #ac8244; }
+.card--steampunk .card-rating { top: 55px; left: 31px; }
+.card--steampunk .card-name { top: 194px; color: #262923; transform: rotate(-12deg); text-shadow: 0 1px #f3e8cc66; }
+.card--steampunk .card-stats { top: 243px; left: 26px; right: 25px; }
+.card--steampunk .card-flag { top: 287px; --flag-width: 27px; }
+.card--steampunk .card-emblem { top: 111px; left: 34px; }
+.card--steampunk .card-art { filter: drop-shadow(1px 4px 3px #000b); }
+
+.electric-art { display:block; width:100%; height:100%; overflow:visible; }
+
+.card--cyber { --ink:#b3d1e8; --accent:#00d6f0; }
+.card--cyber .card-rating { left:27px; top:35px; color:#aeabf1; text-shadow:0 0 7px #4e26ad; }
+.card--cyber .card-name { top:197px; left:20px; right:20px; color:#a9d2e8; letter-spacing:.6px; }
+.card--cyber .card-stats { top:231px; left:26px; right:25px; }
+.card--cyber .card-flag { top: 275px; --flag-width: 30px; }
+.card--cyber .card-emblem { display:none; }
+.card--cyber .card-stat small { color:#5fa6c6; }
+.card--cyber .card-stat:last-child { color:#a778b7; }
+
+.card--hologram { --ink:#a8d6cb; --accent:#03cbbb; }
+.card--hologram .card-rating { top:48px; left:31px; color:#bad9cd; }
+.card--hologram .card-name { top:204px; left:24px; right:24px; color:#00c9be; letter-spacing:.4px; }
+.card--hologram .card-stats { top:236px; left:29px; right:28px; }
+.card--hologram .card-flag { top: 280px; --flag-width: 29px; }
+.card--hologram .card-emblem { display:none; }
+.card--hologram .card-stat small { color:#00b8b2; }
+
+.card--cosmic { --ink:#c8bbdd; --accent:#ab5dd5; }
+.card--cosmic .card-rating { top:52px; left:29px; color:#d8c8e0; }
+.card--cosmic .card-name { top:204px; left:26px; right:26px; color:#c8bcda; }
+.card--cosmic .card-stats { top:234px; left:28px; right:27px; }
+.card--cosmic .card-flag { top: 278px; --flag-width: 28px; }
+.card--cosmic .card-emblem { display:none; }
+.card--cosmic .card-stat small { color:#b7a7c6; }
+
+.card--arcade { --ink:#dc5cbf; --accent:#ff8423; }
+.card--arcade .card-rating { top:28px; left:33px; color:#ff8328; text-shadow:1px 0 #e63512,0 0 5px #b42632; }
+.card--arcade .card-rating strong { font-size:27px; line-height:.95; }
+.card--arcade .card-rating span { font-size:12px; letter-spacing:2px; }
+.card--arcade .card-name { top:212px; left:24px; right:24px; color:#ff7b24; text-shadow:1px 1px #ac1647; letter-spacing:.5px; }
+.card--arcade .card-stats { top:243px; left:25px; right:25px; }
+.card--arcade .card-flag { top: 287px; --flag-width: 31px; left: 94.29px; }
+.card--arcade .card-emblem { display:none; }
+.card--arcade .card-stat small { color:#b441ba; }
+
+.card--blueprint { --ink: #e4cf97; --accent: #c8af74; }
+.card--blueprint .card-rating { left: 21px; top: 27px; }
+.card--blueprint .card-name { top: 197px; color: #e4ce93; letter-spacing: 1px; }
+.card--blueprint .card-stats { top: 230px; }
+.card--blueprint .card-flag { top: 274px; --flag-width: 34px; }
+.card--blueprint .card-emblem { display: none; }
+.card--blueprint .card-art { filter: drop-shadow(0 4px 3px #0008); }
+
+.card--comic { --ink: #f6e5b9; --accent: #f8ce13; }
+.card--comic .card-rating { left: 29px; top: 28px; color: #42130d; transform: rotate(3deg); }
+.card--comic .card-name { top: 188px; left: 13px; width: 178px; color: #0d1510; font-style: italic; font-weight: 900; font-size: 24px; letter-spacing: -.6px; transform: rotate(-2deg); }
+.card--comic .card-stats { top: 235px; left: 17px; width: 169px; color: #ffe4aa; }
+.card--comic .card-flag { top: 282px; --flag-width: 34px; }
+.card--comic .card-emblem { display: none; }
+.card--comic .card-art { filter: drop-shadow(0 4px 2px #000b); }
+
+.card--forest { --ink: #e9e7cd; --accent: #91a835; }
+.card--forest .card-rating { left: 30px; top: 52px; }
+.card--forest .card-name { top: 201px; left: 26px; width: 151px; color: #191f18; font-size: 20px; }
+.card--forest .card-stats { top: 232px; left: 26px; width: 153px; }
+.card--forest .card-flag { top: 276px; --flag-width: 33px; }
+.card--forest .card-art { filter: drop-shadow(0 4px 4px #000b); }
+.card--forest .card-emblem { top: 116px; left: 31px; color: #7c9b23; }
+
+.card--cathedral { --ink: #e8c755; --accent: #d5b247; }
+.card--cathedral .card-rating { left: 22px; top: 61px; color: #e5c344; }
+.card--cathedral .card-name { top: 213px; left: 29px; width: 141px; color: #24241b; font-family: Georgia, 'Times New Roman', serif; font-size: 19px; font-weight: 700; letter-spacing: -.7px; }
+.card--cathedral .card-stats { top: 242px; left: 24px; width: 153px; }
+.card--cathedral .card-flag { top: 286px; --flag-width: 28px; }
+.card--cathedral .card-emblem { display: none; }
+.card--cathedral .card-art { filter: drop-shadow(0 4px 3px #000b); }

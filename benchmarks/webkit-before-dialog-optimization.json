@@ -1,0 +1,1085 @@
+{
+  "date": "2026-10-23T14:52:10.058Z",
+  "origin": "http://127.0.0.1:18787",
+  "hardware": {
+    "cpu": "AMD Ryzen 5 5600X 6-Core Processor             ",
+    "logicalCores": 12,
+    "memoryGB": 32,
+    "platform": "win32",
+    "release": "10.0.26100"
+  },
+  "method": {
+    "headless": true,
+    "networkThrottling": false,
+    "cpuThrottling": false,
+    "freshContextPerRun": true,
+    "dpr": 1,
+    "rounds": 3,
+    "order": "Rotated SVG/CSS/basic, CSS/basic/SVG, basic/SVG/CSS",
+    "workload": "All12first opens;12next-card changes over180animationframes;180scrollframes on mobile. No artificial animation of static artwork. Viewports emulate layout, not physicaldevices. Longtask/FCP support varies byengine."
+  },
+  "builds": {
+    "svg": {
+      "rawBytes": 497110,
+      "gzipBytes": 234631,
+      "brotliBytes": 212453,
+      "sha256": "9a99b541ceaa39640b8ba6b59ea948cfd5218aa86e94f94aef53f88d4293f8ae"
+    },
+    "css": {
+      "rawBytes": 773519,
+      "gzipBytes": 259461,
+      "brotliBytes": 225615,
+      "sha256": "82786cf98e87c8cf8c1c1a78ea9977602c42a6291667a43ba9be60ac7c9251c1"
+    },
+    "basic": {
+      "rawBytes": 686725,
+      "gzipBytes": 222832,
+      "brotliBytes": 195760,
+      "sha256": "6872a47294370c13baca169614e0f9721720e14ec5c0a763db66df1e8f87fad5"
+    }
+  },
+  "runs": [
+    {
+      "url": "http://127.0.0.1:18787/?bench=1792767130420-0-enhanced",
+      "time": "2026-10-23T14:52:23.774Z",
+      "edition": "svg",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "hardwareConcurrency": 8,
+      "deviceMemory": null,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 188,
+        "domReady": 82,
+        "responseEnd": 10,
+        "requestStart": 3,
+        "transferBytes": 212753,
+        "encodedBytes": 212453,
+        "decodedBytes": 497110,
+        "galleryReadyObserved": 782,
+        "harnessStarted": 743
+      },
+      "nodes": {
+        "documentInitial": 459,
+        "gallery": 405,
+        "perCard": [
+          34,
+          31,
+          33,
+          28,
+          33,
+          28,
+          32,
+          28,
+          33,
+          33,
+          28,
+          28
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 16,
+        "p95": 17,
+        "max": 17,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 11,
+          "twoFrames": 501,
+          "decoded": 505
+        },
+        {
+          "index": 1,
+          "handler": 2,
+          "twoFrames": 250,
+          "decoded": 250
+        },
+        {
+          "index": 2,
+          "handler": 1,
+          "twoFrames": 250,
+          "decoded": 251
+        },
+        {
+          "index": 3,
+          "handler": 2,
+          "twoFrames": 283,
+          "decoded": 284
+        },
+        {
+          "index": 4,
+          "handler": 2,
+          "twoFrames": 283,
+          "decoded": 283
+        },
+        {
+          "index": 5,
+          "handler": 2,
+          "twoFrames": 287,
+          "decoded": 287
+        },
+        {
+          "index": 6,
+          "handler": 2,
+          "twoFrames": 339,
+          "decoded": 339
+        },
+        {
+          "index": 7,
+          "handler": 3,
+          "twoFrames": 288,
+          "decoded": 288
+        },
+        {
+          "index": 8,
+          "handler": 2,
+          "twoFrames": 262,
+          "decoded": 262
+        },
+        {
+          "index": 9,
+          "handler": 3,
+          "twoFrames": 288,
+          "decoded": 288
+        },
+        {
+          "index": 10,
+          "handler": 2,
+          "twoFrames": 257,
+          "decoded": 257
+        },
+        {
+          "index": 11,
+          "handler": 2,
+          "twoFrames": 268,
+          "decoded": 268
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 283,
+        "p95": 501,
+        "max": 501,
+        "over33ms": 12
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 284,
+        "p95": 505,
+        "max": 505,
+        "over33ms": 12
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 2,
+        "p95": 11,
+        "max": 11,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 16,
+        "p95": 200,
+        "max": 231,
+        "over33ms": 13
+      },
+      "scrollFrames": null,
+      "longTasks": [],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "webkit",
+      "round": 1,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": false,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/css/?bench=1792767143941-0-enhanced",
+      "time": "2026-10-23T14:52:42.914Z",
+      "edition": "css",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "hardwareConcurrency": 8,
+      "deviceMemory": null,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 172,
+        "domReady": 33,
+        "responseEnd": 11,
+        "requestStart": 1,
+        "transferBytes": 225915,
+        "encodedBytes": 225615,
+        "decodedBytes": 773519,
+        "galleryReadyObserved": 589,
+        "harnessStarted": 245
+      },
+      "nodes": {
+        "documentInitial": 2782,
+        "gallery": 2720,
+        "perCard": [
+          233,
+          287,
+          123,
+          173,
+          351,
+          244,
+          297,
+          232,
+          199,
+          153,
+          274,
+          118
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 16,
+        "p95": 34,
+        "max": 37,
+        "over33ms": 2
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 1,
+          "twoFrames": 884,
+          "decoded": 884
+        },
+        {
+          "index": 1,
+          "handler": 1,
+          "twoFrames": 457,
+          "decoded": 457
+        },
+        {
+          "index": 2,
+          "handler": 1,
+          "twoFrames": 406,
+          "decoded": 406
+        },
+        {
+          "index": 3,
+          "handler": 1,
+          "twoFrames": 417,
+          "decoded": 417
+        },
+        {
+          "index": 4,
+          "handler": 1,
+          "twoFrames": 576,
+          "decoded": 576
+        },
+        {
+          "index": 5,
+          "handler": 0,
+          "twoFrames": 461,
+          "decoded": 462
+        },
+        {
+          "index": 6,
+          "handler": 0,
+          "twoFrames": 447,
+          "decoded": 447
+        },
+        {
+          "index": 7,
+          "handler": 0,
+          "twoFrames": 442,
+          "decoded": 442
+        },
+        {
+          "index": 8,
+          "handler": 0,
+          "twoFrames": 432,
+          "decoded": 433
+        },
+        {
+          "index": 9,
+          "handler": 1,
+          "twoFrames": 453,
+          "decoded": 453
+        },
+        {
+          "index": 10,
+          "handler": 0,
+          "twoFrames": 459,
+          "decoded": 459
+        },
+        {
+          "index": 11,
+          "handler": 1,
+          "twoFrames": 460,
+          "decoded": 460
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 457,
+        "p95": 884,
+        "max": 884,
+        "over33ms": 12
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 457,
+        "p95": 884,
+        "max": 884,
+        "over33ms": 12
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 1,
+        "p95": 1,
+        "max": 1,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 16,
+        "p95": 310,
+        "max": 372,
+        "over33ms": 12
+      },
+      "scrollFrames": null,
+      "longTasks": [],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "webkit",
+      "round": 1,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": false,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/basic/?bench=1792767163063-0-enhanced",
+      "time": "2026-10-23T14:53:04.172Z",
+      "edition": "basic",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "hardwareConcurrency": 8,
+      "deviceMemory": null,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 180,
+        "domReady": 29,
+        "responseEnd": 8,
+        "requestStart": 2,
+        "transferBytes": 196060,
+        "encodedBytes": 195760,
+        "decodedBytes": 686725,
+        "galleryReadyObserved": 629,
+        "harnessStarted": 300
+      },
+      "nodes": {
+        "documentInitial": 3179,
+        "gallery": 3117,
+        "perCard": [
+          209,
+          274,
+          180,
+          361,
+          237,
+          268,
+          224,
+          270,
+          254,
+          272,
+          319,
+          213
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 16,
+        "p95": 17,
+        "max": 17,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 1,
+          "twoFrames": 989,
+          "decoded": 989
+        },
+        {
+          "index": 1,
+          "handler": 1,
+          "twoFrames": 419,
+          "decoded": 419
+        },
+        {
+          "index": 2,
+          "handler": 0,
+          "twoFrames": 454,
+          "decoded": 454
+        },
+        {
+          "index": 3,
+          "handler": 0,
+          "twoFrames": 438,
+          "decoded": 438
+        },
+        {
+          "index": 4,
+          "handler": 0,
+          "twoFrames": 600,
+          "decoded": 600
+        },
+        {
+          "index": 5,
+          "handler": 1,
+          "twoFrames": 621,
+          "decoded": 621
+        },
+        {
+          "index": 6,
+          "handler": 1,
+          "twoFrames": 624,
+          "decoded": 624
+        },
+        {
+          "index": 7,
+          "handler": 1,
+          "twoFrames": 477,
+          "decoded": 477
+        },
+        {
+          "index": 8,
+          "handler": 0,
+          "twoFrames": 473,
+          "decoded": 473
+        },
+        {
+          "index": 9,
+          "handler": 1,
+          "twoFrames": 492,
+          "decoded": 492
+        },
+        {
+          "index": 10,
+          "handler": 0,
+          "twoFrames": 464,
+          "decoded": 464
+        },
+        {
+          "index": 11,
+          "handler": 1,
+          "twoFrames": 523,
+          "decoded": 524
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 492,
+        "p95": 989,
+        "max": 989,
+        "over33ms": 12
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 492,
+        "p95": 989,
+        "max": 989,
+        "over33ms": 12
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 1,
+        "p95": 1,
+        "max": 1,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 16,
+        "p95": 367,
+        "max": 478,
+        "over33ms": 12
+      },
+      "scrollFrames": null,
+      "longTasks": [],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "webkit",
+      "round": 1,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": false,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/css/?bench=1792767184323-1-enhanced",
+      "time": "2026-10-23T14:53:23.397Z",
+      "edition": "css",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "hardwareConcurrency": 8,
+      "deviceMemory": null,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 169,
+        "domReady": 31,
+        "responseEnd": 9,
+        "requestStart": 2,
+        "transferBytes": 225915,
+        "encodedBytes": 225615,
+        "decodedBytes": 773519,
+        "galleryReadyObserved": 589,
+        "harnessStarted": 239
+      },
+      "nodes": {
+        "documentInitial": 2782,
+        "gallery": 2720,
+        "perCard": [
+          233,
+          287,
+          123,
+          173,
+          351,
+          244,
+          297,
+          232,
+          199,
+          153,
+          274,
+          118
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 16,
+        "p95": 18,
+        "max": 29,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 1,
+          "twoFrames": 868,
+          "decoded": 868
+        },
+        {
+          "index": 1,
+          "handler": 0,
+          "twoFrames": 497,
+          "decoded": 497
+        },
+        {
+          "index": 2,
+          "handler": 1,
+          "twoFrames": 400,
+          "decoded": 401
+        },
+        {
+          "index": 3,
+          "handler": 0,
+          "twoFrames": 411,
+          "decoded": 411
+        },
+        {
+          "index": 4,
+          "handler": 0,
+          "twoFrames": 619,
+          "decoded": 619
+        },
+        {
+          "index": 5,
+          "handler": 0,
+          "twoFrames": 498,
+          "decoded": 498
+        },
+        {
+          "index": 6,
+          "handler": 1,
+          "twoFrames": 455,
+          "decoded": 455
+        },
+        {
+          "index": 7,
+          "handler": 0,
+          "twoFrames": 436,
+          "decoded": 436
+        },
+        {
+          "index": 8,
+          "handler": 0,
+          "twoFrames": 438,
+          "decoded": 438
+        },
+        {
+          "index": 9,
+          "handler": 0,
+          "twoFrames": 436,
+          "decoded": 436
+        },
+        {
+          "index": 10,
+          "handler": 0,
+          "twoFrames": 437,
+          "decoded": 437
+        },
+        {
+          "index": 11,
+          "handler": 0,
+          "twoFrames": 406,
+          "decoded": 406
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 438,
+        "p95": 868,
+        "max": 868,
+        "over33ms": 12
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 438,
+        "p95": 868,
+        "max": 868,
+        "over33ms": 12
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 0,
+        "p95": 1,
+        "max": 1,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 16,
+        "p95": 315,
+        "max": 388,
+        "over33ms": 12
+      },
+      "scrollFrames": null,
+      "longTasks": [],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "webkit",
+      "round": 2,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": false,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/basic/?bench=1792767203547-1-enhanced",
+      "time": "2026-10-23T14:53:43.912Z",
+      "edition": "basic",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "hardwareConcurrency": 8,
+      "deviceMemory": null,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 181,
+        "domReady": 30,
+        "responseEnd": 8,
+        "requestStart": 2,
+        "transferBytes": 196060,
+        "encodedBytes": 195760,
+        "decodedBytes": 686725,
+        "galleryReadyObserved": 643,
+        "harnessStarted": 302
+      },
+      "nodes": {
+        "documentInitial": 3179,
+        "gallery": 3117,
+        "perCard": [
+          209,
+          274,
+          180,
+          361,
+          237,
+          268,
+          224,
+          270,
+          254,
+          272,
+          319,
+          213
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 16,
+        "p95": 17,
+        "max": 17,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 1,
+          "twoFrames": 1088,
+          "decoded": 1088
+        },
+        {
+          "index": 1,
+          "handler": 1,
+          "twoFrames": 422,
+          "decoded": 423
+        },
+        {
+          "index": 2,
+          "handler": 1,
+          "twoFrames": 433,
+          "decoded": 433
+        },
+        {
+          "index": 3,
+          "handler": 0,
+          "twoFrames": 444,
+          "decoded": 444
+        },
+        {
+          "index": 4,
+          "handler": 0,
+          "twoFrames": 537,
+          "decoded": 537
+        },
+        {
+          "index": 5,
+          "handler": 1,
+          "twoFrames": 493,
+          "decoded": 493
+        },
+        {
+          "index": 6,
+          "handler": 1,
+          "twoFrames": 539,
+          "decoded": 539
+        },
+        {
+          "index": 7,
+          "handler": 1,
+          "twoFrames": 471,
+          "decoded": 471
+        },
+        {
+          "index": 8,
+          "handler": 1,
+          "twoFrames": 502,
+          "decoded": 502
+        },
+        {
+          "index": 9,
+          "handler": 1,
+          "twoFrames": 468,
+          "decoded": 469
+        },
+        {
+          "index": 10,
+          "handler": 1,
+          "twoFrames": 541,
+          "decoded": 541
+        },
+        {
+          "index": 11,
+          "handler": 1,
+          "twoFrames": 485,
+          "decoded": 485
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 493,
+        "p95": 1088,
+        "max": 1088,
+        "over33ms": 12
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 493,
+        "p95": 1088,
+        "max": 1088,
+        "over33ms": 12
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 1,
+        "p95": 1,
+        "max": 1,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 16,
+        "p95": 332,
+        "max": 440,
+        "over33ms": 14
+      },
+      "scrollFrames": null,
+      "longTasks": [],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "webkit",
+      "round": 2,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": false,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/?bench=1792767224098-1-enhanced",
+      "time": "2026-10-23T14:53:58.351Z",
+      "edition": "svg",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "hardwareConcurrency": 8,
+      "deviceMemory": null,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 185,
+        "domReady": 73,
+        "responseEnd": 7,
+        "requestStart": 1,
+        "transferBytes": 212753,
+        "encodedBytes": 212453,
+        "decodedBytes": 497110,
+        "galleryReadyObserved": 808,
+        "harnessStarted": 758
+      },
+      "nodes": {
+        "documentInitial": 459,
+        "gallery": 405,
+        "perCard": [
+          34,
+          31,
+          33,
+          28,
+          33,
+          28,
+          32,
+          28,
+          33,
+          33,
+          28,
+          28
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 16,
+        "p95": 32,
+        "max": 52,
+        "over33ms": 1
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 3,
+          "twoFrames": 561,
+          "decoded": 562
+        },
+        {
+          "index": 1,
+          "handler": 1,
+          "twoFrames": 260,
+          "decoded": 260
+        },
+        {
+          "index": 2,
+          "handler": 2,
+          "twoFrames": 254,
+          "decoded": 254
+        },
+        {
+          "index": 3,
+          "handler": 2,
+          "twoFrames": 269,
+          "decoded": 269
+        },
+        {
+          "index": 4,
+          "handler": 2,
+          "twoFrames": 311,
+          "decoded": 311
+        },
+        {
+          "index": 5,
+          "handler": 3,
+          "twoFrames": 275,
+          "decoded": 275
+        },
+        {
+          "index": 6,
+          "handler": 2,
+          "twoFrames": 297,
+          "decoded": 298
+        },
+        {
+          "index": 7,
+          "handler": 3,
+          "twoFrames": 277,
+          "decoded": 277
+        },
+        {
+          "index": 8,
+          "handler": 2,
+          "twoFrames": 284,
+          "decoded": 284
+        },
+        {
+          "index": 9,
+          "handler": 3,
+          "twoFrames": 305,
+          "decoded": 305
+        },
+        {
+          "index": 10,
+          "handler": 1,
+          "twoFrames": 311,
+          "decoded": 311
+        },
+        {
+          "index": 11,
+          "handler": 2,
+          "twoFrames": 256,
+          "decoded": 256
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 284,
+        "p95": 561,
+        "max": 561,
+        "over33ms": 12
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 284,
+        "p95": 562,
+        "max": 562,
+        "over33ms": 12
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 2,
+        "p95": 3,
+        "max": 3,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 16,
+        "p95": 213,
+        "max": 438,
+        "over33ms": 12
+      },
+      "scrollFrames": null,
+      "longTasks": [],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "webkit",
+      "round": 2,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": false,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    }
+  ],
+  "browser": {
+    "engine": "webkit",
+    "version": "27.2"
+  }
+}

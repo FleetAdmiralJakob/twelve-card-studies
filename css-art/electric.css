@@ -1,0 +1,101 @@
+/* Electric editions, painted entirely with native CSS. Coordinates describe a
+   200 × 320 design surface; the parent card supplies responsive scaling. */
+.ee-art { position:absolute; inset:0; overflow:visible; isolation:isolate; }
+.ee-art i { position:absolute; display:block; font-style:normal; box-sizing:border-box; }
+.ee-line { transform-origin:left center; }
+.ee-plane, .ee-co-facet { inset:0; }
+.ee-cyber { --cy-shape:polygon(5% 11%,19% 4.4%,39% 3.8%,45.5% 5.3%,50.5% 2.5%,56.5% 4.7%,76% 3.1%,86% 8.4%,94% 11%,94% 85.6%,93% 89%,90% 91.2%,85.5% 92.5%,50% 99.7%,14% 92.8%,9% 91%,6% 88.4%,5% 85.6%); }
+.ee-cy-edge,.ee-cy-face,.ee-cy-inner,.ee-cy-clip { inset:0; clip-path:var(--cy-shape); }
+.ee-cy-clip::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 63% 32%,#08328560,transparent 44%),radial-gradient(ellipse at 32% 26%,#3e087038,transparent 40%); }
+.ee-cy-edge { background:linear-gradient(125deg,#8a23cc 5%,#02d0fb 23%,#181057 40%,#4b29c1 58%,#a922c5 84%,#04baea); }
+.ee-cy-face { transform:scale(.978,.989); transform-origin:50% 53%; background:linear-gradient(135deg,#080d26,#090a20 54%,#03080d); }
+.ee-cy-inner { transform:scale(.946,.965); transform-origin:50% 53%; border-bottom:1px solid #933ac8; background:linear-gradient(130deg,#0a5d8280,#631ea733 22%,#11242b50 70%,#4c178380); }
+.ee-cy-inner::before { content:''; position:absolute; inset:0; clip-path:var(--cy-shape); background:#040a1c; transform:scale(.994,.997); }
+.ee-cy-grid { inset:10px 12px 10px; background:repeating-linear-gradient(90deg,#2541a044 0 .5px,transparent .5px 15px),repeating-linear-gradient(0deg,#2541a044 0 .5px,transparent .5px 15px),radial-gradient(ellipse at 49% 30%,#033e634d,transparent 55%); }
+.ee-circuit { border-style:solid; border-left-color:transparent!important; border-bottom-color:transparent!important; }
+.ee-circuit::before { content:''; position:absolute; width:1.5px; height:1.5px; border:1px solid; border-color:inherit; right:-1px; bottom:-2px; }
+.ee-cy-person { inset:0; clip-path:polygon(15.5% 63.4%,18.5% 55%,20.5% 50.3%,24% 47.5%,33.5% 45.3%,41% 43.4%,44% 39.7%,41% 37.5%,40% 34%,38% 32%,38.5% 29%,39.5% 26.9%,39% 23.4%,41% 19.4%,46.5% 16%,52% 15.3%,58.5% 16.3%,63.5% 18.1%,66.5% 21.9%,67.5% 26%,69% 28.1%,67.5% 33.1%,66% 36.5%,60.5% 40.3%,61.5% 43.4%,73.5% 46.6%,80% 50%,83.5% 55%,89% 64%); background:linear-gradient(155deg,#004363 12%,#05172f 42%,#0c0c2b 72%,#150c2c); }
+.ee-cy-person::after { content:''; position:absolute; inset:0; opacity:.22; background:repeating-linear-gradient(92deg,transparent 0 13px,#1d76bd 13px 13.25px),repeating-linear-gradient(2deg,transparent 0 13px,#277fc1 13px 13.25px); }
+.ee-cy-bottom { left:17px; right:15px; top:201px; bottom:7px; background:linear-gradient(#03091318,#0309139c 45%,#03091336); }
+.ee-cy-spike { background:linear-gradient(90deg,#06b6df,#023b78 60%,#076293); border-left:1px solid #0de5f9; box-shadow:4px 7px 0 -1px #172283; }
+.ee-cy-glitch { background:#9e26cf; box-shadow:0 3px #3a1c6c; }
+.ee-invader { opacity:.8; }
+
+.ee-hologram { --ho-round:49% 49% 47% 47% / 28% 28% 21% 21%; }
+.ee-ho-rim { inset:5px 12px; border-radius:var(--ho-round); background:linear-gradient(125deg,#8a9286 0,#1c2724 10%,#13231d 20%,#abb1a3 28%,#15231c 32%,#24473a 50%,#0d1714 70%,#7c9b88 88%,#1a2c26); border:1px solid #4d5b51; box-shadow:0 0 0 2px #020706,0 0 0 3px #101914; }
+.ee-ho-panel { inset:8px 15px; border-radius:var(--ho-round); border:1px solid #445a50; background:radial-gradient(ellipse at 50% 38%,#062a20,#041510 55%,#020b08 80%); }
+.ee-ho-border { inset:12px 19px; border-radius:var(--ho-round); border:1.25px dashed #14b69c; box-shadow:inset 0 0 0 2px #04130f,0 0 0 2px #073c30; opacity:.7; }
+.ee-ho-inset { inset:17px 24px; border-radius:var(--ho-round); border:1px solid #10503c; background:repeating-linear-gradient(90deg,transparent 0 7.8px,#396c5030 7.8px 8px),repeating-linear-gradient(0deg,transparent 0 7.8px,#396c5030 7.8px 8px); opacity:.7; }
+.ee-ho-detail-clip { inset:0; clip-path:inset(5px 12px round 88px 88px 84px 84px / 84px 84px 65px 65px); }
+.ee-ho-ring { border:var(--ring-width) solid var(--ring-ink); border-left-color:transparent; border-bottom-color:#3b75614d; border-radius:50%; transform:rotate(var(--turn)); opacity:var(--ring-alpha); }
+.ee-ho-ring::after { content:''; position:absolute; inset:2px; border-radius:50%; border:.45px dashed #23947d70; border-top-color:transparent; border-right-color:transparent; }
+.ee-ho-ticks { border-radius:50%; background:repeating-conic-gradient(from 1deg,#108e74b3 0deg .4deg,transparent .4deg 4.28deg); mask-image:radial-gradient(circle,transparent 0 67%,#000 67.3% 69.7%,transparent 70%); }
+.ee-ho-reticle { border-radius:50%; background:conic-gradient(from 20deg,transparent 0 31%,#1fa282 31% 40%,transparent 40% 61%,#016352 61% 70%,transparent 70% 89%,#02775e 89% 96%,transparent 96%); mask-image:radial-gradient(circle,transparent 0 62%,#000 62.4% 63.2%,transparent 63.5%); opacity:.5; }
+.ee-ho-person { inset:0; clip-path:polygon(21.5% 65%,22% 58%,24% 54%,28% 52%,34.5% 50.3%,42% 47.8%,44.5% 44.7%,41% 41%,39% 36.5%,37.5% 33.8%,39.5% 31.6%,39% 27%,41.5% 23.1%,45.5% 21.2%,50.5% 20.5%,55.5% 21%,59.5% 22.5%,63% 25.3%,64% 30.3%,65.5% 32.5%,63.5% 36.5%,62% 40%,56.5% 44.7%,57.5% 48%,67.5% 51.3%,74% 54%,77.5% 57%,80.5% 65%); background:linear-gradient(123deg,#07bd96,#074d39 38%,#058969 68%,#09b48d); filter:drop-shadow(0 0 1px #08d0a3); }
+.ee-ho-person::before { content:''; position:absolute; inset:0; clip-path:inherit; transform:scale(.982,.989); transform-origin:50% 40%; background:repeating-linear-gradient(0deg,transparent 0 2.2px,#093c2e40 2.2px 2.5px),radial-gradient(ellipse at 49% 35%,#021a13,#032119 50%,#063326); }
+.ee-ho-grain { width:.7px; height:.55px; top:0; left:0; }
+.ee-ho-collar { border:.7px solid #12977399; border-top:0; border-radius:0 0 50% 50%; transform:rotate(-4deg); }
+.ee-ho-orbit { border:1px solid #0a826059; border-top-color:transparent; border-radius:50%; }
+.ee-ho-lower { left:27px; right:26px; top:211px; bottom:18px; border-radius:0 0 40% 40%; background:linear-gradient(#040c0b33,#040c0b8c); }
+.ee-ho-lower::before { content:''; position:absolute; top:26px; left:0; right:0; height:.5px; background:#14664d80; box-shadow:0 33px #14664d60; }
+.ee-ho-top-led { background:#05c7ab; box-shadow:0 0 3px #00a98c60; }
+.ee-ho-corner { border-left:1px solid #02a98b; border-bottom:1px solid #02a98b; opacity:.7; }
+.ee-ho-corner-right { transform:scaleX(-1); }
+.ee-ho-side { background:repeating-linear-gradient(0deg,#03ba97 0 2px,transparent 2px 4px); }
+.ee-ho-glyph { transform:rotate(24deg); border:.7px solid #02b99b; clip-path:polygon(0 0,88% 0,100% 35%,60% 100%,10% 80%); }
+.ee-ho-glyph::before,.ee-ho-glyph::after { content:''; position:absolute; width:17px; height:1px; left:-2px; top:7px; background:#01b697; transform:rotate(40deg); }
+.ee-ho-glyph::after { transform:rotate(-40deg); }
+.ee-ho-glyph-inner { left:3px; top:3px; width:9px; height:9px; border:.7px solid #03c1a3; transform:rotate(35deg); }
+
+.ee-cosmic { --co-shape:polygon(50% 1.56%,94% 15.94%,94% 85.3%,50% 99.1%,5.5% 85.3%,5.5% 15.94%); }
+.ee-co-background,.ee-co-clip { inset:0; clip-path:var(--co-shape); }
+.ee-co-background { background:radial-gradient(ellipse at 63% 31%,#581687aa,transparent 43%),radial-gradient(ellipse at 25% 55%,#4f0b7066,transparent 30%),linear-gradient(135deg,#08081c,#130723 44%,#09091c 72%,#030915); }
+.ee-co-gas { inset:0; filter:blur(.65px); opacity:1; }
+.ee-co-dust,.ee-co-stars,.ee-co-person-dust { width:.7px; height:.7px; top:0; left:0; border-radius:50%; }
+.ee-co-stars { opacity:.85; }
+.ee-co-filament { opacity:.85; }
+.ee-co-person { inset:0; clip-path:polygon(17.5% 70.6%,21.5% 62.8%,24% 59.1%,28% 56.9%,34.5% 54.4%,44% 50.9%,46.5% 46.6%,43% 43.8%,42.5% 39.7%,40.5% 37.2%,42% 35.9%,43% 34.4%,42.5% 32.8%,42.5% 30.3%,44% 28.1%,45% 26.9%,47% 26.2%,47.5% 25.4%,49% 25%,51% 24%,52% 24.6%,54.5% 24.1%,56.5% 24.7%,59% 25%,61% 26.2%,62.3% 26.1%,64.5% 27.5%,66% 29%,67% 31%,66% 35.3%,67.5% 37.2%,65.5% 41.6%,63.5% 44.4%,59.5% 46.9%,59.5% 50.9%,70.5% 54.7%,75.5% 57.8%,79% 61.9%,84% 70.3%); background:linear-gradient(123deg,#a544d3,#2b164d 35%,#571678 68%,#a03cbd); filter:drop-shadow(0 0 1.1px #b935f4); }
+.ee-co-person::before { content:''; position:absolute; inset:0; clip-path:inherit; transform:scale(.991,.995); transform-origin:50% 40%; background:radial-gradient(ellipse at 37% 61%,#350a422e,transparent 25%),linear-gradient(123deg,#170b2a,#07051b 35%,#0b071f 72%,#261032); }
+.ee-co-body-vein { clip-path:polygon(0 0,28% 38%,50% 24%,72% 76%,100% 100%,71% 81%,48% 29%,27% 43%); }
+.ee-co-person-dust { opacity:.45; }
+.ee-co-bottom { left:14px; right:12px; top:221px; bottom:0; background:linear-gradient(#05091b20,#05091ba8 30%); }
+.ee-co-flare { background:#ffe3ff; clip-path:polygon(43% 43%,50% 0,57% 43%,100% 50%,57% 57%,50% 100%,43% 57%,0 50%); filter:drop-shadow(0 0 3px #ed60ff); }
+.ee-co-facet { opacity:.8; }
+
+.ee-arcade { --ar-shape:polygon(11.5% 3.12%,89% 3.12%,94% 6.9%,94% 20%,90% 23.4%,90.5% 52.2%,96% 61.25%,97.5% 95%,93.5% 98.4%,6% 98.4%,2.5% 95.3%,4% 61.6%,10% 51.9%,10.5% 23.1%,7% 20%,7% 7.5%); }
+.ee-ar-edge,.ee-ar-body { inset:0; clip-path:var(--ar-shape); }
+.ee-ar-edge { background:linear-gradient(135deg,#be58eb,#311069 28%,#6f47c7 47%,#bb2bc8 65%,#21105d 83%,#9d47d0); }
+.ee-ar-body { transform:scale(.982,.989); transform-origin:50% 55%; background:linear-gradient(90deg,#1c102b,#060b1c 18%,#0a0c20 80%,#251035); }
+.ee-ar-top { left:17px; top:12px; width:167px; height:12px; clip-path:polygon(5% 0,94% 0,100% 100%,0 100%); background:linear-gradient(#7e3caa,#0c0c22 23%,#272044 80%,#ae62c8); }
+.ee-ar-top::before { content:''; position:absolute; top:1px; left:5px; right:5px; height:1.5px; background:linear-gradient(90deg,#d270e7 0 31%,transparent 31% 37%,#d270e7 37% 67%,transparent 67% 76%,#d270e7 76%); }
+.ee-ar-header-rim { border:.75px solid #9053bd; background:#080d20; transform:perspective(180px) rotateX(-4deg); }
+.ee-ar-header { background:#0e1125; border:.8px solid #bb35d0; box-shadow:inset 0 0 3px #57266c; }
+.ee-ar-screen-well { clip-path:polygon(4% 0,96% 0,100% 92%,93% 100%,6% 100%,0 92%); background:linear-gradient(110deg,#27113b,#040912 12% 88%,#44204b); }
+.ee-ar-screen-rim { border-radius:3% 5% 5% 4%; background:#010a09; border:3px solid #08170f; box-shadow:0 0 0 1px #181021,inset 0 0 4px #000; transform:perspective(160px) rotateX(5deg); }
+.ee-ar-screen { border-radius:5% 4% 4% 4%; background:radial-gradient(ellipse at 56% 48%,#0b7933,#075027 58%,#021d13); border:.75px solid #143f26; overflow:hidden; transform:perspective(180px) rotateX(4deg); }
+.ee-ar-pitch { inset:0; opacity:.55; background:linear-gradient(90deg,transparent 0 24%,#44a75055 24% 24.5%,transparent 24.5% 58%,#44a75044 58% 58.5%,transparent 58.5% 79%,#44a75055 79% 79.5%,transparent 79.5%),linear-gradient(0deg,transparent 0 12%,#44a75044 12% 12.7%,transparent 12.7% 29%,#44a75033 29% 29.7%,transparent 29.7% 70%,#44a75044 70% 70.7%,transparent 70.7%); transform:perspective(100px) rotateX(5deg); }
+.ee-ar-pitch-ring { left:54px; top:27px; width:36px; height:20px; border:.7px solid #44a7502b; border-radius:50%; }
+.ee-ar-screen-noise { left:0; top:0; width:2px; height:.7px; }
+.ee-ar-player { background:transparent; }
+.ee-ar-ball { background:radial-gradient(circle at 35% 28%,#d9ead1,#9fccaa 60%,#5f9c78); border-radius:50%; box-shadow:0 1px 2px #002f19; }
+.ee-ar-ball-panel { left:6px; top:3px; width:7px; height:7px; background:#16452c; clip-path:polygon(15% 0,82% 8%,100% 65%,45% 100%,0 55%); }
+.ee-ar-ball::before { content:''; position:absolute; left:0; top:4px; width:4px; height:6px; background:#16452c; box-shadow:5px 9px #16452c,14px 5px #16452c; transform:rotate(-17deg); }
+.ee-ar-scan { inset:0; background:repeating-linear-gradient(0deg,transparent 0 2px,#000d0d6b 2px 2.7px,transparent 2.7px 3px); }
+.ee-ar-screen-shine { inset:0; border-radius:inherit; box-shadow:inset 0 0 8px #00170d,inset 0 2px 1px #71b4564d; background:linear-gradient(135deg,#b8db6d0a,transparent 45%); }
+.ee-ar-controls { left:13px; top:174px; width:174px; height:30px; clip-path:polygon(6.3% 0,93.7% 0,100% 100%,0 100%); background:linear-gradient(#9b49bd 0 1px,#4c176a 2px,#1c1640 50%,#050817 93%,#c83edf 96%); }
+.ee-ar-controls-inset { left:21px; top:179px; width:157px; height:18px; clip-path:polygon(4.5% 0,95.5% 0,100% 100%,0 100%); background:linear-gradient(#312654 0 1px,#15122d 2px 95%,#442358 99%); }
+.ee-ar-stick-base { background:#080a14; border:.7px solid #78528b; border-radius:50%; box-shadow:0 1px 1px #02020c; }
+.ee-ar-stick-base::after { content:''; position:absolute; inset:2px 4px; border:.7px solid #7f2472; border-radius:50%; background:#270936; }
+.ee-ar-stick-shaft { background:linear-gradient(90deg,#060812,#a24467 35%,#060812 62%); }
+.ee-ar-stick-ball { background:radial-gradient(circle at 32% 25%,#ff92a0 0 4%,#ff6b7d 9%,#ef153f 30%,#a40026 65%,#3e071e); border:.8px solid #460d35; border-radius:50%; box-shadow:0 2px 1px #040414; }
+.ee-ar-button-base { background:#080a14; border:.7px solid #78528b; border-radius:50%; }
+.ee-ar-button { left:1px; top:-3px; width:20px; height:9.6px; border:.6px solid #ec285c; border-radius:50%; background:radial-gradient(ellipse at 40% 20%,#ff7c84,#ef153f 30%,#a40026 75%,#3e071e); box-shadow:0 2px 0 #65092a,0 3px 0 #21091d; }
+.ee-ar-bottom { background:#090c1a; border:1px solid #431b64; box-shadow:0 -3px 0 #14112c,0 -4px 0 #8c3b9c; }
+.ee-ar-bottom-inset { border:.7px solid #7930a0; background:radial-gradient(ellipse at 70% 0,#20152c22,transparent); }
+.ee-ar-side-rail { border-left:1.3px solid #b534d0; border-right:1px solid #302479; box-shadow:1px 0 0 #15122c; }
+.ee-ar-side-right { transform:scaleX(-1); }
+.ee-ar-upper-rail { border-left-color:#782a98; }
+.ee-ar-bottom-line { background:#a63ebd; box-shadow:0 3px #251034; }
+.ee-ar-speaker { background:repeating-linear-gradient(90deg,#060811 0 2px,#33354b 2px 2.35px,transparent 2.35px 4px); }
+.ee-ar-score-pixels { background:#e25b2c; box-shadow:4px -3px #e25b2c,4px 0 #e25b2c,4px 3px #e25b2c,7px 2px #e25b2c,12px -4px #e25b2c,-128px 249px #e25b2c,-115px 253px #d2432c,13px 243px #e25b2c; }
+.ee-ar-bolt { border-radius:50%; border:.5px solid #5f4e6e; background:linear-gradient(0deg,#141124 0 40%,#5f4e6e 40% 60%,#141124 60%); }

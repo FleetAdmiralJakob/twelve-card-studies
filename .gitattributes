@@ -1,0 +1,9 @@
+# Preserve exact source and fixture bytes across Windows/Linux checkouts.
+# Benchmark validation compares archived HTML and source hashes byte-for-byte.
+* -text
+*.png binary
+*.webp binary
+*.avif binary
+*.woff2 binary
+*.ttf binary
+*.zip binary

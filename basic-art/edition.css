@@ -1,0 +1,38 @@
+.edition-nav { display:flex;gap:18px;align-items:center;font-size:12px;letter-spacing:.4px; }
+.edition-nav span { color:#b8c4b9; }
+.edition-nav a { color:#a9b1ac;text-decoration:none;padding:8px 0; }
+.edition-nav a:hover { color:#e8d9ae; }
+.card-slot:hover,.card-slot:focus-within { filter:none; }
+.card-motion { transform:translate3d(0,var(--lift,0px),0);transform-style:flat;will-change:transform; }
+.card { contain:layout style; }
+dialog::backdrop { backdrop-filter:none;background:#06090bf2; }
+.card-art { isolation:isolate; }
+.card.card .card-art { filter:none; }
+.detail-artwork .card { filter:drop-shadow(0 8px 4px #0009); }
+.card--parchment .card-name { transform:rotate(-1deg) skewX(-9deg); }
+.card--comic .card-name { transform:rotate(-2deg) skewX(-10deg); }
+.card-art > div { position:absolute;inset:0;width:200px;height:320px; }
+.card-art i { font-style:normal; }
+.card-emblem { display:block; }
+.proof-dialog { padding:34px;width:520px;font-size:17px;line-height:1.6; }
+.proof-dialog h2 { font:400 29px 'Oswald',sans-serif;margin:0 0 18px; }
+.proof-dialog p { color:#b3b9b0;margin:12px 0; }
+.proof-dialog a { color:#dcc58a; }
+.proof-data { display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;margin:22px 0; }
+.proof-data div { border-top:1px solid #ffffff19;padding-top:9px; }
+.proof-data strong { display:block;font:400 28px 'Oswald',sans-serif;color:#e1d8bb; }
+.proof-data span { font-size:13px;color:#8d9b95; }
+.proof-dialog code { font-size:12px; }
+@media(max-width:700px) { .collection-count {display:none} .edition-nav {gap:14px} }
+@media(prefers-reduced-motion:reduce) { .card-slot:hover .card-motion {--lift:0px} }
+
+.basic-shield{position:absolute;inset:0;border:1px solid currentColor;border-radius:5% 5% 48% 48%}.basic-shield::before{content:'';position:absolute;left:30%;top:25%;width:45%;height:35%;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg)}
+
+/* Native corner parameters, with the authored border-radius as fallback. */
+@supports (corner-shape:superellipse(.6)) {
+  html:not([data-css-fallback]) .ba-artistic .ba-f-stone {corner-shape:superellipse(.55);}
+  html:not([data-css-fallback]) .ba-paper .ba-p-rag {corner-shape:superellipse(.45);}
+  html:not([data-css-fallback]) .ba-electric .ba-el-ar-body {corner-shape:superellipse(.6);}
+  html:not([data-css-fallback]) .ba-electric .ba-el-cy-rim,
+  html:not([data-css-fallback]) .ba-electric .ba-el-cy-panel {corner-shape:superellipse(.75) superellipse(.75) round round;}
+}

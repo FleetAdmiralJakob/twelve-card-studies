@@ -1,0 +1,110 @@
+/* Every illustration primitive here is a native rectangular or rounded box.
+   Scoped to this module; no inherited edition art, glyphs, images or filters. */
+.ba-electric { position:absolute;left:0;top:0;width:200px;height:320px;isolation:isolate; }
+.ba-electric i { position:absolute;display:block;box-sizing:border-box;font-style:normal; }
+.ba-electric .ba-el-person { inset:0; }
+.ba-electric .ba-el-shoulder { border-radius:65% 38% 12% 9%;background:var(--ba-shirt);border-left:.65px solid var(--ba-person-edge);transform:rotate(15deg); }
+.ba-electric .ba-el-shoulder-right { border-radius:36% 67% 9% 12%;border-left:0;border-right:.65px solid var(--ba-person-edge);transform:rotate(-14deg); }
+.ba-electric .ba-el-torso { overflow:hidden;border-radius:37% 43% 5% 5% / 29% 32% 8% 8%;background:var(--ba-shirt); }
+.ba-electric .ba-el-neck { border-radius:26% 20% 40% 43%;background:linear-gradient(90deg,var(--ba-person-dark),var(--ba-person-fill) 48%,var(--ba-person-dark));border-right:.5px solid var(--ba-person-edge); }
+.ba-electric .ba-el-ear { border-radius:65% 43% 38% 60%;background:var(--ba-person-fill);border-left:.65px solid var(--ba-person-edge);transform:rotate(-12deg); }
+.ba-electric .ba-el-ear-right { transform:rotate(12deg);border-left:0;border-right:.45px solid var(--ba-person-edge); }
+.ba-electric .ba-el-head { overflow:hidden;border-radius:47% 46% 46% 44% / 33% 35% 65% 62%;background:var(--ba-person-fill);border:.65px solid var(--ba-person-edge);box-shadow:inset 4px 0 9px var(--ba-person-shadow),inset -5px -3px 7px var(--ba-person-dark);transform:rotate(-3deg); }
+.ba-electric .ba-el-head-light { inset:0;border-radius:inherit;background:radial-gradient(ellipse at 30% 9%,var(--ba-person-light),transparent 45%),linear-gradient(105deg,transparent 0 49%,var(--ba-person-dark) 76%); }
+.ba-electric .ba-el-temple { border-radius:50%;border-left:.45px solid var(--ba-person-detail);transform:rotate(-13deg);opacity:.65; }
+.ba-electric .ba-el-jaw { border-radius:35% 24% 46% 42%;border-right:.5px solid var(--ba-person-detail);border-bottom:.45px solid var(--ba-person-detail);transform:rotate(7deg);opacity:.7; }
+.ba-electric .ba-el-skin-mark { border-radius:40%; }
+.ba-electric .ba-el-collar { border-radius:0 0 48% 46%;border-bottom:.7px solid var(--ba-person-detail);transform:rotate(-2deg);opacity:.55; }
+.ba-electric .ba-el-collar-inner { border-radius:0 0 48% 46%;border-bottom:1px solid var(--ba-person-detail);transform:rotate(-2deg);opacity:.55; }
+.ba-electric .ba-el-shirt-fold { border-radius:48% 30% 42% 20%;border-left:.55px solid var(--ba-person-detail);transform:rotate(24deg); }
+.ba-electric .ba-el-fold-right { transform:rotate(-24deg);border-left:0;border-right:.5px solid var(--ba-person-detail); }
+.ba-electric .ba-el-nape-light { background:var(--ba-person-edge);opacity:.65; }
+
+.ba-el-cyber { --ba-person-fill:#03162f;--ba-person-dark:#050b20;--ba-person-shadow:#076ca344;--ba-person-edge:#087aabcc;--ba-person-detail:#126aa38c;--ba-person-dust:#0987b186;--ba-person-light:#0878a866;--ba-shirt:linear-gradient(120deg,#10204a,#071228 41%,#061027 70%,#18123a); }
+.ba-electric .ba-el-cy-rim { inset:9px 10px 4px;border-radius:23% 24% 49% 49% / 9% 10% 9% 9%;background:linear-gradient(145deg,#bd22c5 0,#6539c3 11%,#01b7e7 28%,#2347b7 48%,#ae24ce 70%,#00bee2);box-shadow:0 0 0 2px #040511; }
+.ba-electric .ba-el-cy-panel { inset:11px 12px 6px;overflow:hidden;border-radius:22% 23% 49% 49% / 8.5% 9.5% 8.5% 8.5%;background:radial-gradient(ellipse at 49% 17%,#101b4d99,transparent 58%),linear-gradient(125deg,#070c29,#080b21 57%,#030812); }
+.ba-electric .ba-el-cy-inner { inset:14px 15px 9px;border:1px solid #1f689398;border-radius:22% 23% 49% 49% / 8% 9% 8% 8%; }
+.ba-electric .ba-el-cy-inner-fine { inset:17px 18px 12px;border:.6px solid #9f29cb9c;border-radius:21% 22% 49% 49% / 7.5% 8.5% 7.5% 7.5%; }
+.ba-electric .ba-el-cy-grid { inset:0;background:repeating-linear-gradient(90deg,transparent 0 14.7px,#2443ae2b 14.7px 15px),repeating-linear-gradient(0deg,transparent 0 14.7px,#2443ae26 14.7px 15px); }
+.ba-electric .ba-el-circuit { border-style:solid;border-right:0;border-bottom:0;border-radius:2px 0 0 0; }
+.ba-electric .ba-el-circuit-pin { background:#176395;opacity:.8; }
+.ba-el-cyber .ba-el-person { left:-12px;top:-11px;right:-12px;bottom:-6px; }
+.ba-el-cyber .ba-el-head { background:conic-gradient(from 33deg at 42% 35%,#0d3c68 0 10%,#062143 10% 24%,#07335a 24% 38%,#08162f 38% 60%,#063452 60% 73%,#042345 73% 87%,#0a365b 87%); }
+.ba-electric .ba-el-mesh-band { border:.45px solid #1982b66b; }
+.ba-el-cyber .ba-el-shirt-weave { inset:0;background:repeating-linear-gradient(68deg,transparent 0 21px,#2469a64f 21px 21.55px),repeating-linear-gradient(112deg,transparent 0 29px,#2469a63b 29px 29.5px); }
+.ba-electric .ba-el-cy-lower { left:0;right:0;top:186px;bottom:0;background:linear-gradient(#03091300,#030913aa 14%,#030913bd 65%,#03091370); }
+.ba-electric .ba-el-cy-spike { background:linear-gradient(90deg,#1d5982,#00c3ef 65%,#0b6279);box-shadow:0 0 2px #0acbef44; }
+.ba-electric .ba-el-cy-glitch { background:#aa24d1;box-shadow:0 3px 0 #3b1e6b; }
+.ba-electric .ba-el-invader-bit { background:#0bafd0; }
+.ba-electric .ba-el-invader { opacity:.85; }
+
+.ba-el-hologram { --ba-person-fill:#042219;--ba-person-dark:#03130f;--ba-person-shadow:#028a5738;--ba-person-edge:#0b8b6eae;--ba-person-detail:#169f7877;--ba-person-dust:#16957999;--ba-person-light:#0f5d4144;--ba-shirt:linear-gradient(120deg,#092e23,#031a13 43%,#032219 75%,#093326); }
+.ba-electric .ba-el-ho-metal { inset:5px 11px;border-radius:50% 50% 49% 49% / 27% 27% 22% 22%;background:linear-gradient(123deg,#8e9789,#233a2c 12%,#111d18 24%,#a3b0a2 29%,#152b20 34%,#274b37 55%,#102118 72%,#6e8571 89%,#1b3527);border:1px solid #63715e;box-shadow:0 0 0 2px #020806; }
+.ba-electric .ba-el-ho-panel { inset:8px 15px;border:1px solid #304b3a;border-radius:50% 50% 48% 48% / 27% 27% 22% 22%;background:radial-gradient(ellipse at 50% 38%,#06291e,#041710 52%,#020a07 80%); }
+.ba-electric .ba-el-ho-inset { inset:16px 23px;border-radius:50% 50% 48% 48% / 26% 26% 21% 21%;border:.7px solid #1f6147;background:repeating-linear-gradient(90deg,transparent 0 7.7px,#316a4e27 7.7px 8px),repeating-linear-gradient(0deg,transparent 0 7.7px,#316a4e27 7.7px 8px); }
+.ba-electric .ba-el-ho-dashes { inset:12px 19px;border-radius:50% 50% 48% 48% / 27% 27% 22% 22%;border:1.4px dashed #12af8c9e;box-shadow:0 0 0 2px #15463477,inset 0 0 0 2px #134b3b80; }
+.ba-electric .ba-el-scan-ring { border:1px solid #0f8970;border-left-color:#376b585e;border-bottom-color:#267d4e50;border-top-color:transparent;border-radius:50%; }
+.ba-electric .ba-el-scan-ring::after { content:'';position:absolute;inset:2px;border-radius:50%;border:.5px solid #267e5666;border-right-color:transparent;border-bottom-color:transparent; }
+.ba-el-hologram .ba-el-person { transform:translateY(8px); }
+.ba-el-hologram .ba-el-head-light { background:repeating-linear-gradient(0deg,transparent 0 2.1px,#08372560 2.1px 2.5px),radial-gradient(ellipse at 29% 10%,#306d4038,transparent 55%); }
+.ba-el-hologram .ba-el-shirt-weave { inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,#38745226 3px 3.4px); }
+.ba-electric .ba-el-ho-cross { background:#4b9b7966; }
+.ba-electric .ba-el-ho-orbit { border:.7px solid #0f8a6577;border-radius:50%;border-top-color:transparent; }
+.ba-electric .ba-el-ho-lower { left:24px;right:24px;top:205px;bottom:17px;border-radius:0 0 46% 46% / 0 0 38% 38%;background:linear-gradient(#040c0900,#040c099c 17%,#040c0960); }
+.ba-electric .ba-el-ho-lower::after { content:'';position:absolute;top:32px;left:5px;right:5px;height:.5px;background:#236c5080;box-shadow:0 33px 0 #236c5055; }
+.ba-electric .ba-el-ho-led { background:#02c5a5;box-shadow:0 0 2px #03a67d55; }
+.ba-electric .ba-el-ho-corner { border-bottom:1px solid #0bb28a99;border-left:1px solid #0bb28a99; }
+.ba-electric .ba-el-ho-corner-right { transform:scaleX(-1); }
+.ba-electric .ba-el-ho-insignia { border:.6px solid #06ba96;border-radius:35% 48% 39% 27%;transform:rotate(24deg); }
+.ba-electric .ba-el-ho-insignia-ring { border:.6px solid #06b28f;border-radius:35%; }
+.ba-electric .ba-el-ho-insignia-line { background:#06b28f; }
+
+.ba-el-cosmic { --ba-person-fill:#0b081c;--ba-person-dark:#070718;--ba-person-shadow:#4c1a5a33;--ba-person-edge:#862ba677;--ba-person-detail:#75229466;--ba-person-dust:#9e3eb074;--ba-person-light:#29224222;--ba-shirt:linear-gradient(122deg,#1d0e2c,#0a081d 31%,#0d0920 64%,#220d2d); }
+.ba-electric .ba-el-co-rim { inset:5px 11px 3px;border-radius:50% 50% 49% 49% / 15% 15% 14% 14%;background:linear-gradient(137deg,#9bbde4,#7944bd 17%,#39214d 37%,#9c38aa 53%,#242a4b 73%,#8b7379);box-shadow:0 0 0 1.4px #080615; }
+.ba-electric .ba-el-co-panel { inset:10px 16px 9px;border-radius:49% 49% 48% 48% / 14% 14% 13% 13%;overflow:hidden;background:radial-gradient(ellipse at 64% 28%,#43116888,transparent 49%),radial-gradient(ellipse at 15% 58%,#40134266,transparent 42%),linear-gradient(125deg,#090a21,#130a29 47%,#090a20 78%,#080c1b); }
+.ba-electric .ba-el-co-bevel { inset:6px 12px 4px;border:3px solid #a4abd534;border-left-color:#773e9f66;border-bottom-color:#ae83964d;border-radius:50% 50% 49% 49% / 15% 15% 14% 14%; }
+.ba-electric .ba-el-co-inner { inset:11px 17px 10px;border:.6px solid #9e74ad77;border-left-color:#9e63cc99;border-radius:49% 49% 48% 48% / 14% 14% 13% 13%; }
+.ba-electric .ba-el-nebula { background:radial-gradient(ellipse at 30% 34%,var(--ba-cloud-core),transparent 35%),radial-gradient(ellipse at 62% 24%,var(--ba-cloud-core),transparent 27%),radial-gradient(ellipse at 53% 64%,var(--ba-cloud),transparent 65%);border-radius:45% 38% 50% 34%; }
+.ba-electric .ba-el-dark-cloud { border-radius:44% 50% 34% 46%;background:radial-gradient(ellipse,#0d091cbb,transparent 72%); }
+.ba-electric .ba-el-nebula-wisp { border-radius:50%;background:radial-gradient(ellipse,#f7c6edaa 0,#db82e47d 16%,#b943d547 35%,transparent 68%); }
+.ba-electric .ba-el-star,.ba-electric .ba-el-cosmic-dust { border-radius:50%; }
+.ba-electric .ba-el-star-flare,.ba-electric .ba-el-star-flare-upright { background:#ffcefabd;box-shadow:0 0 3px 1px #be58e66b; }
+.ba-el-cosmic .ba-el-person { left:-16px;top:-10px;right:-16px;bottom:-9px;transform:translate(2px,19px); }
+.ba-el-cosmic .ba-el-head { border-width:.45px;border-top-color:#6b519e66;border-radius:45% 46% 46% 44% / 31% 35% 65% 62%; }
+.ba-electric .ba-el-hair { border-radius:45% 48% 28% 37%;background:#0b081d;box-shadow:inset 0 .6px #6b3e8b6b; }
+.ba-el-cosmic .ba-el-shirt-weave { inset:0;background:radial-gradient(ellipse 9px 39px at 12% 51%,#ab458f4d,transparent 67%),radial-gradient(ellipse 7px 34px at 91% 59%,#b354ba55,transparent 69%),radial-gradient(ellipse at 75% 10%,#783c9b2b,transparent 41%); }
+.ba-electric .ba-el-co-lower { top:188px;left:0;right:0;bottom:0;background:linear-gradient(#070a1c00,#070a1c88 18%,#070a1c99 61%,#070a1c30); }
+.ba-electric .ba-el-glass-shard { border:1px solid #7c69b8b3;border-radius:10% 48% 16% 20%;background:linear-gradient(100deg,#2c1b46aa,#7951bd80 46%,#14142a99 49%,#8585bc70); }
+.ba-electric .ba-el-glass-small { opacity:.65; }
+.ba-electric .ba-el-glass-side { opacity:.7; }
+
+.ba-electric .ba-el-ar-body { left:19px;top:14px;width:163px;height:299px;border-radius:7px 7px 4px 4px;border:1px solid #a03db8;background:linear-gradient(90deg,#291238,#090d20 10%,#060b1b 83%,#281134);box-shadow:0 0 0 2px #050712,inset 0 0 0 2px #241a4a; }
+.ba-electric .ba-el-ar-left-edge,.ba-electric .ba-el-ar-right-edge { left:6px;top:199px;width:7px;height:113px;border-radius:5px 1px 3px 4px;background:linear-gradient(90deg,#160d26,#a844bf 22%,#4e2d6f 48%,#050912 65%);transform:rotate(1deg); }
+.ba-electric .ba-el-ar-right-edge { left:188px;transform:scaleX(-1) rotate(1deg); }
+.ba-electric .ba-el-ar-top { border-radius:4px 4px 0 0;background:linear-gradient(#b55ac5 0 1px,#131025 2px 4px,#513965 5px 6px,#090d20 7px);transform:perspective(100px) rotateX(18deg); }
+.ba-electric .ba-el-marquee-rim { border:.8px solid #7a489f;box-shadow:0 0 0 3px #08091a;background:#070d20; }
+.ba-electric .ba-el-marquee { background:radial-gradient(ellipse at 52% 0,#25133166,transparent 70%),#0c1126;border:.7px solid #b43cd1;box-shadow:inset 0 0 4px #51205a; }
+.ba-electric .ba-el-screen-well { border-radius:2% 2% 7% 6%;background:linear-gradient(90deg,#291037,#060a16 8%,#040913 91%,#44204d);box-shadow:0 -3px 0 #131026,2px 0 0 #6a2c7c,-2px 0 0 #63317d; }
+.ba-electric .ba-el-screen-rim { border-radius:6% 6% 5% 5%;border:3px solid #071810;background:#010d0b;box-shadow:0 0 0 1px #231529,inset 0 0 4px #000; }
+.ba-electric .ba-el-crt { overflow:hidden;border-radius:6% 5% 5% 4%;background:radial-gradient(ellipse at 56% 48%,#0d7731,#075128 58%,#022114);border:.75px solid #173c24;transform:perspective(190px) rotateX(4deg); }
+.ba-electric .ba-el-pitch { inset:0;background:linear-gradient(90deg,transparent 0 24%,#5ab75b33 24% 24.5%,transparent 24.5% 58%,#5ab75b33 58% 58.5%,transparent 58.5% 79%,#5ab75b33 79% 79.5%,transparent 79.5%),linear-gradient(0deg,transparent 0 12%,#68c1652b 12% 12.7%,transparent 12.7% 29%,#68c1652b 29% 29.7%,transparent 29.7% 70%,#68c1652b 70% 70.7%,transparent 70.7%); }
+.ba-electric .ba-el-pitch-circle { border:.65px solid #58b05b33;border-radius:50%; }
+.ba-electric .ba-el-football { border-radius:50%;background:radial-gradient(circle at 34% 27%,#e0efd1,#a9d1ac 55%,#659473);box-shadow:0 1px 1px #012f1e;overflow:hidden; }
+.ba-electric .ba-el-ball-patch { border-radius:30% 45% 30% 40%;background:#22553b;transform:rotate(-19deg); }
+.ba-electric .ba-el-scanlines { inset:0;background:repeating-linear-gradient(0deg,transparent 0 2px,#000d0d61 2px 2.7px,transparent 2.7px 3px); }
+.ba-electric .ba-el-crt-glass { inset:0;border-radius:inherit;box-shadow:inset 0 0 8px #00170d,inset 0 2px 1px #71b4564d;background:linear-gradient(135deg,#b8db6d0a,transparent 45%); }
+.ba-electric .ba-el-console { left:13px;top:174px;width:174px;height:30px;border-radius:2px;background:linear-gradient(#a550bd 0 1px,#321449 2px,#1b173e 48%,#050817 93%,#a639c7 97%);transform:perspective(160px) rotateX(17deg);border:.5px solid #5b2f72; }
+.ba-electric .ba-el-console-inset { left:22px;top:179px;width:156px;height:18px;border:.7px solid #423053;border-radius:2px;background:linear-gradient(#221d3d,#11112b);transform:perspective(160px) rotateX(17deg); }
+.ba-electric .ba-el-stick-mount { border-radius:50%;background:#080a14;border:.7px solid #78528b;box-shadow:0 1px 1px #02020c; }
+.ba-electric .ba-el-stick-mount::after { content:'';position:absolute;inset:2px 4px;border:.7px solid #7f2472;border-radius:50%;background:#270936; }
+.ba-electric .ba-el-stick-shaft { background:linear-gradient(90deg,#060812,#a24467 35%,#060812 62%); }
+.ba-electric .ba-el-stick-ball { border:.8px solid #460d35;border-radius:50%;background:radial-gradient(circle at 32% 25%,#ff92a0 0 4%,#ff6b7d 9%,#ef153f 30%,#a40026 65%,#3e071e);box-shadow:0 2px 1px #040414; }
+.ba-electric .ba-el-button-mount { background:#080a14;border:.7px solid #78528b;border-radius:50%; }
+.ba-electric .ba-el-push-button { left:1px;top:-3px;width:21px;height:10px;border:.6px solid #ec285c;border-radius:50%;background:radial-gradient(ellipse at 40% 20%,#ff7c84,#ed153e 30%,#9c0528 75%,#3e071e);box-shadow:0 2px 0 #65092a,0 3px 0 #21091d; }
+.ba-electric .ba-el-ar-lower { background:#090d1d;border:1px solid #431b64;box-shadow:0 -3px 0 #14112c,0 -4px 0 #8c3b9c; }
+.ba-electric .ba-el-ar-lower-inset { border:.7px solid #7930a0;background:radial-gradient(ellipse at 70% 0,#28152c44,transparent); }
+.ba-electric .ba-el-ar-bottom-edge { background:#aa45c1;box-shadow:0 3px 0 #251034; }
+.ba-electric .ba-el-speaker { background:repeating-linear-gradient(90deg,#060811 0 2px,#323147 2px 2.35px,transparent 2.35px 4px); }
+.ba-electric .ba-el-coin-slot { border:.6px solid #4a365b;background:#040812; }
+.ba-electric .ba-el-bolt { border-radius:50%;border:.5px solid #5f4e6e;background:linear-gradient(0deg,#141124 0 40%,#5f4e6e 40% 60%,#141124 60%); }
+.ba-electric .ba-el-score-light { background:#d76534;box-shadow:4px -3px #b85432,4px 0 #e36730,4px 3px #c04838,7px 2px #d95633,12px -4px #bf4939; }

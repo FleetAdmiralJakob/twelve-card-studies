@@ -1,0 +1,3332 @@
+{
+  "date": "2026-10-23T14:57:49.257Z",
+  "origin": "http://127.0.0.1:18787",
+  "hardware": {
+    "cpu": "AMD Ryzen 5 5600X 6-Core Processor             ",
+    "logicalCores": 12,
+    "memoryGB": 32,
+    "platform": "win32",
+    "release": "10.0.26100"
+  },
+  "method": {
+    "headless": true,
+    "networkThrottling": false,
+    "cpuThrottling": false,
+    "freshContextPerRun": true,
+    "dpr": 1,
+    "rounds": 3,
+    "order": "Rotated SVG/CSS/basic, CSS/basic/SVG, basic/SVG/CSS",
+    "workload": "All12first opens;12next-card changes over180animationframes;180scrollframes on mobile. No artificial animation of static artwork. Viewports emulate layout, not physicaldevices. Longtask/FCP support varies byengine."
+  },
+  "builds": {
+    "svg": {
+      "rawBytes": 497249,
+      "gzipBytes": 234684,
+      "brotliBytes": 212203,
+      "sha256": "dd3b4dd9cb40613d3d311c210168424e21cd266c709ff37f24e3f6d8cde7aec6"
+    },
+    "css": {
+      "rawBytes": 773658,
+      "gzipBytes": 259480,
+      "brotliBytes": 225542,
+      "sha256": "38f2e2cb0514ef307d7376b025865d03968eca143f333bba87dfbfe10d9016c8"
+    },
+    "basic": {
+      "rawBytes": 686864,
+      "gzipBytes": 222855,
+      "brotliBytes": 196058,
+      "sha256": "f38522d826c31e4d22d4cfbe6b8ee5732df4b1f4c7cbeaa6edfeb05ac446b752"
+    }
+  },
+  "runs": [
+    {
+      "url": "http://127.0.0.1:18787/?bench=1792767469731-0-enhanced",
+      "time": "2026-10-23T14:57:57.124Z",
+      "edition": "svg",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 1096,
+        "domReady": 157.5,
+        "responseEnd": 51.8,
+        "requestStart": 6.8,
+        "transferBytes": 212503,
+        "encodedBytes": 212203,
+        "decodedBytes": 497249,
+        "galleryReadyObserved": 1226.4,
+        "harnessStarted": 630.3
+      },
+      "nodes": {
+        "documentInitial": 459,
+        "gallery": 405,
+        "perCard": [
+          34,
+          31,
+          33,
+          28,
+          33,
+          28,
+          32,
+          28,
+          33,
+          33,
+          28,
+          28
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 7.9,
+        "max": 757.6,
+        "over33ms": 1
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 9,
+          "twoFrames": 19.8,
+          "decoded": 19.9
+        },
+        {
+          "index": 1,
+          "handler": 3.6,
+          "twoFrames": 259.7,
+          "decoded": 259.8
+        },
+        {
+          "index": 2,
+          "handler": 2.4,
+          "twoFrames": 339.6,
+          "decoded": 339.7
+        },
+        {
+          "index": 3,
+          "handler": 3,
+          "twoFrames": 245.1,
+          "decoded": 245.2
+        },
+        {
+          "index": 4,
+          "handler": 2.9,
+          "twoFrames": 246.1,
+          "decoded": 246.2
+        },
+        {
+          "index": 5,
+          "handler": 2.2,
+          "twoFrames": 372.9,
+          "decoded": 372.9
+        },
+        {
+          "index": 6,
+          "handler": 3,
+          "twoFrames": 193.4,
+          "decoded": 193.4
+        },
+        {
+          "index": 7,
+          "handler": 2.4,
+          "twoFrames": 319,
+          "decoded": 319
+        },
+        {
+          "index": 8,
+          "handler": 2.4,
+          "twoFrames": 248.9,
+          "decoded": 249
+        },
+        {
+          "index": 9,
+          "handler": 1.9,
+          "twoFrames": 240.7,
+          "decoded": 240.7
+        },
+        {
+          "index": 10,
+          "handler": 2.7,
+          "twoFrames": 209.2,
+          "decoded": 209.3
+        },
+        {
+          "index": 11,
+          "handler": 2.6,
+          "twoFrames": 334,
+          "decoded": 334
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 248.9,
+        "p95": 372.9,
+        "max": 372.9,
+        "over33ms": 11
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 249,
+        "p95": 372.9,
+        "max": 372.9,
+        "over33ms": 11
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 2.7,
+        "p95": 9,
+        "max": 9,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 115.1,
+        "over33ms": 4
+      },
+      "scrollFrames": null,
+      "longTasks": [
+        {
+          "start": 63.4,
+          "duration": 194
+        },
+        {
+          "start": 279.4,
+          "duration": 94
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 1,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/css/?bench=1792767477315-0-enhanced",
+      "time": "2026-10-23T14:58:04.617Z",
+      "edition": "css",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 2948,
+        "domReady": 43.8,
+        "responseEnd": 8.7,
+        "requestStart": 3.2,
+        "transferBytes": 225842,
+        "encodedBytes": 225542,
+        "decodedBytes": 773658,
+        "galleryReadyObserved": 3273.4,
+        "harnessStarted": 251.6
+      },
+      "nodes": {
+        "documentInitial": 2782,
+        "gallery": 2720,
+        "perCard": [
+          233,
+          287,
+          123,
+          173,
+          351,
+          244,
+          297,
+          232,
+          199,
+          153,
+          274,
+          118
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 6.2,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 17.4,
+          "twoFrames": 145.9,
+          "decoded": 146
+        },
+        {
+          "index": 1,
+          "handler": 15.3,
+          "twoFrames": 28.8,
+          "decoded": 28.8
+        },
+        {
+          "index": 2,
+          "handler": 10.3,
+          "twoFrames": 21.7,
+          "decoded": 21.8
+        },
+        {
+          "index": 3,
+          "handler": 8.8,
+          "twoFrames": 21.6,
+          "decoded": 21.6
+        },
+        {
+          "index": 4,
+          "handler": 13.1,
+          "twoFrames": 30.8,
+          "decoded": 30.8
+        },
+        {
+          "index": 5,
+          "handler": 7.4,
+          "twoFrames": 19.3,
+          "decoded": 19.3
+        },
+        {
+          "index": 6,
+          "handler": 8.5,
+          "twoFrames": 21.6,
+          "decoded": 21.6
+        },
+        {
+          "index": 7,
+          "handler": 9.1,
+          "twoFrames": 22.7,
+          "decoded": 22.7
+        },
+        {
+          "index": 8,
+          "handler": 8.5,
+          "twoFrames": 18.7,
+          "decoded": 18.8
+        },
+        {
+          "index": 9,
+          "handler": 7.3,
+          "twoFrames": 19,
+          "decoded": 19
+        },
+        {
+          "index": 10,
+          "handler": 8,
+          "twoFrames": 23.2,
+          "decoded": 23.2
+        },
+        {
+          "index": 11,
+          "handler": 12.9,
+          "twoFrames": 23.3,
+          "decoded": 23.4
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 22.7,
+        "p95": 145.9,
+        "max": 145.9,
+        "over33ms": 1
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 22.7,
+        "p95": 146,
+        "max": 146,
+        "over33ms": 1
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 9.1,
+        "p95": 17.4,
+        "max": 17.4,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 109.1,
+        "over33ms": 2
+      },
+      "scrollFrames": null,
+      "longTasks": [
+        {
+          "start": 33.6,
+          "duration": 68
+        },
+        {
+          "start": 102.1,
+          "duration": 59
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 1,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/basic/?bench=1792767484806-0-enhanced",
+      "time": "2026-10-23T14:58:09.359Z",
+      "edition": "basic",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 1828,
+        "domReady": 193.5,
+        "responseEnd": 9.5,
+        "requestStart": 5.2,
+        "transferBytes": 196358,
+        "encodedBytes": 196058,
+        "decodedBytes": 686864,
+        "galleryReadyObserved": 1950.9,
+        "harnessStarted": 325.4
+      },
+      "nodes": {
+        "documentInitial": 3179,
+        "gallery": 3117,
+        "perCard": [
+          209,
+          274,
+          180,
+          361,
+          237,
+          268,
+          224,
+          270,
+          254,
+          272,
+          319,
+          213
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 6.2,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 17.4,
+          "twoFrames": 116.6,
+          "decoded": 116.7
+        },
+        {
+          "index": 1,
+          "handler": 12.3,
+          "twoFrames": 22.8,
+          "decoded": 22.8
+        },
+        {
+          "index": 2,
+          "handler": 9.2,
+          "twoFrames": 19.6,
+          "decoded": 19.7
+        },
+        {
+          "index": 3,
+          "handler": 11.6,
+          "twoFrames": 23.7,
+          "decoded": 23.7
+        },
+        {
+          "index": 4,
+          "handler": 8.9,
+          "twoFrames": 40.8,
+          "decoded": 40.8
+        },
+        {
+          "index": 5,
+          "handler": 8.1,
+          "twoFrames": 18.7,
+          "decoded": 18.7
+        },
+        {
+          "index": 6,
+          "handler": 8.4,
+          "twoFrames": 19.2,
+          "decoded": 19.2
+        },
+        {
+          "index": 7,
+          "handler": 7.6,
+          "twoFrames": 19.1,
+          "decoded": 19.1
+        },
+        {
+          "index": 8,
+          "handler": 8.8,
+          "twoFrames": 30.3,
+          "decoded": 30.3
+        },
+        {
+          "index": 9,
+          "handler": 9.8,
+          "twoFrames": 25.1,
+          "decoded": 25.2
+        },
+        {
+          "index": 10,
+          "handler": 11.2,
+          "twoFrames": 51.2,
+          "decoded": 51.2
+        },
+        {
+          "index": 11,
+          "handler": 8.8,
+          "twoFrames": 20.1,
+          "decoded": 20.2
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 23.7,
+        "p95": 116.6,
+        "max": 116.6,
+        "over33ms": 3
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 23.7,
+        "p95": 116.7,
+        "max": 116.7,
+        "over33ms": 3
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 9.2,
+        "p95": 17.4,
+        "max": 17.4,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.3,
+        "max": 30.3,
+        "over33ms": 0
+      },
+      "scrollFrames": null,
+      "longTasks": [
+        {
+          "start": 44.8,
+          "duration": 147
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 1,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/css/?bench=1792767489553-1-enhanced",
+      "time": "2026-10-23T14:58:16.099Z",
+      "edition": "css",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 904,
+        "domReady": 188.7,
+        "responseEnd": 24.1,
+        "requestStart": 3.7,
+        "transferBytes": 225842,
+        "encodedBytes": 225542,
+        "decodedBytes": 773658,
+        "galleryReadyObserved": 2113.5,
+        "harnessStarted": 208.8
+      },
+      "nodes": {
+        "documentInitial": 2782,
+        "gallery": 2720,
+        "perCard": [
+          233,
+          287,
+          123,
+          173,
+          351,
+          244,
+          297,
+          232,
+          199,
+          153,
+          274,
+          118
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.1,
+        "max": 6.2,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 17.8,
+          "twoFrames": 35.9,
+          "decoded": 36
+        },
+        {
+          "index": 1,
+          "handler": 11.4,
+          "twoFrames": 156.3,
+          "decoded": 156.3
+        },
+        {
+          "index": 2,
+          "handler": 7,
+          "twoFrames": 298.2,
+          "decoded": 298.2
+        },
+        {
+          "index": 3,
+          "handler": 12.5,
+          "twoFrames": 25.4,
+          "decoded": 25.4
+        },
+        {
+          "index": 4,
+          "handler": 14.9,
+          "twoFrames": 37.2,
+          "decoded": 37.2
+        },
+        {
+          "index": 5,
+          "handler": 7.5,
+          "twoFrames": 19.3,
+          "decoded": 19.3
+        },
+        {
+          "index": 6,
+          "handler": 8,
+          "twoFrames": 21.4,
+          "decoded": 21.4
+        },
+        {
+          "index": 7,
+          "handler": 8.1,
+          "twoFrames": 19.8,
+          "decoded": 19.8
+        },
+        {
+          "index": 8,
+          "handler": 6.8,
+          "twoFrames": 18.3,
+          "decoded": 18.3
+        },
+        {
+          "index": 9,
+          "handler": 7.4,
+          "twoFrames": 20.1,
+          "decoded": 20.1
+        },
+        {
+          "index": 10,
+          "handler": 7.6,
+          "twoFrames": 20.1,
+          "decoded": 20.1
+        },
+        {
+          "index": 11,
+          "handler": 6.8,
+          "twoFrames": 18.5,
+          "decoded": 18.5
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 21.4,
+        "p95": 298.2,
+        "max": 298.2,
+        "over33ms": 4
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 21.4,
+        "p95": 298.2,
+        "max": 298.2,
+        "over33ms": 4
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 8,
+        "p95": 17.8,
+        "max": 17.8,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 12.1,
+        "max": 115.1,
+        "over33ms": 5
+      },
+      "scrollFrames": null,
+      "longTasks": [
+        {
+          "start": 115.9,
+          "duration": 72
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 2,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/basic/?bench=1792767496282-1-enhanced",
+      "time": "2026-10-23T14:58:21.212Z",
+      "edition": "basic",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 1612,
+        "domReady": 217,
+        "responseEnd": 111.8,
+        "requestStart": 85.9,
+        "transferBytes": 196358,
+        "encodedBytes": 196058,
+        "decodedBytes": 686864,
+        "galleryReadyObserved": 2051.6,
+        "harnessStarted": 356.4
+      },
+      "nodes": {
+        "documentInitial": 3179,
+        "gallery": 3117,
+        "perCard": [
+          209,
+          274,
+          180,
+          361,
+          237,
+          268,
+          224,
+          270,
+          254,
+          272,
+          319,
+          213
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 12.2,
+        "max": 16.4,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 19.8,
+          "twoFrames": 135.6,
+          "decoded": 135.8
+        },
+        {
+          "index": 1,
+          "handler": 15.3,
+          "twoFrames": 99.6,
+          "decoded": 99.7
+        },
+        {
+          "index": 2,
+          "handler": 10.1,
+          "twoFrames": 29.5,
+          "decoded": 29.5
+        },
+        {
+          "index": 3,
+          "handler": 25.2,
+          "twoFrames": 38.2,
+          "decoded": 38.2
+        },
+        {
+          "index": 4,
+          "handler": 9.8,
+          "twoFrames": 45.9,
+          "decoded": 46
+        },
+        {
+          "index": 5,
+          "handler": 8,
+          "twoFrames": 20.5,
+          "decoded": 20.6
+        },
+        {
+          "index": 6,
+          "handler": 16,
+          "twoFrames": 29.3,
+          "decoded": 29.3
+        },
+        {
+          "index": 7,
+          "handler": 10.1,
+          "twoFrames": 172,
+          "decoded": 172
+        },
+        {
+          "index": 8,
+          "handler": 9.6,
+          "twoFrames": 22,
+          "decoded": 22
+        },
+        {
+          "index": 9,
+          "handler": 9.7,
+          "twoFrames": 24.7,
+          "decoded": 24.7
+        },
+        {
+          "index": 10,
+          "handler": 9,
+          "twoFrames": 47.8,
+          "decoded": 47.8
+        },
+        {
+          "index": 11,
+          "handler": 8.6,
+          "twoFrames": 23.3,
+          "decoded": 23.3
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 38.2,
+        "p95": 172,
+        "max": 172,
+        "over33ms": 6
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 38.2,
+        "p95": 172,
+        "max": 172,
+        "over33ms": 6
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 10.1,
+        "p95": 25.2,
+        "max": 25.2,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 12.1,
+        "max": 30.3,
+        "over33ms": 0
+      },
+      "scrollFrames": null,
+      "longTasks": [
+        {
+          "start": 249.7,
+          "duration": 86
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 2,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/?bench=1792767501379-1-enhanced",
+      "time": "2026-10-23T14:58:28.432Z",
+      "edition": "svg",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 684,
+        "domReady": 101.5,
+        "responseEnd": 8.6,
+        "requestStart": 5.2,
+        "transferBytes": 212503,
+        "encodedBytes": 212203,
+        "decodedBytes": 497249,
+        "galleryReadyObserved": 822,
+        "harnessStarted": 357.6
+      },
+      "nodes": {
+        "documentInitial": 459,
+        "gallery": 405,
+        "perCard": [
+          34,
+          31,
+          33,
+          28,
+          33,
+          28,
+          32,
+          28,
+          33,
+          33,
+          28,
+          28
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 10.9,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 9.1,
+          "twoFrames": 17.3,
+          "decoded": 17.4
+        },
+        {
+          "index": 1,
+          "handler": 2.5,
+          "twoFrames": 329.5,
+          "decoded": 329.7
+        },
+        {
+          "index": 2,
+          "handler": 2.1,
+          "twoFrames": 260.3,
+          "decoded": 260.3
+        },
+        {
+          "index": 3,
+          "handler": 3.2,
+          "twoFrames": 175.7,
+          "decoded": 175.7
+        },
+        {
+          "index": 4,
+          "handler": 2,
+          "twoFrames": 221.3,
+          "decoded": 221.3
+        },
+        {
+          "index": 5,
+          "handler": 2.8,
+          "twoFrames": 313.6,
+          "decoded": 313.6
+        },
+        {
+          "index": 6,
+          "handler": 2.5,
+          "twoFrames": 167.1,
+          "decoded": 167.2
+        },
+        {
+          "index": 7,
+          "handler": 2.7,
+          "twoFrames": 333.3,
+          "decoded": 333.3
+        },
+        {
+          "index": 8,
+          "handler": 2.9,
+          "twoFrames": 274.8,
+          "decoded": 274.9
+        },
+        {
+          "index": 9,
+          "handler": 2.3,
+          "twoFrames": 253.5,
+          "decoded": 253.5
+        },
+        {
+          "index": 10,
+          "handler": 1.9,
+          "twoFrames": 221.8,
+          "decoded": 221.8
+        },
+        {
+          "index": 11,
+          "handler": 2,
+          "twoFrames": 269.5,
+          "decoded": 269.6
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 260.3,
+        "p95": 333.3,
+        "max": 333.3,
+        "over33ms": 11
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 260.3,
+        "p95": 333.3,
+        "max": 333.3,
+        "over33ms": 11
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 2.5,
+        "p95": 9.1,
+        "max": 9.1,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 19.1,
+        "max": 133.4,
+        "over33ms": 5
+      },
+      "scrollFrames": null,
+      "longTasks": [
+        {
+          "start": 25.8,
+          "duration": 125
+        },
+        {
+          "start": 153.6,
+          "duration": 50
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 2,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/basic/?bench=1792767508603-2-enhanced",
+      "time": "2026-10-23T14:58:33.392Z",
+      "edition": "basic",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 1904,
+        "domReady": 40.3,
+        "responseEnd": 7.9,
+        "requestStart": 4.3,
+        "transferBytes": 196358,
+        "encodedBytes": 196058,
+        "decodedBytes": 686864,
+        "galleryReadyObserved": 2008.5,
+        "harnessStarted": 246.3
+      },
+      "nodes": {
+        "documentInitial": 3179,
+        "gallery": 3117,
+        "perCard": [
+          209,
+          274,
+          180,
+          361,
+          237,
+          268,
+          224,
+          270,
+          254,
+          272,
+          319,
+          213
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 14.5,
+        "max": 33.3,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 22.4,
+          "twoFrames": 122.8,
+          "decoded": 123
+        },
+        {
+          "index": 1,
+          "handler": 16.7,
+          "twoFrames": 29.6,
+          "decoded": 29.7
+        },
+        {
+          "index": 2,
+          "handler": 10.2,
+          "twoFrames": 20.6,
+          "decoded": 20.6
+        },
+        {
+          "index": 3,
+          "handler": 8,
+          "twoFrames": 18.3,
+          "decoded": 18.3
+        },
+        {
+          "index": 4,
+          "handler": 9,
+          "twoFrames": 40.1,
+          "decoded": 40.1
+        },
+        {
+          "index": 5,
+          "handler": 9.3,
+          "twoFrames": 19.7,
+          "decoded": 19.7
+        },
+        {
+          "index": 6,
+          "handler": 8.6,
+          "twoFrames": 19.5,
+          "decoded": 19.5
+        },
+        {
+          "index": 7,
+          "handler": 8.4,
+          "twoFrames": 179.4,
+          "decoded": 179.4
+        },
+        {
+          "index": 8,
+          "handler": 8.5,
+          "twoFrames": 19.1,
+          "decoded": 19.1
+        },
+        {
+          "index": 9,
+          "handler": 9.2,
+          "twoFrames": 67.7,
+          "decoded": 67.7
+        },
+        {
+          "index": 10,
+          "handler": 9.8,
+          "twoFrames": 23.2,
+          "decoded": 23.2
+        },
+        {
+          "index": 11,
+          "handler": 8.6,
+          "twoFrames": 23.1,
+          "decoded": 23.1
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 23.2,
+        "p95": 179.4,
+        "max": 179.4,
+        "over33ms": 4
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 23.2,
+        "p95": 179.4,
+        "max": 179.4,
+        "over33ms": 4
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 9.2,
+        "p95": 22.4,
+        "max": 22.4,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 30.3,
+        "over33ms": 0
+      },
+      "scrollFrames": null,
+      "longTasks": [
+        {
+          "start": 33.6,
+          "duration": 55
+        },
+        {
+          "start": 89.4,
+          "duration": 73
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 3,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/?bench=1792767513555-2-enhanced",
+      "time": "2026-10-23T14:58:40.292Z",
+      "edition": "svg",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 644,
+        "domReady": 105.8,
+        "responseEnd": 9.1,
+        "requestStart": 5.5,
+        "transferBytes": 212503,
+        "encodedBytes": 212203,
+        "decodedBytes": 497249,
+        "galleryReadyObserved": 792.8,
+        "harnessStarted": 330.2
+      },
+      "nodes": {
+        "documentInitial": 459,
+        "gallery": 405,
+        "perCard": [
+          34,
+          31,
+          33,
+          28,
+          33,
+          28,
+          32,
+          28,
+          33,
+          33,
+          28,
+          28
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 818.2,
+        "over33ms": 1
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 8.5,
+          "twoFrames": 16.3,
+          "decoded": 16.4
+        },
+        {
+          "index": 1,
+          "handler": 7.1,
+          "twoFrames": 248.3,
+          "decoded": 248.4
+        },
+        {
+          "index": 2,
+          "handler": 2.2,
+          "twoFrames": 298.7,
+          "decoded": 298.8
+        },
+        {
+          "index": 3,
+          "handler": 2.4,
+          "twoFrames": 224.9,
+          "decoded": 224.9
+        },
+        {
+          "index": 4,
+          "handler": 3.2,
+          "twoFrames": 212.9,
+          "decoded": 213
+        },
+        {
+          "index": 5,
+          "handler": 2.7,
+          "twoFrames": 224.1,
+          "decoded": 224.1
+        },
+        {
+          "index": 6,
+          "handler": 3.4,
+          "twoFrames": 263.4,
+          "decoded": 263.5
+        },
+        {
+          "index": 7,
+          "handler": 2.8,
+          "twoFrames": 234.5,
+          "decoded": 234.6
+        },
+        {
+          "index": 8,
+          "handler": 2.4,
+          "twoFrames": 293.3,
+          "decoded": 293.3
+        },
+        {
+          "index": 9,
+          "handler": 2.5,
+          "twoFrames": 253.1,
+          "decoded": 253.2
+        },
+        {
+          "index": 10,
+          "handler": 2.1,
+          "twoFrames": 307.2,
+          "decoded": 307.3
+        },
+        {
+          "index": 11,
+          "handler": 2.5,
+          "twoFrames": 264.9,
+          "decoded": 264.9
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 253.1,
+        "p95": 307.2,
+        "max": 307.2,
+        "over33ms": 11
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 253.2,
+        "p95": 307.3,
+        "max": 307.3,
+        "over33ms": 11
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 2.7,
+        "p95": 8.5,
+        "max": 8.5,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 103,
+        "over33ms": 4
+      },
+      "scrollFrames": null,
+      "longTasks": [
+        {
+          "start": 30.7,
+          "duration": 117
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 3,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/css/?bench=1792767520455-2-enhanced",
+      "time": "2026-10-23T14:58:47.516Z",
+      "edition": "css",
+      "viewport": [
+        1080,
+        792
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 2452,
+        "domReady": 40,
+        "responseEnd": 7.9,
+        "requestStart": 3.3,
+        "transferBytes": 225842,
+        "encodedBytes": 225542,
+        "decodedBytes": 773658,
+        "galleryReadyObserved": 2852.2,
+        "harnessStarted": 180.6
+      },
+      "nodes": {
+        "documentInitial": 2782,
+        "gallery": 2720,
+        "perCard": [
+          233,
+          287,
+          123,
+          173,
+          351,
+          244,
+          297,
+          232,
+          199,
+          153,
+          274,
+          118
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 6.2,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 18.8,
+          "twoFrames": 159.3,
+          "decoded": 159.5
+        },
+        {
+          "index": 1,
+          "handler": 15.3,
+          "twoFrames": 29.3,
+          "decoded": 29.4
+        },
+        {
+          "index": 2,
+          "handler": 9.7,
+          "twoFrames": 22.4,
+          "decoded": 22.5
+        },
+        {
+          "index": 3,
+          "handler": 8.3,
+          "twoFrames": 19.6,
+          "decoded": 19.6
+        },
+        {
+          "index": 4,
+          "handler": 11.7,
+          "twoFrames": 30.7,
+          "decoded": 30.7
+        },
+        {
+          "index": 5,
+          "handler": 8.5,
+          "twoFrames": 21.8,
+          "decoded": 21.8
+        },
+        {
+          "index": 6,
+          "handler": 10.8,
+          "twoFrames": 24.2,
+          "decoded": 24.2
+        },
+        {
+          "index": 7,
+          "handler": 8.4,
+          "twoFrames": 19.8,
+          "decoded": 19.8
+        },
+        {
+          "index": 8,
+          "handler": 7.7,
+          "twoFrames": 21.8,
+          "decoded": 22
+        },
+        {
+          "index": 9,
+          "handler": 9.6,
+          "twoFrames": 22.1,
+          "decoded": 22.2
+        },
+        {
+          "index": 10,
+          "handler": 10.1,
+          "twoFrames": 24,
+          "decoded": 24.1
+        },
+        {
+          "index": 11,
+          "handler": 6.6,
+          "twoFrames": 17.8,
+          "decoded": 17.8
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 22.4,
+        "p95": 159.3,
+        "max": 159.3,
+        "over33ms": 1
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 22.5,
+        "p95": 159.5,
+        "max": 159.5,
+        "over33ms": 1
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 9.7,
+        "p95": 18.8,
+        "max": 18.8,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 12.1,
+        "max": 109.1,
+        "over33ms": 2
+      },
+      "scrollFrames": null,
+      "longTasks": [
+        {
+          "start": 30.9,
+          "duration": 56
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 3,
+      "profile": "desktop",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/?bench=1792767527721-0-enhanced",
+      "time": "2026-10-23T14:58:52.876Z",
+      "edition": "svg",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 524,
+        "domReady": 106.6,
+        "responseEnd": 23.3,
+        "requestStart": 4.7,
+        "transferBytes": 212503,
+        "encodedBytes": 212203,
+        "decodedBytes": 497249,
+        "galleryReadyObserved": 551.1,
+        "harnessStarted": 336.3
+      },
+      "nodes": {
+        "documentInitial": 459,
+        "gallery": 405,
+        "perCard": [
+          34,
+          31,
+          33,
+          28,
+          33,
+          28,
+          32,
+          28,
+          33,
+          33,
+          28,
+          28
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 181.8,
+        "over33ms": 1
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 7.1,
+          "twoFrames": 18.5,
+          "decoded": 21.9
+        },
+        {
+          "index": 1,
+          "handler": 2.6,
+          "twoFrames": 108.2,
+          "decoded": 108.3
+        },
+        {
+          "index": 2,
+          "handler": 2.8,
+          "twoFrames": 56.1,
+          "decoded": 56.1
+        },
+        {
+          "index": 3,
+          "handler": 2.9,
+          "twoFrames": 103.1,
+          "decoded": 103.1
+        },
+        {
+          "index": 4,
+          "handler": 3.2,
+          "twoFrames": 64.1,
+          "decoded": 64.1
+        },
+        {
+          "index": 5,
+          "handler": 3,
+          "twoFrames": 95.8,
+          "decoded": 95.8
+        },
+        {
+          "index": 6,
+          "handler": 2.2,
+          "twoFrames": 103.9,
+          "decoded": 104
+        },
+        {
+          "index": 7,
+          "handler": 2.2,
+          "twoFrames": 127.6,
+          "decoded": 127.7
+        },
+        {
+          "index": 8,
+          "handler": 2,
+          "twoFrames": 133.1,
+          "decoded": 133.2
+        },
+        {
+          "index": 9,
+          "handler": 1.9,
+          "twoFrames": 129.2,
+          "decoded": 129.2
+        },
+        {
+          "index": 10,
+          "handler": 1.9,
+          "twoFrames": 197.8,
+          "decoded": 197.9
+        },
+        {
+          "index": 11,
+          "handler": 2.4,
+          "twoFrames": 311.9,
+          "decoded": 312
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 108.2,
+        "p95": 311.9,
+        "max": 311.9,
+        "over33ms": 11
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 108.3,
+        "p95": 312,
+        "max": 312,
+        "over33ms": 11
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 2.6,
+        "p95": 7.1,
+        "max": 7.1,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 66.8,
+        "over33ms": 1
+      },
+      "scrollFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 97.1,
+        "over33ms": 2
+      },
+      "longTasks": [
+        {
+          "start": 29.4,
+          "duration": 121
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 1,
+      "profile": "mobile",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/css/?bench=1792767533110-0-enhanced",
+      "time": "2026-10-23T14:59:01.649Z",
+      "edition": "css",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 1060,
+        "domReady": 198.9,
+        "responseEnd": 10.9,
+        "requestStart": 5.8,
+        "transferBytes": 225842,
+        "encodedBytes": 225542,
+        "decodedBytes": 773658,
+        "galleryReadyObserved": 1473.9,
+        "harnessStarted": 330.1
+      },
+      "nodes": {
+        "documentInitial": 2782,
+        "gallery": 2720,
+        "perCard": [
+          233,
+          287,
+          123,
+          173,
+          351,
+          244,
+          297,
+          232,
+          199,
+          153,
+          274,
+          118
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.1,
+        "max": 6.2,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 15.6,
+          "twoFrames": 35.1,
+          "decoded": 35.2
+        },
+        {
+          "index": 1,
+          "handler": 15.3,
+          "twoFrames": 89.4,
+          "decoded": 89.4
+        },
+        {
+          "index": 2,
+          "handler": 8.1,
+          "twoFrames": 25.3,
+          "decoded": 25.3
+        },
+        {
+          "index": 3,
+          "handler": 8.7,
+          "twoFrames": 134.7,
+          "decoded": 134.7
+        },
+        {
+          "index": 4,
+          "handler": 13,
+          "twoFrames": 29.5,
+          "decoded": 29.5
+        },
+        {
+          "index": 5,
+          "handler": 7.8,
+          "twoFrames": 24.8,
+          "decoded": 24.8
+        },
+        {
+          "index": 6,
+          "handler": 8.7,
+          "twoFrames": 112.2,
+          "decoded": 112.2
+        },
+        {
+          "index": 7,
+          "handler": 14.7,
+          "twoFrames": 32.1,
+          "decoded": 32.1
+        },
+        {
+          "index": 8,
+          "handler": 11.2,
+          "twoFrames": 33,
+          "decoded": 33
+        },
+        {
+          "index": 9,
+          "handler": 12.5,
+          "twoFrames": 37.1,
+          "decoded": 37.1
+        },
+        {
+          "index": 10,
+          "handler": 14.6,
+          "twoFrames": 34.8,
+          "decoded": 34.8
+        },
+        {
+          "index": 11,
+          "handler": 8,
+          "twoFrames": 30.2,
+          "decoded": 30.3
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 34.8,
+        "p95": 134.7,
+        "max": 134.7,
+        "over33ms": 6
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 34.8,
+        "p95": 134.7,
+        "max": 134.7,
+        "over33ms": 6
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 12.5,
+        "p95": 15.6,
+        "max": 15.6,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 12,
+        "max": 78.8,
+        "over33ms": 3
+      },
+      "scrollFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 18.1,
+        "max": 375.8,
+        "over33ms": 6
+      },
+      "longTasks": [
+        {
+          "start": 53.2,
+          "duration": 145
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 1,
+      "profile": "mobile",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/basic/?bench=1792767541824-0-enhanced",
+      "time": "2026-10-23T14:59:07.896Z",
+      "edition": "basic",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 756,
+        "domReady": 42,
+        "responseEnd": 6.9,
+        "requestStart": 2.9,
+        "transferBytes": 196358,
+        "encodedBytes": 196058,
+        "decodedBytes": 686864,
+        "galleryReadyObserved": 1027.3,
+        "harnessStarted": 293.8
+      },
+      "nodes": {
+        "documentInitial": 3179,
+        "gallery": 3117,
+        "perCard": [
+          209,
+          274,
+          180,
+          361,
+          237,
+          268,
+          224,
+          270,
+          254,
+          272,
+          319,
+          213
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 6.2,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 16.7,
+          "twoFrames": 180.1,
+          "decoded": 180.2
+        },
+        {
+          "index": 1,
+          "handler": 14.7,
+          "twoFrames": 52.9,
+          "decoded": 53
+        },
+        {
+          "index": 2,
+          "handler": 7.9,
+          "twoFrames": 27.8,
+          "decoded": 27.9
+        },
+        {
+          "index": 3,
+          "handler": 10.1,
+          "twoFrames": 27,
+          "decoded": 27
+        },
+        {
+          "index": 4,
+          "handler": 10.3,
+          "twoFrames": 47.8,
+          "decoded": 47.8
+        },
+        {
+          "index": 5,
+          "handler": 8.6,
+          "twoFrames": 27.6,
+          "decoded": 27.6
+        },
+        {
+          "index": 6,
+          "handler": 9.6,
+          "twoFrames": 31.4,
+          "decoded": 31.4
+        },
+        {
+          "index": 7,
+          "handler": 9.1,
+          "twoFrames": 25.4,
+          "decoded": 25.4
+        },
+        {
+          "index": 8,
+          "handler": 9.9,
+          "twoFrames": 29,
+          "decoded": 29
+        },
+        {
+          "index": 9,
+          "handler": 9.3,
+          "twoFrames": 31.8,
+          "decoded": 31.8
+        },
+        {
+          "index": 10,
+          "handler": 18.9,
+          "twoFrames": 210.1,
+          "decoded": 210.2
+        },
+        {
+          "index": 11,
+          "handler": 10.8,
+          "twoFrames": 37.9,
+          "decoded": 37.9
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 31.8,
+        "p95": 210.1,
+        "max": 210.1,
+        "over33ms": 5
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 31.8,
+        "p95": 210.2,
+        "max": 210.2,
+        "over33ms": 5
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 10.1,
+        "p95": 18.9,
+        "max": 18.9,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 24.3,
+        "over33ms": 0
+      },
+      "scrollFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 72.8,
+        "over33ms": 2
+      },
+      "longTasks": [
+        {
+          "start": 32,
+          "duration": 66
+        },
+        {
+          "start": 98.8,
+          "duration": 81
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 1,
+      "profile": "mobile",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/css/?bench=1792767548053-1-enhanced",
+      "time": "2026-10-23T14:59:15.583Z",
+      "edition": "css",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 612,
+        "domReady": 132.3,
+        "responseEnd": 60.2,
+        "requestStart": 33.3,
+        "transferBytes": 225842,
+        "encodedBytes": 225542,
+        "decodedBytes": 773658,
+        "galleryReadyObserved": 728.3,
+        "harnessStarted": 226.2
+      },
+      "nodes": {
+        "documentInitial": 2782,
+        "gallery": 2720,
+        "perCard": [
+          233,
+          287,
+          123,
+          173,
+          351,
+          244,
+          297,
+          232,
+          199,
+          153,
+          274,
+          118
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.1,
+        "max": 6.2,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 16.4,
+          "twoFrames": 243.8,
+          "decoded": 244
+        },
+        {
+          "index": 1,
+          "handler": 12.5,
+          "twoFrames": 57.9,
+          "decoded": 57.9
+        },
+        {
+          "index": 2,
+          "handler": 9.4,
+          "twoFrames": 30.3,
+          "decoded": 30.3
+        },
+        {
+          "index": 3,
+          "handler": 8,
+          "twoFrames": 30.2,
+          "decoded": 30.2
+        },
+        {
+          "index": 4,
+          "handler": 11.1,
+          "twoFrames": 28.1,
+          "decoded": 28.2
+        },
+        {
+          "index": 5,
+          "handler": 8.2,
+          "twoFrames": 28.6,
+          "decoded": 28.6
+        },
+        {
+          "index": 6,
+          "handler": 9.2,
+          "twoFrames": 31,
+          "decoded": 31.1
+        },
+        {
+          "index": 7,
+          "handler": 7.7,
+          "twoFrames": 25,
+          "decoded": 25.1
+        },
+        {
+          "index": 8,
+          "handler": 8.4,
+          "twoFrames": 23.1,
+          "decoded": 23.1
+        },
+        {
+          "index": 9,
+          "handler": 10,
+          "twoFrames": 27.5,
+          "decoded": 27.5
+        },
+        {
+          "index": 10,
+          "handler": 14.7,
+          "twoFrames": 32.9,
+          "decoded": 32.9
+        },
+        {
+          "index": 11,
+          "handler": 7.6,
+          "twoFrames": 29.6,
+          "decoded": 29.7
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 30.2,
+        "p95": 243.8,
+        "max": 243.8,
+        "over33ms": 2
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 30.2,
+        "p95": 244,
+        "max": 244,
+        "over33ms": 2
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 9.4,
+        "p95": 16.4,
+        "max": 16.4,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 48.5,
+        "over33ms": 1
+      },
+      "scrollFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 12.2,
+        "max": 333.4,
+        "over33ms": 5
+      },
+      "longTasks": [],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 2,
+      "profile": "mobile",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/basic/?bench=1792767555742-1-enhanced",
+      "time": "2026-10-23T14:59:21.921Z",
+      "edition": "basic",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 692,
+        "domReady": 46.5,
+        "responseEnd": 9.1,
+        "requestStart": 5.4,
+        "transferBytes": 196358,
+        "encodedBytes": 196058,
+        "decodedBytes": 686864,
+        "galleryReadyObserved": 926.8,
+        "harnessStarted": 263.1
+      },
+      "nodes": {
+        "documentInitial": 3179,
+        "gallery": 3117,
+        "perCard": [
+          209,
+          274,
+          180,
+          361,
+          237,
+          268,
+          224,
+          270,
+          254,
+          272,
+          319,
+          213
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.1,
+        "max": 7.6,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 17.5,
+          "twoFrames": 46.7,
+          "decoded": 46.7
+        },
+        {
+          "index": 1,
+          "handler": 13.7,
+          "twoFrames": 93.9,
+          "decoded": 94
+        },
+        {
+          "index": 2,
+          "handler": 8.4,
+          "twoFrames": 132.9,
+          "decoded": 132.9
+        },
+        {
+          "index": 3,
+          "handler": 16.6,
+          "twoFrames": 38.3,
+          "decoded": 38.3
+        },
+        {
+          "index": 4,
+          "handler": 10.3,
+          "twoFrames": 46.1,
+          "decoded": 46.1
+        },
+        {
+          "index": 5,
+          "handler": 9.5,
+          "twoFrames": 33.5,
+          "decoded": 33.6
+        },
+        {
+          "index": 6,
+          "handler": 13.3,
+          "twoFrames": 31,
+          "decoded": 31
+        },
+        {
+          "index": 7,
+          "handler": 8.3,
+          "twoFrames": 28.1,
+          "decoded": 28.1
+        },
+        {
+          "index": 8,
+          "handler": 9.6,
+          "twoFrames": 34.1,
+          "decoded": 34.2
+        },
+        {
+          "index": 9,
+          "handler": 9.2,
+          "twoFrames": 25.9,
+          "decoded": 26
+        },
+        {
+          "index": 10,
+          "handler": 15.2,
+          "twoFrames": 37.2,
+          "decoded": 37.2
+        },
+        {
+          "index": 11,
+          "handler": 12,
+          "twoFrames": 38.3,
+          "decoded": 38.3
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 38.3,
+        "p95": 132.9,
+        "max": 132.9,
+        "over33ms": 8
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 38.3,
+        "p95": 132.9,
+        "max": 132.9,
+        "over33ms": 9
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 12,
+        "p95": 17.5,
+        "max": 17.5,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 12.2,
+        "max": 35.1,
+        "over33ms": 1
+      },
+      "scrollFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 9,
+        "max": 72.7,
+        "over33ms": 2
+      },
+      "longTasks": [
+        {
+          "start": 36.4,
+          "duration": 64
+        },
+        {
+          "start": 100.9,
+          "duration": 75
+        },
+        {
+          "start": 3383.8,
+          "duration": 50
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 2,
+      "profile": "mobile",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/?bench=1792767562094-1-enhanced",
+      "time": "2026-10-23T14:59:27.844Z",
+      "edition": "svg",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 152,
+        "domReady": 126,
+        "responseEnd": 28.3,
+        "requestStart": 2.8,
+        "transferBytes": 212503,
+        "encodedBytes": 212203,
+        "decodedBytes": 497249,
+        "galleryReadyObserved": 711.7,
+        "harnessStarted": 338
+      },
+      "nodes": {
+        "documentInitial": 459,
+        "gallery": 405,
+        "perCard": [
+          34,
+          31,
+          33,
+          28,
+          33,
+          28,
+          32,
+          28,
+          33,
+          33,
+          28,
+          28
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 13.5,
+        "max": 212,
+        "over33ms": 1
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 9.1,
+          "twoFrames": 19.5,
+          "decoded": 19.6
+        },
+        {
+          "index": 1,
+          "handler": 4.3,
+          "twoFrames": 131.4,
+          "decoded": 131.5
+        },
+        {
+          "index": 2,
+          "handler": 3.8,
+          "twoFrames": 128.9,
+          "decoded": 129
+        },
+        {
+          "index": 3,
+          "handler": 2.9,
+          "twoFrames": 73.1,
+          "decoded": 73.2
+        },
+        {
+          "index": 4,
+          "handler": 3,
+          "twoFrames": 122.4,
+          "decoded": 122.4
+        },
+        {
+          "index": 5,
+          "handler": 2.1,
+          "twoFrames": 112.6,
+          "decoded": 112.6
+        },
+        {
+          "index": 6,
+          "handler": 3.6,
+          "twoFrames": 105.6,
+          "decoded": 105.7
+        },
+        {
+          "index": 7,
+          "handler": 3.4,
+          "twoFrames": 174.2,
+          "decoded": 174.2
+        },
+        {
+          "index": 8,
+          "handler": 2.3,
+          "twoFrames": 43,
+          "decoded": 43
+        },
+        {
+          "index": 9,
+          "handler": 3.4,
+          "twoFrames": 149.5,
+          "decoded": 149.6
+        },
+        {
+          "index": 10,
+          "handler": 1.9,
+          "twoFrames": 183.4,
+          "decoded": 183.4
+        },
+        {
+          "index": 11,
+          "handler": 2.6,
+          "twoFrames": 381.4,
+          "decoded": 381.4
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 128.9,
+        "p95": 381.4,
+        "max": 381.4,
+        "over33ms": 11
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 129,
+        "p95": 381.4,
+        "max": 381.4,
+        "over33ms": 11
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 3.4,
+        "p95": 9.1,
+        "max": 9.1,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 10.9,
+        "max": 90.9,
+        "over33ms": 1
+      },
+      "scrollFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 84.8,
+        "over33ms": 2
+      },
+      "longTasks": [
+        {
+          "start": 49,
+          "duration": 111
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 2,
+      "profile": "mobile",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/basic/?bench=1792767568016-2-enhanced",
+      "time": "2026-10-23T14:59:32.651Z",
+      "edition": "basic",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 372,
+        "domReady": 43.9,
+        "responseEnd": 8.8,
+        "requestStart": 5.1,
+        "transferBytes": 196358,
+        "encodedBytes": 196058,
+        "decodedBytes": 686864,
+        "galleryReadyObserved": 489.1,
+        "harnessStarted": 305.9
+      },
+      "nodes": {
+        "documentInitial": 3179,
+        "gallery": 3117,
+        "perCard": [
+          209,
+          274,
+          180,
+          361,
+          237,
+          268,
+          224,
+          270,
+          254,
+          272,
+          319,
+          213
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.1,
+        "max": 6.1,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 19.7,
+          "twoFrames": 141.8,
+          "decoded": 142
+        },
+        {
+          "index": 1,
+          "handler": 18.3,
+          "twoFrames": 65.5,
+          "decoded": 65.6
+        },
+        {
+          "index": 2,
+          "handler": 11.7,
+          "twoFrames": 110,
+          "decoded": 110
+        },
+        {
+          "index": 3,
+          "handler": 9.8,
+          "twoFrames": 29,
+          "decoded": 29
+        },
+        {
+          "index": 4,
+          "handler": 10.3,
+          "twoFrames": 44.6,
+          "decoded": 44.6
+        },
+        {
+          "index": 5,
+          "handler": 7.4,
+          "twoFrames": 29,
+          "decoded": 29
+        },
+        {
+          "index": 6,
+          "handler": 8.9,
+          "twoFrames": 25.3,
+          "decoded": 25.3
+        },
+        {
+          "index": 7,
+          "handler": 7.6,
+          "twoFrames": 80.6,
+          "decoded": 80.6
+        },
+        {
+          "index": 8,
+          "handler": 8.4,
+          "twoFrames": 111.3,
+          "decoded": 111.3
+        },
+        {
+          "index": 9,
+          "handler": 8.6,
+          "twoFrames": 25.8,
+          "decoded": 25.8
+        },
+        {
+          "index": 10,
+          "handler": 9.2,
+          "twoFrames": 29.1,
+          "decoded": 29.2
+        },
+        {
+          "index": 11,
+          "handler": 8.7,
+          "twoFrames": 27.5,
+          "decoded": 27.5
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 44.6,
+        "p95": 141.8,
+        "max": 141.8,
+        "over33ms": 6
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 44.6,
+        "p95": 142,
+        "max": 142,
+        "over33ms": 6
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 9.2,
+        "p95": 19.7,
+        "max": 19.7,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 30.4,
+        "over33ms": 0
+      },
+      "scrollFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 18.2,
+        "over33ms": 0
+      },
+      "longTasks": [
+        {
+          "start": 36.6,
+          "duration": 65
+        },
+        {
+          "start": 102.2,
+          "duration": 89
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 3,
+      "profile": "mobile",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/?bench=1792767572824-2-enhanced",
+      "time": "2026-10-23T14:59:37.141Z",
+      "edition": "svg",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 256,
+        "domReady": 102.4,
+        "responseEnd": 6.4,
+        "requestStart": 3.1,
+        "transferBytes": 212503,
+        "encodedBytes": 212203,
+        "decodedBytes": 497249,
+        "galleryReadyObserved": 383.2,
+        "harnessStarted": 351.1
+      },
+      "nodes": {
+        "documentInitial": 459,
+        "gallery": 405,
+        "perCard": [
+          34,
+          31,
+          33,
+          28,
+          33,
+          28,
+          32,
+          28,
+          33,
+          33,
+          28,
+          28
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.1,
+        "max": 6.2,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 7.8,
+          "twoFrames": 14.8,
+          "decoded": 14.8
+        },
+        {
+          "index": 1,
+          "handler": 2.4,
+          "twoFrames": 83.1,
+          "decoded": 83.2
+        },
+        {
+          "index": 2,
+          "handler": 2.2,
+          "twoFrames": 101.4,
+          "decoded": 101.5
+        },
+        {
+          "index": 3,
+          "handler": 2.2,
+          "twoFrames": 82.1,
+          "decoded": 82.1
+        },
+        {
+          "index": 4,
+          "handler": 1.9,
+          "twoFrames": 160.6,
+          "decoded": 160.8
+        },
+        {
+          "index": 5,
+          "handler": 2.5,
+          "twoFrames": 37.8,
+          "decoded": 37.8
+        },
+        {
+          "index": 6,
+          "handler": 3.1,
+          "twoFrames": 87.1,
+          "decoded": 87.1
+        },
+        {
+          "index": 7,
+          "handler": 2.3,
+          "twoFrames": 125.7,
+          "decoded": 125.8
+        },
+        {
+          "index": 8,
+          "handler": 2.6,
+          "twoFrames": 105.8,
+          "decoded": 105.9
+        },
+        {
+          "index": 9,
+          "handler": 2.7,
+          "twoFrames": 123.6,
+          "decoded": 123.7
+        },
+        {
+          "index": 10,
+          "handler": 1.9,
+          "twoFrames": 32.6,
+          "decoded": 32.7
+        },
+        {
+          "index": 11,
+          "handler": 2,
+          "twoFrames": 100.3,
+          "decoded": 100.4
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 100.3,
+        "p95": 160.6,
+        "max": 160.6,
+        "over33ms": 10
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 100.4,
+        "p95": 160.8,
+        "max": 160.8,
+        "over33ms": 10
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 2.4,
+        "p95": 7.8,
+        "max": 7.8,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 7.4,
+        "max": 66.7,
+        "over33ms": 1
+      },
+      "scrollFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 12.2,
+        "over33ms": 0
+      },
+      "longTasks": [
+        {
+          "start": 23.7,
+          "duration": 124
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 3,
+      "profile": "mobile",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18787/css/?bench=1792767577303-2-enhanced",
+      "time": "2026-10-23T14:59:45.147Z",
+      "edition": "css",
+      "viewport": [
+        390,
+        844
+      ],
+      "dpr": 1,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+      "hardwareConcurrency": 12,
+      "deviceMemory": 32,
+      "documentVisible": "visible",
+      "load": {
+        "fcp": 652,
+        "domReady": 109.8,
+        "responseEnd": 74,
+        "requestStart": 69.4,
+        "transferBytes": 225842,
+        "encodedBytes": 225542,
+        "decodedBytes": 773658,
+        "galleryReadyObserved": 1014.5,
+        "harnessStarted": 248.7
+      },
+      "nodes": {
+        "documentInitial": 2782,
+        "gallery": 2720,
+        "perCard": [
+          233,
+          287,
+          123,
+          173,
+          351,
+          244,
+          297,
+          232,
+          199,
+          153,
+          274,
+          118
+        ]
+      },
+      "baselineFrames": {
+        "n": 30,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 6.2,
+        "over33ms": 0
+      },
+      "openCards": [
+        {
+          "index": 0,
+          "handler": 17.3,
+          "twoFrames": 195.6,
+          "decoded": 195.7
+        },
+        {
+          "index": 1,
+          "handler": 10.9,
+          "twoFrames": 60,
+          "decoded": 60
+        },
+        {
+          "index": 2,
+          "handler": 7,
+          "twoFrames": 34.5,
+          "decoded": 34.5
+        },
+        {
+          "index": 3,
+          "handler": 8,
+          "twoFrames": 31.9,
+          "decoded": 31.9
+        },
+        {
+          "index": 4,
+          "handler": 12,
+          "twoFrames": 32.9,
+          "decoded": 32.9
+        },
+        {
+          "index": 5,
+          "handler": 8.1,
+          "twoFrames": 29.4,
+          "decoded": 29.4
+        },
+        {
+          "index": 6,
+          "handler": 9.5,
+          "twoFrames": 27.6,
+          "decoded": 27.6
+        },
+        {
+          "index": 7,
+          "handler": 14.2,
+          "twoFrames": 32.4,
+          "decoded": 32.4
+        },
+        {
+          "index": 8,
+          "handler": 12.6,
+          "twoFrames": 33.5,
+          "decoded": 33.5
+        },
+        {
+          "index": 9,
+          "handler": 12.9,
+          "twoFrames": 29.2,
+          "decoded": 29.2
+        },
+        {
+          "index": 10,
+          "handler": 12.4,
+          "twoFrames": 30.9,
+          "decoded": 31
+        },
+        {
+          "index": 11,
+          "handler": 11.8,
+          "twoFrames": 34.1,
+          "decoded": 34.1
+        }
+      ],
+      "dialogTwoFrame": {
+        "n": 12,
+        "median": 32.9,
+        "p95": 195.6,
+        "max": 195.6,
+        "over33ms": 4
+      },
+      "dialogDecode": {
+        "n": 12,
+        "median": 32.9,
+        "p95": 195.7,
+        "max": 195.7,
+        "over33ms": 4
+      },
+      "dialogHandlers": {
+        "n": 12,
+        "median": 12,
+        "p95": 17.3,
+        "max": 17.3,
+        "over33ms": 0
+      },
+      "browseFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 6.2,
+        "max": 72.7,
+        "over33ms": 1
+      },
+      "scrollFrames": {
+        "n": 180,
+        "median": 6.1,
+        "p95": 7,
+        "max": 327.3,
+        "over33ms": 5
+      },
+      "longTasks": [
+        {
+          "start": 100.2,
+          "duration": 53
+        }
+      ],
+      "checks": {
+        "cards": 12,
+        "stats": 72,
+        "horizontalOverflow": false,
+        "wrap": true,
+        "editPersisted": true
+      },
+      "engine": "edge",
+      "round": 3,
+      "profile": "mobile",
+      "featureMode": "enhanced",
+      "errors": [],
+      "capabilities": {
+        "borderShape": true,
+        "cornerShape": true,
+        "contentVisibility": true,
+        "colorMix": true,
+        "shape": true
+      }
+    }
+  ],
+  "browser": {
+    "engine": "edge",
+    "version": "155.0.4283.62"
+  }
+}

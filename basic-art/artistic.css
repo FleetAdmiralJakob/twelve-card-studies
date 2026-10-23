@@ -1,0 +1,148 @@
+/* Third edition: only native rectangles, rounded boxes, borders and gradients. */
+.ba-artistic {position:absolute;inset:0;width:200px;height:320px;isolation:isolate;pointer-events:none;}
+.ba-artistic i {display:block;position:absolute;box-sizing:border-box;margin:0;font-style:normal;}
+.ba-artistic .ba-at-dust {left:0;top:0;width:.55px;height:.55px;border-radius:50%;}
+.ba-artistic .ba-at-wear {border-radius:30%;}
+/* Drafting paper: the two skewed lower rectangles meet at the shield point. */
+.ba-artistic .ba-bp-tail {left:10px;top:265px;width:180px;height:51px;overflow:hidden;}
+.ba-artistic .ba-bp-tail-left,.ba-artistic .ba-bp-tail-right {top:0;width:91px;height:38px;background:#0d120f;border-bottom:1.6px solid #cfb67a;}
+.ba-artistic .ba-bp-tail-left {left:0;transform:skewY(14deg);border-left:1.7px solid #c8b276;}
+.ba-artistic .ba-bp-tail-right {right:0;transform:skewY(-14deg);border-right:1.7px solid #c8b276;}
+.ba-artistic .ba-bp-paper {left:10px;top:11px;width:180px;height:278px;border:1.6px solid #c8b276;border-bottom:0;background:radial-gradient(ellipse at 55% 35%,#181d16,#0c110e 79%);}
+.ba-artistic .ba-bp-grid {left:14px;top:15px;width:172px;height:275px;background:repeating-linear-gradient(90deg,#b2a27119 0 .45px,transparent .45px 9px),repeating-linear-gradient(0deg,#b2a27116 0 .45px,transparent .45px 9px),repeating-linear-gradient(90deg,transparent 0 44px,#b2a27117 44px 45px),repeating-linear-gradient(0deg,transparent 0 44px,#b2a27117 44px 45px);}
+.ba-artistic .ba-bp-diagram {border-top:.5px solid #cab277;border-right:.5px solid #cab277;}
+.ba-artistic .ba-bp-diagram::after {content:'';position:absolute;left:-3px;top:0;width:2px;height:2px;border-left:.5px solid #c5b07a;border-bottom:.5px solid #c5b07a;}
+.ba-artistic .ba-bp-head {left:76px;top:38px;width:77px;height:84px;border:.8px solid #beae79;border-radius:50%;background:linear-gradient(90deg,transparent 49.45%,#101611 49.9%),radial-gradient(ellipse at 28% 40%,#dfd0a4,#d0bd8b 63%,#aa955e);}
+.ba-artistic .ba-bp-shoulders {left:57px;top:128px;width:131px;height:61px;border:.7px solid #bdab72;border-radius:58% 70% 0 0 / 100% 100% 0 0;background:linear-gradient(90deg,transparent 43.5%,#101611 44%),radial-gradient(ellipse at 35% 20%,#e0cea0,#c0a970 70%);}
+.ba-artistic .ba-bp-head::after,.ba-artistic .ba-bp-shoulders::after {content:'';position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(28deg,transparent 0 3px,#28291516 3.3px 3.6px,transparent 4px 7px),repeating-linear-gradient(107deg,transparent 0 5px,#e8ddbd15 5.1px 5.5px,transparent 5.7px 11px);}
+.ba-artistic .ba-bp-goldwear {border-left:.5px solid #514d3480;border-bottom:.5px solid #514d3480;border-radius:40%;}
+.ba-artistic .ba-bp-axis {left:114px;top:26px;width:.5px;height:169px;background:#d7c1873b;}
+.ba-artistic .ba-bp-horizontal {left:64px;top:80px;width:99px;height:.4px;background:#c7b2772b;}
+.ba-artistic .ba-bp-horizon {left:14px;top:182px;width:173px;height:13px;border-top:.8px solid #d6c084;border-radius:50%;transform:rotate(.5deg);}
+.ba-artistic .ba-bp-inner-frame {left:16px;top:17px;width:168px;height:271px;border:.7px solid #d5be80;border-bottom:0;}
+.ba-artistic .ba-bp-bottom-left,.ba-artistic .ba-bp-bottom-right {top:296px;width:86px;height:.7px;background:#cfb77a;}
+.ba-artistic .ba-bp-bottom-left {left:15px;transform:rotate(14deg);}
+.ba-artistic .ba-bp-bottom-right {right:15px;transform:rotate(-14deg);}
+.ba-artistic .ba-bp-emblem {left:25px;top:100px;width:19px;height:20px;border:1.2px solid #d3b970;border-radius:0 0 48% 48% / 0 0 72% 72%;}
+.ba-artistic .ba-bp-check {left:6px;top:4px;width:6px;height:10px;border-right:1.3px solid #e0c779;border-bottom:1.3px solid #e0c779;transform:rotate(37deg);}
+.ba-artistic .ba-bp-cross {border:.55px solid #cbb173;}
+.ba-artistic .ba-bp-cross::after {content:'';position:absolute;left:50%;top:-4px;width:.4px;height:12px;background:#bca36b;}
+.ba-artistic .ba-bp-edgewear {background:#e8d69c;}
+.ba-artistic .ba-bp-corner {border-left:.7px solid #d8c184;border-right:.7px solid #d8c184;}
+/* Comic: overlapping rectangular print bursts and a rounded, foreshortened athlete. */
+.ba-artistic .ba-c-tail {left:6px;top:267px;width:188px;height:50px;overflow:hidden;}
+.ba-artistic .ba-c-tail-left,.ba-artistic .ba-c-tail-right {top:-4px;width:95px;height:37px;background:#dc2925;border-bottom:3px solid #0a100b;}
+.ba-artistic .ba-c-tail-left {left:0;transform:skewY(18deg);border-left:3px solid #0a100b;}
+.ba-artistic .ba-c-tail-right {right:0;transform:skewY(-18deg);border-right:3px solid #0a100b;}
+.ba-artistic .ba-c-paper {left:6px;top:14px;width:188px;height:276px;border:4px solid #080f0b;border-bottom:0;background:#e62a29;transform:rotate(-.6deg);overflow:hidden;}
+.ba-artistic .ba-c-paper::after {content:'';position:absolute;inset:0;background:repeating-linear-gradient(14deg,transparent 0 6px,#641c1510 6.2px 6.5px,transparent 7px 13px);}
+.ba-artistic .ba-c-ray {transform-origin:50% 100%;border:2.3px solid #0b120c;}
+.ba-artistic .ba-c-ray-blue {background:#0781b0;}
+.ba-artistic .ba-c-ray-gold {background:#f2c519;}
+.ba-artistic .ba-c-halftone {left:23px;top:31px;width:146px;height:165px;background:radial-gradient(circle,#07170e .7px,transparent .95px) 0 0/3.4px 3.4px;opacity:.32;}
+.ba-artistic .ba-c-speed {background:#0b140d;transform-origin:50% 0;}
+.ba-artistic .ba-c-statground {left:0;right:0;top:209px;bottom:0;background:linear-gradient(100deg,#df2924,#f02d29 75%,#d51e23);border-top:2px solid #0b140e;transform:skewY(-2deg);}
+.ba-artistic .ba-c-edge-shard {background:#e72a28;border:2px solid #10130c;}
+.ba-artistic .ba-c-backarm,.ba-artistic .ba-c-backforearm,.ba-artistic .ba-c-backfist,.ba-artistic .ba-c-frontarm,.ba-artistic .ba-c-frontforearm,.ba-artistic .ba-c-frontfist,.ba-artistic .ba-c-body,.ba-artistic .ba-c-shoulder,.ba-artistic .ba-c-neck,.ba-artistic .ba-c-head {background:#07100a;border:2px solid #edc524;box-shadow:0 0 0 1.1px #0a120b;}
+.ba-artistic .ba-c-backarm {left:68px;top:95px;width:23px;height:50px;border-radius:43% 42% 31% 47%;transform:rotate(39deg);border-right-color:#0a160d;}
+.ba-artistic .ba-c-backforearm {left:52px;top:125px;width:18px;height:33px;border-radius:34% 31% 45% 39%;transform:rotate(34deg);}
+.ba-artistic .ba-c-backfist {left:42px;top:143px;width:15px;height:17px;border-radius:39% 22% 45% 33%;transform:rotate(30deg);}
+.ba-artistic .ba-c-frontarm {left:145px;top:104px;width:26px;height:41px;border-radius:39% 53% 45% 31%;transform:rotate(-51deg);border-bottom:0;border-left:0;box-shadow:none;}
+.ba-artistic .ba-c-frontforearm {left:156px;top:130px;width:30px;height:18px;border-radius:34% 27% 44% 38%;transform:rotate(-14deg);border-right:0;border-left-color:#0a160d;}
+.ba-artistic .ba-c-frontfist {left:174px;top:131px;width:17px;height:16px;border-radius:27% 38% 40% 25%;transform:rotate(-7deg);border-left:0;box-shadow:none;}
+.ba-artistic .ba-c-body {left:81px;top:91px;width:72px;height:82px;border-radius:35% 40% 26% 17% / 29% 30% 20% 28%;transform:rotate(12deg);border-top-width:0;border-right-color:#0d170b;border-left-width:2.6px;}
+.ba-artistic .ba-c-body::before {content:'';position:absolute;left:12px;bottom:-4px;width:27px;height:18px;background:#08110a;border-radius:25% 15% 20% 20%;transform:rotate(-20deg);border-bottom:1.1px solid #d2b427;}
+.ba-artistic .ba-c-body::after {content:'';position:absolute;right:7px;bottom:-3px;width:27px;height:20px;background:#08110a;border-radius:15% 25% 15% 20%;transform:rotate(22deg);border-bottom:1px solid #d2b427;}
+.ba-artistic .ba-c-shoulder {left:83px;top:90px;width:35px;height:24px;transform:rotate(-11deg);border-radius:53% 30% 36% 38%;border-right:0;border-bottom:0;box-shadow:none;}
+.ba-artistic .ba-c-neck {left:123px;top:79px;width:22px;height:25px;transform:rotate(18deg);border-radius:12% 18% 45% 42%;border-top:0;border-bottom:0;box-shadow:none;}
+.ba-artistic .ba-c-head {left:119px;top:42px;width:34px;height:51px;border-radius:43% 47% 43% 41% / 29% 31% 65% 61%;transform:rotate(15deg);border-bottom-width:1px;}
+.ba-artistic .ba-c-ear {left:-3px;top:25px;width:6px;height:11px;background:#09110b;border-left:1px solid #d9b622;border-radius:43%;}
+.ba-artistic .ba-c-brow {left:23px;top:17px;width:5px;height:9px;border-right:.7px solid #bba21c;border-top:.7px solid #bba21c;border-radius:40%;}
+.ba-artistic .ba-c-cheek {left:7px;top:30px;width:15px;height:15px;border-left:1px solid #cfb024;border-bottom:.8px solid #cfb024;border-radius:0 0 40% 60%;transform:rotate(-26deg);}
+.ba-artistic .ba-c-collar {left:117px;top:84px;width:23px;height:28px;border-left:1.2px solid #edc526;border-bottom:1.2px solid #edc526;border-radius:0 0 46% 54%;transform:rotate(-29deg);}
+.ba-artistic .ba-c-fold {border-left:1.3px solid #edc525;border-bottom:1px solid #edc525;border-radius:0 0 35% 38%;}
+.ba-artistic .ba-c-fold-a {left:77px;top:118px;width:13px;height:22px;transform:rotate(-20deg);}
+.ba-artistic .ba-c-fold-b {left:94px;top:139px;width:7px;height:22px;transform:rotate(25deg);}
+.ba-artistic .ba-c-fold-c {left:102px;top:157px;width:18px;height:9px;transform:rotate(-17deg);}
+.ba-artistic .ba-c-fold-d {left:143px;top:126px;width:12px;height:14px;transform:rotate(34deg);}
+.ba-artistic .ba-c-fold-e {left:152px;top:110px;width:11px;height:13px;transform:rotate(-44deg);}
+.ba-artistic .ba-c-fold-f {left:65px;top:120px;width:5px;height:12px;transform:rotate(29deg);}
+.ba-artistic .ba-c-fold-g {left:95px;top:97px;width:12px;height:8px;transform:rotate(26deg);}
+.ba-artistic .ba-c-knuckles {left:175px;top:135px;width:9px;height:6px;border-top:1.2px solid #d8bb24;border-left:1px solid #d8bb24;border-radius:3px;transform:rotate(17deg);}
+.ba-artistic .ba-c-knuckles-back {left:45px;top:146px;width:6px;height:4px;transform:rotate(28deg);}
+.ba-artistic .ba-c-banner {inset:0;}
+.ba-artistic .ba-c-banner-tab {background:#f2dca0;border:2.1px solid #0b140e;}
+.ba-artistic .ba-c-banner-center {left:18px;top:188px;width:170px;height:30px;background:linear-gradient(#f7e1aa,#edd394);transform:rotate(-2deg);}
+.ba-artistic .ba-c-score {left:18px;top:20px;width:63px;height:82px;background:linear-gradient(108deg,#fae7b6,#e4ca90);border:3px solid #10170e;transform:rotate(-3deg) skewY(7deg);overflow:hidden;}
+.ba-artistic .ba-c-score::before {content:'';position:absolute;inset:0;box-shadow:inset 2px 3px #fff0b85c;background:repeating-linear-gradient(101deg,transparent 0 4px,#4c2c1210 4.4px 4.6px,transparent 5px 10px);}
+.ba-artistic .ba-c-crease {background:#0a140d;}
+/* Emerald relic: individually weathered stones, interlaced ellipse vines. */
+.ba-artistic .ba-f-interior {left:18px;top:19px;width:170px;height:294px;overflow:hidden;border-radius:48% 48% 48% 48% / 15% 15% 12% 12%;background:radial-gradient(ellipse at 56% 42%,#06402d,#031e17 43%,#08130c 76%);border:2px solid #33402b;}
+.ba-artistic .ba-f-glow {left:28px;top:37px;width:122px;height:161px;background:radial-gradient(ellipse at 57% 56%,#2ad58c26,transparent 63%),conic-gradient(from 20deg at 50% 49%,transparent 0 22%,#78b84022 25%,transparent 29% 55%,#2beaa12a 59%,transparent 64% 88%,#a3c14f20 92%,transparent);}
+.ba-artistic .ba-f-energy {border-left:.55px solid var(--energy);border-bottom:.65px solid var(--energy);border-radius:36% 0 18% 28%;box-shadow:-1px 1px 4px #24d58e1a;}
+.ba-artistic .ba-f-energy::after {content:'';position:absolute;left:0;top:23%;width:65%;height:63%;border-right:.45px solid var(--energy);border-top:.45px solid var(--energy);border-radius:29%;transform:rotate(38deg);}
+.ba-artistic .ba-f-torso {left:35px;top:149px;width:116px;height:59px;background:radial-gradient(ellipse at 70% 20%,#0b2d24,#061c17 67%);border:.8px solid #70b992b0;border-radius:48% 48% 10% 7% / 74% 80% 8% 8%;transform:rotate(3deg);box-shadow:0 -2px 7px #2ee89522;}
+.ba-artistic .ba-f-neck {left:77px;top:118px;width:27px;height:45px;border-left:.6px solid #79b28c;border-right:.6px solid #3c9d75;background:linear-gradient(90deg,#0a2b20,#081a17 65%,#12362a);border-radius:20% 20% 36% 38%;transform:rotate(2deg);}
+.ba-artistic .ba-f-head {left:65px;top:59px;width:52px;height:76px;border:.7px solid #63c596b5;border-radius:47% 47% 43% 46% / 34% 37% 61% 61%;background:radial-gradient(ellipse at 78% 22%,#18533d33,transparent 40%),repeating-linear-gradient(73deg,transparent 0 9px,#398b6929 9.2px 9.6px,transparent 10px 20px),linear-gradient(118deg,#0b3227,#041512 62%,#103d2a);box-shadow:0 0 6px #42e89f1a,inset 2px 0 5px #63ca8b19;}
+.ba-artistic .ba-f-face-brow {left:8px;top:30px;width:34px;height:8px;border-top:.6px solid #91b88080;border-bottom:.4px solid #5b9f7d66;border-radius:40% 50%;transform:rotate(7deg);}
+.ba-artistic .ba-f-face-cheek {left:10px;top:44px;width:25px;height:24px;border-left:.55px solid #5cb48b80;border-bottom:.55px solid #98c18b85;border-radius:0 0 48% 70%;transform:rotate(-12deg);}
+.ba-artistic .ba-f-face-nose {left:24px;top:35px;width:5px;height:18px;border-left:.5px solid #77c29766;border-bottom:.5px solid #77c29766;border-radius:0 0 0 50%;transform:rotate(9deg);}
+.ba-artistic .ba-f-portrait-texture {left:41px;top:73px;width:106px;height:129px;overflow:hidden;border-radius:48% 48% 2% 2% / 30% 30% 2% 2%;}
+.ba-artistic .ba-f-portrait-vein {border-left:.6px solid #64c697;border-bottom:.45px solid #a4bc7c;border-radius:10% 0 30% 20%;}
+.ba-artistic .ba-f-portrait-vein::after {content:'';position:absolute;left:0;top:38%;width:60%;height:63%;border-right:.5px solid #44b68a;border-radius:38%;transform:rotate(-43deg);}
+.ba-artistic .ba-f-collar {left:74px;top:144px;width:28px;height:18px;border-left:.6px solid #91bd8c88;border-bottom:.6px solid #91bd8c88;border-radius:0 0 30% 25%;transform:rotate(-40deg);}
+.ba-artistic .ba-f-shirt-seam {left:72px;top:170px;width:16px;height:32px;border-right:.6px solid #75b89c77;border-radius:0 40% 0 0;transform:rotate(-21deg);}
+.ba-artistic .ba-f-statground {left:0;right:0;top:198px;bottom:0;background:linear-gradient(#081a10bd,#0c130be8 40%);}
+.ba-artistic .ba-f-twining {left:17px;top:20px;width:174px;height:294px;border:3px solid #4a5822;border-radius:48% 48% 48% 48% / 15% 15% 12% 12%;box-shadow:inset .8px 1px #b6b86a55,0 0 0 1px #17230d;transform:rotate(-1deg);}
+.ba-artistic .ba-f-stone {border-radius:var(--round) 18% 9% 13%;background:linear-gradient(var(--facet),transparent 37%,#162619aa 38% 40%,#dbd8bd99 41%,transparent 43%),linear-gradient(135deg,#d0ccb3 0 16%,var(--stone) 20% 46%,#414c3b 49% 69%,#202d1e 73%);border:.8px solid #1d281a;box-shadow:inset 1px 1px .4px #ece5c470,inset -1px -1px 1px #071208,1px 2px 1px #000b;}
+.ba-artistic .ba-f-stone::before {content:'';position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(27deg,transparent 0 3px,#d3d6b937 3.3px,#12261188 3.7px,transparent 4px 8px),repeating-linear-gradient(108deg,transparent 0 6px,#13220d88 6.3px,#dcdcc055 6.6px,transparent 7px 13px);}
+.ba-artistic .ba-f-stone::after {content:'';position:absolute;left:22%;top:12%;width:40%;height:69%;border-left:.65px solid #e1ddbd99;border-bottom:.8px solid #192a18;transform:rotate(21deg);border-radius:9%;}
+.ba-artistic .ba-f-vine {border:1.5px solid var(--vine);border-top-color:transparent;border-right-color:#3a481b;border-radius:49%;box-shadow:-.6px 1px .4px #0a1609;}
+.ba-artistic .ba-f-vine::after {content:'';position:absolute;left:2px;top:0;width:67%;height:112%;border-left:.8px solid #a0aa3f;border-bottom:.7px solid #6f7c27;border-radius:49%;transform:rotate(19deg);}
+.ba-artistic .ba-f-leaf {border-radius:8% 78% 13% 73%;background:linear-gradient(65deg,#223c0e,var(--leaf) 49%,#b8bf4c80 51%,var(--leaf) 64%);box-shadow:.7px 1px .4px #091306;}
+.ba-artistic .ba-f-crown {left:96px;top:7px;width:13px;height:27px;border-radius:0 45% 17% 10%;transform:rotate(-27deg);background:linear-gradient(96deg,#263829 0 27%,#9ca18a 30% 58%,#e6dfc5 60% 65%,#5e7059 69%);border-left:.7px solid #d3d7b6;box-shadow:1px 1px #122411;}
+.ba-artistic .ba-f-crown-splinter {left:8px;top:8px;width:7px;height:20px;background:linear-gradient(90deg,#41503d,#c6c7ae 45%,#7c876d 51%);transform:rotate(-34deg);border-radius:12%;}
+.ba-artistic .ba-f-title {left:24px;top:199px;width:159px;height:28px;border:2px solid #414d3d;border-radius:5% 3% 6% 4% / 13% 17% 14% 18%;background:repeating-linear-gradient(31deg,transparent 0 23px,#3a45376b 23.5px,#dfddbd88 24.1px,transparent 25px 39px),linear-gradient(#bec0a7,#9fa68d);box-shadow:inset .6px .8px #e4dfc0b0,0 2px 1px #061207;overflow:hidden;transform:rotate(-.7deg);}
+/* Cathedral: leaded rectangular glazing and eight rounded rose-window petals. */
+.ba-artistic .ba-s-tail {left:7px;top:264px;width:186px;height:55px;overflow:hidden;}
+.ba-artistic .ba-s-tail-left,.ba-artistic .ba-s-tail-right {width:94px;height:34px;top:-3px;border-bottom:2px solid #bea04a;background:repeating-linear-gradient(42deg,transparent 0 18px,#b19b4377 19px,transparent 20px 29px),#15273c;}
+.ba-artistic .ba-s-tail-left {left:0;transform:skewY(24deg);border-left:2px solid #bca04a;}
+.ba-artistic .ba-s-tail-right {right:0;transform:skewY(-24deg);border-right:2px solid #bca04a;}
+.ba-artistic .ba-s-outer {left:7px;top:7px;width:186px;height:282px;border:1px solid #d0ac4e;border-bottom:0;border-radius:50% 50% 0 0 / 18% 18% 0 0;background:#232421;box-shadow:inset 0 0 0 3px #1b2020,inset 0 0 0 4px #9c8439,inset 0 0 0 6px #1d251e,inset 0 0 0 6.8px #b49a48;}
+.ba-artistic .ba-s-window {left:16px;top:17px;width:168px;height:272px;border-radius:50% 50% 0 0 / 17% 17% 0 0;overflow:hidden;background:#18304a;border:.7px solid #a58c3a;}
+.ba-artistic .ba-s-pane {background:linear-gradient(var(--lead),transparent 0 47%,#142c2c 48% 50%,transparent 51%),linear-gradient(132deg,var(--glass) 0 49%,var(--other) 51%);border:1px solid #162d2b;border-radius:9% 15% 8% 11%;box-shadow:inset .6px .6px #c8c6914d;}
+.ba-artistic .ba-s-pane::after {content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 12%,#f1d58729,transparent 63%),repeating-linear-gradient(34deg,transparent 0 3px,#f1dba611 3.4px 3.7px,transparent 4px 8px);}
+.ba-artistic .ba-s-glass-shadow {inset:0;background:linear-gradient(90deg,#0a102833,transparent 30% 70%,#130d233d);}
+.ba-artistic .ba-s-arch {border:1px solid #b79a39;border-radius:50% 50% 0 0 / 23% 23% 0 0;box-shadow:0 0 0 .8px #172322,inset 0 0 0 .7px #1c2b28;}
+.ba-artistic .ba-s-arch::before {content:'';position:absolute;left:48%;top:0;width:.7px;height:100%;background:#bda144;box-shadow:.8px 0 #172a26;}
+.ba-artistic .ba-s-arch::after {content:'';position:absolute;left:0;top:37%;width:100%;height:40%;border-top:.8px solid #bca04a;border-bottom:.8px solid #bca04a;border-radius:48% 48% 0 0 / 30% 30% 0 0;}
+.ba-artistic .ba-s-rose {left:56px;top:26px;width:87px;height:87px;border:1.3px solid #ba9e43;border-radius:50%;background:repeating-conic-gradient(from 14deg,#a02b66 0 12deg,#182b37 12deg 15deg,#236d95 15deg 27deg,#182b37 27deg 30deg);box-shadow:0 0 0 1.2px #142725,inset 0 0 0 3px #292c46,inset 0 0 0 3.8px #c7a74b;}
+.ba-artistic .ba-s-petal {left:32px;top:8px;width:21px;height:35px;border:1px solid #172e29;border-radius:48% 48% 42% 42% / 35% 35% 65% 65%;transform-origin:50% 34px;background:linear-gradient(90deg,var(--petal) 0 48%,#253b32 49% 52%,#286891 53%);box-shadow:inset .5px .5px #e4cd6f88;}
+.ba-artistic .ba-s-petal::after {content:'';position:absolute;left:2px;top:7px;width:11px;height:10px;border-top:.7px solid #22382d;border-bottom:.7px solid #22382d;border-radius:50%;transform:rotate(12deg);}
+.ba-artistic .ba-s-rose-ring {inset:13px;border:1px solid #c4a747;border-radius:50%;box-shadow:0 0 0 1px #203328;}
+.ba-artistic .ba-s-rose-heart {left:33px;top:33px;width:19px;height:19px;border-radius:50%;border:3px solid #d0b348;background:radial-gradient(circle,#2a7a98 0 40%,#173e41 43% 53%,#b99d36 57%);box-shadow:0 0 0 1px #1d3229;}
+.ba-artistic .ba-s-person {inset:0;}
+.ba-artistic .ba-s-torso {left:40px;top:151px;width:121px;height:75px;border-radius:48% 48% 4% 4% / 65% 65% 4% 4%;background:#14394a;border:.8px solid #aa9b5f;overflow:hidden;}
+.ba-artistic .ba-s-shirt-pane {background:linear-gradient(44deg,transparent 0 46%,#16382c 48% 51%,transparent 53%),var(--glass);border:.8px solid #173b2e;border-radius:10% 20% 8% 20%;box-shadow:inset 1px 1px #b4b47122;}
+.ba-artistic .ba-s-neck {left:86px;top:136px;width:27px;height:27px;background:linear-gradient(101deg,#173a4d 0 50%,#193229 51% 54%,#20435a 55%);border-left:.6px solid #a99e62;border-right:.6px solid #a99e62;border-radius:6% 7% 32% 38%;}
+.ba-artistic .ba-s-head {left:77px;top:91px;width:47px;height:64px;border:.7px solid #a29358;border-radius:47% 46% 43% 45% / 34% 35% 63% 62%;background:conic-gradient(from 10deg at 47% 41%,#0d2635 0 19%,#1c3c4f 20% 33%,#091f2e 34% 64%,#1a3447 65% 81%,#0c2533 82%);}
+.ba-artistic .ba-s-face-seam {left:13px;top:7px;width:22px;height:42px;border-top:.6px solid #8c8a5466;border-left:.6px solid #8c8a5466;border-bottom:.6px solid #8c8a5466;border-radius:48% 0 30% 49%;transform:rotate(17deg);}
+.ba-artistic .ba-s-collar {left:81px;top:148px;width:34px;height:18px;border-left:.7px solid #b5a665bb;border-bottom:.7px solid #b5a665bb;transform:rotate(-36deg);border-radius:0 0 20% 20%;}
+.ba-artistic .ba-s-shirt-seam {left:98px;top:165px;width:1px;height:49px;background:#a4975b66;}
+.ba-artistic .ba-s-statground {left:17px;top:228px;width:166px;height:61px;background:linear-gradient(#0c152b99,#0b1625b3);}
+.ba-artistic .ba-s-side {top:59px;width:6px;height:222px;border-left:.7px solid #c6a345;border-right:.7px solid #b59a43;background:repeating-linear-gradient(0deg,transparent 0 5px,#d3b05566 5.1px 5.6px,transparent 6px 10px);}
+.ba-artistic .ba-s-side-left {left:10px;}.ba-artistic .ba-s-side-right {right:10px;}
+.ba-artistic .ba-s-rivet {background:#c5aa53;border-radius:50%;box-shadow:.5px .5px #111e20;}
+.ba-artistic .ba-s-top-arch {left:20px;top:13px;width:160px;height:77px;border-top:.8px solid #c2aa56;border-radius:50% 50% 0 0 / 68% 68% 0 0;}
+.ba-artistic .ba-s-crown {left:93px;top:3px;width:15px;height:15px;border:1px solid #bba465;transform:rotate(45deg);background:#2b2924;box-shadow:0 0 0 1.6px #101c1d;}
+.ba-artistic .ba-s-jewel {inset:3px;border:.65px solid #d2bb73;background:#833f59;border-radius:17%;}
+.ba-artistic .ba-s-sun {left:22px;top:113px;width:15px;height:20px;background:repeating-conic-gradient(from -5deg,#d0b242 0 8deg,transparent 8deg 45deg);border-radius:50%;}
+.ba-artistic .ba-s-sun-core {left:3px;top:6px;width:9px;height:9px;border:1px solid #d0b242;border-radius:50%;background:#263b6b;}
+.ba-artistic .ba-s-banner-left,.ba-artistic .ba-s-banner-right {top:214px;width:24px;height:20px;background:#a78531;border:1px solid #342c19;}
+.ba-artistic .ba-s-banner-left {left:14px;transform:skewY(-15deg);}
+.ba-artistic .ba-s-banner-right {right:14px;transform:skewY(15deg);}
+.ba-artistic .ba-s-nameplate {left:25px;top:213px;width:149px;height:20px;border:2px solid #6c5825;background:linear-gradient(#ddc782,#c1a457);box-shadow:0 0 0 1px #252a1c,inset 0 0 0 .65px #f3d98d;}
+.ba-artistic .ba-s-nameplate::after {content:'';position:absolute;inset:0;background:repeating-linear-gradient(113deg,transparent 0 6px,#715d3326 6.4px 6.7px,transparent 7px 11px);}
+.ba-artistic .ba-s-bottom-left,.ba-artistic .ba-s-bottom-right {top:295px;width:86px;height:.8px;background:#c5a950;box-shadow:0 3px #746832;}
+.ba-artistic .ba-s-bottom-left {left:15px;transform:rotate(24deg);}
+.ba-artistic .ba-s-bottom-right {right:15px;transform:rotate(-24deg);}

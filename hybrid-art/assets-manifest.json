@@ -1,0 +1,523 @@
+{
+  "source": "hybrid-art/atlas-separated.png",
+  "width": 1122,
+  "height": 1402,
+  "cards": [
+    {
+      "theme": "parchment",
+      "crop": {
+        "left": 20,
+        "top": 93,
+        "width": 256,
+        "height": 377
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/parchment.webp",
+          "bytes": 33038,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/parchment.avif",
+          "bytes": 18709,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/parchment@2x.webp",
+          "bytes": 79470,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/parchment@2x.avif",
+          "bytes": 40204,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "cyber",
+      "crop": {
+        "left": 291,
+        "top": 84,
+        "width": 252,
+        "height": 385
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/cyber.webp",
+          "bytes": 31242,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/cyber.avif",
+          "bytes": 17150,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/cyber@2x.webp",
+          "bytes": 69808,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/cyber@2x.avif",
+          "bytes": 38232,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "blueprint",
+      "crop": {
+        "left": 559,
+        "top": 95,
+        "width": 249,
+        "height": 378
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/blueprint.webp",
+          "bytes": 21200,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/blueprint.avif",
+          "bytes": 10359,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/blueprint@2x.webp",
+          "bytes": 46454,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/blueprint@2x.avif",
+          "bytes": 23889,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "comic",
+      "crop": {
+        "left": 824,
+        "top": 85,
+        "width": 294,
+        "height": 395
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/comic.webp",
+          "bytes": 31654,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/comic.avif",
+          "bytes": 16024,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/comic@2x.webp",
+          "bytes": 69218,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/comic@2x.avif",
+          "bytes": 33684,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "forest",
+      "crop": {
+        "left": 2,
+        "top": 500,
+        "width": 308,
+        "height": 402
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/forest.webp",
+          "bytes": 37912,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/forest.avif",
+          "bytes": 21363,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/forest@2x.webp",
+          "bytes": 91376,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/forest@2x.avif",
+          "bytes": 46604,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "doodle",
+      "crop": {
+        "left": 310,
+        "top": 498,
+        "width": 244,
+        "height": 424
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/doodle.webp",
+          "bytes": 33730,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/doodle.avif",
+          "bytes": 20066,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/doodle@2x.webp",
+          "bytes": 80554,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/doodle@2x.avif",
+          "bytes": 43097,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "cathedral",
+      "crop": {
+        "left": 579,
+        "top": 488,
+        "width": 219,
+        "height": 444
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/cathedral.webp",
+          "bytes": 41364,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/cathedral.avif",
+          "bytes": 23014,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/cathedral@2x.webp",
+          "bytes": 96686,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/cathedral@2x.avif",
+          "bytes": 48750,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "ink",
+      "crop": {
+        "left": 842,
+        "top": 499,
+        "width": 229,
+        "height": 427
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/ink.webp",
+          "bytes": 28732,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/ink.avif",
+          "bytes": 15415,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/ink@2x.webp",
+          "bytes": 65382,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/ink@2x.avif",
+          "bytes": 34325,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "hologram",
+      "crop": {
+        "left": 38,
+        "top": 935,
+        "width": 218,
+        "height": 434
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/hologram.webp",
+          "bytes": 33246,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/hologram.avif",
+          "bytes": 15645,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/hologram@2x.webp",
+          "bytes": 74356,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/hologram@2x.avif",
+          "bytes": 34068,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "steampunk",
+      "crop": {
+        "left": 286,
+        "top": 935,
+        "width": 222,
+        "height": 444
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/steampunk.webp",
+          "bytes": 33922,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/steampunk.avif",
+          "bytes": 17524,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/steampunk@2x.webp",
+          "bytes": 78680,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/steampunk@2x.avif",
+          "bytes": 37416,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "cosmic",
+      "crop": {
+        "left": 546,
+        "top": 939,
+        "width": 253,
+        "height": 431
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/cosmic.webp",
+          "bytes": 34438,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/cosmic.avif",
+          "bytes": 20104,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/cosmic@2x.webp",
+          "bytes": 77230,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/cosmic@2x.avif",
+          "bytes": 44283,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "theme": "arcade",
+      "crop": {
+        "left": 841,
+        "top": 947,
+        "width": 237,
+        "height": 418
+      },
+      "files": [
+        {
+          "format": "webp",
+          "scale": 1,
+          "file": "hybrid/assets/arcade.webp",
+          "bytes": 29426,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "avif",
+          "scale": 1,
+          "file": "hybrid/assets/arcade.avif",
+          "bytes": 16268,
+          "width": 200,
+          "height": 320
+        },
+        {
+          "format": "webp",
+          "scale": 2,
+          "file": "hybrid/assets/arcade@2x.webp",
+          "bytes": 63392,
+          "width": 400,
+          "height": 640
+        },
+        {
+          "format": "avif",
+          "scale": 2,
+          "file": "hybrid/assets/arcade@2x.avif",
+          "bytes": 35023,
+          "width": 400,
+          "height": 640
+        }
+      ]
+    }
+  ]
+}

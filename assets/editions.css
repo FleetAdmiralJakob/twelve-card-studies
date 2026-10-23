@@ -1,0 +1,23 @@
+.edition-nav{display:flex;align-items:center;gap:16px;font-size:12px;letter-spacing:.25px;white-space:nowrap}
+.edition-nav a{color:#a9b1ac;text-decoration:none;padding:8px 0}
+.edition-nav a:hover{color:#f0db9f}
+.edition-nav [aria-current]{color:#f0db9f}
+.edition-nav a:last-child{color:#81958e}
+.collection-footer{gap:12px}
+.collection-count{font-size:10px;letter-spacing:1.2px}
+@media(max-width:900px){.collection-count{display:none}.collection-footer{justify-content:center}}
+@media(max-width:700px){.collection-footer{height:auto;min-height:74px;flex-wrap:wrap;padding:10px 12px;gap:0 20px}.edition-nav{width:100%;justify-content:center;gap:16px;font-size:12px}.text-button{padding:4px 0}}
+
+/* Progressive enhancements: layout and drawing remain complete without them. */
+@supports (color:color-mix(in oklch,white,black)) {
+  html:not([data-css-fallback]) .card:focus-visible {outline-color:color-mix(in oklch,var(--ink) 65%,white);}
+}
+@media(max-width:700px) {
+  @supports (content-visibility:auto) and (contain-intrinsic-size:auto 284px) {
+    html[data-enable-cv]:not([data-css-fallback]) #gallery .card-slot {content-visibility:auto;contain-intrinsic-size:auto 284px;overflow-clip-margin:20px;}
+  }
+}
+.card,.detail-artwork .card{filter:none}
+.card-motion{will-change:auto;transform:none;transition:none}
+.card-slot,.card-slot:hover,.card-slot:focus-within{filter:none;transition:none}
+dialog::backdrop{background:#06090b;backdrop-filter:none}

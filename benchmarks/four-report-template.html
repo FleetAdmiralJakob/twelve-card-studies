@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Four editions of The Twelve: drawing constraints, measured page traffic, timing, and reproducible benchmark details.">
+  <title>The Twelve — Four-edition comparison</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #e8e5db;
+      --muted: #b0bbb5;
+      --gold: #dec58c;
+      --green: #b7c9ac;
+      --ground: #0c1213;
+      --panel: #121b1c;
+      --line: #33403e;
+      --quiet-line: #253230;
+      --warning: #ebbc9c;
+      font-family: "Trebuchet MS", Verdana, sans-serif;
+      color: var(--paper);
+      background: var(--ground);
+      font-synthesis: none;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: var(--gold); text-underline-offset: .25em; text-decoration-thickness: 1px; }
+    a:hover { color: #fff0cb; }
+    button, select { font: inherit; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+    ::selection { color: var(--ground); background: var(--gold); }
+    [hidden] { display: none !important; }
+    .skip { position: absolute; top: -100px; left: 20px; z-index: 2; padding: 14px; background: var(--panel); }
+    .skip:focus { top: 15px; }
+    .shell { width: min(1320px, 100%); margin-inline: auto; padding-inline: clamp(18px, 4vw, 56px); }
+    .masthead { padding-block: 26px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .wordmark { font: 23px Georgia, "Times New Roman", serif; letter-spacing: -.8px; color: var(--paper); text-decoration: none; white-space: nowrap; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 12px; line-height: 1.8; }
+    nav a { text-decoration: none; }
+    nav [aria-current] { color: var(--paper); text-decoration: underline; }
+    main { padding-bottom: 20px; }
+    .hero { padding-block: clamp(42px, 7vw, 84px) 32px; display: grid; grid-template-columns: 1fr 245px; align-items: end; gap: 36px; }
+    .eyebrow { margin: 0 0 22px; font-size: 10px; line-height: 1.6; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font: 400 clamp(42px, 5.8vw, 76px)/1.04 Georgia, "Times New Roman", serif; letter-spacing: -.045em; margin-bottom: 24px; }
+    h1 em { color: var(--gold); font-weight: 400; }
+    p { color: var(--muted); font-size: 14px; line-height: 1.75; }
+    .intro { max-width: 720px; font-size: 16px; margin-bottom: 0; }
+    .issue { border-left: 1px solid var(--line); padding-left: 26px; }
+    .issue-number { display: block; font: 100px/.9 Georgia, "Times New Roman", serif; color: var(--gold); letter-spacing: -.08em; margin: 0 0 20px; }
+    .issue p { font-size: 12px; margin: 0; }
+    .edition-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--line); margin-block: 28px; }
+    .edition { padding: 26px 22px 24px; border-right: 1px solid var(--line); display: flex; flex-direction: column; }
+    .edition:first-child { padding-left: 0; }
+    .edition:last-child { padding-right: 0; border-right: 0; }
+    .edition-index { font-size: 10px; letter-spacing: .13em; color: var(--muted); margin-bottom: 15px; }
+    .edition h3 { font: 400 26px/1.13 Georgia, "Times New Roman", serif; letter-spacing: -.03em; min-height: 60px; margin-bottom: 14px; }
+    .edition p { font-size: 12px; line-height: 1.8; }
+    .edition .rule { color: var(--paper); }
+    .edition-links { margin-top: auto; padding-top: 10px; display: flex; flex-direction: column; gap: 12px; font-size: 12px; }
+    .edition-links a { width: fit-content; }
+    .scope { max-width: 920px; font-size: 13px; margin-bottom: 0; }
+    section { margin-top: 58px; }
+    .section-head { display: flex; align-items: baseline; gap: 17px; margin-bottom: 18px; }
+    .section-number { color: var(--gold); font: 13px "Courier New", monospace; flex-shrink: 0; }
+    h2 { font: 400 clamp(26px, 3vw, 36px)/1.18 Georgia, "Times New Roman", serif; letter-spacing: -.025em; margin: 0; }
+    .section-intro { max-width: 880px; margin-bottom: 22px; }
+    .controls { display: flex; flex-wrap: wrap; align-items: end; gap: 18px 28px; background: var(--panel); border-block: 1px solid var(--line); padding: 20px; }
+    .controls label { display: flex; flex-direction: column; gap: 9px; color: var(--muted); font-size: 12px; }
+    select { min-height: 44px; min-width: 210px; max-width: 100%; padding: 10px 36px 10px 12px; border: 1px solid #66756f; border-radius: 0; background: var(--ground); color: var(--paper); font-size: 14px; cursor: pointer; }
+    .download { min-height: 44px; margin-left: auto; padding: 12px 18px; background: var(--gold); color: #18201d; font-size: 12px; font-weight: 700; border: 1px solid var(--gold); cursor: pointer; }
+    .download:hover { background: #ecd8ad; }
+    .download:disabled { cursor: not-allowed; background: var(--line); color: var(--muted); border-color: var(--line); }
+    .selection-status { margin: 16px 0 10px; font-size: 13px; color: var(--paper); min-height: 24px; }
+    .notice { border-left: 2px solid var(--gold); background: var(--panel); padding: 14px 18px; font-size: 13px; line-height: 1.7; color: var(--paper); }
+    .notice.warning { border-color: var(--warning); color: var(--warning); }
+    .subhead { font-size: 18px; font-weight: 400; margin-block: 30px 10px; }
+    .tablewrap { overflow-x: auto; border: 1px solid var(--line); margin-top: 16px; scrollbar-color: #6b7d73 var(--panel); }
+    table { width: 100%; min-width: 880px; border-collapse: collapse; text-align: left; font-size: 12px; }
+    caption { text-align: left; padding: 15px 18px; background: var(--panel); color: var(--muted); font-size: 12px; line-height: 1.5; border-bottom: 1px solid var(--line); }
+    th, td { padding: 18px 16px; border-bottom: 1px solid var(--quiet-line); vertical-align: top; }
+    thead th { background: var(--panel); font-size: 11px; font-weight: 400; line-height: 1.5; color: var(--muted); }
+    th:first-child { min-width: 165px; }
+    tbody th { font-weight: 400; color: var(--gold); line-height: 1.5; }
+    tbody tr:last-child > * { border-bottom: 0; }
+    tbody tr:hover { background: #172120; }
+    .network-table td:nth-child(2) { background: #b5c79708; }
+    .network-table td:nth-child(2) .number { color: #e4d4ac; }
+    .number { display: block; color: var(--paper); font-size: 19px; line-height: 1.3; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .range, .sample { display: block; color: var(--muted); font-size: 10px; line-height: 1.6; margin-top: 5px; font-variant-numeric: tabular-nums; }
+    .sample { color: var(--green); margin-top: 3px; }
+    .unavailable { display: block; color: var(--muted); line-height: 1.6; }
+    .legend { font-size: 12px; margin-block: 12px 0; max-width: 1050px; }
+    .legend strong, .method-card strong { color: var(--paper); font-weight: 400; }
+    .definitions { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 36px; margin-top: 24px; }
+    .definitions p { font-size: 12px; margin-bottom: 0; }
+    .definitions strong { display: block; color: var(--paper); font-size: 13px; font-weight: 400; margin-bottom: 5px; }
+    .compact-table { min-width: 640px; }
+    .metadata { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; border-top: 1px solid var(--line); margin: 24px 0; }
+    .metadata div { padding: 15px 0; border-bottom: 1px solid var(--quiet-line); min-width: 0; }
+    dt { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .09em; line-height: 1.6; }
+    dd { margin: 5px 0 0; font-size: 13px; line-height: 1.7; overflow-wrap: anywhere; }
+    .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
+    .method-card { border-top: 1px solid var(--line); padding-top: 18px; margin-top: 14px; }
+    .method-card h3 { color: var(--gold); font-size: 14px; font-weight: 400; margin-bottom: 10px; }
+    .method-card p { font-size: 13px; }
+    details { border-top: 1px solid var(--line); margin-top: 14px; }
+    summary { padding: 18px 3px; cursor: pointer; color: var(--gold); font-size: 13px; line-height: 1.7; }
+    summary:hover { color: #fff0cb; }
+    pre { max-height: 480px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; background: var(--panel); padding: 18px; margin: 0 0 20px; color: var(--muted); font: 11px/1.7 "Courier New", monospace; tab-size: 2; }
+    code { font: .92em "Courier New", monospace; color: var(--paper); overflow-wrap: anywhere; }
+    footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 18px; border-top: 1px solid var(--gold); margin-top: 44px; padding-block: 24px 36px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    footer p { font-size: inherit; margin: 0; }
+    @media (max-width: 1020px) {
+      .masthead { align-items: flex-start; }
+      nav { justify-content: flex-end; column-gap: 16px; }
+      .hero { grid-template-columns: 1fr 150px; gap: 24px; }
+      .issue-number { font-size: 80px; }
+      .edition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .edition:nth-child(odd) { padding-left: 0; }
+      .edition:nth-child(even) { padding-right: 0; padding-left: 24px; border-right: 0; }
+      .edition:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .edition h3 { min-height: 0; }
+      .download { margin-left: 0; }
+    }
+    @media (max-width: 620px) {
+      .masthead { flex-direction: column; padding-block: 20px; gap: 16px; }
+      nav { justify-content: flex-start; font-size: 11px; gap: 10px 18px; }
+      .hero { display: block; padding-top: 40px; }
+      .hero .issue { display: none; }
+      .intro { font-size: 14px; }
+      .edition-grid { grid-template-columns: 1fr; margin-top: 14px; }
+      .edition, .edition:nth-child(even), .edition:last-child { padding: 23px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .edition:last-child { border-bottom: 0; }
+      .edition-links { flex-direction: row; flex-wrap: wrap; gap: 18px; padding-top: 0; }
+      .edition h3 { font-size: 28px; margin-bottom: 12px; }
+      .edition-index { margin-bottom: 10px; }
+      section { margin-top: 42px; }
+      .controls { padding: 18px; gap: 18px; }
+      .controls label, select, .download { width: 100%; min-width: 0; }
+      .definitions, .metadata, .method-grid { grid-template-columns: 1fr; }
+      th, td { padding: 15px 12px; }
+      .number { font-size: 17px; }
+      .section-head { gap: 11px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      a, button { transition: color .15s ease, background-color .15s ease; }
+    }
+    @media print {
+      :root { color-scheme: light; --ground: #fff; --paper: #18201d; --muted: #42534a; --gold: #674e1c; --green: #3a5035; --panel: #f4f5f0; --line: #adb5ae; --quiet-line: #cbd1cb; }
+      .shell { width: 100%; padding-inline: 0; }
+      .hero { padding-top: 24px; }
+      h1 { font-size: 44px; }
+      .download, .skip { display: none; }
+      .tablewrap { overflow: visible; }
+      table, .compact-table { min-width: 0; font-size: 9px; }
+      th:first-child { min-width: 0; }
+      th, td { padding: 8px 5px; }
+      .number { font-size: 13px; }
+      .network-table td:nth-child(2) .number { color: var(--gold); }
+      .edition-grid { grid-template-columns: repeat(2, 1fr); }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to report</a>
+  <div class="shell">
+    <header class="masthead">
+      <a class="wordmark" href="/">The Twelve.</a>
+      <nav aria-label="Editions and report">
+        <a href="/">01 · SVG + CSS</a>
+        <a href="/css/">02 · CSS + Polygone</a>
+        <a href="/basic/">03 · CSS-Grundformen</a>
+        <a href="/hybrid/">04 · Hybrid</a>
+        <a href="/compare/" aria-current="page">Comparison</a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">The Twelve / Drawing, delivery &amp; interaction</p>
+          <h1>Four ways to draw.<br><em>One shared workload.</em></h1>
+          <p class="intro">The same twelve-card idea, built with four different sets of drawing rules. Compare what each edition uses, what the browser downloads, and the timings observed on this machine.</p>
+        </div>
+        <aside class="issue" aria-label="Report scope">
+          <span class="issue-number" aria-hidden="true">04</span>
+          <p>Four editions.<br>Two browser engines.<br>Desktop and mobile layouts.<br>Measured separately.</p>
+        </aside>
+      </div>
+
+      <div class="edition-grid" aria-label="Edition drawing constraints">
+        <article class="edition">
+          <div class="edition-index">01 / VECTOR ILLUSTRATION</div>
+          <h3>SVG + CSS</h3>
+          <p>Handwritten SVG illustrations, rendered as cached SVG images. Live HTML text and CSS layout surround the artwork.</p>
+          <p class="rule">SVG contours are allowed. Card illustrations use no raster images.</p>
+          <div class="edition-links"><a href="/">Open edition <span aria-hidden="true">↗</span></a><a href="/source/svg" download aria-label="Download source for SVG + CSS">Download source</a></div>
+        </article>
+        <article class="edition">
+          <div class="edition-index">02 / CSS WITH CONTOURS</div>
+          <h3>CSS + Polygone</h3>
+          <p>HTML elements drawn with CSS gradients, polygon clips, masks, borders and shadows. Explicit contour definitions are allowed.</p>
+          <p class="rule">No SVG, canvas or image artwork. Polygon and mask shapes remain part of the drawing toolkit.</p>
+          <div class="edition-links"><a href="/css/">Open edition <span aria-hidden="true">↗</span></a><a href="/source/css" download aria-label="Download source for CSS + Polygone">Download source</a></div>
+        </article>
+        <article class="edition">
+          <div class="edition-index">03 / BASIC CSS SHAPES</div>
+          <h3>CSS-Grundformen</h3>
+          <p>Boxes, ellipses, borders, rounded corners, gradients, shadows and transforms. Ordinary CSS geometry is allowed.</p>
+          <p class="rule">No SVG, images, canvas, masks, clip paths or contour point lists, including polygon(), path() and shape().</p>
+          <div class="edition-links"><a href="/basic/">Open edition <span aria-hidden="true">↗</span></a><a href="/source/basic" download aria-label="Download source for CSS-Grundformen">Download source</a></div>
+        </article>
+        <article class="edition">
+          <div class="edition-index">04 / LIVE HTML &amp; ASSETS</div>
+          <h3>Hybrid HTML + assets</h3>
+          <p>Cleaned, generated artwork derived from the reference, paired with editable HTML metadata and bundled SVG flags. Responsive images and font files load as external assets.</p>
+          <p class="rule">Image assets are allowed. The source ZIP includes the HTML and its assets; the measured traffic includes the resources each viewport selects.</p>
+          <div class="edition-links"><a href="/hybrid/">Open edition <span aria-hidden="true">↗</span></a><a href="/source/hybrid" download aria-label="Download source ZIP for Hybrid HTML + assets">Download source · ZIP</a></div>
+        </article>
+      </div>
+      <p class="scope">These are drawing constraints, not a claim of pixel-identical artwork. Basic CSS shapes are still geometry; “no contour paths” does not mean mathematically vector-free. Timing alone cannot establish visual fidelity.</p>
+      <p class="scope">V4 uses image-assisted artwork derived from the supplied reference, with roughly 400-pixel-high source illustrations. Its 1280-pixel-high transparent PNG exports keep live text and flags crisp, but upscaling does not restore missing illustration detail. The portraits and painted textures are part of the image assets; the player fields remain independently editable.</p>
+
+      <section aria-labelledby="measurements-title">
+        <div class="section-head"><span class="section-number" aria-hidden="true">01</span><h2 id="measurements-title">Read the measurements</h2></div>
+        <p class="section-intro">Select one engine and viewport. Each numeric cell shows the median across available runs, followed by the minimum–maximum range and sample count. Each engine keeps its own results and build fingerprints.</p>
+        <p class="notice" id="navigation-history">V1–V3 footer navigation was updated after timing to link all four editions and this report. The figures describe the archived measured builds; the updated navigation has not been benchmarked. Artwork and interaction code outside the footer are byte-identical to the measured snapshots. V4 still matches its measured HTML exactly.</p>
+        <div class="controls" role="group" aria-label="Measurement selection">
+          <label for="engine">Browser engine<select id="engine"><option value="main">Microsoft Edge</option><option value="webkit">Windows WebKit</option></select></label>
+          <label for="profile">Viewport<select id="profile"><option value="desktop">Desktop · 1080 × 792</option><option value="mobile">Mobile · 390 × 844</option></select></label>
+          <button class="download" id="download" type="button" disabled aria-describedby="download-help">Download all data · JSON</button>
+        </div>
+        <p class="selection-status" id="selection-status" role="status" aria-live="polite" aria-atomic="true">No measurements embedded.</p>
+        <p id="data-notice" class="notice">This is the report template. Measured results appear only when a completed dataset is embedded.</p>
+        <noscript><p class="notice">JavaScript is required to read the embedded measurements and change the report controls. The drawing rules and measurement definitions are available below.</p></noscript>
+        <p class="legend" id="download-help">The download contains the complete embedded JSON for both engines, including individual runs. It is created locally in this page; no data endpoint is required.</p>
+
+        <h3 class="subhead" id="network-title">What the page actually loads</h3>
+        <p class="legend">The primary load-size comparison is <strong>cold total encoded body bytes</strong>: the document plus every HTTP resource requested by the cold snapshot, including image and font assets. HTML file size alone cannot answer this question.</p>
+        <div class="tablewrap" role="region" aria-labelledby="network-title" tabindex="0">
+          <table class="network-table">
+            <caption>Network totals · KiB = 1,024 bytes · median, min–max, available runs</caption>
+            <thead><tr><th scope="col">Edition</th><th scope="col">Cold total<br>encoded · KiB</th><th scope="col">Cold<br>requests</th><th scope="col">Workload<br>encoded · KiB</th><th scope="col">Workload<br>requests</th><th scope="col">Cold transfer<br>bytes · KiB</th></tr></thead>
+            <tbody id="network-metrics"><tr><td colspan="6">Measurements unavailable until a completed dataset is embedded.</td></tr></tbody>
+          </table>
+        </div>
+        <p class="legend">The cold snapshot is taken after load, font readiness, gallery image decoding and three animation-frame callbacks, before the interaction workload. Workload totals are shown separately as recorded in <code>network.workload</code>; the report does not add them to the cold totals.</p>
+        <p class="legend">Encoded body bytes exclude response headers. Transfer bytes are a separate measurement and may be unavailable in an engine. Playwright <code>request.sizes()</code> collected after timing is preferred, with Resource Timing as a fallback. Incomplete totals and missing values stay unavailable, never zero.</p>
+        <p class="legend" id="network-coverage">Collection sources and completeness appear with the selected dataset.</p>
+
+        <h3 class="subhead" id="timing-title">Load and interaction</h3>
+        <div class="tablewrap" role="region" aria-labelledby="timing-title" tabindex="0">
+          <table>
+            <caption>Timing · milliseconds · median of each per-run measurement, min–max, available runs</caption>
+            <thead><tr><th scope="col">Edition</th><th scope="col">First content<br>FCP</th><th scope="col">Gallery ready<br>observed</th><th scope="col">First opens<br>two-frame p95</th><th scope="col">First opens<br>decode p95</th><th scope="col">Warm browse<br>interval p95</th><th scope="col">Scroll<br>interval p95</th></tr></thead>
+            <tbody id="timing-metrics"><tr><td colspan="7">Measurements unavailable until a completed dataset is embedded.</td></tr></tbody>
+          </table>
+        </div>
+        <div class="definitions">
+          <p><strong>Load observations</strong>FCP is the first contentful paint, when the engine exposes it. Missing FCP is unavailable. Gallery ready is the observed time after fonts, gallery image decoding and three frame callbacks; it is not a standardized Web Vital.</p>
+          <p><strong>First opens</strong>Each card is opened once. Two-frame latency runs from the click to two animation-frame callbacks. Decode time runs from the same click through those callbacks and detail-image decoding; it is not decode CPU time. These are per-run p95 values, not INP or proof that every pixel has reached a display.</p>
+          <p><strong>Warm browse and scroll</strong>Browsing happens after the cards have been opened once. Scroll intervals are recorded only when the page has enough vertical overflow. A missing scroll sample is unavailable, not a zero-cost result.</p>
+          <p><strong>Read the statistic correctly</strong>A cell is the median of the runs’ p95 values where its heading says p95; samples are not pooled. Ranges are observed min–max, not confidence intervals. Synthetic headless animation-frame intervals are neither screen FPS nor INP.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="surfaces-title">
+        <div class="section-head"><span class="section-number" aria-hidden="true">02</span><h2 id="surfaces-title">DOM and decoded image surfaces</h2></div>
+        <p class="section-intro">Element counts describe the live document during the archived measurements, before the footer navigation update. The image estimate describes decoded image surfaces. Neither measurement is the browser’s actual memory usage.</p>
+        <div class="tablewrap" role="region" aria-labelledby="surfaces-title" tabindex="0">
+          <table>
+            <caption>Live elements and decoded image estimates · median, min–max, available runs</caption>
+            <thead><tr><th scope="col">Edition</th><th scope="col">Document<br>initial elements</th><th scope="col">Gallery<br>live elements</th><th scope="col">Gallery<br>image elements</th><th scope="col">Gallery<br>unique image sources</th><th scope="col">Gallery estimate<br>decoded · KiB</th><th scope="col">After workload<br>decoded · KiB</th></tr></thead>
+            <tbody id="surface-metrics"><tr><td colspan="7">Measurements unavailable until a completed dataset is embedded.</td></tr></tbody>
+          </table>
+        </div>
+        <p class="legend"><strong>Estimated decoded image surface bytes</strong> = natural width × natural height × 4, summed once per unique image source observed by that point. Natural dimensions are density-corrected; responsive source files can contain more pixels. This is an RGBA surface estimate, not actual process or GPU memory. It excludes font memory, CSS background images, browser bookkeeping, extra decoded copies and other rendering surfaces. A measured zero is valid; a missing estimate is unavailable.</p>
+        <p class="legend">SVG nodes inside an image are not live HTML document elements. CSS drawing elements do count in the DOM. The resulting counts do not establish equivalent rendering or memory costs. Image counts and unique-source counts after the workload are also preserved in the raw run details.</p>
+      </section>
+
+      <section aria-labelledby="artifact-title">
+        <div class="section-head"><span class="section-number" aria-hidden="true">03</span><h2 id="artifact-title">HTML artifacts, separately</h2></div>
+        <p class="section-intro">These are the raw and precompressed HTML files for the selected engine’s measured builds. Embedded assets contribute to the file; external image and font files do not. These sizes cannot establish total page cost. Use the network totals above for that comparison.</p>
+        <div class="tablewrap" role="region" aria-labelledby="artifact-title" tabindex="0">
+          <table class="compact-table">
+            <caption>HTML artifact sizes only · KiB · no aggregation across engines</caption>
+            <thead><tr><th scope="col">Edition</th><th scope="col">HTML raw</th><th scope="col">HTML gzip</th><th scope="col">HTML Brotli</th><th scope="col">Run fingerprints</th></tr></thead>
+            <tbody id="artifact-metrics"><tr><td colspan="5">Measured-build artifacts unavailable until a completed dataset is embedded.</td></tr></tbody>
+          </table>
+        </div>
+        <p class="legend">A verified run has matching local and served SHA-256 hashes, equal to the measured build fingerprint. External response bodies are also fingerprinted where available and checked for consistency across measured runs. These records describe the measured files; they do not assert that a later deployment still serves the same assets. Full hashes and verification records appear below.</p>
+        <p class="legend">V1–V3 measured hashes and sizes are validated against the immutable HTML in <code>versions/2026-10-23-before-fourth/</code>; compressed sizes are reproduced with the build scripts’ default Node compression. Their current HTML has separate fingerprints: only bytes inside the collection footer may differ, including inline wrapping styles. Current compressed files must decode to current HTML. Any difference outside the footer, or anywhere in V4, fails validation. No size, DOM, network or timing figure has been substituted with a measurement of the updated navigation.</p>
+      </section>
+
+      <section aria-labelledby="method-title">
+        <div class="section-head"><span class="section-number" aria-hidden="true">04</span><h2 id="method-title">Environment and method</h2></div>
+        <p class="section-intro">Results belong to the recorded machine, engine, files and workload. This report uses only the two embedded four-edition datasets; it does not mix in earlier benchmarks or separate experiments.</p>
+        <dl class="metadata" id="environment"><div><dt>Environment</dt><dd>No completed dataset embedded.</dd></div></dl>
+        <p id="order-note" class="notice">Run counts and order balance will be shown from the selected dataset.</p>
+        <div class="method-grid">
+          <div class="method-card">
+            <h3>Fresh contexts, shared machine</h3>
+            <p>The protocol uses a fresh browser context per run, headless mode and device-pixel ratio 1, with no CPU or network throttling. A fresh context is not a fresh browser process or operating system cache. Process isolation is off, and the machine is <strong>not isolated</strong> from other work. “Cold” describes this protocol’s first-load snapshot, not a guarantee of an untouched machine.</p>
+          </div>
+          <div class="method-card">
+            <h3>The same interaction sequence</h3>
+            <p>The common workload first opens all twelve cards, then makes twelve next-card changes over 180 animation frames with the cards warmed. It samples 180 scroll frames when there is enough vertical overflow. Exact recorded workload settings, baseline frame intervals, synchronous handler timings, individual first opens and functional checks are included in the run details.</p>
+          </div>
+          <div class="method-card">
+            <h3>Two engines, two viewports</h3>
+            <p><strong>Windows WebKit is not Safari on a Mac.</strong> It is an additional engine test on this machine. A mobile viewport tests the responsive layout; it does not emulate a physical phone’s CPU, network or display. Headless callback timings do not establish display FPS.</p>
+          </div>
+          <div class="method-card">
+            <h3>What this report can establish</h3>
+            <p>The data can describe the supplied editions under the recorded conditions. It cannot establish a universal performance winner or visual equivalence. Only a Discord message was supplied, not an actual site or implementation to inspect; this report makes no verdict about that implementation.</p>
+          </div>
+        </div>
+        <details><summary>Recorded method, workload and run coverage</summary><pre id="method-details" tabindex="0">No completed dataset embedded.</pre></details>
+        <details><summary>Measured and current build fingerprints, footer comparison and per-run verification</summary><pre id="fingerprint-details" tabindex="0">No completed dataset embedded.</pre></details>
+        <details><summary>Selected runs: checks, errors, resources and individual timings</summary><p class="legend">These are the original run records for the selected engine and viewport, including network collection sources, completeness flags, failures, resources and decoded-image snapshots. They are not interpreted as an independent drawing-technique audit.</p><pre id="run-details" tabindex="0">No completed dataset embedded.</pre></details>
+        <details id="scroll-diagnostic" hidden><summary>Additional V4 mobile-scroll investigation · separate from the main comparison</summary><p class="legend">Variable V4 scrolling in the Windows WebKit mobile runs prompted a separate, balanced 16-run follow-up. It compared the unchanged layout with content-visibility, paint containment and a forced compositing layer, using the same interaction workload. Scroll p95 medians and ranges follow below. No CSS change was adopted: these trials did not show a consistent improvement over the unchanged layout. They do not establish the cause of the earlier variation or replace the original results.</p><div id="scroll-diagnostic-summary" class="legend"></div><pre id="scroll-diagnostic-details" tabindex="0"></pre></details>
+      </section>
+    </main>
+    <footer><p id="generated-at">Report template · no measured results embedded</p><a href="/hybrid/">Explore the hybrid edition <span aria-hidden="true">↗</span></a></footer>
+  </div>
+  <script>
+    'use strict';
+    const DATA = /*FOUR_BENCHMARK_DATA*/null;
+    const EDITIONS = [
+      { id: 'svg', label: 'SVG + CSS' },
+      { id: 'css', label: 'CSS + Polygone' },
+      { id: 'basic', label: 'CSS-Grundformen' },
+      { id: 'hybrid', label: 'Hybrid HTML + assets' }
+    ];
+    const PROFILES = ['desktop', 'mobile'];
+    const byId = id => document.getElementById(id);
+    const finite = value => typeof value === 'number' && Number.isFinite(value);
+    const nonnegative = value => finite(value) && value >= 0;
+    const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+    const format = (value, digits = 1) => value.toLocaleString('en-GB', { minimumFractionDigits: digits, maximumFractionDigits: digits });
+    const median = values => {
+      const sorted = [...values].sort((a, b) => a - b);
+      const middle = Math.floor(sorted.length / 2);
+      return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+    };
+    const unavailable = note => '<span class="unavailable">Unavailable</span>' + (note ? '<span class="range">' + escapeHTML(note) + '</span>' : '');
+    const metric = (runs, getter, options = {}) => {
+      const values = runs.map(getter).filter(nonnegative);
+      if (!values.length) return unavailable(runs.length ? '0/' + runs.length + ' runs available' : 'No runs in this selection');
+      const scale = options.scale || 1;
+      const digits = options.digits === undefined ? 1 : options.digits;
+      const print = value => format(value / scale, digits);
+      return '<span class="number">' + print(median(values)) + '</span>' +
+        '<span class="range">' + print(Math.min(...values)) + '–' + print(Math.max(...values)) + ' min–max</span>' +
+        '<span class="sample">' + values.length + '/' + runs.length + ' runs available</span>';
+    };
+    const counts = { digits: 1 };
+    const bytes = { scale: 1024, digits: 2 };
+    const artifact = value => nonnegative(value) ? '<span class="number">' + format(value / 1024, 2) + '</span><span class="range">KiB · ' + format(value, 0) + ' bytes</span>' : unavailable();
+    const networkValue = (run, phase, field) => run.network?.[phase]?.complete === true ? run.network[phase][field] : null;
+    const row = (edition, cells) => '<tr><th scope="row">' + escapeHTML(edition.label) + '</th>' + cells.map(cell => '<td>' + cell + '</td>').join('') + '</tr>';
+    const record = (label, value) => '<div><dt>' + escapeHTML(label) + '</dt><dd>' + escapeHTML(value ?? 'Unavailable') + '</dd></div>';
+    const pretty = value => JSON.stringify(value, null, 2);
+    const stamp = value => {
+      if (!value) return 'Unavailable';
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString('en-GB', { timeZone: 'UTC', dateStyle: 'medium', timeStyle: 'medium' }) + ' UTC';
+    };
+    const flag = value => value === true ? 'yes' : value === false ? 'no' : 'unavailable';
+    const validRoot = DATA !== null && typeof DATA === 'object' && DATA.schemaVersion === 1;
+    const completed = source => validRoot && source?.status === 'complete' && Array.isArray(source.runs);
+    const matching = (run, build) => run.verification?.matches === true &&
+      typeof build?.sha256 === 'string' && /^[a-f0-9]{64}$/i.test(build.sha256) &&
+      run.verification.localSha256 === build.sha256 && run.verification.servedSha256 === build.sha256;
+
+    function render() {
+      const engineKey = byId('engine').value;
+      const profile = byId('profile').value;
+      const source = validRoot ? DATA[engineKey] : null;
+      const ready = completed(source);
+      const allRuns = ready ? source.runs : [];
+      const runs = allRuns.filter(run => run.profile === profile);
+      const method = ready ? source.method || {} : {};
+      const builds = ready ? source.builds || {} : {};
+      const rounds = Number.isInteger(method.rounds) && method.rounds > 0 ? method.rounds : null;
+      const expected = rounds === null ? null : rounds * EDITIONS.length * PROFILES.length;
+      const browserLabel = engineKey === 'main' ? 'Microsoft Edge' : 'Windows WebKit';
+      const viewportSizes = [...new Set(runs.map(run => Array.isArray(run.viewport) && run.viewport.length === 2 && run.viewport.every(nonnegative) ? run.viewport.join(' × ') : null).filter(Boolean))];
+      const viewportText = (profile === 'desktop' ? 'Desktop' : 'Mobile') + (viewportSizes.length ? ' · ' + viewportSizes.join(' / ') : ' · recorded dimensions unavailable');
+      const selectedCoverage = EDITIONS.map(edition => ({ edition: edition.id, observedRuns: runs.filter(run => run.edition === edition.id).length, expectedRuns: rounds }));
+      const allCoverage = EDITIONS.flatMap(edition => PROFILES.map(name => ({ edition: edition.id, profile: name, observedRuns: allRuns.filter(run => run.edition === edition.id && run.profile === name).length, expectedRuns: rounds })));
+      const incompleteCoverage = expected !== null && (allRuns.length !== expected || allCoverage.some(item => item.observedRuns !== rounds));
+
+      byId('selection-status').textContent = ready
+        ? browserLabel + ' · ' + viewportText + ' · ' + runs.length + ' selected runs · ' + allRuns.length + (expected === null ? '' : '/' + expected) + ' runs in this engine dataset'
+        : browserLabel + ' · ' + (profile === 'desktop' ? 'Desktop' : 'Mobile') + ' · measurements unavailable';
+      const notice = byId('data-notice');
+      notice.hidden = ready && !incompleteCoverage;
+      notice.classList.toggle('warning', ready && incompleteCoverage);
+      if (ready && incompleteCoverage) {
+        notice.textContent = 'The dataset is marked complete, but its run counts do not match the recorded rounds across all four editions and two viewports. Available measurements are shown with sample counts; consult run coverage below.';
+      } else if (!ready) {
+        notice.textContent = DATA === null
+          ? 'This is the report template. No measurements are embedded; no results have been generated by this page.'
+          : !validRoot ? 'The embedded data does not use the expected schemaVersion 1. Measurements are unavailable.'
+          : 'No completed ' + browserLabel + ' dataset is embedded. Results from another engine or an earlier report are not substituted.';
+      }
+
+      byId('network-metrics').innerHTML = EDITIONS.map(edition => {
+        const selected = runs.filter(run => run.edition === edition.id);
+        return row(edition, [
+          metric(selected, run => networkValue(run, 'cold', 'encodedBodyBytes'), bytes),
+          metric(selected, run => networkValue(run, 'cold', 'requests'), counts),
+          metric(selected, run => networkValue(run, 'workload', 'encodedBodyBytes'), bytes),
+          metric(selected, run => networkValue(run, 'workload', 'requests'), counts),
+          metric(selected, run => networkValue(run, 'cold', 'transferBytes'), bytes)
+        ]);
+      }).join('');
+      byId('timing-metrics').innerHTML = EDITIONS.map(edition => {
+        const selected = runs.filter(run => run.edition === edition.id);
+        return row(edition, [
+          metric(selected, run => run.load?.fcp),
+          metric(selected, run => run.load?.galleryReadyObserved),
+          metric(selected, run => run.dialogTwoFrame?.p95),
+          metric(selected, run => run.dialogDecode?.p95),
+          metric(selected, run => run.browseFrames?.p95),
+          metric(selected, run => run.scrollFrames?.p95)
+        ]);
+      }).join('');
+      byId('surface-metrics').innerHTML = EDITIONS.map(edition => {
+        const selected = runs.filter(run => run.edition === edition.id);
+        return row(edition, [
+          metric(selected, run => run.nodes?.documentInitial, counts),
+          metric(selected, run => run.nodes?.gallery, counts),
+          metric(selected, run => run.network?.assetDecoded?.gallery?.imageCount, counts),
+          metric(selected, run => run.network?.assetDecoded?.gallery?.uniqueImageSources, counts),
+          metric(selected, run => run.network?.assetDecoded?.gallery?.estimatedRGBABytes, bytes),
+          metric(selected, run => run.network?.assetDecoded?.afterWorkload?.estimatedRGBABytes, bytes)
+        ]);
+      }).join('');
+      byId('artifact-metrics').innerHTML = EDITIONS.map(edition => {
+        const build = builds[edition.id];
+        const selected = runs.filter(run => run.edition === edition.id);
+        const verified = selected.filter(run => matching(run, build)).length;
+        return row(edition, [artifact(build?.rawBytes), artifact(build?.gzipBytes), artifact(build?.brotliBytes),
+          selected.length ? '<span class="number">' + verified + '/' + selected.length + '</span><span class="range">selected runs verified</span>' : unavailable('No selected runs to verify')]);
+      }).join('');
+
+      const sources = phase => [...new Set(runs.map(run => run.network?.[phase]?.source).filter(value => typeof value === 'string' && value.length))].join(', ') || 'unavailable';
+      const completeCount = phase => runs.filter(run => run.network?.[phase]?.complete === true).length;
+      byId('network-coverage').textContent = runs.length
+        ? 'Recorded collection sources — cold: ' + sources('cold') + '; workload: ' + sources('workload') + '. Complete snapshots: cold ' + completeCount('cold') + '/' + runs.length + ', workload ' + completeCount('workload') + '/' + runs.length + '. Metric sample counts can be lower when an engine does not expose a field.'
+        : 'No network measurements are available for this selection.';
+
+      if (!ready) {
+        byId('environment').innerHTML = record('Selected engine', browserLabel) + record('Dataset', 'No completed measurements available');
+        byId('order-note').textContent = 'With four editions and two viewports, three rounds produce 24 runs per browser; four rounds produce 32. A three-round rotation is not position-balanced for four editions. Four rounds can balance all four order positions.';
+        ['method-details', 'fingerprint-details', 'run-details'].forEach(id => { byId(id).textContent = 'No completed dataset is available for this selection.'; });
+        return;
+      }
+
+      const hardware = source.hardware || {};
+      const browser = source.browser || {};
+      const cpu = hardware.cpu || 'Unavailable';
+      const machine = [nonnegative(hardware.logicalCores) ? hardware.logicalCores + ' logical cores' : 'Core count unavailable', nonnegative(hardware.memoryGB) ? hardware.memoryGB + ' GB RAM' : 'RAM unavailable'].join(' · ');
+      const platform = [hardware.platform, hardware.release].filter(Boolean).join(' ') || 'Unavailable';
+      const browserVersion = [browser.engine, browser.version].filter(Boolean).join(' ') || 'Unavailable';
+      byId('environment').innerHTML = [
+        record('Browser / recorded version', browserLabel + ' · ' + browserVersion),
+        record('CPU', cpu),
+        record('Machine', machine + ' · ' + platform),
+        record('Measurement origin', source.origin),
+        record('Measurement started', stamp(source.date)),
+        record('Measurement completed', stamp(source.completedAt)),
+        record('Rounds and observed run count', (rounds === null ? 'Rounds unavailable' : rounds + ' rounds') + ' · ' + allRuns.length + (expected === null ? '' : '/' + expected) + ' runs in this browser dataset'),
+        record('Selected viewport', viewportText),
+        record('Recorded context settings', 'Headless: ' + flag(method.headless) + ' · fresh context per run: ' + flag(method.freshContextPerRun) + ' · DPR: ' + (method.dpr ?? 'unavailable')),
+        record('Recorded isolation and throttling', 'CPU throttling: ' + flag(method.cpuThrottling) + ' · network throttling: ' + flag(method.networkThrottling) + ' · process isolation: ' + flag(method.processIsolation))
+      ].join('');
+
+      const countsText = selectedCoverage.map(item => item.edition + ': ' + item.observedRuns + (rounds === null ? '' : '/' + rounds)).join(' · ');
+      let orderText;
+      if (rounds === 3) {
+        orderText = 'Three rounds rotate four editions but are not position-balanced: each edition occupies only three of the four order positions.';
+      } else if (method.balancedOrder === true) {
+        orderText = 'The recorded edition order is position-balanced' + (rounds === 4 ? ': four rounds cover all four order positions for each edition.' : '.');
+      } else if (method.balancedOrder === false) {
+        orderText = 'The recorded edition order is not position-balanced.';
+      } else {
+        orderText = 'Order balance was not recorded; inspect the exact sequence in the method details.';
+      }
+      byId('order-note').textContent = orderText + ' Selected viewport run counts — ' + countsText + '. ' + (expected === null ? 'The expected total cannot be calculated without the round count.' : 'Expected total per browser: ' + rounds + ' rounds × 4 editions × 2 viewports = ' + expected + ' runs.');
+      byId('method-details').textContent = pretty({
+        engineDataset: engineKey,
+        date: source.date,
+        completedAt: source.completedAt,
+        status: source.status,
+        origin: source.origin,
+        hardware: source.hardware,
+        browser: source.browser,
+        method: source.method,
+        expectedRuns: expected,
+        observedRuns: allRuns.length,
+        coverage: allCoverage
+      });
+      byId('fingerprint-details').textContent = pretty({
+        engineDataset: engineKey,
+        editions: DATA.editions,
+        reportVerification: DATA.verification,
+        builds: source.builds,
+        selectedProfile: profile,
+        verification: runs.map(run => ({ edition: run.edition, round: run.round, profile: run.profile, verification: run.verification, matchesMeasuredBuild: matching(run, builds[run.edition]) }))
+      });
+      byId('run-details').textContent = pretty(runs);
+      const diagnostic=DATA.diagnostics?.hybridScroll;
+      byId('scroll-diagnostic').hidden=!diagnostic;
+      if(diagnostic){
+        const labels={baseline:'Unchanged layout',visibility:'content-visibility: auto',paint:'contain: paint',layer:'translateZ(0) layer'};
+        byId('scroll-diagnostic-summary').textContent=Object.entries(labels).map(([id,label])=>{const values=diagnostic.runs.filter(run=>run.variant===id).map(run=>run.scroll.p95);return label+': '+median(values)+' ms ['+Math.min(...values)+'–'+Math.max(...values)+']';}).join(' · ');
+        byId('scroll-diagnostic-details').textContent=pretty(diagnostic);
+      }
+    }
+
+    byId('engine').addEventListener('change', render);
+    byId('profile').addEventListener('change', render);
+    byId('download').disabled = !validRoot;
+    byId('generated-at').textContent = validRoot ? 'Report generated: ' + stamp(DATA.generatedAt) + ' · measurement dates are recorded separately above' : 'Report template · no measured results embedded';
+    byId('download').addEventListener('click', () => {
+      if (!validRoot) return;
+      const url = URL.createObjectURL(new Blob([pretty(DATA)], { type: 'application/json;charset=utf-8' }));
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = 'the-twelve-four-edition-benchmarks.json';
+      anchor.hidden = true;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+    render();
+  </script>
+</body>
+</html>

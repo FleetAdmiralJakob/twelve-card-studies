@@ -1,0 +1,323 @@
+{
+  "date": "2026-10-23T16:17:51.942Z",
+  "origin": "http://jakobs-pc.taile7e918.ts.net:8787",
+  "pages": [
+    {
+      "edition": "svg",
+      "status": 200,
+      "sha256": "0ce0373efa5faf647a993319a23916ce291b4f9eaf0f401bdd8307c593e4f421",
+      "measuredSha256": "dd3b4dd9cb40613d3d311c210168424e21cd266c709ff37f24e3f6d8cde7aec6",
+      "difference": "footer-only",
+      "navigationLinks": true
+    },
+    {
+      "edition": "css",
+      "status": 200,
+      "sha256": "4f193f1838e9832f3afaab1d8667b0eb1749dae0676d1e32386e6d33d301fb75",
+      "measuredSha256": "38f2e2cb0514ef307d7376b025865d03968eca143f333bba87dfbfe10d9016c8",
+      "difference": "footer-only",
+      "navigationLinks": true
+    },
+    {
+      "edition": "basic",
+      "status": 200,
+      "sha256": "315f23b2d829a422015040476e21013417442e6d142e9d74c75c9c38d7d07117",
+      "measuredSha256": "f38522d826c31e4d22d4cfbe6b8ee5732df4b1f4c7cbeaa6edfeb05ac446b752",
+      "difference": "footer-only",
+      "navigationLinks": true
+    },
+    {
+      "edition": "hybrid",
+      "status": 200,
+      "sha256": "1c8d3410003b147060e2294080a2a005878060b08194bd2f8fa12891d32e57c8",
+      "measuredSha256": "1c8d3410003b147060e2294080a2a005878060b08194bd2f8fa12891d32e57c8",
+      "difference": "exact",
+      "navigationLinks": true
+    }
+  ],
+  "assets": [
+    {
+      "path": "/hybrid/assets/parchment.ab3885ea1a5d.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cyber.026c0d068fd9.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/blueprint.d29f61c795ce.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/comic.3f084e8a4fbb.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/forest.489c8fad3ff3.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/doodle.d394250a66e9.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cathedral.96017fc4d707.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/ink.6102a6bbcebc.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/hologram.586138d55158.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/steampunk.2452fcb96ca3.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cosmic.73f40b2d9cc0.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/arcade.152e6295ad4f.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2_3E.5c2e1401361f.woff2",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/TK3_WkUHHAIjg75cFRf3bXL8LICs18NvgUE.0bb42869f201.woff2",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/HTxwL3I-JCGChYJ8VI-L6OO_au7B4-Lw_3E.4a8f3081c43a.woff2",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/HTxwL3I-JCGChYJ8VI-L6OO_au7B4873_3E.93a56d5f88e3.woff2",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/TK3_WkUHHAIjg75cFRf3bXL8LICs1xZogUE.764588a590b7.woff2",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/HTx3L3I-JCGChYJ8VI-L6OO_au7B2xY.b97a4c1af3a8.woff2",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/TK3_WkUHHAIjg75cFRf3bXL8LICs1_FvgUE.10f3a448f996.woff2",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/parchment@2x.1a204a1a7ecf.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cyber@2x.f6c024b1e37c.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/blueprint@2x.a939dbd540b0.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/comic@2x.2d1b30da5355.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/forest@2x.b2ccf0b32341.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/doodle@2x.cdc59ea37ab7.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cathedral@2x.a2cc83728ade.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/ink@2x.a031cceb9679.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/hologram@2x.5ec352938017.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/steampunk@2x.627401c8e9f9.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cosmic@2x.4b53cf55d4b5.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/arcade@2x.590da340d709.avif",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/parchment.18fe1b1484f6.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cyber.beb9b278e5a8.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/blueprint.2417d4a8d847.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/comic.546cff9444f4.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/forest.521b3d1043fc.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/doodle.4b57a4eadd67.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cathedral.9e292006ca31.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/ink.831335b7e553.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/hologram.07b3b5815a09.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/steampunk.abe5e5b320df.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cosmic.7593f7ee8a76.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/arcade.a3efebc99273.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/parchment@2x.70310314588c.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cyber@2x.9b44fea2a20b.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/blueprint@2x.ee7b4f7157ce.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/comic@2x.3114e3c2c279.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/forest@2x.6550cd9cca8e.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/doodle@2x.ed4a024e9574.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cathedral@2x.64ee41935595.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/ink@2x.ce426ce8f241.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/hologram@2x.2b6a413b1b7b.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/steampunk@2x.d7f33884dd38.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/cosmic@2x.60153975e7ac.webp",
+      "match": true,
+      "immutable": true
+    },
+    {
+      "path": "/hybrid/assets/arcade@2x.d3feeac6ccaa.webp",
+      "match": true,
+      "immutable": true
+    }
+  ],
+  "originalEditionsOutsideFooterUnchanged": true,
+  "hybridHtmlUnchanged": true,
+  "zipFiles": 63,
+  "report": {
+    "controls": true,
+    "mobileOverflow": false,
+    "errors": []
+  }
+}

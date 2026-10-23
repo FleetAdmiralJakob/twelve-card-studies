@@ -1,0 +1,326 @@
+[
+  {
+    "mode": "baseline",
+    "url": "http://127.0.0.1:18787/css/?dialog=baseline",
+    "time": "2026-10-23T14:54:37.302Z",
+    "edition": "css",
+    "viewport": [
+      1080,
+      792
+    ],
+    "dpr": 1,
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+    "hardwareConcurrency": 8,
+    "deviceMemory": null,
+    "documentVisible": "visible",
+    "load": {
+      "fcp": 236,
+      "domReady": 110,
+      "responseEnd": 64,
+      "requestStart": 0,
+      "transferBytes": 0,
+      "encodedBytes": 0,
+      "decodedBytes": 0,
+      "galleryReadyObserved": 672,
+      "harnessStarted": 293
+    },
+    "nodes": {
+      "documentInitial": 2783,
+      "gallery": 2720,
+      "perCard": [
+        233,
+        287,
+        123,
+        173,
+        351,
+        244,
+        297,
+        232,
+        199,
+        153,
+        274,
+        118
+      ]
+    },
+    "baselineFrames": {
+      "n": 30,
+      "median": 16,
+      "p95": 28,
+      "max": 29,
+      "over33ms": 0
+    },
+    "openCards": [
+      {
+        "index": 0,
+        "handler": 1,
+        "twoFrames": 1041,
+        "decoded": 1041
+      },
+      {
+        "index": 1,
+        "handler": 1,
+        "twoFrames": 443,
+        "decoded": 444
+      },
+      {
+        "index": 2,
+        "handler": 1,
+        "twoFrames": 426,
+        "decoded": 426
+      },
+      {
+        "index": 3,
+        "handler": 1,
+        "twoFrames": 439,
+        "decoded": 439
+      },
+      {
+        "index": 4,
+        "handler": 1,
+        "twoFrames": 501,
+        "decoded": 501
+      },
+      {
+        "index": 5,
+        "handler": 1,
+        "twoFrames": 412,
+        "decoded": 412
+      },
+      {
+        "index": 6,
+        "handler": 1,
+        "twoFrames": 484,
+        "decoded": 484
+      },
+      {
+        "index": 7,
+        "handler": 1,
+        "twoFrames": 460,
+        "decoded": 460
+      },
+      {
+        "index": 8,
+        "handler": 1,
+        "twoFrames": 428,
+        "decoded": 428
+      },
+      {
+        "index": 9,
+        "handler": 1,
+        "twoFrames": 424,
+        "decoded": 424
+      },
+      {
+        "index": 10,
+        "handler": 0,
+        "twoFrames": 427,
+        "decoded": 427
+      },
+      {
+        "index": 11,
+        "handler": 0,
+        "twoFrames": 413,
+        "decoded": 413
+      }
+    ],
+    "dialogTwoFrame": {
+      "n": 12,
+      "median": 439,
+      "p95": 1041,
+      "max": 1041,
+      "over33ms": 12
+    },
+    "dialogDecode": {
+      "n": 12,
+      "median": 439,
+      "p95": 1041,
+      "max": 1041,
+      "over33ms": 12
+    },
+    "dialogHandlers": {
+      "n": 12,
+      "median": 1,
+      "p95": 1,
+      "max": 1,
+      "over33ms": 0
+    },
+    "browseFrames": {
+      "n": 180,
+      "median": 16,
+      "p95": 304,
+      "max": 444,
+      "over33ms": 12
+    },
+    "scrollFrames": null,
+    "longTasks": [],
+    "checks": {
+      "cards": 12,
+      "stats": 72,
+      "horizontalOverflow": false,
+      "wrap": true,
+      "editPersisted": true
+    }
+  },
+  {
+    "mode": "opaque",
+    "url": "http://127.0.0.1:18787/css/?dialog=opaque",
+    "time": "2026-10-23T14:54:55.899Z",
+    "edition": "css",
+    "viewport": [
+      1080,
+      792
+    ],
+    "dpr": 1,
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+    "hardwareConcurrency": 8,
+    "deviceMemory": null,
+    "documentVisible": "visible",
+    "load": {
+      "fcp": 230,
+      "domReady": 107,
+      "responseEnd": 52,
+      "requestStart": 0,
+      "transferBytes": 0,
+      "encodedBytes": 0,
+      "decodedBytes": 0,
+      "galleryReadyObserved": 634,
+      "harnessStarted": 289
+    },
+    "nodes": {
+      "documentInitial": 2783,
+      "gallery": 2720,
+      "perCard": [
+        233,
+        287,
+        123,
+        173,
+        351,
+        244,
+        297,
+        232,
+        199,
+        153,
+        274,
+        118
+      ]
+    },
+    "baselineFrames": {
+      "n": 30,
+      "median": 16,
+      "p95": 17,
+      "max": 28,
+      "over33ms": 0
+    },
+    "openCards": [
+      {
+        "index": 0,
+        "handler": 1,
+        "twoFrames": 815,
+        "decoded": 815
+      },
+      {
+        "index": 1,
+        "handler": 0,
+        "twoFrames": 483,
+        "decoded": 483
+      },
+      {
+        "index": 2,
+        "handler": 0,
+        "twoFrames": 416,
+        "decoded": 416
+      },
+      {
+        "index": 3,
+        "handler": 1,
+        "twoFrames": 413,
+        "decoded": 413
+      },
+      {
+        "index": 4,
+        "handler": 0,
+        "twoFrames": 578,
+        "decoded": 578
+      },
+      {
+        "index": 5,
+        "handler": 0,
+        "twoFrames": 412,
+        "decoded": 412
+      },
+      {
+        "index": 6,
+        "handler": 0,
+        "twoFrames": 430,
+        "decoded": 430
+      },
+      {
+        "index": 7,
+        "handler": 0,
+        "twoFrames": 442,
+        "decoded": 442
+      },
+      {
+        "index": 8,
+        "handler": 0,
+        "twoFrames": 414,
+        "decoded": 414
+      },
+      {
+        "index": 9,
+        "handler": 1,
+        "twoFrames": 425,
+        "decoded": 425
+      },
+      {
+        "index": 10,
+        "handler": 0,
+        "twoFrames": 431,
+        "decoded": 431
+      },
+      {
+        "index": 11,
+        "handler": 0,
+        "twoFrames": 419,
+        "decoded": 419
+      }
+    ],
+    "dialogTwoFrame": {
+      "n": 12,
+      "median": 430,
+      "p95": 815,
+      "max": 815,
+      "over33ms": 12
+    },
+    "dialogDecode": {
+      "n": 12,
+      "median": 430,
+      "p95": 815,
+      "max": 815,
+      "over33ms": 12
+    },
+    "dialogHandlers": {
+      "n": 12,
+      "median": 0,
+      "p95": 1,
+      "max": 1,
+      "over33ms": 0
+    },
+    "browseFrames": {
+      "n": 180,
+      "median": 16,
+      "p95": 302,
+      "max": 372,
+      "over33ms": 12
+    },
+    "scrollFrames": null,
+    "longTasks": [],
+    "checks": {
+      "cards": 12,
+      "stats": 72,
+      "horizontalOverflow": false,
+      "wrap": true,
+      "editPersisted": true
+    }
+  }
+]
