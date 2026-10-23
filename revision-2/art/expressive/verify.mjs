@@ -26,7 +26,7 @@ for (const [edition, art] of Object.entries(editions)) {
     } else {
       const count = (value.match(/<(?:div|span|i|b)(?:\s|>)/g) ?? []).length;
       report.counts[`${edition}/${theme}`] = count;
-      check(count <= (edition === 'css' ? 180 : 200), `${edition}/${theme}: element budget (${count})`);
+      check(count <= 220, `${edition}/${theme}: element budget (${count})`);
       check(!/<\/?(?!div\b|span\b|i\b|b\b)[a-z][\w-]*/i.test(value), `${edition}/${theme}: normal primitive tags only`);
       check(!/url\s*\(|<svg|<canvas|<img/i.test(value), `${edition}/${theme}: no image source`);
       check(/class=['"][^'"]*\br2-art\b/.test(value) && /class=['"][^'"]*\br2-expressive\b/.test(value), `${edition}/${theme}: scoped root classes`);

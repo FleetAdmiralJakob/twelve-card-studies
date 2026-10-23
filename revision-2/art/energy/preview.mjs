@@ -14,7 +14,7 @@ const html=`<!doctype html><html><meta charset="utf-8"><title>Energy · private 
 const root=new URL('./',import.meta.url);
 await writeFile(new URL('preview.html',root),html);
 const browser=await chromium.launch({headless:true});
-const page=await browser.newPage({viewport:{width:1286,height:480},deviceScaleFactor:1.5});
+const page=await browser.newPage({viewport:{width:1286,height:480},deviceScaleFactor:1});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 await page.goto(new URL('preview.html',root).href);
 await page.screenshot({path:fileURLToPath(new URL('preview.png',root)),fullPage:true});

@@ -214,7 +214,7 @@ try {
     ['css', 'the-twelve-css-polygons.html', 'dist/css.html', noImages],
     ['basic', 'the-twelve-css-primitives.html', 'dist/basic.html', noImages],
   ]) await checkFile(`/source/${edition}`, await read(source), 'application/octet-stream', { download: filename, csp });
-  for (const [edition, filename] of [['svg', 'the-twelve-revision-2-svg.html'], ['css', 'the-twelve-revision-2-css-polygons.html'], ['basic', 'the-twelve-revision-2-css-primitives.html']]) {
+  for (const [edition, filename] of [['svg', 'the-twelve-revision-2-svg.html'], ['css', 'the-twelve-revision-2-css-shapes.html'], ['basic', 'the-twelve-revision-2-css-primitives.html']]) {
     const html = await read(`dist/revision-2/${edition}/index.html`);
     assert.equal(hash(await read(`dist/revision-2/source/${edition}`)), hash(html), `Revision 2 ${edition}: source HTML is stale`);
     await checkFile(`/revision-2/source/${edition}`, html, 'application/octet-stream', { download: filename, csp: ['css', 'basic'].includes(edition) ? noImages : undefined });

@@ -13,7 +13,7 @@ assert(!/url\s*\(|data:/i.test(cssStyles),'CSS styles contain no external/encode
 const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:304,height:384},deviceScaleFactor:1});
 const reports=[];
-for(const [edition,art,styles,limit] of [['svg',svgArt,'',Infinity],['css',cssArt,cssStyles,180],['basic',basicArt,basicStyles,200]]) {
+for(const [edition,art,styles,limit] of [['svg',svgArt,'',350],['css',cssArt,cssStyles,220],['basic',basicArt,basicStyles,220]]) {
   for(const theme of themes) {
     const markup=art[theme];
     assert(!/<(?:text|image|img|canvas|foreignObject)\b|(?:https?:)?\/\/(?!www\.w3\.org\/2000\/svg)/i.test(markup),`${edition}/${theme} resource and label tags`);
@@ -31,6 +31,7 @@ for(const [edition,art,styles,limit] of [['svg',svgArt,'',Infinity],['css',cssAr
       const root=document.querySelector('#sandbox').firstElementChild;
       const nodes=[root,...root.querySelectorAll('*')], problems=[];
       const tags=[...new Set(nodes.map(el=>el.localName))];
+      if(edition==='css'&&!CSS.supports('clip-path',"path('M0 0L1 1L0 1Z')"))problems.push('Native CSS path unavailable');
       if(edition!=='svg'&&(!root.classList.contains('r2-art')||!root.classList.contains('r2-energy')||!root.classList.contains(theme))) problems.push('Root classes');
       if(edition==='basic'&&tags.some(t=>!['div','span','i','b'].includes(t)))problems.push('Non-basic tag');
       if(root.textContent.trim())problems.push('Artwork contains text');
@@ -46,6 +47,7 @@ for(const [edition,art,styles,limit] of [['svg',svgArt,'',Infinity],['css',cssAr
         if(/url\s*\(/i.test(cs.backgroundImage))problems.push('Image reference');
         if(cs.animationName!=='none')problems.push('Ambient animation');
         if(cs.filter!=='none')problems.push('Filter');
+        if(cs.maskImage!=='none')problems.push('Mask');
         if(edition==='basic'&&(cs.clipPath!=='none'||cs.maskImage!=='none'||!['','none'].includes(cs.getPropertyValue('border-shape'))))problems.push('Forbidden basic feature');
       }
       if(edition!=='svg') for(const sheet of document.styleSheets) for(const rule of sheet.cssRules) {

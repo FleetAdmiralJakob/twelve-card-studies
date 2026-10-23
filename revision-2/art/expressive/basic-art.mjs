@@ -1,3 +1,5 @@
+import { basicGrid, basicGraffiti, basicRoyalShards, basicCrystals } from './basic-surfaces.mjs';
+import { basicFigure } from './basic-figures.mjs';
 /* Expressive / basic edition. Authored CSS primitives, in a 300 × 380 space.
  * All ornament is deterministic geometry. There are no external assets.
  * Foreground text, national flags, and numeric data belong to the host overlay.
@@ -54,40 +56,7 @@ function palm(x, y, scale = 1) {
 
 // The back-facing athlete is assembled in anatomical depth order. The small
 // shoulder arcs, sleeve piping, nape and cloth folds retain legibility at 1×.
-function backPlayer(theme) {
-  const hair = [[147,58,7,10,-25],[155,54,7,10,8],[164,52,7,10,25],[174,54,7,10,-17],[184,57,7,9,31],[190,65,6,11,16],[145,67,6,10,-15],[150,52,5,8,-16],[167,49,5,9,15],[181,52,5,10,28],[158,50,5,8,-27],[174,50,4,8,12],[188,59,5,9,32],[145,63,5,8,-25]]
-    .map(([x,y,w,h,a]) => box('hair-lock', x, y, w, h, `transform:rotate(${a}deg)`)).join('');
-  const hairTexture = [[153,65,11,-46],[157,60,9,-24],[166,59,10,28],[177,59,9,32],[184,64,7,59],[151,73,8,-52],[163,67,7,20],[174,68,9,-25],[188,73,7,67],[160,77,9,-38],[178,77,8,19]]
-    .map(([x,y,w,a]) => stroke(x,y,w,a,'var(--rim)',.65,'opacity:.14')).join('');
-  const folds = [[123,157,37,-33],[115,170,40,-29],[111,182,31,-22],[164,149,34,67],[174,157,40,71],[183,185,29,78],[140,200,43,-9],[126,214,63,-4],[200,159,24,29],[89,163,29,-39],[214,177,28,41],[111,144,22,-30]]
-    .map(([x,y,w,a], i) => stroke(x,y,w,a,i%3===0?'var(--rim-soft)':'var(--cloth-light)',i%4===0?1.1:.7,'border-radius:60%;opacity:.55')).join('');
-  return mark('athlete', '',
-    box('arm arm-left', 74, 152, 41, 91, 'transform:rotate(25deg)') +
-    box('arm arm-right', 218, 156, 34, 83, 'transform:rotate(-23deg)') +
-    box('shirt-back', 107, 126, 116, 116, 'transform:rotate(-4deg)') +
-    box('sleeve sleeve-left', 89, 132, 55, 52, 'transform:rotate(24deg)') +
-    box('sleeve sleeve-right', 197, 134, 45, 52, 'transform:rotate(-23deg)') +
-    box('shoulder shoulder-left', 111, 128, 53, 17, 'transform:rotate(-16deg)') +
-    box('shoulder shoulder-right', 185, 130, 38, 17, 'transform:rotate(22deg)') +
-    box('neck', 158, 102, 30, 36, 'transform:rotate(-6deg)') +
-    box('ear ear-left', 146, 82, 9, 18, 'transform:rotate(-10deg)') +
-    box('ear ear-right', 190, 83, 8, 18, 'transform:rotate(10deg)') +
-    box('head-back', 149, 59, 46, 57, 'transform:rotate(-6deg)') +
-    hair + box('hair-mass', 148, 56, 47, 35, 'transform:rotate(-6deg)') + hairTexture +
-    box('nape-shadow', 158, 101, 27, 16, 'transform:rotate(-6deg)') +
-    box('collar-back', 143, 118, 53, 19, 'transform:rotate(-5deg)') +
-    box('collar-seam', 145, 123, 49, 16, 'transform:rotate(-5deg)') +
-    box('sleeve-seam', 82, 165, 42, 13, 'transform:rotate(24deg)') +
-    box('sleeve-seam', 215, 172, 30, 11, 'transform:rotate(-23deg)') +
-    folds +
-    box('back-seam', 168, 142, 3, 86, 'transform:rotate(-5deg)') +
-    box('shirt-hem', 113, 227, 108, 9, 'transform:rotate(-4deg)') +
-    (theme === 'rivera' ?
-      box('neon-sash', 96, 184, 138, 5, 'transform:rotate(-15deg)') +
-      stroke(107,190,118,-15,'#f53fb8',1) + stroke(132,145,1,0,'#c337ed',66) :
-      box('embroidered-diamond', 172, 177, 8, 8, 'transform:rotate(45deg)') +
-      stroke(143,140,45,-13,'#dac0fd',.6,'opacity:.8')));
-}
+function backPlayer(theme) { return basicFigure(theme); }
 
 function rivera() {
   const horizon = [188,199,213,231,254,283,320,351].map((y,i) => stroke(24,y,252,0,'#ff38ce',i>4?.6:.8,'opacity:.45')).join('');
@@ -99,7 +68,7 @@ function rivera() {
   return wrap('rivera', field() + mark('sun-haze') + box('sun',101,47,148,148) +
     box('sun-horizon',30,183,240,2) + mark('grid', '', horizon + rays) +
     palm(37,140,.8) + palm(225,112,.86) + palm(30,196,.48) + shooting +
-    backPlayer('rivera') + rests('rivera') + frame() + edgeBits +
+    backPlayer('rivera') + rests('rivera') + basicGrid() + frame() + edgeBits +
     box('neon-corner',23,37,15,17,'transform:rotate(22deg)') +
     box('neon-corner',263,335,13,16,'transform:rotate(22deg)'));
 }
@@ -111,34 +80,7 @@ function splash(x,y,color,angle,scale=1) {
     box('paint-dot',2,24,3,4) + box('paint-dot',26,1,3,3) + box('paint-dot',28,23,4,2));
 }
 
-function driftPlayer() {
-  const seams = [[100,162,29,-62],[111,166,54,79],[130,171,45,70],[180,159,58,75],[204,164,39,63],[227,187,29,44],[94,204,37,-21],[153,218,44,8],[212,153,24,24]]
-    .map(([x,y,w,a],i)=>stroke(x,y,w,a,i%3?'#878c8e':'#d9dce0',i%2?.7:1.2,'opacity:.6')).join('');
-  return mark('hooded', '',
-    box('hood-arm',77,158,38,88,'transform:rotate(25deg)') +
-    box('hood-arm',221,151,39,88,'transform:rotate(-34deg)') +
-    box('hood-body',103,128,126,112,'transform:rotate(-3deg)') +
-    box('hood-shoulder',94,129,63,50,'transform:rotate(-23deg)') +
-    box('hood-shoulder',189,128,56,53,'transform:rotate(26deg)') +
-    box('hood-back',127,43,83,111,'transform:rotate(8deg)') +
-    box('hood-top',138,43,53,47,'transform:rotate(8deg)') +
-    box('hood-opening',137,65,65,77,'transform:rotate(15deg)') +
-    box('hood-face',149,66,43,45,'transform:rotate(10deg)') +
-    box('hood-left-lip',130,62,22,85,'transform:rotate(19deg)') +
-    box('hood-right-lip',185,66,16,83,'transform:rotate(23deg)') +
-    box('hood-brow',145,66,48,20,'transform:rotate(15deg)') +
-    stroke(148,53,28,24,'#dce8e6',1.4) + stroke(145,58,27,24,'#62686e',.7) +
-    stroke(146,62,22,24,'#8a8f91',.7) +
-    box('hood-neck-fold',142,136,57,22,'transform:rotate(8deg)') +
-    box('hood-drawstring',144,145,2,58,'transform:rotate(7deg)') +
-    box('hood-drawstring',183,148,2,47,'transform:rotate(-13deg)') +
-    box('hood-string-tip',139,201,3,7,'transform:rotate(7deg)') +
-    box('hood-string-tip',192,192,3,7,'transform:rotate(-13deg)') +
-    box('hood-cuff',80,215,28,11,'transform:rotate(25deg)') +
-    box('hood-cuff',236,210,25,10,'transform:rotate(-33deg)') +
-    seams + box('hood-pocket',140,204,65,26,'transform:rotate(-4deg)') +
-    stroke(143,213,21,-31,'#8c9290',.8) + stroke(188,208,17,31,'#8c9290',.8));
-}
+function driftPlayer() { return basicFigure('drift'); }
 
 function crown() {
   return box('crown',211,28,45,36,'transform:rotate(10deg)',
@@ -170,7 +112,7 @@ function drift() {
   const paintFlecks = [[35,126,14,-42,'#13cdec'],[44,134,7,30,'#13cdec'],[23,149,9,81,'#13cdec'],[38,209,13,-63,'#ff2d8b'],[48,226,9,18,'#ff2d8b'],[26,235,10,71,'#ff2d8b'],[260,164,9,-29,'#ffda24'],[267,190,15,63,'#ffda24'],[248,183,8,-64,'#ffda24'],[259,283,10,-35,'#13cdec'],[270,306,12,75,'#13cdec'],[93,28,9,-26,'#ffda24'],[105,41,11,-61,'#ffda24'],[38,329,8,18,'#ffda24'],[48,337,11,41,'#ffda24'],[263,88,9,-64,'#13cdec'],[255,104,7,18,'#13cdec'],[249,235,8,36,'#ff2d8b']]
     .map(([x,y,w,a,c],i)=>stroke(x,y,w,a,c,i%3===0?2.4:1.2)).join('');
   return wrap('drift',field() + mark('wall-grain') + frame() + paint + drips + white +
-    driftPlayer() + crown() + rests('drift') +
+    basicGraffiti() + driftPlayer() + crown() + rests('drift') +
     edgeScuffs + paintFlecks +
     stroke(26,45,54,-23,'#e2b718',2) + stroke(32,48,39,-23,'#f0d744',.7) +
     stroke(229,343,43,-14,'#ecefe3',1) + stroke(105,357,25,19,'#edc91b',3));
@@ -210,8 +152,8 @@ function majestic() {
     .map(([x,y],i)=>box('frame-gem',x,y,8,13,`transform:rotate(${i%2?20:-20}deg)`)).join('');
   const arcs = [[50,133,56,63,-25],[89,37,63,144,-19],[198,74,57,134,15],[43,188,216,48,-11]]
     .map(([x,y,w,h,a])=>box('aura-arc',x,y,w,h,`transform:rotate(${a}deg)`)).join('');
-  return wrap('majestic',field() + mark('royal-aura') + arcs + trophy() + backPlayer('majestic') +
-    stars + rests('majestic') + frame() + curls + gems +
+  return wrap('majestic',field() + mark('royal-aura') + basicRoyalShards('back') + trophy() + backPlayer('majestic') +
+    stars + rests('majestic') + frame() + basicRoyalShards('front') +
     box('royal-finial',144,30,12,12,'transform:rotate(45deg)') +
     box('royal-finial',144,351,12,12,'transform:rotate(45deg)'));
 }
@@ -221,54 +163,9 @@ function crystal(x,y,w,h,angle,variant=0) {
     mark('crystal-edge') + mark('crystal-splinter'));
 }
 
-function prismPlayer() {
-  const hair = [[157,55,12,13,-19],[166,51,13,13,9],[177,52,14,13,26],[188,57,12,12,-7],[194,64,10,12,24],[149,61,12,14,-27]]
-    .map(([x,y,w,h,a])=>box('prism-lock',x,y,w,h,`transform:rotate(${a}deg)`)).join('');
-  const panels = [[122,147,35,25,-18,0],[160,137,25,38,25,1],[189,156,27,34,-9,2],[115,178,28,34,19,3],[148,177,32,39,-13,1],[181,196,30,27,17,0],[213,177,24,26,-20,2],[138,218,35,17,11,3]]
-    .map(([x,y,w,h,a,v])=>box('jersey-facet',x,y,w,h,`transform:rotate(${a}deg) skewY(-14deg);--facet-a:${['#1e5872','#48446c','#274e71','#262546'][v]};--facet-b:${['#111725','#18172b','#121321','#0f1624'][v]}`)).join('');
-  return mark('prism-player','',
-    box('prism-arm',86,155,34,88,'transform:rotate(24deg)') +
-    box('prism-arm',217,161,31,76,'transform:rotate(-22deg)') +
-    box('prism-shirt',111,130,111,113,'transform:rotate(-7deg)') +
-    box('prism-sleeve',97,132,48,58,'transform:rotate(27deg)') +
-    box('prism-sleeve',199,141,43,56,'transform:rotate(-25deg)') +
-    panels + box('prism-neck',169,104,25,35,'transform:rotate(-17deg)') +
-    box('prism-head',152,58,47,59,'transform:rotate(-9deg)') +
-    box('prism-face',177,75,25,37,'transform:rotate(-11deg)') +
-    box('prism-nose',197,84,7,15,'transform:rotate(-19deg)') +
-    box('prism-mouth',195,98,8,9,'transform:rotate(-2deg)') +
-    box('prism-chin',187,103,15,12,'transform:rotate(8deg)') +
-    box('prism-ear',158,82,11,18,'transform:rotate(-15deg)') +
-    box('prism-ear-inner',161,86,5,10,'transform:rotate(-15deg)') +
-    hair + box('prism-hair',150,54,48,27,'transform:rotate(-9deg)') +
-    box('prism-temple',177,73,11,25,'transform:rotate(-18deg)') +
-    stroke(192,83,10,8,'#d2e8ff',.8) + stroke(196,101,8,11,'#9e84c7',.7) +
-    stroke(172,106,22,47,'#8969c7',1) +
-    box('prism-collar',154,119,46,22,'transform:rotate(-10deg)') +
-    stroke(110,148,42,-32,'#c3f7ff',1.3) + stroke(205,163,32,58,'#79d9ed',.9) +
-    stroke(111,184,42,-30,'#ed76da',1) + stroke(138,225,68,-9,'#84e1ec',.6));
-}
+function prismPlayer() { return basicFigure('prism'); }
 
-function prism() {
-  const stones = [
-    [37,29,22,37,-28,0],[72,18,27,28,-17,2],[108,15,21,34,31,1],[145,12,27,25,-25,0],
-    [185,18,22,35,21,3],[222,25,29,35,-16,1],[253,43,22,37,19,0],
-    [15,72,20,38,-12,1],[255,88,26,43,-12,3],[21,119,23,43,25,2],
-    [260,138,22,42,19,0],[17,165,23,42,-19,0],[252,181,28,43,-24,1],
-    [20,215,23,40,23,3],[258,232,23,42,19,2],[17,264,24,39,-16,0],
-    [253,278,27,39,-15,0],[25,310,23,34,21,1],[248,323,23,29,21,3],
-    [54,342,31,18,-13,2],[91,349,29,16,17,1],[128,346,32,18,10,0],
-    [171,349,32,17,-16,3],[209,343,32,21,17,0]
-  ].map(v=>crystal(...v)).join('');
-  const refractions = [[55,82,39,67,-27,0],[219,65,31,84,18,3],[61,169,35,58,25,1],[220,194,34,49,-21,2]]
-    .map(v=>crystal(...v)).join('');
-  const splinters = [[47,43,8,43,34],[88,28,7,30,-24],[126,20,7,30,34],[212,35,8,40,45],[270,69,7,34,25],[22,103,7,40,-19],[273,127,7,43,-9],[21,206,7,32,28],[273,260,7,31,27],[30,292,7,35,-21],[62,342,7,29,67],[184,347,7,31,-68],[228,337,7,35,62]]
-    .map(([x,y,w,h,a],i)=>box('long-splinter',x,y,w,h,`transform:rotate(${a}deg) skewY(-24deg);--splinter:${i%3===0?'#d4f8ff':i%3===1?'#f0b0ed':'#8cdbf5'}`)).join('');
-  return wrap('prism',field() + mark('prism-aura') + refractions + prismPlayer() +
-    rests('prism') + frame() + stones + splinters +
-    star(46,116,12,'#d1f8ff',5) + star(258,215,10,'#ffffff',11) +
-    star(101,30,9,'#ffffff',13));
-}
+function prism() { return wrap('prism',field()+mark('prism-aura')+basicCrystals('back')+prismPlayer()+rests('prism')+frame()+basicCrystals('front')); }
 
 export const basicArt = {
   rivera: rivera(),

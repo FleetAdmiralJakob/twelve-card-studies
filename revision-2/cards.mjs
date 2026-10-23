@@ -15,7 +15,7 @@ export const cards = [
 export const editions = [
  {id:'hybrid',label:'Hybrid',short:'Illustrated',description:'Detailed image artwork, sharp live type and editable card data. The illustrated collection.'},
  {id:'svg',label:'SVG + CSS',short:'Vector',description:'Scalable artwork built from SVG paths, gradients and CSS. No raster artwork.'},
- {id:'css',label:'CSS polygons',short:'CSS',description:'Artwork built from HTML elements and CSS, including polygon shapes. No SVG or raster images.'},
+ {id:'css',label:'CSS shapes',short:'CSS',description:'Artwork built from HTML and CSS gradients, polygons and curved paths. No SVG or raster images.'},
  {id:'basic',label:'CSS primitives',short:'Primitives',description:'Boxes, ellipses, borders and gradients. No SVG, images, masks, paths or polygon outlines.'},
 ];
 export const countries={france:'France',norway:'Norway',spain:'Spain',japan:'Japan',brazil:'Brazil',england:'England',portugal:'Portugal',italy:'Italy',netherlands:'Netherlands',argentina:'Argentina',germany:'Germany',uruguay:'Uruguay'};

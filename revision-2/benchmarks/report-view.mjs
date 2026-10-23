@@ -7,7 +7,7 @@
 
 const EDITIONS = [
   { id: 'svg', label: 'SVG + CSS', short: 'SVG', detail: 'Stylized vector artwork' },
-  { id: 'css', label: 'CSS polygons', short: 'CSS', detail: 'Stylized polygon artwork' },
+  { id: 'css', label: 'CSS shapes', short: 'CSS', detail: 'CSS polygons and curved paths' },
   { id: 'basic', label: 'CSS primitives', short: 'Basic', detail: 'Stylized basic shapes' },
   { id: 'hybrid', label: 'Hybrid', short: 'Hybrid', detail: 'Raster artwork + live type' },
 ];
@@ -404,7 +404,7 @@ export function renderReport(dataset) {
       <section class="section" id="reading" aria-labelledby="reading-title">
         <div class="section-heading"><span class="section-number">04</span><h2 id="reading-title">Keep the numbers in context.</h2></div>
         <div class="limits">
-          <div><h3>Art direction changes the comparison</h3><p>SVG, CSS polygons and CSS primitives are stylized interpretations. Hybrid uses approximately 550 × 700 px source art with live text. A 1280px export adds no source-art detail. This is not a pixel-perfect comparison, and the measurements establish no universal winner. No actual Discord implementation was benchmarked, so these results cannot establish beating it.</p></div>
+          <div><h3>Art direction changes the comparison</h3><p>SVG, CSS shapes and CSS primitives are authored interpretations. The CSS-shapes approach includes polygons and curved CSS paths; the primitives approach excludes both. Hybrid uses approximately 550 × 700 px source art with live text. A 1280px export adds no source-art detail. This is not a pixel-perfect comparison, and the measurements establish no universal winner. No actual Discord implementation was benchmarked, so these results cannot establish beating it.</p></div>
           <div><h3>One revision, one workload</h3><p>R2 is not directly comparable with <a href="/compare/">R1</a>: content, workload and viewport definitions changed. All R2 editions share the full editor. PNG export is excluded from these measurements; its rendering and download costs are not represented.</p></div>
           <div><h3>Desktop engines, emulated layouts</h3><p>Runs use headless browsers at DPR 1, unthrottled CPU and network, on localhost. A narrow viewport models layout, not phone hardware. Playwright WebKit on Windows is not Mac Safari, iOS Safari or a real phone; do not generalize these timings to those devices.</p></div>
           <div><h3>“Ready” is a harness checkpoint</h3><p>Timing starts immediately before the programmatic click: two requestAnimationFrame (RAF) callbacks, then an image-ready/decode await (empty for pure CSS), then two additional callbacks. The 2 RAFs row stops at the original second callback; ready includes the full sequence. The stored “decoded” endpoint is elapsed time, not CPU decode time. Callbacks offer rendering opportunities, with no guarantee of actual presentation. This is not INP.</p></div>

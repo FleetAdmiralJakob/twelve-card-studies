@@ -3,6 +3,7 @@
  const config=JSON.parse(document.getElementById('collection-data').textContent);
  const gallery=document.getElementById('gallery');
  const cards=[...gallery.querySelectorAll('.card')];
+ const shells=cards.map(card=>({element:card.parentElement,images:[...card.querySelectorAll('img,source')],width:null}));
  const dialog=document.getElementById('card-dialog');
  const stage=document.getElementById('detail-stage');
  const form=document.getElementById('card-editor');
@@ -41,11 +42,15 @@
   fitName(card);
  }
  function resize(){
-  gallery.querySelectorAll('.card-shell').forEach(shell=>{
-   shell.style.setProperty('--card-scale',shell.clientWidth/300);
-   const size=shell.clientWidth+'px';for(const image of shell.querySelectorAll('img,source'))if(image.sizes!==size)image.sizes=size;
+  // Read geometry before writing styles, and leave unchanged scales alone.
+  // Opening/browsing a dialog normally does not change any gallery width.
+  const widths=shells.map(({element})=>element.clientWidth),detailWidth=stage.clientWidth;
+  shells.forEach((shell,i)=>{
+   const width=widths[i];if(shell.width===width)return;shell.width=width;
+   shell.element.style.setProperty('--card-scale',width/300);
+   const size=width+'px';for(const image of shell.images)if(image.sizes!==size)image.sizes=size;
   });
-  stage.style.setProperty('--card-scale',stage.clientWidth/300);
+  const scale=String(detailWidth/300);if(stage.style.getPropertyValue('--card-scale')!==scale)stage.style.setProperty('--card-scale',scale);
  }
  function fillForm(){
   const state=states[current];Object.entries(fields).forEach(([key,input])=>{input.value=state[key]});
@@ -57,7 +62,7 @@
   if(!card){
    card=cards[current].cloneNode(true);card.removeAttribute('aria-haspopup');card.tabIndex=-1;
    const ids=new Set([...card.querySelectorAll('[id]')].map(el=>el.id));
-   for(const el of card.querySelectorAll('*'))for(const attr of [...el.attributes]){
+   if(ids.size)for(const el of card.querySelectorAll('*'))for(const attr of [...el.attributes]){
     let value=attr.value.replace(/url\(#([^)]+)\)/g,(match,id)=>ids.has(id)?`url(#detail-${id})`:match);
     if(attr.name==='id')value='detail-'+value;
     else if((attr.name==='href'||attr.name==='xlink:href')&&ids.has(value.slice(1)))value='#detail-'+value.slice(1);

@@ -39,7 +39,7 @@ The second supplied reference introduces twelve named cards in a 4 × 3 desktop 
 | --- | --- | --- |
 | Hybrid | `/revision-2/hybrid/` | Optimized AVIF/WebP frames, live HTML fields and SVG flags/crests |
 | SVG + CSS | `/revision-2/svg/` | Authored scalable vectors; no raster artwork |
-| CSS polygons | `/revision-2/css/` | HTML/CSS, including polygon outlines; no SVG/images/canvas |
+| CSS shapes | `/revision-2/css/` | HTML/CSS with polygon and curved path outlines; no SVG/images/canvas |
 | CSS primitives | `/revision-2/basic/` | Boxes, ellipses, gradients, borders and transforms; no image, clip, mask, path or polygon outlines |
 
 All four new editions support names, ratings, positions, twelve countries and all six stats. Validated local edits are shared across Revision 2 approaches on the same browser origin; Revision 1 remains separate. Each card can be reset after confirmation. The larger-card toggle supports closer reading, especially on small screens. Hybrid exports transparent 1011 × 1280 PNGs with live fields and crests. Source art is approximately 550 × 700 pixels per card; larger exports do not add underlying detail.
@@ -48,11 +48,19 @@ Source downloads are at `/revision-2/source/{svg,css,basic,hybrid}`. Three const
 
 Use `npm run build:revision2` to build the four pages and hub, `npm run assets:revision2` only to re-encode authored raster inputs, and `npm run check:revision2` for the dedicated browser checks. The full production workflow is `npm run build:vercel` followed by `npm run check:routes`. The older `npm run build` command retains its Revision 1 behavior.
 
+The previous constrained SVG, CSS and primitive pages are preserved byte-for-byte in [the pre-fidelity archive](versions/2026-10-23-before-fidelity/README.md). Their historic measurement snapshots remain unchanged. The redraw authors the silhouettes, cloth, lighting and themed frames separately within each approach’s restrictions; it is not a bitmap-to-CSS encoding. Native CSS curves are allowed only in the CSS-shapes edition. The primitive edition still excludes all clips, masks and path outlines.
+
+The final redraw passed **284/284 functional checks**, with **0 runtime/request errors**, **16 edition/engine/viewport views** and **32 hybrid PNG exports**, using sequential Edge and Windows WebKit runs. This covers editing, persistence, country proportions, keyboard navigation, larger-card toggles and live resizing. The [final redraw QA summary](revision-2/evidence/checkoutputs/2026-10-23T21-28-59-630Z-both/summary.json) is local evidence, ignored by Git. The test waits for the native dialog’s asynchronous close event to restore the exact opener; the original preliminary focus-race failure and its focused diagnosis remain preserved locally.
+
+The redraw reduces SVG artwork elements from 3425 to 2618 and primitive artwork elements from 1773 to 1635; CSS artwork grows from 1663 to 1703. These structural counts are not performance measurements. Cold CSS detail rendering still has a material GPU raster cost on the tested Edge setup. Experiments with duplicated gradient stops, explicit color spaces, containment and compositing did not establish a suitable overall improvement and were not shipped. The report records complete loading and interaction measurements rather than treating a lower node count or a warmed modal as proof of speed.
+
 The initial full functional QA on 2026-10-23 passed **284/284 checks**, with **0 errors**, **16 edition/engine/viewport views** and **32 hybrid PNG exports**. The [QA summary](revision-2/evidence/checkoutputs/2026-10-23T17-39-08-631Z-both/summary.json) is local evidence, ignored by Git.
 
 A subsequent hybrid asset correction removes neighboring card fragments accidentally included by the original atlas quadrant extraction. Source-pinned exclusions preserve the original tile size and field alignment; all source atlases remain intact. The [artwork provenance](revision-2/assets/ARTWORK.md) documents the narrow mixed-glow tradeoffs. Targeted Edge and Windows WebKit checks passed **72/72**, with **0 errors** and **30 PNG exports**, covering compact/larger desktop/mobile galleries and every card editor. The [crop QA summary](revision-2/evidence/atlas-crop/browser-2026-10-23T19-53-30-479Z/summary.json) is also local ignored evidence. R1 and the three nonhybrid R2 pages are unchanged by this correction.
 
-The corrected assets have a fresh [64-run measurement snapshot](revision-2/benchmarks/measurements/2026-10-23T19-57-15-388Z-093293df-a0c9-4d8b-9464-e1305d36fe0d.json), completed at 20:08:43 UTC on 2026-10-23. Earlier snapshots remain archived; `latest.json` selects the new complete, validated batch.
+The crop correction was measured in this preserved [64-run snapshot](revision-2/benchmarks/measurements/2026-10-23T19-57-15-388Z-093293df-a0c9-4d8b-9464-e1305d36fe0d.json), completed at 20:08:43 UTC on 2026-10-23. This snapshot describes the artwork before the constrained-edition redraw.
+
+The redraw has its own validated [64-run measurement snapshot](revision-2/benchmarks/measurements/2026-10-23T21-36-56-893Z-88b20a80-8532-43cb-9c8d-d54535a46086.json), completed at 21:47:51 UTC on 2026-10-23 and selected by `latest.json`. All workload and resource checks pass. Compare approaches within that batch: Edge’s idle callback cadence differs from the earlier snapshot (roughly 16.7 ms versus 6.1 ms), so changes in callback intervals between those batches cannot be attributed solely to the redraw. Separate fresh-process diagnosis informed the implementation; it is not substituted for the published measurements.
 
 Revision 2 has an independent [benchmark workflow](revision-2/benchmarks/README.md). It requires 64 runs across Edge and Windows WebKit, two layout profiles and four balanced rounds. Report generation validates frozen source, HTML, resource and harness hashes against the selected immutable snapshot; the production routes are `/revision-2/benchmarks/` and `/revision-2/benchmarks/data.json`. R1 reports remain historical. Content, desktop viewport and decode workload differ between revisions, so their timings are not a controlled before/after comparison. Headless Windows WebKit is not Safari on a Mac or a real phone; animation-frame callback intervals are not FPS or INP.
 
@@ -61,7 +69,7 @@ Revision 2 has an independent [benchmark workflow](revision-2/benchmarks/README.
 After publication, these routes are available on the existing private host:
 
 - [Collection hub](http://jakobs-pc.taile7e918.ts.net:8787/)
-- Revision 2: [Hybrid](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/hybrid/) · [SVG](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/svg/) · [CSS polygons](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/css/) · [CSS primitives](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/basic/)
+- Revision 2: [Hybrid](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/hybrid/) · [SVG](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/svg/) · [CSS shapes](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/css/) · [CSS primitives](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/basic/)
 - Revision 2: [report](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/benchmarks/) · [raw data](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/benchmarks/data.json) · [reference](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/reference)
 - [Revision 1 · SVG](http://jakobs-pc.taile7e918.ts.net:8787/original/)
 - [V2 · CSS polygons](http://jakobs-pc.taile7e918.ts.net:8787/css/)

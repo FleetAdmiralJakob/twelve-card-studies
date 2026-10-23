@@ -180,8 +180,11 @@ async function keyboard(page) {
   await page.locator('#close-dialog').focus();
   await page.keyboard.press('Escape');
   await page.waitForFunction(()=>!document.querySelector('#card-dialog').open);
+  // Native close is queued after open becomes false; the app restores its opener in that event.
+  await page.waitForFunction(index=>!document.querySelector('#card-dialog').open && document.querySelectorAll('#gallery .card')[index]===document.activeElement,2,{timeout:2000});
   assert(await page.locator('#gallery .card').nth(2).evaluate(e=>e===document.activeElement),'Escape must restore opener focus');
   await open(page,3); await page.locator('#close-dialog').click();
+  await page.waitForFunction(index=>!document.querySelector('#card-dialog').open && document.querySelectorAll('#gallery .card')[index]===document.activeElement,3,{timeout:2000});
   assert(await page.locator('#gallery .card').nth(3).evaluate(e=>e===document.activeElement),'Close button must restore opener focus');
   return {forwardTabs:visited.length,browserChromeStops:visited.filter(a=>!a.documentFocused).length,reverseTab:true,escape:true,focusReturn:true};
 }

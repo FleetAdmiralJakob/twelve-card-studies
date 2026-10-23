@@ -15,104 +15,88 @@ const laurels = (bronze = false) => `<div class="r2-mb-laurels">${[false, true].
 }).join('')}</div>`;
 
 const seams = items => items.map(([x, y, w, h, a, o = 1]) => box('fold', x, y, w, h, a, `opacity:${o};`)).join('');
-const hair = (x, y, color = '') => `<div class="r2-mb-hair" style="left:${x}px;top:${y}px;${color}">${[[2, 11, 7, 9], [5, 5, 7, 7], [11, 2, 8, 6], [19, 0, 8, 6], [27, 1, 8, 6], [34, 4, 8, 7], [41, 7, 7, 8], [46, 13, 6, 9]].map(([a, b, w, h], n) => box('curl', a, b, w, h, n * 15)).join('')}</div>`;
+const hair = (x,y) => `<div class="r2-mb-hair" style="left:${x}px;top:${y}px">${[[3,7,10,10],[9,2,12,11],[20,0,11,10],[30,2,13,11],[41,7,10,11]].map(([a,b,w,h],i)=>box('curl',a,b,w,h,i*13)).join('')}</div>`;
 
+// Broad intersecting dark masses form a continuous silhouette. Small curved
+// gradient patches describe cloth tension; there are no outlined body panels.
+const foldPatch = (x,y,w,h,a=0,o=.7) => box('fabric-light',x,y,w,h,a,`opacity:${o}`);
+const softFold = (x,y,w,h,a=0,o=.65) => box('fabric-shadow',x,y,w,h,a,`opacity:${o}`);
 function valorFigure() {
   return `<div class="r2-mb-figure r2-mb-back-player">
-    ${box('arm arm-left', 79, 154, 27, 66, 31)}
-    ${box('forearm forearm-left', 60, 204, 50, 21, -34)}
-    ${box('neck', 156, 102, 29, 35, -12)}
-    ${box('torso', 110, 119, 116, 133, -9)}
-    ${box('shoulder', 98, 115, 105, 48, -13)}
-    ${box('sleeve sleeve-left', 88, 130, 48, 51, 35)}
-    ${box('sleeve sleeve-right', 198, 133, 38, 58, -19)}
-    ${box('arm arm-right', 214, 175, 25, 54, -18)}
-    ${box('head', 145, 55, 49, 64, 8)}
-    ${box('ear', 189, 82, 8, 17, 8)}
-    ${hair(143, 47)}
-    ${box('collar', 143, 115, 48, 13, -9)}
-    ${seams([[109, 129, 50, 12, -12], [123, 139, 62, 17, 19, .75], [135, 154, 65, 21, 17, .46], [145, 174, 61, 12, -12, .56], [123, 183, 53, 18, 32, .55], [130, 210, 58, 9, -27, .65], [102, 142, 24, 11, 37], [96, 151, 27, 7, 31, .75], [209, 151, 21, 12, -19], [213, 162, 20, 10, -20, .7], [153, 132, 12, 59, -22, .32], [164, 191, 14, 38, 20, .5]])}
-    <div class="r2-mb-ball">${box('ball-panel', 22, 22, 19, 18, 20)}${box('ball-panel', 4, 8, 15, 14, -25)}${box('ball-panel', 44, 10, 15, 15, 27)}${box('ball-panel', 9, 43, 15, 14, 27)}${box('ball-panel', 41, 43, 16, 15, -24)}<i class="r2-mb-ball-latitude"></i><i class="r2-mb-ball-longitude"></i></div>
-    ${crown(191, 155, true)}
-    ${box('forearm forearm-right', 186, 216, 53, 20, -15)}
-    ${box('hand', 176, 211, 29, 16, 12)}
-    ${box('finger', 180, 211, 23, 3, 10)}${box('finger', 179, 216, 22, 2, 9)}
+    ${box('arm',72,153,28,69,34)}${box('arm',47,197,24,53,34)}
+    ${box('neck',153,98,30,34,-9)}
+    ${box('torso',107,127,116,124,-6)}${box('shoulder',108,115,97,44,10)}
+    ${box('sleeve',87,125,45,55,30)}${box('sleeve',191,132,36,58,-18)}
+    ${box('arm',204,178,25,42,-14)}
+    ${box('head',146,50,49,67,9)}${hair(143,43)}
+    ${box('collar',145,116,42,10,11)}
+    ${foldPatch(115,125,53,10,9,.9)}${foldPatch(153,134,45,6,17,.65)}
+    ${foldPatch(120,146,11,52,8,.45)}${foldPatch(138,153,9,48,-5,.38)}
+    ${foldPatch(161,155,42,9,53,.36)}${foldPatch(127,180,41,5,-14,.25)}
+    ${foldPatch(94,138,23,6,-35,.7)}${foldPatch(86,162,27,5,29,.8)}
+    ${foldPatch(192,151,25,6,64,.5)}${foldPatch(115,211,29,5,23,.25)}
+    ${softFold(122,133,55,14,17)}${softFold(152,184,10,43,-6,.45)}
+    <div class="r2-mb-ball">${box('ball-panel',22,21,19,18,18)}${box('ball-panel',3,8,16,14,-24)}${box('ball-panel',43,9,15,15,28)}${box('ball-panel',7,42,16,15,29)}${box('ball-panel',40,43,17,15,-22)}<i class="r2-mb-ball-latitude"></i><i class="r2-mb-ball-longitude"></i></div>
+    ${crown(177,148,true)}${box('forearm',183,212,39,15,-6)}${box('hand',169,216,27,12,-5)}
+    ${box('finger',176,218,18,2,-3)}
   </div>`;
 }
-
 function nexusFigure() {
   return `<div class="r2-mb-figure r2-mb-profile-player">
-    ${box('cape cape-back', 53, 135, 132, 112, -17, 'transform:rotate(-17deg) skewX(-14deg);')}
-    ${box('cape cape-shoulder', 84, 122, 112, 55, -21, 'transform:rotate(-21deg) skewX(-23deg);')}
-    ${[[39, 159, 133, 32, -19], [43, 180, 145, 24, -28], [54, 196, 125, 22, -32], [67, 215, 106, 18, -28], [74, 142, 98, 19, -15]].map(p => box('cape-ridge', ...p)).join('')}
-    ${box('neck', 159, 104, 26, 35, -8)}
-    ${box('torso', 129, 126, 102, 132, -10)}
-    ${box('shoulder', 135, 123, 91, 49, 8)}
-    ${box('sleeve sleeve-right', 195, 139, 42, 61, -23)}
-    ${box('arm arm-right', 217, 184, 26, 53, -29)}
-    ${box('forearm forearm-right', 230, 221, 37, 21, 29)}
-    ${box('head', 147, 52, 48, 66, 7)}
-    ${box('nose', 189, 78, 9, 12, -14)}
-    ${box('jaw', 175, 97, 18, 17, 8)}
-    ${box('ear', 148, 81, 9, 17, 7)}
-    ${hair(146, 47)}
-    ${box('brow', 178, 77, 15, 3, 7)}
-    ${box('collar', 145, 118, 45, 13, 9)}
-    ${seams([[141, 133, 62, 13, -6], [148, 145, 69, 14, 11, .75], [159, 167, 40, 24, -15, .5], [158, 201, 37, 20, 17, .5], [145, 220, 52, 12, -15, .65], [201, 149, 29, 14, -22], [206, 163, 28, 12, -22, .7], [210, 178, 27, 9, -21, .8], [171, 160, 14, 58, -9, .45], [126, 174, 16, 62, 12, .4]])}
+    ${box('cape cape-back',57,137,137,113,-17,'transform:rotate(-17deg) skewX(-13deg)')}
+    ${box('cape cape-shoulder',76,128,119,44,-24,'transform:rotate(-24deg) skewX(-20deg)')}
+    ${[[37,151,137,24,-19],[41,177,132,19,-29],[52,205,122,17,-37],[88,213,84,15,-44]].map(p=>box('cape-ridge',...p)).join('')}
+    ${box('neck',184,103,29,36,13)}${box('torso',146,133,81,120,-8)}
+    ${box('shoulder',160,128,70,40,11)}${box('sleeve',200,139,36,56,-17)}
+    ${box('arm',218,184,25,53,-24)}${box('arm',240,222,19,34,-37)}
+    ${box('head',182,48,49,76,3)}${box('nose',226,86,9,14,-9)}
+    ${hair(180,43)}${box('collar',175,126,37,8,17)}
+    ${foldPatch(194,138,37,9,24,.8)}${foldPatch(209,159,22,5,21,.55)}
+    ${foldPatch(204,176,24,6,25,.65)}${foldPatch(164,149,8,48,13,.42)}
+    ${foldPatch(179,162,9,36,-9,.35)}${foldPatch(185,204,8,28,-15,.25)}
+    ${softFold(163,142,16,59,15,.6)}${softFold(185,177,10,46,-10,.65)}
   </div>`;
 }
-
 function aurumFigure() {
   return `<div class="r2-mb-figure r2-mb-statue-player">
-    ${box('neck', 161, 105, 29, 34, -13)}
-    ${box('arm arm-left', 110, 167, 29, 79, 18)}
-    ${box('torso', 126, 125, 110, 131, -13)}
-    ${box('shoulder', 122, 124, 113, 51, -8)}
-    ${box('sleeve sleeve-left', 114, 138, 43, 51, 19)}
-    ${box('sleeve sleeve-right', 204, 132, 43, 59, -26)}
-    ${box('arm arm-right', 227, 180, 28, 64, -25)}
-    ${box('head', 147, 53, 48, 64, -9)}
-    ${box('nose', 142, 82, 11, 12, 12)}
-    ${box('jaw', 150, 99, 21, 14, -12)}
-    ${box('ear', 188, 78, 9, 16, -10)}
-    ${hair(146, 48)}
-    ${box('brow', 148, 78, 20, 3, -9)}
-    ${box('collar', 152, 123, 40, 17, -20)}
-    ${box('shirt-placket', 168, 139, 3, 16, 7)}
-    ${seams([[135, 139, 28, 21, -24], [178, 139, 36, 15, 14], [159, 161, 44, 22, -15, .7], [145, 179, 33, 19, 13, .5], [169, 198, 45, 12, -21, .7], [148, 219, 64, 16, 11, .65], [211, 144, 27, 21, -22, .8], [216, 162, 26, 12, -25, .75], [117, 155, 30, 16, 16, .75], [121, 174, 24, 9, 12, .75], [195, 173, 13, 44, -16, .6], [145, 155, 11, 47, 12, .45]])}
+    ${box('neck',149,101,34,32,-11,'z-index:2')}
+    ${box('torso',118,134,104,121,-9)}${box('shoulder',122,125,102,43,3)}
+    ${box('arm',99,175,24,69,16)}${box('sleeve',101,133,35,46,17)}
+    ${box('sleeve',197,132,42,55,-25)}${box('arm',222,180,26,62,-32)}
+    ${box('profile-contour',136,82,13,14,14)}${box('head',141,54,45,64,-10)}${hair(141,46)}
+    ${box('collar-seam',147,130,16,1,30)}${box('collar-seam',162,133,23,1,-31)}
+    ${foldPatch(127,148,11,45,8,.37)}${softFold(132,145,8,46,7,.65)}
+    ${foldPatch(155,157,8,32,-7,.3)}${softFold(151,170,9,42,-8,.45)}
+    ${foldPatch(178,158,10,44,-17,.5)}${softFold(186,170,10,42,-11,.6)}
+    ${foldPatch(202,138,27,9,29,.7)}${softFold(208,163,26,7,-19,.5)}
+    ${softFold(138,179,41,8,-12,.3)}${softFold(145,211,47,7,-9,.4)}
+    ${box('shirt-placket',160,141,2,10,-6)}${[[129,147,10,55],[134,156,9,110],[132,165,12,49],[141,174,9,-16],[205,144,12,52],[212,154,12,-12],[212,155,11,77],[214,166,13,42],[223,175,12,80],[174,185,13,48],[183,194,11,105],[184,205,13,-17]].map(([x,y,w,a])=>box('marble-vein',x,y,w,.7,a)).join('')}
   </div>`;
 }
-
 function legacyFigure() {
   return `<div class="r2-mb-figure r2-mb-roman-player">
-    ${box('neck', 159, 105, 27, 34, 2)}
-    ${box('torso', 109, 128, 116, 124, -6)}
-    ${box('shoulder', 106, 125, 111, 44, 1)}
-    ${box('sleeve sleeve-left', 95, 144, 45, 58, 26)}
-    ${box('arm arm-left', 90, 185, 29, 39, 19)}
-    ${box('forearm forearm-left', 105, 211, 72, 23, -17)}
-    ${box('sleeve sleeve-right', 191, 140, 38, 56, -18)}
-    ${box('arm arm-right', 209, 184, 25, 39, -19)}
-    ${box('forearm forearm-right', 172, 218, 61, 20, 17)}
-    ${box('hand', 157, 211, 31, 17, 12)}
-    ${box('head', 147, 55, 49, 65, 8)}
-    ${box('nose', 191, 82, 9, 11, -10)}
-    ${box('jaw', 181, 99, 16, 17, 8)}
-    ${box('ear', 148, 83, 9, 17, 7)}
-    ${hair(145, 48)}
-    ${box('brow', 181, 80, 15, 3, 7)}
-    ${box('collar', 142, 121, 49, 13, 7)}
-    ${seams([[113, 138, 55, 12, -3], [124, 150, 71, 19, 14, .7], [137, 173, 56, 21, -12, .6], [131, 198, 50, 16, 13, .5], [150, 215, 34, 11, -16, .4], [102, 154, 29, 16, 25], [99, 170, 27, 11, 25, .7], [199, 155, 23, 16, -19], [205, 173, 21, 11, -17, .75], [141, 146, 12, 51, -16, .45]])}
-    ${box('finger', 159, 212, 22, 2, 10)}${box('finger', 159, 216, 24, 2, 9)}
+    ${box('neck',149,100,30,37,4)}
+    ${box('torso',107,132,104,118,-7)}${box('shoulder',113,122,89,42,14)}
+    ${box('sleeve',87,129,43,56,25)}${box('arm',78,177,26,42,13)}
+    ${box('forearm',82,210,70,23,4)}${box('forearm',133,211,38,18,-12)}
+    ${box('sleeve',185,143,29,49,-14)}${box('arm',204,181,22,47,-24)}
+    ${box('head',146,49,48,75,5)}${box('nose',190,86,9,13,-12)}${hair(143,43)}
+    ${box('collar',141,123,41,9,15)}
+    ${foldPatch(126,132,47,8,20,.75)}${foldPatch(164,146,33,6,24,.7)}
+    ${foldPatch(94,139,28,8,-34,.7)}${foldPatch(87,170,27,5,24,.8)}
+    ${foldPatch(131,158,9,40,-4,.35)}${foldPatch(166,171,9,36,-27,.45)}
+    ${foldPatch(192,157,23,5,65,.35)}${softFold(144,162,9,42,-15,.55)}
+    ${box('hand',153,213,28,13,10)}${box('finger',160,216,18,2,9)}
+    ${[[137,143,9,4,26],[148,154,9,4,19],[177,151,10,4,31],[169,186,9,4,38],[124,181,8,4,49]].map(p=>box('stitch',...p)).join('')}
   </div>`;
 }
 
 const crack = ([x, y, w, a, opacity = 1]) => box('fracture', x, y, w, 1, a, `opacity:${opacity};`);
 
 function valorBackdrop() {
-  return `<div class="r2-mb-atmosphere"></div><div class="r2-mb-sun-disc"></div>
-    ${[[103, 51, 66, 14, -38], [181, 46, 72, 17, 54], [213, 76, 57, 13, -44], [93, 159, 80, 12, -31], [221, 122, 42, 11, 34], [57, 193, 71, 9, -27], [211, 204, 63, 10, -38]].map(p => box('gold-ribbon', ...p)).join('')}
-    ${[[106, 62, 92, -29, .5], [209, 66, 45, 68, .65], [220, 111, 51, -48, .6], [61, 163, 55, 33, .45], [53, 206, 54, -25, .5]].map(crack).join('')}
+  return `<div class="r2-mb-atmosphere"></div>
+    ${[[102,42,68,14,52],[108,60,51,9,49],[181,56,73,17,-68],[205,62,72,17,-48],[223,109,61,14,-47],[230,151,47,10,-36],[40,141,72,12,37],[37,181,73,11,27],[48,213,57,9,21],[219,45,30,8,62]].map(p=>box('gold-ribbon',...p)).join('')}
+    ${[[105,45,74,51,.7],[218,53,75,111,.7],[245,109,56,133,.5],[51,173,49,29,.5]].map(crack).join('')}
     <div class="r2-mb-star r2-mb-star-top"></div>`;
 }
 
@@ -130,7 +114,7 @@ function aurumBackdrop() {
 }
 
 function colosseum() {
-  return `<div class="r2-mb-colosseum"><div class="r2-mb-colosseum-wall"></div>${[0, 1, 2].map(row => `<div class="r2-mb-arcade" style="top:${22 + row * 36}px">${Array.from({ length: 7 }, (_, n) => `<i class="r2-mb-arch" style="left:${n * 20 + 3}px;top:${n * .8}px;width:${11 + n * .25}px;height:${23 + row * 2}px"></i>`).join('')}</div><i class="r2-mb-cornice" style="top:${17 + row * 36}px"></i>`).join('')}<i class="r2-mb-cornice r2-mb-cornice-base"></i><i class="r2-mb-colosseum-rim"></i></div>`;
+  return `<div class="r2-mb-colosseum"><div class="r2-mb-colosseum-wall"></div>${[0, 1, 2].map(row => `<div class="r2-mb-arcade" style="top:${22 + row * 36}px">${Array.from({ length: 7 }, (_, n) => `<i class="r2-mb-arch" style="left:${n * 20 + 3}px;top:${n * .8}px;width:${7.5 + n * .95}px;height:${18 + row * 2 + n*.8}px"></i>`).join('')}</div><i class="r2-mb-cornice" style="top:${17 + row * 36}px"></i>`).join('')}<i class="r2-mb-cornice r2-mb-cornice-base"></i><i class="r2-mb-colosseum-rim"></i>${[[92,12,12,63],[98,22,9,118],[94,31,10,52],[121,66,13,115],[115,77,12,73],[77,105,12,63],[83,115,8,120]].map(([x,y,w,a])=>box('stone-scar',x,y,w,.8,a)).join('')}</div>`;
 }
 
 function legacyBackdrop() {
@@ -208,7 +192,7 @@ export const basicStyles = String.raw`
 .r2-metal .r2-mb-star{position:absolute;width:3px;height:19px;border-radius:50%;background:linear-gradient(0deg,transparent,var(--metal-light),transparent)}
 .r2-metal .r2-mb-star::after{content:"";position:absolute;left:-7px;top:8px;width:17px;height:3px;border-radius:50%;background:linear-gradient(90deg,transparent,var(--metal-light),transparent)}
 .r2-metal .r2-mb-star-top{left:150px;top:31px}
-.r2-metal .r2-mb-ball{position:absolute;left:181px;top:177px;width:61px;height:61px;overflow:hidden;border:1px solid #eaca7c;border-radius:50%;background:radial-gradient(circle at 32% 24%,#fffbe0 0,#f7d883 19%,#c09335 44%,#8c6322 67%,#332d15 94%);box-shadow:inset -6px -9px 8px #110f08a8,inset 2px 2px 3px #fff6b4,0 3px 7px #0009}
+.r2-metal .r2-mb-ball{position:absolute;left:167px;top:172px;width:61px;height:61px;overflow:hidden;border:1px solid #eaca7c;border-radius:50%;background:radial-gradient(circle at 32% 24%,#fffbe0 0,#f7d883 19%,#c09335 44%,#8c6322 67%,#332d15 94%);box-shadow:inset -6px -9px 8px #110f08a8,inset 2px 2px 3px #fff6b4,0 3px 7px #0009}
 .r2-metal .r2-mb-ball-panel{border-radius:25%;border:1px solid #ffe4a8;background:linear-gradient(135deg,#574719,#141b10 68%,#80682d);box-shadow:1px 1px 1px #211c13}
 .r2-metal .r2-mb-ball-latitude{left:1px;top:13px;width:59px;height:35px;border:1px solid #ffefaf80;border-radius:50%;transform:rotate(-17deg)}
 .r2-metal .r2-mb-ball-longitude{left:17px;top:-2px;width:28px;height:64px;border-left:1px solid #ffe6ab9c;border-right:1px solid #fff3b970;border-radius:50%;transform:rotate(24deg)}
@@ -292,4 +276,62 @@ export const basicStyles = String.raw`
 .r2-metal .r2-mb-helmet-eye{left:20px;top:19px;width:12px;height:4px;transform:rotate(-7deg);border-radius:50%;background:var(--footer)}
 .r2-metal .r2-mb-helmet-nose{left:27px;top:21px;width:3px;height:10px;transform:rotate(-9deg);border-radius:20%;background:var(--metal-light)}
 .r2-metal .r2-mb-helmet-neck{left:5px;top:29px;width:17px;height:5px;transform:rotate(12deg);border-radius:30%;background:var(--metal-dark)}
+
+/* Silhouette lighting: adjoining masses share a dark interior. There are no
+   separate face blocks, outlined shoulder panels, or concentric hair rings. */
+.r2-metal .r2-mb-head{border-radius:47% 47% 37% 49% / 37% 39% 57% 57%;background:linear-gradient(104deg,var(--skin-light),var(--skin-mid) 4%,var(--skin-dark) 24%,var(--skin-dark) 92%,var(--skin-mid));box-shadow:none}
+.r2-metal .r2-mb-neck{background:linear-gradient(105deg,var(--skin-mid),var(--skin-dark) 24%,var(--skin-dark) 88%,var(--skin-mid));border-radius:15% 20% 30% 30%;box-shadow:none}
+.r2-metal .r2-mb-nose{border-radius:0 70% 40% 0;background:var(--skin-dark);box-shadow:none}
+.r2-metal .r2-mb-hair{width:52px;height:33px;border-radius:47% 45% 18% 27%;background:var(--skin-dark);box-shadow:inset 0 1px 0 var(--skin-mid)}
+.r2-metal .r2-mb-curl{background:var(--skin-dark);border-radius:42%;box-shadow:inset 0 1px 0 var(--skin-mid)}
+.r2-metal .r2-mb-torso{border-radius:27% 40% 13% 10% / 20% 30% 9% 5%;background:radial-gradient(ellipse at 26% 4%,var(--cloth-mid),transparent 38%),linear-gradient(107deg,var(--cloth-mid),var(--cloth-dark) 25%,var(--cloth-dark) 78%,var(--cloth-mid));box-shadow:none}
+.r2-metal .r2-mb-shoulder{border-radius:54% 70% 12% 15% / 55% 84% 16% 20%;background:linear-gradient(175deg,var(--cloth-light),var(--cloth-mid) 5%,var(--cloth-dark) 36%,var(--cloth-dark));box-shadow:inset 0 1px 0 var(--rim)}
+.r2-metal .r2-mb-sleeve{border-radius:65% 49% 9% 10% / 57% 45% 9% 10%;background:linear-gradient(110deg,var(--cloth-light),var(--cloth-mid) 5%,var(--cloth-dark) 37%,var(--cloth-dark) 84%,var(--cloth-mid));box-shadow:inset 1px 0 0 var(--rim);border-bottom:1px solid var(--cloth-light)}
+.r2-metal .r2-mb-arm{border-radius:41% 45% 35% 30% / 24% 28% 36% 30%;background:linear-gradient(102deg,var(--skin-light),var(--skin-mid) 6%,var(--skin-dark) 48%,var(--skin-dark) 89%,var(--skin-mid));box-shadow:none}
+.r2-metal .r2-mb-forearm,.r2-metal .r2-mb-hand{background:linear-gradient(170deg,var(--skin-light),var(--skin-mid) 8%,var(--skin-dark) 58%,var(--skin-dark));box-shadow:none}
+.r2-metal .r2-mb-collar{border-top:1px solid var(--cloth-light);border-bottom:1px solid var(--skin-dark);box-shadow:none;background:transparent}
+.r2-metal .r2-mb-fabric-light{border-radius:75% 32% 46% 20%;background:linear-gradient(180deg,transparent,var(--cloth-light) 19%,var(--cloth-mid) 33%,transparent 85%)}
+.r2-metal .r2-mb-fabric-shadow{border-radius:48% 60% 20% 50%;background:radial-gradient(ellipse,var(--cloth-dark),transparent 72%)}
+.r2-metal .r2-mb-stitch{border-radius:25%;border-top:1px solid var(--cloth-light);border-right:1px solid var(--cloth-light);opacity:.65}
+.r2-metal .r2-mb-cape{background:linear-gradient(144deg,#57605d,#121717 8%,#07090a 35%,#171d1b 59%,#050708 73%);box-shadow:none}
+.r2-metal .r2-mb-cape-shoulder{border-top:.8px solid #ccd3cc;background:linear-gradient(172deg,#737c75,#252d29 9%,#050708 43%,#050708)}
+.r2-metal .r2-mb-cape-ridge{border-top:.7px solid #a9b4a9;border-radius:72% 22% 46% 40%;background:linear-gradient(180deg,#64736b70,transparent 57%);box-shadow:none}
+.r2-metal .r2-mb-gold-ribbon{border-radius:1% 13% 1% 16%;background:linear-gradient(180deg,#fff8c9,#dba943 14%,#8b621f 36%,#fff0a0 42%,#f0cb68 54%,#ac7c21 90%);opacity:1;box-shadow:none}
+.r2-metal.r2-mb-nexus .r2-mb-hair{background:#050708;box-shadow:inset 0 1px 0 #929c94}
+.r2-metal.r2-mb-nexus .r2-mb-curl{opacity:1;background:#050708}
+.r2-metal.r2-mb-aurum .r2-mb-head{background:linear-gradient(100deg,#414a3b,#30392e 46%,#404938);box-shadow:none}
+.r2-metal.r2-mb-aurum .r2-mb-nose{background:#394333}
+.r2-metal.r2-mb-aurum .r2-mb-hair{height:32px;background:#34402d;box-shadow:none}
+.r2-metal.r2-mb-aurum .r2-mb-curl{background:#34402d;box-shadow:inset 0 1px 0 #67715a}
+.r2-metal.r2-mb-aurum .r2-mb-torso{background:radial-gradient(ellipse at 31% 18%,#fbfaf0,transparent 53%),linear-gradient(108deg,#b7b5a7,#e3e1d6 30%,#d1d0c4 70%,#e5e4db);box-shadow:none}
+.r2-metal.r2-mb-aurum .r2-mb-shoulder{background:linear-gradient(174deg,#fffef8,#eeede5 13%,#e3e1d6 55%);box-shadow:inset 0 1px 0 #fffef8}
+.r2-metal.r2-mb-aurum .r2-mb-sleeve{background:linear-gradient(108deg,#fffef5,#d3d2c4 32%,#c2c0b1 66%,#e5e3d9);box-shadow:none;border-color:#a9a693}
+.r2-metal.r2-mb-aurum .r2-mb-arm{background:linear-gradient(105deg,#f4f2e8,#e4e2d7 26%,#bdbbae 75%,#d1cfc0);box-shadow:none}
+.r2-metal.r2-mb-aurum .r2-mb-collar{border-top:3px solid #f7f4e9;border-bottom:1px solid #a09d89;background:#b5b3a3;box-shadow:none}
+.r2-metal.r2-mb-aurum .r2-mb-fabric-light{background:linear-gradient(90deg,transparent,#fffdf5 35%,#fffdf57a 54%,transparent)}
+.r2-metal.r2-mb-legacy .r2-mb-shoulder{background:linear-gradient(174deg,#b28b59,#594025 8%,#17120c 48%,#17120c)}
+.r2-metal.r2-mb-legacy .r2-mb-torso{background:radial-gradient(ellipse at 34% 13%,#573f243b,transparent 50%),linear-gradient(107deg,#3e2d1a,#140f09 35%,#140f09 72%,#332314);box-shadow:none}
+
+.r2-metal .r2-mb-diadem i,.r2-metal .r2-mb-diadem b{background:transparent;box-shadow:none;height:14px;border-bottom-width:1.5px}
+.r2-metal .r2-mb-diadem{top:10px}
+.r2-metal .r2-mb-top-line{width:108px}
+.r2-metal .r2-mb-fabric-light{background:linear-gradient(180deg,transparent,var(--cloth-mid) 25%,var(--cloth-light) 31%,transparent 65%)}
+.r2-metal.r2-mb-aurum .r2-mb-fabric-light{background:linear-gradient(90deg,transparent,#fffdf57a 36%,#fffdf548 51%,transparent)}
+.r2-metal.r2-mb-aurum .r2-mb-collar{background:transparent;border-bottom:1px solid #a09d89}
+.r2-metal .r2-mb-marble-vein{background:#9d927a;opacity:.4;transform-origin:0 50%}
+.r2-metal .r2-mb-head{height:68px!important;border-radius:47% 47% 35% 55% / 37% 39% 58% 54%}
+.r2-metal.r2-mb-aurum .r2-mb-head{z-index:3}
+.r2-metal .r2-mb-hair{height:29px}
+.r2-metal .r2-mb-colosseum-wall{background:repeating-linear-gradient(0deg,transparent 0 11px,#8b623726 11.5px 12px),linear-gradient(95deg,#4c3520,#bc905c 45%,#d1a977 76%,#765133)}
+
+.r2-metal .r2-mb-stone-scar{position:absolute;background:#583c23;opacity:.6;transform-origin:0 50%}
+.r2-metal .r2-mb-cornice{height:4.5px}
+.r2-metal .r2-mb-cornice-base{height:9px}
+
+.r2-metal.r2-mb-aurum .r2-mb-head{height:64px!important;border-radius:50% 43% 45% 24% / 37% 37% 59% 24%}
+.r2-metal.r2-mb-aurum .r2-mb-profile-contour{z-index:3;border-radius:75% 22% 48% 30%;background:#414a3b}
+.r2-metal.r2-mb-aurum .r2-mb-hair{transform:rotate(-10deg) scale(.9);transform-origin:20% 60%;z-index:4}
+.r2-metal.r2-mb-aurum .r2-mb-neck{border-radius:20% 28% 42% 40%;background:linear-gradient(110deg,#626958,#354131 45%,#424b39)}
+.r2-metal .r2-mb-collar-seam{background:#aaa590;opacity:.6;z-index:3;border-radius:50%}
+.r2-metal .r2-mb-nose{width:7px!important;height:9px!important;border-radius:5% 80% 30% 0}
 `;
