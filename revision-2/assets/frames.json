@@ -2,11 +2,18 @@
   {
     "theme": "valor",
     "source": "revision-2/assets/atlas-a-clean.png",
+    "sourceSha256": "47abe7d79b37f5dd0d1b25c62f3c448aef901f97207725f53857a023b8a438f8",
     "sourceRegion": {
       "left": 0,
       "top": 0,
       "width": 558,
       "height": 705
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [],
+      "clearedNontransparentPixels": 0,
+      "note": "Original quadrant retained; no identifiable neighboring solid contour to remove."
     },
     "output": [
       300,
@@ -20,11 +27,18 @@
   {
     "theme": "frost",
     "source": "revision-2/assets/atlas-a-clean.png",
+    "sourceSha256": "47abe7d79b37f5dd0d1b25c62f3c448aef901f97207725f53857a023b8a438f8",
     "sourceRegion": {
       "left": 558,
       "top": 0,
       "width": 558,
       "height": 705
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [],
+      "clearedNontransparentPixels": 0,
+      "note": "Original quadrant retained; no identifiable neighboring solid contour to remove."
     },
     "output": [
       300,
@@ -38,11 +52,18 @@
   {
     "theme": "blaze",
     "source": "revision-2/assets/atlas-a-clean.png",
+    "sourceSha256": "47abe7d79b37f5dd0d1b25c62f3c448aef901f97207725f53857a023b8a438f8",
     "sourceRegion": {
       "left": 0,
       "top": 705,
       "width": 558,
       "height": 705
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [],
+      "clearedNontransparentPixels": 0,
+      "note": "Original quadrant retained; no identifiable neighboring solid contour to remove."
     },
     "output": [
       300,
@@ -56,11 +77,18 @@
   {
     "theme": "volt",
     "source": "revision-2/assets/atlas-a-clean.png",
+    "sourceSha256": "47abe7d79b37f5dd0d1b25c62f3c448aef901f97207725f53857a023b8a438f8",
     "sourceRegion": {
       "left": 558,
       "top": 705,
       "width": 558,
       "height": 705
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [],
+      "clearedNontransparentPixels": 0,
+      "note": "Original quadrant retained; no identifiable neighboring solid contour to remove."
     },
     "output": [
       300,
@@ -74,11 +102,25 @@
   {
     "theme": "rivera",
     "source": "revision-2/assets/atlas-b-clean.png",
+    "sourceSha256": "844f31b6cde58b75fc3a6b9b31290d5f819c789cb1c5fbafc9d9031ff2b57e14",
     "sourceRegion": {
       "left": 0,
       "top": 0,
       "width": 557,
       "height": 706
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [
+        [
+          201,
+          691,
+          386,
+          706
+        ]
+      ],
+      "clearedNontransparentPixels": 910,
+      "note": "Remove the Silvah crown tips below Rivera."
     },
     "output": [
       300,
@@ -92,11 +134,25 @@
   {
     "theme": "nexus",
     "source": "revision-2/assets/atlas-b-clean.png",
+    "sourceSha256": "844f31b6cde58b75fc3a6b9b31290d5f819c789cb1c5fbafc9d9031ff2b57e14",
     "sourceRegion": {
       "left": 557,
       "top": 0,
       "width": 557,
       "height": 706
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [
+        [
+          727,
+          690,
+          923,
+          706
+        ]
+      ],
+      "clearedNontransparentPixels": 1293,
+      "note": "Remove the Aurum crown tips below Nexus. Their merged glow cannot be separated losslessly; the boundary follows the narrow junction below the silver tip."
     },
     "output": [
       300,
@@ -110,11 +166,25 @@
   {
     "theme": "silvah",
     "source": "revision-2/assets/atlas-b-clean.png",
+    "sourceSha256": "844f31b6cde58b75fc3a6b9b31290d5f819c789cb1c5fbafc9d9031ff2b57e14",
     "sourceRegion": {
       "left": 0,
       "top": 706,
       "width": 557,
       "height": 706
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [
+        [
+          546,
+          935,
+          557,
+          992
+        ]
+      ],
+      "clearedNontransparentPixels": 599,
+      "note": "Remove the edge of Aurum’s gold orbit sphere. This also removes a small shared fringe of green glow with alpha at most 29/255."
     },
     "output": [
       300,
@@ -128,11 +198,18 @@
   {
     "theme": "aurum",
     "source": "revision-2/assets/atlas-b-clean.png",
+    "sourceSha256": "844f31b6cde58b75fc3a6b9b31290d5f819c789cb1c5fbafc9d9031ff2b57e14",
     "sourceRegion": {
       "left": 557,
       "top": 706,
       "width": 557,
       "height": 706
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [],
+      "clearedNontransparentPixels": 0,
+      "note": "Original quadrant retained; no identifiable neighboring solid contour to remove."
     },
     "output": [
       300,
@@ -146,11 +223,31 @@
   {
     "theme": "drift",
     "source": "revision-2/assets/atlas-c-clean.png",
+    "sourceSha256": "da45582ce118ab14348ab0553af08bdd5d10e8edad62bbcb1484a0e9648b08ae",
     "sourceRegion": {
       "left": 0,
       "top": 0,
       "width": 556,
       "height": 706
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [
+        [
+          555,
+          217,
+          556,
+          222
+        ],
+        [
+          555,
+          372,
+          556,
+          373
+        ]
+      ],
+      "clearedNontransparentPixels": 6,
+      "note": "Remove two tiny runs belonging to the neighboring Majestic contour; preserve Drift’s bottom glow."
     },
     "output": [
       300,
@@ -164,11 +261,73 @@
   {
     "theme": "majestic",
     "source": "revision-2/assets/atlas-c-clean.png",
+    "sourceSha256": "da45582ce118ab14348ab0553af08bdd5d10e8edad62bbcb1484a0e9648b08ae",
     "sourceRegion": {
       "left": 556,
       "top": 0,
       "width": 556,
       "height": 706
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [
+        [
+          867,
+          691,
+          1112,
+          694
+        ],
+        [
+          860,
+          694,
+          1112,
+          695
+        ],
+        [
+          859,
+          695,
+          1112,
+          696
+        ],
+        [
+          858,
+          696,
+          1112,
+          697
+        ],
+        [
+          856,
+          697,
+          1112,
+          698
+        ],
+        [
+          853,
+          698,
+          1112,
+          699
+        ],
+        [
+          852,
+          699,
+          1112,
+          700
+        ],
+        [
+          848,
+          700,
+          1112,
+          706
+        ],
+        [
+          773,
+          702,
+          808,
+          706
+        ]
+      ],
+      "clearedNontransparentPixels": 416,
+      "note": "Remove faint white/cyan Prism crown pixels while preserving the adjoining blue/magenta Majestic glow."
     },
     "output": [
       300,
@@ -182,11 +341,37 @@
   {
     "theme": "legacy",
     "source": "revision-2/assets/atlas-c-clean.png",
+    "sourceSha256": "da45582ce118ab14348ab0553af08bdd5d10e8edad62bbcb1484a0e9648b08ae",
     "sourceRegion": {
       "left": 0,
       "top": 706,
       "width": 556,
       "height": 706
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [
+        [
+          98,
+          706,
+          105,
+          711
+        ],
+        [
+          209,
+          706,
+          250,
+          718
+        ],
+        [
+          452,
+          706,
+          495,
+          711
+        ]
+      ],
+      "clearedNontransparentPixels": 401,
+      "note": "Remove identifiable faint Drift tail fragments at the top edge, before the ambiguous shared glow."
     },
     "output": [
       300,
@@ -200,11 +385,37 @@
   {
     "theme": "prism",
     "source": "revision-2/assets/atlas-c-clean.png",
+    "sourceSha256": "da45582ce118ab14348ab0553af08bdd5d10e8edad62bbcb1484a0e9648b08ae",
     "sourceRegion": {
       "left": 556,
       "top": 706,
       "width": 556,
       "height": 706
+    },
+    "isolation": {
+      "coordinateSystem": "absolute source pixels; [left,top,right,bottom), upper bounds exclusive",
+      "excludedRectangles": [
+        [
+          556,
+          999,
+          561,
+          1045
+        ],
+        [
+          556,
+          1048,
+          565,
+          1103
+        ],
+        [
+          556,
+          1103,
+          566,
+          1139
+        ]
+      ],
+      "clearedNontransparentPixels": 1044,
+      "note": "Remove the bronze Legacy leaf fragments and surrounding fringe at Prism’s left edge. Outside the 172 confirmed fragment pixels, removed mixed-halo pixels have alpha at most 17/255."
     },
     "output": [
       300,
