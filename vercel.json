@@ -6,83 +6,356 @@
   "outputDirectory": "site",
   "cleanUrls": false,
   "redirects": [
-    { "source": "/css", "destination": "/css/", "permanent": true },
-    { "source": "/basic", "destination": "/basic/", "permanent": true },
-    { "source": "/hybrid", "destination": "/hybrid/", "permanent": true },
-    { "source": "/compare", "destination": "/compare/", "permanent": true },
-    { "source": "/bench", "destination": "/bench/", "permanent": true },
-    { "source": "/original", "destination": "/original/", "permanent": true },
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/css/index.html", "destination": "/css/", "permanent": true },
-    { "source": "/basic/index.html", "destination": "/basic/", "permanent": true },
-    { "source": "/hybrid/index.html", "destination": "/hybrid/", "permanent": true },
-    { "source": "/compare/index.html", "destination": "/compare/", "permanent": true },
-    { "source": "/bench/index.html", "destination": "/bench/", "permanent": true },
-    { "source": "/original/index.html", "destination": "/original/", "permanent": true }
+    {
+      "source": "/css",
+      "destination": "/css/",
+      "permanent": true
+    },
+    {
+      "source": "/basic",
+      "destination": "/basic/",
+      "permanent": true
+    },
+    {
+      "source": "/hybrid",
+      "destination": "/hybrid/",
+      "permanent": true
+    },
+    {
+      "source": "/compare",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/bench",
+      "destination": "/bench/",
+      "permanent": true
+    },
+    {
+      "source": "/original",
+      "destination": "/original/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/css/index.html",
+      "destination": "/css/",
+      "permanent": true
+    },
+    {
+      "source": "/basic/index.html",
+      "destination": "/basic/",
+      "permanent": true
+    },
+    {
+      "source": "/hybrid/index.html",
+      "destination": "/hybrid/",
+      "permanent": true
+    },
+    {
+      "source": "/compare/index.html",
+      "destination": "/compare/",
+      "permanent": true
+    },
+    {
+      "source": "/bench/index.html",
+      "destination": "/bench/",
+      "permanent": true
+    },
+    {
+      "source": "/original/index.html",
+      "destination": "/original/",
+      "permanent": true
+    },
+    {
+      "source": "/collections",
+      "destination": "/collections/",
+      "permanent": true
+    },
+    {
+      "source": "/collections/index.html",
+      "destination": "/collections/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/svg",
+      "destination": "/revision-2/svg/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/svg/index.html",
+      "destination": "/revision-2/svg/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/css",
+      "destination": "/revision-2/css/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/css/index.html",
+      "destination": "/revision-2/css/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/basic",
+      "destination": "/revision-2/basic/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/basic/index.html",
+      "destination": "/revision-2/basic/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/hybrid",
+      "destination": "/revision-2/hybrid/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/hybrid/index.html",
+      "destination": "/revision-2/hybrid/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/benchmarks",
+      "destination": "/revision-2/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/benchmarks/index.html",
+      "destination": "/revision-2/benchmarks/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2",
+      "destination": "/revision-2/svg/",
+      "permanent": true
+    },
+    {
+      "source": "/revision-2/",
+      "destination": "/revision-2/svg/",
+      "permanent": true
+    }
   ],
-  "rewrites": [
-    { "source": "/original/", "destination": "/index.html" }
-  ],
+  "rewrites": [],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "no-cache" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" }
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
       ]
     },
     {
       "source": "/hybrid/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/css/(.*)",
       "headers": [
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'" }
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'"
+        }
       ]
     },
     {
       "source": "/basic/(.*)",
       "headers": [
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'" }
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'"
+        }
       ]
     },
     {
       "source": "/source/svg",
       "headers": [
-        { "key": "Content-Type", "value": "application/octet-stream" },
-        { "key": "Content-Disposition", "value": "attachment; filename=\"the-twelve-svg.html\"" }
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"the-twelve-svg.html\""
+        }
       ]
     },
     {
       "source": "/source/css",
       "headers": [
-        { "key": "Content-Type", "value": "application/octet-stream" },
-        { "key": "Content-Disposition", "value": "attachment; filename=\"the-twelve-css-polygons.html\"" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'" }
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"the-twelve-css-polygons.html\""
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'"
+        }
       ]
     },
     {
       "source": "/source/basic",
       "headers": [
-        { "key": "Content-Type", "value": "application/octet-stream" },
-        { "key": "Content-Disposition", "value": "attachment; filename=\"the-twelve-css-primitives.html\"" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'" }
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"the-twelve-css-primitives.html\""
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'"
+        }
       ]
     },
     {
       "source": "/source/hybrid",
       "headers": [
-        { "key": "Content-Type", "value": "application/zip" },
-        { "key": "Content-Disposition", "value": "attachment; filename=\"the-twelve-studio.zip\"" }
+        {
+          "key": "Content-Type",
+          "value": "application/zip"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"the-twelve-studio.zip\""
+        }
       ]
     },
     {
       "source": "/reference",
       "headers": [
-        { "key": "Content-Type", "value": "image/png" }
+        {
+          "key": "Content-Type",
+          "value": "image/png"
+        }
+      ]
+    },
+    {
+      "source": "/revision-2/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/revision-2/css/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'"
+        }
+      ]
+    },
+    {
+      "source": "/revision-2/basic/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'"
+        }
+      ]
+    },
+    {
+      "source": "/revision-2/source/svg",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"the-twelve-revision-2-svg.html\""
+        }
+      ]
+    },
+    {
+      "source": "/revision-2/source/css",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"the-twelve-revision-2-css-polygons.html\""
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'"
+        }
+      ]
+    },
+    {
+      "source": "/revision-2/source/basic",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"the-twelve-revision-2-css-primitives.html\""
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'"
+        }
+      ]
+    },
+    {
+      "source": "/revision-2/source/hybrid",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/zip"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"the-twelve-revision-2-studio.zip\""
+        }
+      ]
+    },
+    {
+      "source": "/revision-2/reference",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "image/png"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "image/x-icon"
+        }
       ]
     }
   ]

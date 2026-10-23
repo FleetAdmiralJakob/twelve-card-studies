@@ -1,12 +1,14 @@
 # The Twelve
 
-Twelve football cards in four separately preserved editions. Includes all artwork, editable cards, PNG export, comparison reports and source downloads. The site deploys as static files on Vercel; it needs no database, server functions or API keys.
+Two twelve-card collections, each in four separately preserved rendering approaches. Includes all artwork, editable cards, PNG export, comparison reports and source downloads. The site deploys as static files on Vercel; it needs no database, server functions or API keys.
 
 ## Deploy to Vercel
 
 Import [FleetAdmiralJakob/twelve-card-studies](https://github.com/FleetAdmiralJakob/twelve-card-studies) into Vercel. Use the repository root and the **Other** framework preset. The committed `vercel.json` supplies the install command (`npm ci`), build command (`npm run build:vercel`) and output directory (`site`). Node.js 24 is selected in `package.json`. No environment variables are required for a standard Vercel deployment.
 
-The build includes all four versions, both reports and their JSON data, the reference, original-aspect PNG export, and `/source/*` downloads. V1 stays at `/`; the other editions are `/css/`, `/basic/` and `/hybrid/`. V4 remains reachable from every edition. Vercel serves the site independently of the original Windows machine and tailnet.
+The build includes both revisions and all eight editions, their reports and JSON data, both references, PNG export and source downloads. `/` and `/collections/` open the collection hub. Revision 1 lives at `/original/`, `/css/`, `/basic/` and `/hybrid/`; Revision 2 lives under `/revision-2/{svg,css,basic,hybrid}/`. Every edition links back to the hub and the other revision. Vercel serves the site independently of the original Windows machine and tailnet.
+
+Production builds require the complete Revision 2 measurement snapshot selected by `revision-2/benchmarks/latest.json`. Missing, incomplete or stale measurements fail the build; see the [benchmark workflow](revision-2/benchmarks/README.md) for measurement and selection commands.
 
 The hybrid ZIP uses `VERCEL_URL` (or `VERCEL_PROJECT_PRODUCTION_URL`) for its links back to the deployed collection. Set optional `CARD_SITE_ORIGIN=https://your-domain.example` to use a stable custom domain instead. Without deployment variables, local builds use `http://localhost:4173`. Card edits are stored per browser/origin, so they do not transfer automatically between the tailnet and a new domain.
 
@@ -25,22 +27,46 @@ Open http://localhost:4173. Use `npm run preview -- --port 4180` to select anoth
 
 Vercel references: [project configuration](https://vercel.com/docs/project-configuration/vercel-json), [Node.js versions](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions), [deployment environment variables](https://vercel.com/docs/environment-variables/system-environment-variables).
 
+## Revision 2: Elements of the game
+
+The second supplied reference introduces twelve named cards in a 4 × 3 desktop composition: VALOR, FROST, BLAZE, VOLT, RIVERA, NEXUS, SILVAH, AURUM, DRIFT, MAJESTIC, LEGACY and PRISM. A **revision** changes the reference collection; an **approach** changes its rendering technique. The hub exposes all eight edition links, both references, reports and downloads.
+
+| Approach | Revision 2 route | Artwork |
+| --- | --- | --- |
+| Hybrid | `/revision-2/hybrid/` | Optimized AVIF/WebP frames, live HTML fields and SVG flags/crests |
+| SVG + CSS | `/revision-2/svg/` | Authored scalable vectors; no raster artwork |
+| CSS polygons | `/revision-2/css/` | HTML/CSS, including polygon outlines; no SVG/images/canvas |
+| CSS primitives | `/revision-2/basic/` | Boxes, ellipses, gradients, borders and transforms; no image, clip, mask, path or polygon outlines |
+
+All four new editions support names, ratings, positions, twelve countries and all six stats. Validated local edits are shared across Revision 2 approaches on the same browser origin; Revision 1 remains separate. Each card can be reset after confirmation. The larger-card toggle supports closer reading, especially on small screens. Hybrid exports transparent 1011 × 1280 PNGs with live fields and crests. Source art is approximately 550 × 700 pixels per card; larger exports do not add underlying detail.
+
+Source downloads are at `/revision-2/source/{svg,css,basic,hybrid}`. Three constrained editions are single HTML files; hybrid is a complete ZIP with assets and a local server (`node serve.mjs`, http://localhost:5182). The ZIP reference link works locally and its other collection links use the configured site origin. No external artwork/font/flag service is contacted at runtime. [Asset provenance](revision-2/assets/ARTWORK.md) documents the imagegen adaptations and flag sources. All approaches are interpretations; the constrained drawings are deliberately stylized, and no edition is claimed pixel-identical to the reference.
+
+Use `npm run build:revision2` to build the four pages and hub, `npm run assets:revision2` only to re-encode authored raster inputs, and `npm run check:revision2` for the dedicated browser checks. The full production workflow is `npm run build:vercel` followed by `npm run check:routes`. The older `npm run build` command retains its Revision 1 behavior.
+
+Final functional QA on 2026-10-23 passed **284/284 checks**, with **0 errors**, **16 edition/engine/viewport views** and **32 hybrid PNG exports**. The [QA summary](revision-2/evidence/checkoutputs/2026-10-23T17-39-08-631Z-both/summary.json) is local evidence, ignored by Git.
+
+Revision 2 has an independent [benchmark workflow](revision-2/benchmarks/README.md). It requires 64 runs across Edge and Windows WebKit, two layout profiles and four balanced rounds. Report generation validates frozen source, HTML, resource and harness hashes against the selected immutable snapshot; the production routes are `/revision-2/benchmarks/` and `/revision-2/benchmarks/data.json`. R1 reports remain historical. Content, desktop viewport and decode workload differ between revisions, so their timings are not a controlled before/after comparison. Headless Windows WebKit is not Safari on a Mac or a real phone; animation-frame callback intervals are not FPS or INP.
+
 ## Existing tailnet site
 
-The original private host remains available:
+After publication, these routes are available on the existing private host:
 
-- [V1 · SVG](http://jakobs-pc.taile7e918.ts.net:8787/)
+- [Collection hub](http://jakobs-pc.taile7e918.ts.net:8787/)
+- Revision 2: [Hybrid](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/hybrid/) · [SVG](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/svg/) · [CSS polygons](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/css/) · [CSS primitives](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/basic/)
+- Revision 2: [report](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/benchmarks/) · [raw data](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/benchmarks/data.json) · [reference](http://jakobs-pc.taile7e918.ts.net:8787/revision-2/reference)
+- [Revision 1 · SVG](http://jakobs-pc.taile7e918.ts.net:8787/original/)
 - [V2 · CSS polygons](http://jakobs-pc.taile7e918.ts.net:8787/css/)
 - [V3 · CSS basic primitives](http://jakobs-pc.taile7e918.ts.net:8787/basic/)
 - [V4 · Hybrid / Studio](http://jakobs-pc.taile7e918.ts.net:8787/hybrid/)
-- [Four-edition comparison](http://jakobs-pc.taile7e918.ts.net:8787/compare/) · [raw data](http://jakobs-pc.taile7e918.ts.net:8787/compare/data.json)
+- [Revision 1 four-edition comparison](http://jakobs-pc.taile7e918.ts.net:8787/compare/) · [raw data](http://jakobs-pc.taile7e918.ts.net:8787/compare/data.json)
 - [Historical three-edition report](http://jakobs-pc.taile7e918.ts.net:8787/bench/) · [reference](http://jakobs-pc.taile7e918.ts.net:8787/reference)
 
 Connect the viewing device to the tailnet and keep the Windows PC awake. Download the built [SVG HTML](http://jakobs-pc.taile7e918.ts.net:8787/source/svg), [polygon HTML](http://jakobs-pc.taile7e918.ts.net:8787/source/css), [primitive HTML](http://jakobs-pc.taile7e918.ts.net:8787/source/basic), or [self-contained hybrid ZIP](http://jakobs-pc.taile7e918.ts.net:8787/source/hybrid). For the ZIP, extract it, change into that directory, run `node serve.mjs`, and open http://localhost:5180. V4 needs its included assets; its HTML alone is not self-contained.
 
 ## Run and build
 
-For the development file server, install and build once after cloning, then start it:
+For the Revision 1 development file server, install and build once after cloning, then start it:
 
 ```sh
 npm ci
@@ -48,16 +74,9 @@ npm run build
 npm start
 ```
 
-Open http://localhost:5173/ and the `/css/`, `/basic/`, or `/hybrid/` paths. `npm run dev` is the same server. Hosted download/report routes are separate from this local file server.
+Open http://localhost:5173/ for V1 and the `/css/`, `/basic/`, or `/hybrid/` paths for V2–V4. `npm run dev` is the same workspace file server. It does not reproduce the production hub, download routes or headers. To check both revisions with production routing, use `build:vercel`, `check:routes` and `preview` as shown above; the static preview serves only `site/` on port 4173.
 
-Building now uses `fflate` to package the hybrid ZIP, so install dependencies first:
-
-```sh
-npm ci
-npm run build
-```
-
-`build` remains `node build.mjs` and now builds all four editions. `npm run build:hybrid` rebuilds V4 alone. Reports are generated separately. Outputs include:
+`build` remains `node build.mjs` and builds all four Revision 1 editions, using `fflate` to package the hybrid ZIP. `npm run build:hybrid` rebuilds V4 alone. These commands generate no reports. Outputs include:
 
 - `dist/hosted.html`, `css.html`, `basic.html`, `hybrid.html`, each with `.br` and `.gz` variants, plus corresponding static-host directories including `dist/hybrid/index.html`.
 - `dist/standalone.html`: V1 with its reference embedded. V2/V3 HTML bundles embed their artwork, scripts and fonts; navigation/reference links still need hosted routes.
@@ -82,15 +101,15 @@ For an unconstrained visual result, the hybrid approach preserves detailed illus
 - **V2** uses gradients, borders, shadows, polygon clips and some masks. It has no SVG, canvas or image artwork, paint worklet, or encoded reference pixels.
 - **V3** uses boxes, ellipses, gradients, borders, shadows and transforms. Its audits exclude SVG, `img`, canvas, clips, polygons, paths, shapes, masks and traced contour lists. This restricts drawing techniques; it does not mean CSS is mathematically vector-free. Textures are procedural; browser checks inspect pseudo-element styles too.
 
-V1–V3 retain their original artwork and interaction code outside the footer, with names saved for the page visit. After the four-edition timings, their footer navigation was updated to link V4 and the four-edition comparison, including inline wrapping styles. Their current whole-HTML hashes therefore differ from the archived measured builds. The report verifies byte-identical HTML before and after each collection footer; V4 must still match its measured HTML exactly. Hosted V2/V3 block images through CSP. All editions are artistic interpretations, with bundled subset WOFF2 fonts and no continuous artwork animation. V1–V3 retain the shared removal of full-card drop-shadow filters, speculative layers and backdrop blur; smaller authored shadows remain.
+All four R1 editions retain their measured artwork and interaction code outside the collection footer. V1–V3 save names for the page visit. After the four-edition timings, their footer navigation was updated to link V4 and the four-edition comparison, including inline wrapping styles. The later hub/Revision 2 links also change V4's footer. Current whole-HTML hashes therefore differ from the archived measured builds. The report permits footer-only differences for V1–V4 and verifies byte-identical HTML before and after each footer; V4's measured HTML is preserved in an immutable pre-Revision-2 snapshot. Navigation updates are disclosed separately from the original timings. Hosted V2/V3 block images through CSP. All editions are artistic interpretations, with bundled subset WOFF2 fonts and no continuous artwork animation. V1–V3 retain the shared removal of full-card drop-shadow filters, speculative layers and backdrop blur; smaller authored shadows remain.
 
 Historical enhancements remain scoped to V1–V3: V2 guards `border-shape` with a polygon fallback; V3 guards `corner-shape` with ordinary rounded corners; all three guard enhanced `color-mix()` focus colors. `data-css-fallback` disables these enhancements. Mobile `content-visibility`/intrinsic sizing remains opt-in through `data-enable-cv`, disabled in primary timings and measured separately.
 
-Preserve `versions/original.html`, the V1/V2 snapshots in `versions/2026-10-23-before-third/`, and all three pre-V4 snapshots in `versions/2026-10-23-before-fourth/`. Earlier reports/results remain historical evidence, not measurements of V4.
+Preserve `versions/original.html`, the V1/V2 snapshots in `versions/2026-10-23-before-third/`, all three pre-V4 snapshots in `versions/2026-10-23-before-fourth/`, and the immutable V4 archive at `versions/2026-10-23-before-revision2/hybrid.html`. Earlier three-edition reports/results remain historical evidence, not measurements of V4.
 
-## Four-edition checks and comparison
+## Revision 1 four-edition checks and comparison
 
-After `npm ci`, browser checks need `npx playwright install chromium webkit`; timing uses installed Microsoft Edge plus Playwright WebKit. Publish all four builds before timing. `CARD_BENCH_ORIGIN` defaults to http://127.0.0.1:18787; these commands do not start a server or build artwork. Run sequentially on an otherwise idle machine, keeping builds and harness unchanged:
+The timing commands below document the original R1 workflow: its frozen runner expects V1 at `/`, so the current hub deployment is not a compatible timing target. After `npm ci`, browser checks need `npx playwright install chromium webkit`; timing uses installed Microsoft Edge plus Playwright WebKit. Publish all four measured builds at their original routes before timing. `CARD_BENCH_ORIGIN` defaults to http://127.0.0.1:18787; these commands do not start a server or build artwork. Run sequentially on an otherwise idle machine, keeping builds and harness unchanged:
 
 ```sh
 npm run check:hybrid
@@ -100,9 +119,9 @@ npm run report:four
 
 - `check:hybrid` runs `benchmarks/hybrid-checks.mjs` in Chromium and WebKit and writes `hybrid-checks.json` plus screenshots/export evidence under `benchmarks/`.
 - `benchmark:four` runs `four-run.mjs`, using `four-config.mjs`, `four-profile.mjs` and `four-network.mjs`. Edge runs first, then WebKit: four editions × two viewports × four balanced rounds = **32 runs per engine, 64 total**. Completed outputs are `four-results.json` and `four-webkit-results.json`; incomplete work stays in `.partial.json`. `--quick` and `--only-hybrid` use separate diagnostic files.
-- `report:four` runs `four-build-report.mjs --preview`. It validates full run counts, functional/network checks, unchanged harness hashes and each recorded build/run against the actual measured HTML: the immutable pre-V4 snapshots for V1–V3 and the exact current V4 build. The separate `four-build-history.mjs` helper reproduces archived compressed byte counts with the builders’ default Node compression, verifies current compressed siblings decode to current HTML, and accepts V1–V3 changes only inside the single collection footer. Any byte difference before or after that footer fails. Measured fingerprints and run data remain untouched; separate current fingerprints and comparison records are added to the combined report. Partial/diagnostic results are rejected. The preview flag keeps those checks and additionally writes `bench-four/index.html`; it does not permit incomplete data. Outputs are `dist/compare.html{,.br,.gz}` and `benchmarks/four-combined.json`. Preview at http://localhost:5173/bench-four/.
+- `report:four` runs `four-build-report.mjs --preview`. It validates full run counts, functional/network checks, unchanged harness hashes and each recorded build/run against the actual measured HTML: the immutable pre-V4 snapshots for V1–V3 and the immutable pre-Revision-2 snapshot for V4. The separate `four-build-history.mjs` helper reproduces archived compressed byte counts with the builders’ default Node compression, verifies current compressed siblings decode to current HTML, and accepts changes to all four R1 editions only inside the single collection footer. Any byte difference before or after that footer fails. Measured fingerprints and run data remain untouched; separate current fingerprints and comparison records are added to the combined report. Partial/diagnostic results are rejected. The preview flag keeps those checks and additionally writes `bench-four/index.html`; it does not permit incomplete data. Outputs are `dist/compare.html{,.br,.gz}` and `benchmarks/four-combined.json`. Preview at http://localhost:5173/bench-four/.
 
-The footer-only update does not require new benchmarks. All reported timings, DOM counts, network totals and HTML sizes still describe the archived measured builds, not newly measured navigation. To refresh this disclosure and current fingerprints after the footer change, run `npm run build`, then `npm run report:four`, then publish. Keep both result JSON files, the measured snapshots and the timing harness unchanged. The old three-edition report remains historical and is not rebuilt for this update.
+The footer-only update does not require new R1 benchmarks. All reported timings, DOM counts, network totals and HTML sizes still describe the archived measured builds, not newly measured navigation. To refresh the R1 disclosure and current fingerprints locally, run `npm run build`, then `npm run report:four`. The full static build and publisher perform this validation automatically. Keep both result JSON files, all four measured snapshots and the timing harness unchanged. The old three-edition report remains historical and is not rebuilt for this update.
 
 Cold-load accounting includes **all HTTP resources requested through gallery readiness**, including V4's external artwork/fonts, so it can be compared fairly with V1–V3's embedded assets. Workload totals also cover later requests. Bytes and response hashes are collected after timed work; HTML size alone is not the comparison. Captured hashes establish what was measured; report generation does not re-fetch the live deployment.
 
@@ -110,7 +129,7 @@ The workload opens all 12 cards, performs 12 next-card changes over 180 warmed a
 
 `node benchmarks/hybrid-scroll-diagnostic.mjs` runs a separate, balanced 16-run Windows WebKit mobile investigation of V4: unchanged layout, content-visibility, paint containment and forced compositing. It writes `hybrid-scroll-diagnostic.json` without overwriting the main comparison. If that file is present and complete, the report includes it under a separately labelled investigation; it does not count those runs in the primary 64. The initial follow-up found no consistent improvement over the unchanged layout, so no renderer change was adopted. The main dataset retains its original variation.
 
-`node benchmarks/four-verify-publish.mjs` verifies live tailnet HTML against current build hashes and rechecks its exact relationship to measured snapshots: footer-only differences for V1–V3, whole-file equality for V4. It checks footer links to every other edition and `/compare/`, immutable assets, the downloadable ZIP, current report/data publication and report controls. It retains the original measured hashes alongside current hashes in its output. `node benchmarks/hybrid-portable-check.mjs` extracts the ZIP into `benchmarks/portable-hybrid`, starts its included server on localhost:5180, checks artwork/editing/export, then stops that server. The source ZIP includes font licenses and flag provenance.
+`node benchmarks/four-verify-publish.mjs` verifies live tailnet HTML against current build hashes and accepts exact equality or footer-only differences from measured snapshots for all four R1 editions. It checks footer links to every other R1 edition, `/compare/`, `/collections/` and `/revision-2/svg/`; current V1 links use `/original/`. It also verifies immutable assets, source downloads against current HTML (after portable URL rewrites for the V4 ZIP), the static report/data publication and report controls. Original measured hashes remain alongside current hashes in its output. `node benchmarks/hybrid-portable-check.mjs` extracts the ZIP into `benchmarks/portable-hybrid`, starts its included server on localhost:5180, checks artwork/editing/export, then stops that server. The source ZIP includes font licenses and flag provenance.
 
 ## Publish
 
@@ -120,9 +139,9 @@ From PowerShell in the project root, after dependencies are installed:
 .\hosting\publish.ps1
 ```
 
-The publisher builds all four editions and copies HTML/compressed variants, hybrid assets/ZIP and existing reports/data into `%LOCALAPPDATA%\TwelveCardCollection`. It does not generate or validate reports: run `report:four` before the final publication, keeping measured artwork unchanged. Publish compressed and plain HTML together.
+The publisher runs the full static build for both revisions and the hub, regenerates and validates the R1 four-edition and selected R2 reports, then runs the public route checks. It copies only the allowlisted files from `dist/public-files.json` into `%LOCALAPPDATA%\TwelveCardCollection\releases\<release>\site`, verifying every copied file's size and SHA-256. After staging the release and server files, it switches `current.json`. Old releases remain available for rollback and are not exposed through current site routes. The older three-edition report stays historical.
 
-The existing `TwelveCardCollection` sign-in task runs a hidden Node server at `127.0.0.1:18787`; Tailscale Serve proxies tailnet port 8787. The publisher restarts the task when server code changes and assumes this setup already exists. `tailscale serve status` shows the route; Funnel is not enabled. Hosted hashed assets use immutable caching; HTML uses `no-cache` with ETags. `/compare/` and `/compare/data.json` expose the new report/data; `/bench/` and its data remain separate.
+The existing `TwelveCardCollection` sign-in task runs a hidden Node server at `127.0.0.1:18787`; Tailscale Serve proxies tailnet port 8787. The publisher assumes this setup already exists, restarts the task for every release, and checks the served hub's ETag against the staged inventory. The server shares the static preview's routes and headers and enables HTML compression. `tailscale serve status` shows the route; Funnel is not enabled. Hosted hashed assets use immutable caching; HTML uses `no-cache` with ETags. `/compare/` and its data serve R1; `/revision-2/benchmarks/` and its data serve R2; `/bench/` remains the earlier three-edition report.
 
 ## Historical three-edition workflow
 
@@ -149,3 +168,4 @@ npm run report
 - `hybrid-art/`: V4 atlas, asset preparation, template/styles and builder; `hybrid/app.js` and `hybrid/export.js`: editor, storage and export. Shared card data lives in `css-art/cards.mjs`.
 - `assets/editions.css`: V1–V3 shared enhancements; `assets/fonts.css`, WOFF2 files and licenses: fonts; `assets/flags/` and `flags.css`: original [Flagpedia / FlagCDN](https://flagpedia.net/download/api) flags.
 - `benchmarks/`: separate historical and four-edition harnesses, checks, reports and evidence; `hosting/`: publisher/server; `server.mjs`: local server; `versions/`: historical snapshots.
+- `revision-2/`: four approaches, assets, builders, functional QA and independent benchmarks; `revision-2/build-hub.mjs`: collection hub; `scripts/`: static assembly, production route checks and preview server.

@@ -169,7 +169,7 @@
     <header class="masthead">
       <a class="wordmark" href="/">The Twelve.</a>
       <nav aria-label="Editions and report">
-        <a href="/">01 · SVG + CSS</a>
+        <a href="/original/">01 · SVG + CSS</a>
         <a href="/css/">02 · CSS + Polygone</a>
         <a href="/basic/">03 · CSS-Grundformen</a>
         <a href="/hybrid/">04 · Hybrid</a>
@@ -181,7 +181,7 @@
         <div>
           <p class="eyebrow">The Twelve / Drawing, delivery &amp; interaction</p>
           <h1>Four ways to draw.<br><em>One shared workload.</em></h1>
-          <p class="intro">The same twelve-card idea, built with four different sets of drawing rules. Compare what each edition uses, what the browser downloads, and the timings observed on this machine.</p>
+          <p class="intro">The same twelve-card idea, built with four different sets of drawing rules. Compare what each measured edition used, what the browser downloaded, and the historical timings recorded on this machine.</p>
         </div>
         <aside class="issue" aria-label="Report scope">
           <span class="issue-number" aria-hidden="true">04</span>
@@ -195,7 +195,7 @@
           <h3>SVG + CSS</h3>
           <p>Handwritten SVG illustrations, rendered as cached SVG images. Live HTML text and CSS layout surround the artwork.</p>
           <p class="rule">SVG contours are allowed. Card illustrations use no raster images.</p>
-          <div class="edition-links"><a href="/">Open edition <span aria-hidden="true">↗</span></a><a href="/source/svg" download aria-label="Download source for SVG + CSS">Download source</a></div>
+          <div class="edition-links"><a href="/original/">Open edition <span aria-hidden="true">↗</span></a><a href="/source/svg" download aria-label="Download source for SVG + CSS">Download source</a></div>
         </article>
         <article class="edition">
           <div class="edition-index">02 / CSS WITH CONTOURS</div>
@@ -225,7 +225,7 @@
       <section aria-labelledby="measurements-title">
         <div class="section-head"><span class="section-number" aria-hidden="true">01</span><h2 id="measurements-title">Read the measurements</h2></div>
         <p class="section-intro">Select one engine and viewport. Each numeric cell shows the median across available runs, followed by the minimum–maximum range and sample count. Each engine keeps its own results and build fingerprints.</p>
-        <p class="notice" id="navigation-history">V1–V3 footer navigation was updated after timing to link all four editions and this report. The figures describe the archived measured builds; the updated navigation has not been benchmarked. Artwork and interaction code outside the footer are byte-identical to the measured snapshots. V4 still matches its measured HTML exactly.</p>
+        <p class="notice" id="navigation-history">All timings remain historical. V1–V4 footer navigation was updated after timing to link All collections and Revision 2; current V1 links use /original/. The figures describe the archived measured builds, and the updated navigation has not been benchmarked. V4 is no longer byte-identical to its measured HTML. In all four editions, artwork and interaction code outside the collection footer remain byte-identical to the measured snapshots.</p>
         <div class="controls" role="group" aria-label="Measurement selection">
           <label for="engine">Browser engine<select id="engine"><option value="main">Microsoft Edge</option><option value="webkit">Windows WebKit</option></select></label>
           <label for="profile">Viewport<select id="profile"><option value="desktop">Desktop · 1080 × 792</option><option value="mobile">Mobile · 390 × 844</option></select></label>
@@ -252,7 +252,7 @@
         <h3 class="subhead" id="timing-title">Load and interaction</h3>
         <div class="tablewrap" role="region" aria-labelledby="timing-title" tabindex="0">
           <table>
-            <caption>Timing · milliseconds · median of each per-run measurement, min–max, available runs</caption>
+            <caption>Historical timing · milliseconds · median of each per-run measurement, min–max, available runs</caption>
             <thead><tr><th scope="col">Edition</th><th scope="col">First content<br>FCP</th><th scope="col">Gallery ready<br>observed</th><th scope="col">First opens<br>two-frame p95</th><th scope="col">First opens<br>decode p95</th><th scope="col">Warm browse<br>interval p95</th><th scope="col">Scroll<br>interval p95</th></tr></thead>
             <tbody id="timing-metrics"><tr><td colspan="7">Measurements unavailable until a completed dataset is embedded.</td></tr></tbody>
           </table>
@@ -290,7 +290,7 @@
           </table>
         </div>
         <p class="legend">A verified run has matching local and served SHA-256 hashes, equal to the measured build fingerprint. External response bodies are also fingerprinted where available and checked for consistency across measured runs. These records describe the measured files; they do not assert that a later deployment still serves the same assets. Full hashes and verification records appear below.</p>
-        <p class="legend">V1–V3 measured hashes and sizes are validated against the immutable HTML in <code>versions/2026-10-23-before-fourth/</code>; compressed sizes are reproduced with the build scripts’ default Node compression. Their current HTML has separate fingerprints: only bytes inside the collection footer may differ, including inline wrapping styles. Current compressed files must decode to current HTML. Any difference outside the footer, or anywhere in V4, fails validation. No size, DOM, network or timing figure has been substituted with a measurement of the updated navigation.</p>
+        <p class="legend">V1–V3 measured hashes and sizes are validated against the immutable HTML in <code>versions/2026-10-23-before-fourth/</code>; V4 uses <code>versions/2026-10-23-before-revision2/hybrid.html</code>. Compressed sizes are reproduced with the build scripts’ default Node compression. All four current builds have separate fingerprints: only bytes inside the collection footer may differ, including inline wrapping styles. All four current gzip and Brotli files must decode to current HTML. Any difference outside a collection footer fails validation. No size, DOM, network or timing figure has been substituted with a measurement of the updated navigation. Source downloads contain the current HTML builds, with portable asset and navigation URL rewrites in the V4 ZIP. Historical edition routes remain recorded below alongside separate current routes.</p>
       </section>
 
       <section aria-labelledby="method-title">
@@ -319,7 +319,7 @@
         <details><summary>Recorded method, workload and run coverage</summary><pre id="method-details" tabindex="0">No completed dataset embedded.</pre></details>
         <details><summary>Measured and current build fingerprints, footer comparison and per-run verification</summary><pre id="fingerprint-details" tabindex="0">No completed dataset embedded.</pre></details>
         <details><summary>Selected runs: checks, errors, resources and individual timings</summary><p class="legend">These are the original run records for the selected engine and viewport, including network collection sources, completeness flags, failures, resources and decoded-image snapshots. They are not interpreted as an independent drawing-technique audit.</p><pre id="run-details" tabindex="0">No completed dataset embedded.</pre></details>
-        <details id="scroll-diagnostic" hidden><summary>Additional V4 mobile-scroll investigation · separate from the main comparison</summary><p class="legend">Variable V4 scrolling in the Windows WebKit mobile runs prompted a separate, balanced 16-run follow-up. It compared the unchanged layout with content-visibility, paint containment and a forced compositing layer, using the same interaction workload. Scroll p95 medians and ranges follow below. No CSS change was adopted: these trials did not show a consistent improvement over the unchanged layout. They do not establish the cause of the earlier variation or replace the original results.</p><div id="scroll-diagnostic-summary" class="legend"></div><pre id="scroll-diagnostic-details" tabindex="0"></pre></details>
+        <details id="scroll-diagnostic" hidden><summary>Historical V4 mobile-scroll investigation · separate from the main comparison</summary><p class="legend">Variable V4 scrolling in the Windows WebKit mobile runs prompted a separate, balanced 16-run follow-up before the current footer update. It compared the then-unchanged layout with content-visibility, paint containment and a forced compositing layer, using the same interaction workload. These timings also remain historical. Scroll p95 medians and ranges follow below. No CSS change was adopted: these trials did not show a consistent improvement over the unchanged layout. They do not establish the cause of the earlier variation or replace the original results.</p><div id="scroll-diagnostic-summary" class="legend"></div><pre id="scroll-diagnostic-details" tabindex="0"></pre></details>
       </section>
     </main>
     <footer><p id="generated-at">Report template · no measured results embedded</p><a href="/hybrid/">Explore the hybrid edition <span aria-hidden="true">↗</span></a></footer>
@@ -507,6 +507,7 @@
       byId('fingerprint-details').textContent = pretty({
         engineDataset: engineKey,
         editions: DATA.editions,
+        currentEditions: DATA.currentEditions,
         reportVerification: DATA.verification,
         builds: source.builds,
         selectedProfile: profile,

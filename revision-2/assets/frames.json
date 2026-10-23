@@ -1,0 +1,218 @@
+[
+  {
+    "theme": "valor",
+    "source": "revision-2/assets/atlas-a-clean.png",
+    "sourceRegion": {
+      "left": 0,
+      "top": 0,
+      "width": 558,
+      "height": 705
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "frost",
+    "source": "revision-2/assets/atlas-a-clean.png",
+    "sourceRegion": {
+      "left": 558,
+      "top": 0,
+      "width": 558,
+      "height": 705
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "blaze",
+    "source": "revision-2/assets/atlas-a-clean.png",
+    "sourceRegion": {
+      "left": 0,
+      "top": 705,
+      "width": 558,
+      "height": 705
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "volt",
+    "source": "revision-2/assets/atlas-a-clean.png",
+    "sourceRegion": {
+      "left": 558,
+      "top": 705,
+      "width": 558,
+      "height": 705
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "rivera",
+    "source": "revision-2/assets/atlas-b-clean.png",
+    "sourceRegion": {
+      "left": 0,
+      "top": 0,
+      "width": 557,
+      "height": 706
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "nexus",
+    "source": "revision-2/assets/atlas-b-clean.png",
+    "sourceRegion": {
+      "left": 557,
+      "top": 0,
+      "width": 557,
+      "height": 706
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "silvah",
+    "source": "revision-2/assets/atlas-b-clean.png",
+    "sourceRegion": {
+      "left": 0,
+      "top": 706,
+      "width": 557,
+      "height": 706
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "aurum",
+    "source": "revision-2/assets/atlas-b-clean.png",
+    "sourceRegion": {
+      "left": 557,
+      "top": 706,
+      "width": 557,
+      "height": 706
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "drift",
+    "source": "revision-2/assets/atlas-c-clean.png",
+    "sourceRegion": {
+      "left": 0,
+      "top": 0,
+      "width": 556,
+      "height": 706
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "majestic",
+    "source": "revision-2/assets/atlas-c-clean.png",
+    "sourceRegion": {
+      "left": 556,
+      "top": 0,
+      "width": 556,
+      "height": 706
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "legacy",
+    "source": "revision-2/assets/atlas-c-clean.png",
+    "sourceRegion": {
+      "left": 0,
+      "top": 706,
+      "width": 556,
+      "height": 706
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  },
+  {
+    "theme": "prism",
+    "source": "revision-2/assets/atlas-c-clean.png",
+    "sourceRegion": {
+      "left": 556,
+      "top": 706,
+      "width": 556,
+      "height": 706
+    },
+    "output": [
+      300,
+      380
+    ],
+    "highResolution": [
+      600,
+      760
+    ]
+  }
+]

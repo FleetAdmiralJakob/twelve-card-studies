@@ -29,6 +29,13 @@ try{css+='\n'+await readFile('hybrid-art/refinements.css','utf8')}catch(error){i
 css+='\n.card-art picture,.card-art img{display:block;position:absolute;inset:0;width:200px;height:320px}.card.card .card-art{filter:none}';
 const script=await readFile('hybrid/app.js','utf8')+'\n'+await readFile('hybrid/export.js','utf8');
 let html=await readFile('hybrid-art/template.html','utf8');
+// Keep the measured template intact; update navigation only inside its footer.
+const footers=[...html.matchAll(/<footer class="collection-footer">[\s\S]*?<\/footer>/g)];
+if(footers.length!==1)throw new Error('Expected exactly one hybrid collection footer.');
+const footer=footers[0][0],v1Link='<a href="/" aria-label="Version 1">V1</a>';
+if(footer.split(v1Link).length!==2)throw new Error('Expected exactly one V1 footer link.');
+const currentFooter=footer.replace(v1Link,'<a href="/collections/">All collections</a>\n        <a href="/revision-2/svg/">Revision 2</a>\n        <a href="/original/" aria-label="Version 1">V1</a>');
+html=html.slice(0,footers[0].index)+currentFooter+html.slice(footers[0].index+footer.length);
 for(const [token,value] of [['<!--GALLERY-->',gallery.join('\n')],['<!--STYLES-->',`<style>${css}</style>`],['<!--SCRIPT-->',`<script>${script}</script>`]]){if(!html.includes(token))throw new Error('Missing template token '+token);html=html.replace(token,value);}
 await writeFile('hybrid/index.html',html);
 await writeFile('dist/hybrid/index.html',html);

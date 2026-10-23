@@ -32,3 +32,14 @@ Thumbs.db
 **/.*-preview.html
 
 # bench/index.html and benchmarks/combined.json are intentional historical inputs.
+
+# Revision 2 local evidence; authored modules, source atlases and measurements stay tracked.
+/revision-2/evidence/
+/revision-2/art/**/*.png
+/revision-2/art/**/*preview*.html
+/revision-2/benchmarks/*.partial.json
+/revision-2/benchmarks/diagnostic-*.json
+/revision-2/benchmarks/diagnostics/
+/revision-2/art/**/checks.json
+/revision-2/art/**/validation.json
+/revision-2/art/**/*.validation.json

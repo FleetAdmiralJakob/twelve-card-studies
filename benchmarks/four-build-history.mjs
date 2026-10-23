@@ -7,7 +7,13 @@ const snapshots = {
   svg: 'versions/2026-10-23-before-fourth/svg.html',
   css: 'versions/2026-10-23-before-fourth/css-polygons.html',
   basic: 'versions/2026-10-23-before-fourth/css-primitives.html',
+  hybrid: 'versions/2026-10-23-before-revision2/hybrid.html',
 };
+
+// Historical routes in four-config.mjs belong to the measured harness.
+export const currentEditions = editions.map(edition => ({
+  ...edition, route: edition.id === 'svg' ? '/original/' : edition.route,
+}));
 
 export function collectionFooter(bytes, label) {
   // Latin-1 keeps one character per byte: no UTF-8 or newline normalization.
@@ -50,17 +56,18 @@ export async function validateBuildHistory(sources) {
       assert.equal(compressed.length, size, `${edition.id}${suffix}: changed during validation`);
       assert(decode(compressed).equals(currentHtml), `${edition.id}${suffix}: stale or does not match current HTML`);
     }
-    const measuredPath = snapshots[edition.id] || currentPath;
-    const bytes = snapshots[edition.id] ? await readFile(fromRoot(measuredPath)) : currentHtml;
+    const measuredPath = snapshots[edition.id];
+    assert(measuredPath, `${edition.id}: missing immutable measured HTML snapshot`);
+    const bytes = await readFile(fromRoot(measuredPath));
     measuredHtml[edition.id] = bytes;
-    // The archived V1–V3 HTML has no compressed siblings. Reproduce the build
+    // The archived V1–V4 HTML has no compressed siblings. Reproduce the build
     // scripts' default Node compression to validate their recorded byte counts.
-    measured[edition.id] = snapshots[edition.id] ? {
+    measured[edition.id] = {
       rawBytes: bytes.length,
       gzipBytes: gzipSync(bytes).length,
       brotliBytes: brotliCompressSync(bytes).length,
       sha256: sha256(bytes),
-    } : current[edition.id];
+    };
     for (const [engine, source] of Object.entries(sources)) {
       assert.deepEqual(source.builds?.[edition.id], measured[edition.id], `${engine}: ${edition.id} measured HTML/fingerprint mismatch (${measuredPath})`);
     }

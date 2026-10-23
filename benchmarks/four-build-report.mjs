@@ -2,7 +2,7 @@ import {readFile, writeFile, mkdir} from 'node:fs/promises';
 import {gzipSync, brotliCompressSync} from 'node:zlib';
 import assert from 'node:assert/strict';
 import {editions, viewports, fromRoot, readJSON, sha256, functionalFailures} from './four-config.mjs';
-import {validateBuildHistory} from './four-build-history.mjs';
+import {validateBuildHistory, currentEditions} from './four-build-history.mjs';
 
 const args=process.argv.slice(2);
 assert(args.every(arg=>['--preview','--help','-h'].includes(arg)), 'Supported options: --preview, --help');
@@ -13,11 +13,13 @@ if (args.includes('--help') || args.includes('-h')) {
 
 Requires complete four-results.json AND four-webkit-results.json from 3 or 4 rounds,
 the unchanged measured HTML snapshots and harness, successful functional/network checks,
-and matching measured served/local HTML SHA-256 in every run. Current V1–V3 HTML
-may differ ONLY inside the collection footer; V4 must remain exact. Current compressed
+and matching measured served/local HTML SHA-256 in every run. Current V1–V4 HTML
+may differ ONLY inside the collection footer from their immutable snapshots. Current compressed
 siblings must decode to current HTML. Diagnostic/partial data is rejected.
 Outputs: dist/compare.html{,.gz,.br} and benchmarks/four-combined.json.
-Root must wire /compare/, /compare/data.json, /hybrid/, assets, and /source/hybrid.`);
+All timings remain historical; no footer navigation update is newly benchmarked.
+Root must wire /original/, /collections/, /revision-2/svg/, /compare/, /compare/data.json,
+/hybrid/, assets, and current /source/{svg,css,basic,hybrid} downloads.`);
 } else {
   await build();
 }
@@ -100,10 +102,10 @@ async function build() {
     }
   }
   const data={
-    schemaVersion:1,generatedAt:new Date().toISOString(),editions,main,webkit,
+    schemaVersion:1,generatedAt:new Date().toISOString(),editions,currentEditions,main,webkit,
     verification:{
-      html:'Every recorded navigation response hash matches the actual measured HTML: immutable pre-V4 snapshots for V1–V3, exact current HTML for unchanged V4. Recorded build fingerprints, including compressed byte counts, are validated against those measured files. Current compressed HTML siblings decode to current HTML.',
-      navigation:'V1–V3 footer navigation was updated after timing. All figures describe the archived measured builds, not newly measured navigation. Current V1–V3 HTML may differ only inside the single collection-footer element, including its inline wrapping styles; bytes before and after it must be identical. Artwork and interaction code outside that footer are preserved. V4 must match its measured HTML exactly. No benchmarks were rerun for the footer update.',
+      html:'Every recorded navigation response hash matches the actual measured HTML: immutable pre-V4 snapshots for V1–V3 and the pre-Revision-2 snapshot for V4. Recorded build fingerprints, including compressed byte counts, are validated against those measured files. All four current gzip and Brotli HTML siblings must decode to current HTML.',
+      navigation:'All timings, sizes, DOM counts and network totals remain historical. V1–V4 footer navigation was updated after timing to link All collections and Revision 2, with current V1 links pointing to /original/. Current V4 is no longer byte-identical to its measured HTML. Current V1–V4 HTML may differ only inside the single collection-footer element, including its inline wrapping styles; bytes before and after it must be identical. Artwork and interaction code outside that footer are preserved. No benchmarks were rerun for the footer updates. Historical edition routes and the measured harness remain unchanged; current routes are listed separately in currentEditions. Source downloads contain current builds, with portable asset and navigation URL rewrites in the V4 ZIP.',
       currentBuilds:history.current,
       htmlComparisons:history.comparisons,
       assets:'Response bodies fingerprinted after timing and compared across measured runs and engines. These fingerprints document measured assets; this builder does not fetch the deployed site or assert that external assets are still unchanged.',

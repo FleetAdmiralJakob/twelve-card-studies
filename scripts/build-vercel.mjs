@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
-import { copyFile, lstat, mkdir, readFile, realpath, rm, writeFile } from 'node:fs/promises';
+import { lstat, mkdir, readFile, realpath, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { brotliDecompressSync, gunzipSync } from 'node:zlib';
+import { publishedBenchHTML } from './bench-navigation.mjs';
 
 const root = await realpath(fileURLToPath(new URL('../', import.meta.url)));
 const output = path.resolve(root, 'site');
@@ -19,16 +21,19 @@ try {
   if (error.code !== 'ENOENT') throw error;
 }
 
-for (const script of ['build.mjs', 'benchmarks/four-build-report.mjs']) {
+for (const script of ['build.mjs', 'benchmarks/four-build-report.mjs', 'revision-2/build.mjs', 'revision-2/build-hub.mjs', 'revision-2/benchmarks/report.mjs']) {
   const result = spawnSync(process.execPath, [script], { cwd: root, stdio: 'inherit' });
   if (result.error) throw result.error;
   assert.equal(result.status, 0, `${script} failed; refusing to publish an unvalidated build`);
 }
 
-// Only these files and the verified current hybrid manifest may be published.
+// Only these files and the verified asset manifests may be published.
 // In particular, do not copy dist wholesale: it contains raw development sources.
 const files = [
-  ['dist/hosted.html', 'index.html'],
+  ['dist/collections/index.html', 'index.html'],
+  ['dist/collections/index.html', 'collections/index.html'],
+  ['assets/favicon.ico', 'favicon.ico'],
+  ['dist/hosted.html', 'original/index.html'],
   ['dist/css.html', 'css/index.html'],
   ['dist/basic.html', 'basic/index.html'],
   ['dist/hybrid.html', 'hybrid/index.html'],
@@ -39,21 +44,38 @@ const files = [
   ['dist/basic.html', 'source/basic'],
   ['dist/hybrid-source.zip', 'source/hybrid'],
   ['assets/reference.png', 'reference'],
+  ['dist/revision-2/reference', 'revision-2/reference'],
+  ['dist/revision-2/benchmarks/index.html', 'revision-2/benchmarks/index.html'],
+  ['dist/revision-2/benchmarks/data.json', 'revision-2/benchmarks/data.json'],
 ];
-const manifest = JSON.parse(await readFile(path.join(root, 'dist/hybrid-assets.json'), 'utf8'));
-assert(Array.isArray(manifest) && manifest.length > 0, 'Hybrid asset manifest is missing or empty');
+for (const edition of ['svg', 'css', 'basic', 'hybrid']) {
+  const htmlPath = `dist/revision-2/${edition}/index.html`;
+  const html = await readFile(path.join(root, htmlPath));
+  for (const [suffix, decode] of [['.gz', gunzipSync], ['.br', brotliDecompressSync]]) {
+    assert(decode(await readFile(path.join(root, htmlPath + suffix))).equals(html), `${htmlPath}${suffix}: stale compressed HTML`);
+  }
+  if (edition !== 'hybrid') {
+    assert((await readFile(path.join(root, `dist/revision-2/source/${edition}`))).equals(html), `Revision 2 ${edition}: source download differs from current HTML`);
+  }
+  files.push([htmlPath, `revision-2/${edition}/index.html`], [`dist/revision-2/source/${edition}`, `revision-2/source/${edition}`]);
+}
 const seen = new Set();
-for (const asset of manifest) {
-  const match = /^\/hybrid\/assets\/([A-Za-z0-9][A-Za-z0-9@._-]*\.([a-f0-9]{12})\.(?:webp|avif|woff2))$/.exec(asset.url);
-  assert(match && !seen.has(asset.url), `Invalid or duplicate hybrid asset: ${asset.url}`);
-  seen.add(asset.url);
-  const source = `dist/hybrid/assets/${match[1]}`;
-  const bytes = await readFile(path.join(root, source));
-  const digest = createHash('sha256').update(bytes).digest('hex');
-  assert.equal(digest, asset.sha256, `Asset fingerprint mismatch: ${asset.url}`);
-  assert.equal(digest.slice(0, 12), match[2], `Asset filename hash mismatch: ${asset.url}`);
-  assert.equal(bytes.length, asset.bytes, `Asset length mismatch: ${asset.url}`);
-  files.push([source, asset.url.slice(1)]);
+for (const [manifestPath, prefix] of [['dist/hybrid-assets.json', 'hybrid'], ['dist/revision-2/assets-manifest.json', 'revision-2']]) {
+  const manifest = JSON.parse(await readFile(path.join(root, manifestPath), 'utf8'));
+  assert(Array.isArray(manifest) && manifest.length > 0, `${prefix}: asset manifest is missing or empty`);
+  const pattern = new RegExp(`^/${prefix}/assets/([A-Za-z0-9][A-Za-z0-9@._-]*\\.([a-f0-9]{12})\\.(?:webp|avif|woff2|png|svg))$`);
+  for (const asset of manifest) {
+    const match = pattern.exec(asset.url);
+    assert(match && !seen.has(asset.url), `Invalid or duplicate asset: ${asset.url}`);
+    seen.add(asset.url);
+    const source = `dist/${prefix}/assets/${match[1]}`;
+    const bytes = await readFile(path.join(root, source));
+    const digest = createHash('sha256').update(bytes).digest('hex');
+    assert.equal(digest, asset.sha256, `Asset fingerprint mismatch: ${asset.url}`);
+    assert.equal(digest.slice(0, 12), match[2], `Asset filename hash mismatch: ${asset.url}`);
+    assert.equal(bytes.length, asset.bytes, `Asset length mismatch: ${asset.url}`);
+    files.push([source, asset.url.slice(1)]);
+  }
 }
 
 // The upstream validator stamps its report with the wall clock. The published
@@ -71,12 +93,20 @@ report = report.replace(marker, () => payload).replace("'Report generated: '", "
 
 await rm(output, { recursive: true, force: true });
 await mkdir(output);
-for (const [source, target] of files) {
+const publication = [];
+async function publish(target, bytes) {
   const destination = path.join(output, target);
   await mkdir(path.dirname(destination), { recursive: true });
-  await copyFile(path.join(root, source), destination);
+  await writeFile(destination, bytes);
+  publication.push({ path: target, bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') });
 }
-await mkdir(path.join(output, 'compare'));
-await writeFile(path.join(output, 'compare/index.html'), report);
-await writeFile(path.join(output, 'compare/data.json'), JSON.stringify(data, null, 2) + '\n');
-console.log(`Static site ready: ${files.length + 2} allowlisted files in site/ (${manifest.length} hashed hybrid assets).`);
+for (const [source, target] of files) {
+  const bytes = await readFile(path.join(root, source));
+  if (target === 'favicon.ico') assert.equal(bytes.length, 0, 'The default favicon must remain empty; strict CSS editions cannot load image artwork');
+  await publish(target, target === 'bench/index.html' ? publishedBenchHTML(bytes) : bytes);
+}
+await publish('compare/index.html', Buffer.from(report));
+await publish('compare/data.json', Buffer.from(JSON.stringify(data, null, 2) + '\n'));
+// The Tailnet publisher consumes this private inventory, never a directory copy.
+await writeFile(path.join(root, 'dist/public-files.json'), JSON.stringify(publication, null, 2) + '\n');
+console.log(`Static site ready: ${publication.length} allowlisted files in site/ (${seen.size} hashed assets across both revisions).`);

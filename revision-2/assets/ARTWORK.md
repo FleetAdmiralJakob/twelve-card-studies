@@ -1,0 +1,13 @@
+# Revision 2 artwork
+
+The user supplied `reference.png` on 2026-10-23. It remains the visual reference for all four independently rendered approaches. The 4 × 3 composition contains VALOR, FROST, BLAZE, VOLT, RIVERA, NEXUS, SILVAH, AURUM, DRIFT, MAJESTIC, LEGACY and PRISM.
+
+The SVG, CSS polygon and basic primitive artwork is authored in the three `revision-2/art/` module groups. They do not depend on the raster atlases. Basic primitive artwork excludes SVG, images, clips, masks, polygon/path/shape outlines and traced pixel lists; quadrilaterals made with transformed rectangles remain ordinary CSS boxes. All three are stylized interpretations, not exact reproductions of the painted reference.
+
+Hybrid atlases `atlas-a.png`, `atlas-b.png`, `atlas-c.png` were adapted from the supplied reference using the built-in imagegen tool. Each atlas has four cards in a 2 × 2 arrangement. Ratings, names, countries and stats were removed to allow live, editable HTML fields. The second imagegen edit, `atlas-*-clean.png`, removed the oversized baked footer emblems. Small independent SVG emblems now keep those areas clear and are included in PNG exports. Both asset generations are preserved. Exact prompts are in `prompts.json` and `footer-edit-prompt.txt`.
+
+`prepare-assets.mjs` extracts the four atlas quadrants and encodes each as AVIF and WebP at 300 × 380 and 600 × 760. `frames.json` records the actual input dimensions and quadrant coordinates. Cropping and resizing are asset preparation; the detailed artwork was produced by imagegen. Quadrants are approximately 550 × 700 pixels. The 1011 × 1280 PNG export does not recover detail absent from those inputs. The reference room/floor is not reproduced; the site uses its own dark gallery background.
+
+Country flags in the SVG and hybrid approaches are local SVG designs downloaded from [FlagCDN](https://flagcdn.com), whose [Flagpedia API documentation](https://flagpedia.net/download/api) identifies Wikimedia Commons as the vector source. France, Spain, Brazil, England, Portugal, Italy, Netherlands, Argentina and Germany reuse the documented files in `assets/flags/SOURCES.md`. New flags downloaded on 2026-10-23 are Norway (`https://flagcdn.com/no.svg`), Japan (`https://flagcdn.com/jp.svg`) and Uruguay (`https://flagcdn.com/uy.svg`). Intrinsic national aspect ratios are preserved. CSS editions construct flags from CSS primitives; small emblems are necessarily approximations at card size.
+
+Fonts reuse the locally bundled Oswald and Barlow Condensed files and their existing OFL licenses. No runtime call is made to an image generator, flag CDN or font CDN.
