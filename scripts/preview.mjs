@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import http from 'node:http';
-import { readFile, realpath, stat } from 'node:fs/promises';
+import { readFile, readdir, realpath, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -32,6 +32,17 @@ export async function createPreviewServer() {
     if (error.code === 'ENOENT') throw new Error('site/ is missing. Run npm run build:vercel first.');
     throw error;
   });
+  // Windows resolves filenames without regard to case; deployed static paths
+  // are case-sensitive. Inventory real names so the preview agrees with Vercel.
+  const publicPaths = new Set();
+  async function inventory(directory, prefix = '') {
+    for (const entry of await readdir(directory, { withFileTypes: true })) {
+      assert(!entry.isSymbolicLink(), `Unexpected site link: ${prefix}/${entry.name}`);
+      if (entry.isDirectory()) await inventory(path.join(directory, entry.name), `${prefix}/${entry.name}`);
+      else if (entry.isFile()) publicPaths.add(`${prefix}/${entry.name}`);
+    }
+  }
+  await inventory(site);
   for (const rule of [...config.headers, ...config.redirects, ...config.rewrites]) {
     matches(rule.source, '/');
     assert(!rule.has && !rule.missing, 'Conditional routes are not supported by this static preview');
@@ -68,6 +79,10 @@ export async function createPreviewServer() {
         return;
       }
       if (localPath.endsWith('/')) localPath += 'index.html';
+      if (!publicPaths.has(localPath)) {
+        response.writeHead(404, headers).end(request.method === 'HEAD' ? undefined : 'Not found');
+        return;
+      }
       const filename = path.resolve(site, '.' + localPath);
       if (!filename.startsWith(site + path.sep)) {
         response.writeHead(404, headers).end('Not found');

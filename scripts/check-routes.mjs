@@ -117,7 +117,7 @@ try {
     const final = await request(response.headers.get('location'), { method: 'HEAD' });
     assert.equal(final.status, 200, `${from}: redirect loop or missing destination`);
   }
-  for (const route of ['/missing', '/server.mjs', '/vercel.json', '/package.json', '/.env', '/benchmarks/four-results.json', '/hybrid/artwork-atlas.png', '/hybrid/assets/paper.webp', '/hybrid/app.js', '/source/', '/css.html', '/dist/hosted.html', '/assets/reference.png', '/reference/', '/source/svg/']) {
+  for (const route of ['/missing', '/server.mjs', '/vercel.json', '/package.json', '/.env', '/benchmarks/four-results.json', '/hybrid/artwork-atlas.png', '/hybrid/assets/paper.webp', '/hybrid/app.js', '/source/', '/css.html', '/dist/hosted.html', '/assets/reference.png', '/reference/', '/source/svg/', '/CSS/', '/source/CSS']) {
     const response = await request(route, { method: 'HEAD' });
     assert.equal(response.status, 404, `Unexpectedly exposed path: ${route}`);
   }

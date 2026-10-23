@@ -60,7 +60,7 @@ for (const asset of manifest) {
 // copy instead identifies the measurement snapshot, so repeated builds agree.
 // Neither benchmark inputs nor the measured edition HTML are altered here.
 const data = JSON.parse(await readFile(path.join(root, 'benchmarks/four-combined.json'), 'utf8'));
-const snapshotTime = Math.max(Date.parse(data.main.completedAt), Date.parse(data.webkit.date));
+const snapshotTime = Math.max(Date.parse(data.main.completedAt), Date.parse(data.webkit.completedAt));
 assert(Number.isFinite(snapshotTime), 'The report needs valid measurement dates');
 data.generatedAt = new Date(snapshotTime).toISOString();
 let report = await readFile(path.join(root, 'benchmarks/four-report-template.html'), 'utf8');
