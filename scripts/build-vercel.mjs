@@ -6,6 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { brotliDecompressSync, gunzipSync } from 'node:zlib';
 import { publishedBenchHTML } from './bench-navigation.mjs';
+import { publishedGithubHTML } from './github-navigation.mjs';
 import { normalizeRevision2Gzip } from './normalize-r2-gzip.mjs';
 
 const root = await realpath(fileURLToPath(new URL('../', import.meta.url)));
@@ -97,6 +98,7 @@ await rm(output, { recursive: true, force: true });
 await mkdir(output);
 const publication = [];
 async function publish(target, bytes) {
+  bytes = publishedGithubHTML(bytes, target);
   const destination = path.join(output, target);
   await mkdir(path.dirname(destination), { recursive: true });
   await writeFile(destination, bytes);

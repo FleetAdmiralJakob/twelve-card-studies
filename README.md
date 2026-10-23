@@ -8,6 +8,8 @@ Import [FleetAdmiralJakob/twelve-card-studies](https://github.com/FleetAdmiralJa
 
 The build includes both revisions and all eight editions, their reports and JSON data, both references, PNG export and source downloads. `/` and `/collections/` open the collection hub. Revision 1 lives at `/original/`, `/css/`, `/basic/` and `/hybrid/`; Revision 2 lives under `/revision-2/{svg,css,basic,hybrid}/`. Every edition links back to the hub and the other revision. Vercel serves the site independently of the original Windows machine and tailnet.
 
+The hub, every edition and all reports include **GitHub** and **View source** links. GitHub opens the repository; View source opens the relevant implementation folder. These links are added only to published navigation after benchmark validation. Measured builds, scripts, styles, benchmark records and source downloads remain unchanged; the reports disclose this navigation-only addition.
+
 Production builds require the complete Revision 2 measurement snapshot selected by `revision-2/benchmarks/latest.json`. Missing, incomplete or stale measurements fail the build; see the [benchmark workflow](revision-2/benchmarks/README.md) for measurement and selection commands.
 
 The hybrid ZIP uses `VERCEL_URL` (or `VERCEL_PROJECT_PRODUCTION_URL`) for its links back to the deployed collection. Set optional `CARD_SITE_ORIGIN=https://your-domain.example` to use a stable custom domain instead. Without deployment variables, local builds use `http://localhost:4173`. Card edits are stored per browser/origin, so they do not transfer automatically between the tailnet and a new domain.

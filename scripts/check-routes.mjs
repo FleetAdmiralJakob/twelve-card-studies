@@ -8,6 +8,7 @@ import { unzipSync } from 'fflate';
 import { createPreviewServer } from './preview.mjs';
 import { validateBuildHistory } from '../benchmarks/four-build-history.mjs';
 import { publishedBenchHTML } from './bench-navigation.mjs';
+import { publishedGithubHTML } from './github-navigation.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = file => readFile(path.join(root, file));
@@ -54,6 +55,67 @@ const request = async (route, options = {}) => {
   return fetch(origin + route, { ...options, redirect: 'manual', signal: AbortSignal.timeout(10000) });
 };
 const noImages = "default-src 'self'; img-src 'none'; object-src 'none'; font-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'";
+const githubRepo = 'https://github.com/FleetAdmiralJakob/twelve-card-studies';
+const githubSourceFolders = {
+  'index.html': '', 'collections/index.html': '',
+  'original/index.html': 'themes', 'css/index.html': 'css-art', 'basic/index.html': 'basic-art', 'hybrid/index.html': 'hybrid-art',
+  ...Object.fromEntries(['svg', 'css', 'basic'].map(id => [`revision-2/${id}/index.html`, 'revision-2/art'])),
+  'revision-2/hybrid/index.html': 'revision-2',
+  'bench/index.html': 'benchmarks', 'compare/index.html': 'benchmarks', 'revision-2/benchmarks/index.html': 'revision-2/benchmarks',
+};
+function checkGithubNavigation(baseline, published, target) {
+  // Latin-1 preserves every byte while comparing regions, including UTF-8 text.
+  const before = baseline.toString('latin1');
+  const after = published.toString('latin1');
+  const code = text => [...text.matchAll(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi)].map(match => match[0]);
+  assert.deepEqual(code(after), code(before), `${target}: scripts, embedded report data and styles must remain byte-identical`);
+  const isHub = ['index.html', 'collections/index.html'].includes(target);
+  const isReport = ['compare/index.html', 'bench/index.html', 'revision-2/benchmarks/index.html'].includes(target);
+  const navigation = isHub
+    ? /<nav\b[^>]*\bclass="top-nav"[^>]*>[\s\S]*?<\/nav\s*>|<footer\b[^>]*>[\s\S]*?<\/footer\s*>/gi
+    : /<footer\b[^>]*>[\s\S]*?<\/footer\s*>/gi;
+  const regions = [...after.matchAll(navigation)].map(match => match[0]);
+  assert.equal([...before.matchAll(navigation)].length, isHub ? 2 : 1, `${target}: unexpected source navigation boundaries`);
+  assert.equal(regions.length, isHub ? 2 : 1, `${target}: navigation containers were added or removed`);
+  const unwrapped = isHub ? after.replace('<header style="flex-wrap:wrap;gap:16px">', '<header>') : after;
+  assert.equal(unwrapped.replace(navigation, '<publication-navigation>'), before.replace(navigation, '<publication-navigation>'), `${target}: bytes outside the existing footer${isHub ? ' and hub navigation/wrapping attribute' : ''} changed`);
+  const attribute = (attributes, name) => new RegExp(`(?:^|\\s)${name}\\s*=\\s*(["'])(.*?)\\1`, 'i').exec(attributes)?.[2];
+  const links = [...after.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a\s*>/gi)]
+    .filter(match => attribute(match[1], 'data-repository-link') || attribute(match[1], 'href')?.startsWith(githubRepo));
+  assert.equal(links.length, isHub ? 3 : 2, `${target}: unexpected repository navigation links`);
+  assert(Object.hasOwn(githubSourceFolders, target), `${target}: expected repository source mapping missing`);
+  const folder = githubSourceFolders[target];
+  const sourceURL = `${githubRepo}/tree/main${folder ? '/' + folder : ''}`;
+  assert(links.some(match => attribute(match[1], 'href') === githubRepo && attribute(match[1], 'data-repository-link') === 'github' && /GitHub/i.test(match[2].replace(/<[^>]*>/g, ''))), `${target}: visible GitHub repository link missing`);
+  assert(links.some(match => attribute(match[1], 'data-repository-link') === 'source' && attribute(match[1], 'href') === sourceURL), `${target}: contextual repository source link missing`);
+  for (const link of links) {
+    assert(regions.some(region => region.includes(link[0])), `${target}: GitHub link must be in existing header/footer navigation`);
+    const kind = attribute(link[1], 'data-repository-link');
+    assert(['github', 'source'].includes(kind), `${target}: unexpected repository link kind`);
+    assert.equal(attribute(link[1], 'href'), kind === 'github' ? githubRepo : sourceURL, `${target}: incorrect repository destination`);
+    assert.equal(attribute(link[1], 'target'), '_blank', `${target}: GitHub links must open a new tab`);
+    const rel = attribute(link[1], 'rel')?.toLowerCase().split(/\s+/) ?? [];
+    assert(rel.includes('noopener') && rel.includes('noreferrer'), `${target}: GitHub link must use rel="noopener noreferrer"`);
+    assert(link[2].replace(/<[^>]*>/g, '').trim(), `${target}: GitHub links need visible text`);
+    assert.doesNotMatch(link[1], /\s(?:hidden\b|aria-hidden\s*=\s*["']true["'])/i, `${target}: GitHub link is hidden`);
+  }
+  const disclosure = /<p data-repository-disclosure\b[^>]*>[\s\S]*?<\/p>/g;
+  assert.equal([...after.matchAll(disclosure)].length, isReport ? 1 : 0, `${target}: unexpected publication disclosure count`);
+  if (isReport) {
+    const footer = regions[0];
+    assert.match(footer, /<p data-repository-disclosure\b[^>]*>Repository navigation was added after timing; measured artwork, interaction code and benchmark records are unchanged\. Published pages include these links; source downloads retain the validated build\.<\/p>/, `${target}: report footer must disclose navigation added after timing`);
+  }
+  // Independently remove only the declared additions. Even existing content
+  // inside an allowed navigation region must otherwise keep its exact bytes.
+  let restored = unwrapped;
+  for (const link of links) restored = restored.replace(link[0], '');
+  restored = restored.replace(disclosure, '');
+  if (isHub || isReport) {
+    restored = restored.replace('<nav aria-label="Project source" style="display:flex;flex-wrap:wrap;gap:12px 20px;margin:0"></nav>', '');
+    restored = restored.replace('<footer style="flex-wrap:wrap">', '<footer>');
+  }
+  assert.equal(restored, before, `${target}: publication changed bytes beyond the declared navigation additions`);
+}
 async function checkFile(route, expected, type, extra = {}) {
   const response = await request(route);
   assert.equal(response.status, 200, `${route}: GET status`);
@@ -77,18 +139,36 @@ async function checkFile(route, expected, type, extra = {}) {
 }
 
 try {
+  // Reproduce the publication's stable measurement timestamp, not the upstream
+  // report builder's wall clock or the already-published HTML under test.
+  const compareData = JSON.parse(await read('benchmarks/four-combined.json'));
+  const snapshotTime = Math.max(Date.parse(compareData.main.completedAt), Date.parse(compareData.webkit.completedAt));
+  assert(Number.isFinite(snapshotTime), 'The comparison report needs valid measurement dates');
+  compareData.generatedAt = new Date(snapshotTime).toISOString();
+  const comparePayload = JSON.stringify(compareData).replaceAll('<', '\\u003c').replaceAll('\u2028', '\\u2028').replaceAll('\u2029', '\\u2029');
+  const compareTemplate = (await read('benchmarks/four-report-template.html')).toString();
+  const compareMarker = '/*FOUR_BENCHMARK_DATA*/null';
+  assert.equal(compareTemplate.split(compareMarker).length, 2, 'Unexpected comparison report template');
+  const compareSource = Buffer.from(compareTemplate.replace(compareMarker, () => comparePayload).replace("'Report generated: '", "'Measurement snapshot: '"));
   const favicon = await checkFile('/favicon.ico', await read('assets/favicon.ico'), 'image/x-icon');
   assert.equal(favicon.length, 0, 'Default favicon must be a zero-byte response without raster or vector content');
-  for (const [route, artifact, csp] of [
-    ['/', 'dist/collections/index.html'], ['/collections/', 'dist/collections/index.html'], ['/original/', 'dist/hosted.html'],
-    ['/css/', 'dist/css.html', noImages], ['/basic/', 'dist/basic.html', noImages],
-    ['/hybrid/', 'dist/hybrid.html'], ['/compare/', 'site/compare/index.html'],
-    ['/bench/', 'bench/index.html'],
-    ...editionIds.map(id => [`/revision-2/${id}/`, `dist/revision-2/${id}/index.html`, ['css', 'basic'].includes(id) ? noImages : undefined]),
-    ['/revision-2/benchmarks/', 'dist/revision-2/benchmarks/index.html'],
-  ]) {
-    const source = await read(artifact);
-    const html = await checkFile(route, route === '/bench/' ? publishedBenchHTML(source) : source, 'text/html; charset=utf-8', { csp });
+  const pages = [
+    ['/', 'index.html', 'dist/collections/index.html'], ['/collections/', 'collections/index.html', 'dist/collections/index.html'],
+    ['/original/', 'original/index.html', 'dist/hosted.html'],
+    ['/css/', 'css/index.html', 'dist/css.html', noImages], ['/basic/', 'basic/index.html', 'dist/basic.html', noImages],
+    ['/hybrid/', 'hybrid/index.html', 'dist/hybrid.html'], ['/compare/', 'compare/index.html', null],
+    ['/bench/', 'bench/index.html', 'bench/index.html'],
+    ...editionIds.map(id => [`/revision-2/${id}/`, `revision-2/${id}/index.html`, `dist/revision-2/${id}/index.html`, ['css', 'basic'].includes(id) ? noImages : undefined]),
+    ['/revision-2/benchmarks/', 'revision-2/benchmarks/index.html', 'dist/revision-2/benchmarks/index.html'],
+  ];
+  assert.deepEqual(pages.map(([, target]) => target).sort(), files.filter(file => file.endsWith('.html')), 'Every public HTML page must have a source and navigation check');
+  for (const [route, target, artifact, csp] of pages) {
+    const source = artifact ? await read(artifact) : compareSource;
+    const baseline = target === 'bench/index.html' ? publishedBenchHTML(source) : source;
+    const expected = publishedGithubHTML(baseline, target);
+    assert((await read(`site/${target}`)).equals(expected), `${target}: published HTML differs from its source plus navigation transform`);
+    const html = await checkFile(route, expected, 'text/html; charset=utf-8', { csp });
+    checkGithubNavigation(baseline, html, target);
     if (csp === noImages) {
       assert.doesNotMatch(html.toString(), /<(?:img|picture|svg|canvas)\b|data:image\//i, `${route}: strict CSS editions must not contain image elements or data images`);
       assert.doesNotMatch(html.toString(), /<link\b[^>]*\brel\s*=\s*["'][^"']*\bicon\b/i, `${route}: explicit favicon links trigger the strict no-images CSP`);
@@ -123,7 +203,7 @@ try {
       assert((await read(artifact)).equals(source), 'Historical benchmark input was modified during publication checks');
     }
   }
-  await checkFile('/compare/data.json', await read('site/compare/data.json'), 'application/json; charset=utf-8');
+  await checkFile('/compare/data.json', Buffer.from(JSON.stringify(compareData, null, 2) + '\n'), 'application/json; charset=utf-8');
   await checkFile('/bench/data.json', await read('benchmarks/combined.json'), 'application/json; charset=utf-8');
   await checkFile('/revision-2/benchmarks/data.json', await read('dist/revision-2/benchmarks/data.json'), 'application/json; charset=utf-8');
   for (const [edition, filename, source, csp] of [
@@ -207,8 +287,8 @@ try {
   const history = await validateBuildHistory({ edge: report.main, webkit: report.webkit });
   assert.deepEqual(report.verification.currentBuilds, history.current, 'Current report fingerprints are stale');
   assert.deepEqual(report.verification.htmlComparisons, history.comparisons, 'Current report does not validate its historical relationship');
-  for (const [edition, file] of [['svg', 'original/index.html'], ['css', 'css/index.html'], ['basic', 'basic/index.html'], ['hybrid', 'hybrid/index.html']]) {
-    assert.equal(hash(await read(`site/${file}`)), report.verification.currentBuilds[edition].sha256, `${edition}: deployed HTML is not the validated build`);
+  for (const [edition, artifact] of [['svg', 'dist/hosted.html'], ['css', 'dist/css.html'], ['basic', 'dist/basic.html'], ['hybrid', 'dist/hybrid.html']]) {
+    assert.equal(hash(await read(artifact)), report.verification.currentBuilds[edition].sha256, `${edition}: source HTML is not the validated build before publication navigation`);
   }
 
   const redirects = [['/index.html', '/']];
@@ -230,7 +310,7 @@ try {
   const method = await request('/', { method: 'POST' });
   assert.equal(method.status, 405);
   assert.equal(method.headers.get('allow'), 'GET, HEAD');
-  console.log(`Static route checks passed: ${files.length} allowlisted files, ${requests} HTTP checks, all edition hashes, asset hashes, downloads, aliases, cache/CSP headers and report data verified.`);
+  console.log(`Static route checks passed: ${files.length} allowlisted files, ${requests} HTTP checks, all source and published edition hashes, GitHub navigation, asset hashes, downloads, aliases, cache/CSP headers and report data verified.`);
 } finally {
   await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
 }

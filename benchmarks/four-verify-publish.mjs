@@ -4,6 +4,7 @@ import {unzipSync,strFromU8} from 'fflate';
 import {chromium} from 'playwright';
 import {editions,fromRoot,readJSON,sha256 as hash} from './four-config.mjs';
 import {validateBuildHistory,compareMeasuredHtml,collectionFooter,currentEditions} from './four-build-history.mjs';
+import {publishedGithubHTML,repositoryURL} from '../scripts/github-navigation.mjs';
 const origin='http://jakobs-pc.taile7e918.ts.net:8787';
 const data=await readJSON('benchmarks/four-combined.json');
 assert.deepEqual(data.editions,editions,'Report edition routes changed');
@@ -24,7 +25,10 @@ const checks={date:new Date().toISOString(),origin,pages:[],assets:[],downloads:
 for(const e of currentEditions){
   const r=await fetch(origin+e.route);assert.equal(r.status,200);
   const bytes=Buffer.from(await r.arrayBuffer());
-  assert.equal(hash(bytes),history.current[e.id].sha256,`${e.id}: published HTML differs from current dist`);
+  const current=await readFile(fromRoot(`dist/${e.file}.html`));
+  assert.equal(hash(current),history.current[e.id].sha256,`${e.id}: current dist changed after validation`);
+  const target=e.route.slice(1)+'index.html';
+  assert.equal(hash(bytes),hash(publishedGithubHTML(current,target)),`${e.id}: published HTML differs from the navigation-only publication`);
   const difference=compareMeasuredHtml(e,history.measuredHtml[e.id],bytes);
   assert.equal(difference,history.comparisons[e.id].difference);
   const footer=collectionFooter(bytes,`${e.id} published`).footer.toString('utf8');
@@ -32,6 +36,7 @@ for(const e of currentEditions){
   assert.equal(navs.length,1,`${e.id}: missing or duplicate edition navigation`);
   const nav=navs[0][0];
   const links=new Set([...nav.matchAll(/<a\s[^>]*\bhref="([^"]+)"/g)].map(match=>match[1]));
+  assert(links.has(repositoryURL),`${e.id}: missing GitHub repository link`);
   for(const route of [...currentEditions.filter(other=>other.id!==e.id).map(other=>other.route),'/compare/','/collections/','/revision-2/svg/'])assert(links.has(route),`${e.id}: footer link missing for ${route}`);
   assert(!links.has('/'),`${e.id}: footer still links to the historical V1 route`);
   assert.match(nav,/<a href="\/collections\/">All collections<\/a>/,`${e.id}: missing All collections label`);
