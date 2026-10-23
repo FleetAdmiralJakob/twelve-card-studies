@@ -14,10 +14,13 @@ if (args.includes('--help') || args.includes('-h')) {
 Requires complete four-results.json AND four-webkit-results.json from 3 or 4 rounds,
 the unchanged measured HTML snapshots and harness, successful functional/network checks,
 and matching measured served/local HTML SHA-256 in every run. Current V1–V4 HTML
-may differ ONLY inside the collection footer from their immutable snapshots. Current compressed
-siblings must decode to current HTML. Diagnostic/partial data is rejected.
+may differ inside the collection footer from their immutable snapshots. V4 may also
+contain ONLY the exact known flag-frame/comic-title/PNG-renderer polish, removed
+losslessly before the footer comparison. All other bytes must match. Current
+compressed siblings must decode to current HTML. Diagnostic/partial data is rejected.
 Outputs: dist/compare.html{,.gz,.br} and benchmarks/four-combined.json.
-All timings remain historical; no footer navigation update is newly benchmarked.
+All measurements remain archived; neither footer navigation nor the V4 visual
+polish has been benchmarked. Current V4 performance is not established by this report.
 Root must wire /original/, /collections/, /revision-2/svg/, /compare/, /compare/data.json,
 /hybrid/, assets, and current /source/{svg,css,basic,hybrid} downloads.`);
 } else {
@@ -105,7 +108,8 @@ async function build() {
     schemaVersion:1,generatedAt:new Date().toISOString(),editions,currentEditions,main,webkit,
     verification:{
       html:'Every recorded navigation response hash matches the actual measured HTML: immutable pre-V4 snapshots for V1–V3 and the pre-Revision-2 snapshot for V4. Recorded build fingerprints, including compressed byte counts, are validated against those measured files. All four current gzip and Brotli HTML siblings must decode to current HTML.',
-      navigation:'All timings, sizes, DOM counts and network totals remain historical. V1–V4 footer navigation was updated after timing to link All collections and Revision 2, with current V1 links pointing to /original/. Current V4 is no longer byte-identical to its measured HTML. Current V1–V4 HTML may differ only inside the single collection-footer element, including its inline wrapping styles; bytes before and after it must be identical. Artwork and interaction code outside that footer are preserved. No benchmarks were rerun for the footer updates. Historical edition routes and the measured harness remain unchanged; current routes are listed separately in currentEditions. Source downloads contain current builds, with portable asset and navigation URL rewrites in the V4 ZIP.',
+      navigation:'All timings, sizes, DOM counts and network totals describe archived measured builds. V1–V4 footer navigation was updated after timing to link All collections and Revision 2, with current V1 links pointing to /original/. V1–V3 bytes outside the single collection-footer element remain identical to their measured snapshots. V4 may additionally contain the exact known visual polish: a flag frame, comic-card title alignment and corresponding PNG renderer changes. The shared polish helper removes only these guarded CSS/JS injections, without byte or newline normalization, before the same footer comparison; every other byte outside that footer must match. A polished V4 is recorded as footer-and-visual-polish, not footer-only or unchanged. No benchmarks were rerun for navigation or visual polish; these archived results do not establish current V4 performance or equality with its measured performance. Historical edition routes, measured snapshots, run records and the harness remain unchanged; current routes are listed separately in currentEditions. Source downloads contain current builds, including any V4 polish, with portable asset and navigation URL rewrites in the V4 ZIP.',
+      invariants:history.invariants,
       currentBuilds:history.current,
       htmlComparisons:history.comparisons,
       assets:'Response bodies fingerprinted after timing and compared across measured runs and engines. These fingerprints document measured assets; this builder does not fetch the deployed site or assert that external assets are still unchanged.',

@@ -58,8 +58,11 @@ export function publishedGithubHTML(bytes, target) {
     // on narrow screens without touching stylesheets or measured artwork.
     footer = footer.replace('<footer>', '<footer style="flex-wrap:wrap">');
     const nav = `<nav aria-label="Project source" style="display:flex;flex-wrap:wrap;gap:12px 20px;margin:0">${github}${source}</nav>`;
+    const disclosureText = target === 'compare/index.html'
+      ? 'Repository navigation was added after timing without changing current artwork or interaction code. Separately, current Revision 1 V4 includes flag-frame, comic-title and PNG-export polish that has not been benchmarked; the figures describe archived builds. Source downloads contain the validated current build.'
+      : 'Repository navigation was added after timing; measured artwork, interaction code and benchmark records are unchanged. Published pages include these links; source downloads retain the validated build.';
     const disclosure = reports.has(target)
-      ? '<p data-repository-disclosure style="flex-basis:100%;margin:0">Repository navigation was added after timing; measured artwork, interaction code and benchmark records are unchanged. Published pages include these links; source downloads retain the validated build.</p>'
+      ? `<p data-repository-disclosure style="flex-basis:100%;margin:0">${disclosureText}</p>`
       : '';
     return footer.replace('</footer>', `${nav}${disclosure}</footer>`);
   }, `${target} footer`);

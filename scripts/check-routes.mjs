@@ -103,7 +103,10 @@ function checkGithubNavigation(baseline, published, target) {
   assert.equal([...after.matchAll(disclosure)].length, isReport ? 1 : 0, `${target}: unexpected publication disclosure count`);
   if (isReport) {
     const footer = regions[0];
-    assert.match(footer, /<p data-repository-disclosure\b[^>]*>Repository navigation was added after timing; measured artwork, interaction code and benchmark records are unchanged\. Published pages include these links; source downloads retain the validated build\.<\/p>/, `${target}: report footer must disclose navigation added after timing`);
+    const disclosureText = target === 'compare/index.html'
+      ? 'Repository navigation was added after timing without changing current artwork or interaction code. Separately, current Revision 1 V4 includes flag-frame, comic-title and PNG-export polish that has not been benchmarked; the figures describe archived builds. Source downloads contain the validated current build.'
+      : 'Repository navigation was added after timing; measured artwork, interaction code and benchmark records are unchanged. Published pages include these links; source downloads retain the validated build.';
+    assert(footer.includes('>' + disclosureText + '</p>'), `${target}: report footer must disclose navigation and any unmeasured visual polish`);
   }
   // Independently remove only the declared additions. Even existing content
   // inside an allowed navigation region must otherwise keep its exact bytes.
@@ -287,6 +290,8 @@ try {
   const history = await validateBuildHistory({ edge: report.main, webkit: report.webkit });
   assert.deepEqual(report.verification.currentBuilds, history.current, 'Current report fingerprints are stale');
   assert.deepEqual(report.verification.htmlComparisons, history.comparisons, 'Current report does not validate its historical relationship');
+  assert.deepEqual(report.verification.invariants, history.invariants, 'Current report must distinguish archived measurements from visual polish');
+  assert.match(compareTemplate, /id="navigation-history">[^<]*flag frame[^<]*comic[^<]*PNG[^<]*Neither[^<]*benchmarked/i, 'Four-edition report must disclose the unmeasured visual polish');
   for (const [edition, artifact] of [['svg', 'dist/hosted.html'], ['css', 'dist/css.html'], ['basic', 'dist/basic.html'], ['hybrid', 'dist/hybrid.html']]) {
     assert.equal(hash(await read(artifact)), report.verification.currentBuilds[edition].sha256, `${edition}: source HTML is not the validated build before publication navigation`);
   }

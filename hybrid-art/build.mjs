@@ -3,6 +3,7 @@ import {createHash} from 'node:crypto';
 import {gzipSync,brotliCompressSync} from 'node:zlib';
 import {zipSync,strToU8} from 'fflate';
 import {cards} from '../css-art/cards.mjs';
+import {applyHybridPolish} from './polish.mjs';
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex').slice(0,12);
 const escape=value=>String(value).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 await mkdir('dist/hybrid/assets',{recursive:true});
@@ -37,6 +38,7 @@ if(footer.split(v1Link).length!==2)throw new Error('Expected exactly one V1 foot
 const currentFooter=footer.replace(v1Link,'<a href="/collections/">All collections</a>\n        <a href="/revision-2/svg/">Revision 2</a>\n        <a href="/original/" aria-label="Version 1">V1</a>');
 html=html.slice(0,footers[0].index)+currentFooter+html.slice(footers[0].index+footer.length);
 for(const [token,value] of [['<!--GALLERY-->',gallery.join('\n')],['<!--STYLES-->',`<style>${css}</style>`],['<!--SCRIPT-->',`<script>${script}</script>`]]){if(!html.includes(token))throw new Error('Missing template token '+token);html=html.replace(token,value);}
+html=applyHybridPolish(html);
 await writeFile('hybrid/index.html',html);
 await writeFile('dist/hybrid/index.html',html);
 await writeFile('dist/hybrid.html',html);

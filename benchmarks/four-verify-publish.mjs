@@ -14,6 +14,7 @@ assert.deepEqual(data.webkit,await readJSON('benchmarks/four-webkit-results.json
 const history=await validateBuildHistory({edge:data.main,webkit:data.webkit});
 assert.deepEqual(data.verification.currentBuilds,history.current,'Regenerate the report for the current HTML builds before publication');
 assert.deepEqual(data.verification.htmlComparisons,history.comparisons,'Report snapshot/current comparisons are stale');
+assert.deepEqual(data.verification.invariants,history.invariants,'Report history invariants are stale');
 for(const [engine,source] of [['edge',data.main],['webkit',data.webkit]])for(const run of source.runs){
   const measured=history.measured[run.edition];
   assert(measured,`${engine}: unknown measured edition`);
@@ -21,7 +22,7 @@ for(const [engine,source] of [['edge',data.main],['webkit',data.webkit]])for(con
   assert.equal(run.verification.localSha256,measured.sha256,`${engine}: run local hash differs from measured HTML`);
   assert.equal(run.verification.servedSha256,measured.sha256,`${engine}: run served hash differs from measured HTML`);
 }
-const checks={date:new Date().toISOString(),origin,pages:[],assets:[],downloads:[],originalEditionsOutsideFooterUnchanged:true,allEditionsOutsideFooterUnchanged:true,hybridHtmlUnchanged:history.comparisons.hybrid.difference==='exact'};
+const checks={date:new Date().toISOString(),origin,pages:[],assets:[],downloads:[],...history.invariants};
 for(const e of currentEditions){
   const r=await fetch(origin+e.route);assert.equal(r.status,200);
   const bytes=Buffer.from(await r.arrayBuffer());
@@ -30,7 +31,9 @@ for(const e of currentEditions){
   const target=e.route.slice(1)+'index.html';
   assert.equal(hash(bytes),hash(publishedGithubHTML(current,target)),`${e.id}: published HTML differs from the navigation-only publication`);
   const difference=compareMeasuredHtml(e,history.measuredHtml[e.id],bytes);
-  assert.equal(difference,history.comparisons[e.id].difference);
+  // Publication may add footer links even to an otherwise exact historical
+  // build. It must retain the build's visual-polish classification.
+  assert.equal(difference,history.comparisons[e.id].difference==='exact'?'footer-only':history.comparisons[e.id].difference);
   const footer=collectionFooter(bytes,`${e.id} published`).footer.toString('utf8');
   const navs=[...footer.matchAll(/<nav\b[^>]*\sclass="edition-nav"[^>]*>[\s\S]*?<\/nav>/g)];
   assert.equal(navs.length,1,`${e.id}: missing or duplicate edition navigation`);
@@ -42,7 +45,7 @@ for(const e of currentEditions){
   assert.match(nav,/<a href="\/collections\/">All collections<\/a>/,`${e.id}: missing All collections label`);
   assert.match(nav,/<a href="\/revision-2\/svg\/">Revision 2<\/a>/,`${e.id}: missing Revision 2 label`);
   assert.equal([...nav.matchAll(/aria-current="page"/g)].length,1,`${e.id}: missing or duplicate current edition`);
-  checks.pages.push({edition:e.id,route:e.route,measuredRoute:editions.find(measured=>measured.id===e.id).route,status:r.status,sha256:hash(bytes),measuredSha256:history.measured[e.id].sha256,difference,navigationLinks:true});
+  checks.pages.push({edition:e.id,route:e.route,measuredRoute:editions.find(measured=>measured.id===e.id).route,status:r.status,sha256:hash(bytes),currentSha256:history.current[e.id].sha256,measuredSha256:history.measured[e.id].sha256,difference,navigationLinks:true});
   if(e.id!=='hybrid'){
     const download=await fetch(origin+e.source);assert.equal(download.status,200,`${e.id}: source download missing`);
     assert.match(download.headers.get('content-disposition')||'',/attachment/,`${e.id}: source must download as an attachment`);
@@ -90,4 +93,4 @@ const b=await chromium.launch({headless:true});
 try{const p=await b.newPage({viewport:{width:1080,height:900}});const errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(origin+'/compare/');await p.screenshot({path:'benchmarks/screenshots/four-report-desktop.png',fullPage:true});assert.equal(await p.locator('select').count(),2);const selects=p.locator('select');for(const engine of ['main','webkit'])for(const viewport of ['desktop','mobile']){await selects.nth(0).selectOption(engine);await selects.nth(1).selectOption(viewport);assert.doesNotMatch(await p.locator('main').innerText(),/NaN|undefined/);}
  await p.setViewportSize({width:390,height:844});assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await p.screenshot({path:'benchmarks/screenshots/four-report-mobile.png',fullPage:true});assert.deepEqual(errors,[]);checks.report={controls:true,mobileOverflow:false,errors};
 }finally{await b.close();}
-await writeFile('benchmarks/four-publish-checks.json',JSON.stringify(checks,null,2));console.log(JSON.stringify({pages:checks.pages.length,assets:checks.assets.length,downloads:checks.downloads.length,zipFiles:checks.zipFiles,originalEditionsOutsideFooterUnchanged:checks.originalEditionsOutsideFooterUnchanged,allEditionsOutsideFooterUnchanged:checks.allEditionsOutsideFooterUnchanged,hybridHtmlUnchanged:checks.hybridHtmlUnchanged,report:checks.report}));
+await writeFile('benchmarks/four-publish-checks.json',JSON.stringify(checks,null,2));console.log(JSON.stringify({pages:checks.pages.length,assets:checks.assets.length,downloads:checks.downloads.length,zipFiles:checks.zipFiles,...history.invariants,report:checks.report}));

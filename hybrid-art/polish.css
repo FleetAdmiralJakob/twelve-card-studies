@@ -1,0 +1,20 @@
+/* Live metadata polish for the original hybrid collection. The flag image
+   stays rectangular and keeps its country's native proportions. */
+.card-flag {
+  padding: 1.2px;
+  border: .65px solid rgba(237,225,189,.75);
+  border-radius: 1px;
+  background: #11191b;
+  box-shadow: 0 1px 2px #0009;
+}
+.card--comic .card-flag { top: 280px; border-color: #e5c77d; }
+.card--comic .card-name {
+  top: 188px;
+  left: 19px;
+  right: auto;
+  width: 149px;
+  font-size: 21px;
+  letter-spacing: -.35px;
+  transform: rotate(-5deg);
+  transform-origin: 50% 50%;
+}

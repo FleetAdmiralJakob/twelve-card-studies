@@ -2,6 +2,7 @@ import {readFile} from 'node:fs/promises';
 import {gzipSync, brotliCompressSync, gunzipSync, brotliDecompressSync} from 'node:zlib';
 import assert from 'node:assert/strict';
 import {editions, fromRoot, fingerprint, sha256} from './four-config.mjs';
+import {applyHybridPolish, removeHybridPolish} from '../hybrid-art/polish.mjs';
 
 const snapshots = {
   svg: 'versions/2026-10-23-before-fourth/svg.html',
@@ -36,11 +37,23 @@ export function collectionFooter(bytes, label) {
 export function compareMeasuredHtml(edition, measuredHtml, currentHtml) {
   if (measuredHtml.equals(currentHtml)) return 'exact';
   assert(Object.hasOwn(snapshots, edition.id), `${edition.id}: HTML changed since measurement; no footer exception for this edition`);
+  let comparableHtml = currentHtml;
+  if (edition.id === 'hybrid') {
+    // The polish helper matches authored UTF-8 strings. Require a lossless
+    // round-trip before using it; never normalize invalid bytes or newlines.
+    const text = currentHtml.toString('utf8');
+    assert(Buffer.from(text, 'utf8').equals(currentHtml), 'hybrid: current HTML is not lossless UTF-8');
+    const unpolished = removeHybridPolish(text);
+    if (unpolished !== text) {
+      assert(applyHybridPolish(unpolished) === text, 'hybrid: HTML differs beyond the exact known visual polish');
+      comparableHtml = Buffer.from(unpolished, 'utf8');
+    }
+  }
   const measured = collectionFooter(measuredHtml, `${edition.id} measured`);
-  const current = collectionFooter(currentHtml, `${edition.id} current`);
+  const current = collectionFooter(comparableHtml, `${edition.id} current after known polish removal`);
   assert(measured.before.equals(current.before), `${edition.id}: HTML before the collection footer changed since measurement`);
   assert(measured.after.equals(current.after), `${edition.id}: HTML after the collection footer changed since measurement`);
-  return 'footer-only';
+  return comparableHtml.equals(currentHtml) ? 'footer-only' : 'footer-and-visual-polish';
 }
 
 export async function validateBuildHistory(sources) {
@@ -78,5 +91,13 @@ export async function validateBuildHistory(sources) {
       difference: compareMeasuredHtml(edition, bytes, currentHtml),
     };
   }
-  return {measured, current, measuredHtml, comparisons};
+  const outsideFooterUnchanged = id => ['exact', 'footer-only'].includes(comparisons[id].difference);
+  const invariants = {
+    originalEditionsOutsideFooterUnchanged: ['svg', 'css', 'basic'].every(outsideFooterUnchanged),
+    allEditionsOutsideFooterUnchanged: editions.every(edition => outsideFooterUnchanged(edition.id)),
+    hybridHtmlUnchanged: comparisons.hybrid.difference === 'exact',
+    hybridVisualPolishApplied: comparisons.hybrid.difference === 'footer-and-visual-polish',
+    currentVisualPolishBenchmarked: false,
+  };
+  return {measured, current, measuredHtml, comparisons, invariants};
 }
