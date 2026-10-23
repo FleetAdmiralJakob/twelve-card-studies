@@ -1,5 +1,5 @@
 /**
- * Pure presentation for the validated Revision 2 benchmark dataset.
+ * Static, presentation-only rendering of the validated Revision 2 benchmark dataset.
  * Contract: renderReport(dataset: SchemaV2) -> HTML string, synchronously.
  * The caller verifies artifacts/checks and writes index.html plus data.json.
  * This module performs no I/O, reads no clock, and does not mutate its input.
@@ -95,20 +95,24 @@ function metric(runs, pick, format = 'ms') {
 function metricTable(caption, rows, byEdition) {
   return `<div class="table-scroll" role="region" aria-label="${escapeHTML(caption)}" tabindex="0"><table class="metrics">
     <caption>${escapeHTML(caption)}</caption>
-    <thead><tr><th scope="col">Metric <span class="heading-note">median [min–max]</span></th>${EDITIONS.map(edition => `<th scope="col"><a href="/revision-2/${edition.id}/">${edition.short}</a></th>`).join('')}</tr></thead>
+    <thead><tr><th scope="col">Metric <span class="heading-note">median [min–max] across 4 runs</span></th>${EDITIONS.map(edition => `<th scope="col"><a href="/revision-2/${edition.id}/">${edition.short}</a></th>`).join('')}</tr></thead>
     <tbody>${rows.map(row => row.heading
       ? `<tr class="row-group"><th colspan="5">${escapeHTML(row.heading)}</th></tr>`
       : `<tr><th scope="row">${escapeHTML(row.label)}${row.note ? `<span class="row-note">${escapeHTML(row.note)}</span>` : ''}</th>${EDITIONS.map(edition => metric(byEdition[edition.id], row.pick, row.format)).join('')}</tr>`).join('')}</tbody>
   </table></div>`;
 }
 
+// Presentation only: expose recorded summaries without changing sampling or timing.
 const PERFORMANCE_ROWS = [
   { label: 'First contentful paint', note: 'FCP · browser reported', pick: run => run.load?.fcp },
   { label: 'Gallery ready', note: 'Observed by the harness', pick: run => run.load?.galleryReadyObserved },
-  { label: 'First open · decoded', note: 'Per-run p95 · click to ready', pick: run => run.dialogDecode?.p95 },
-  { label: 'First open · two frames', note: 'Per-run p95 · click to 2 RAFs', pick: run => run.dialogTwoFrame?.p95 },
-  { label: 'Warm browse · RAF', note: 'Per-run interval p95', pick: run => run.browseFrames?.p95 },
-  { label: 'Scroll · RAF', note: 'Per-run interval p95', pick: run => run.scrollFrames?.p95 },
+  { label: 'First open · ready median', note: 'Per-run median of 12 opens', pick: run => run.dialogDecode?.median },
+  { label: 'First open · ready p95', note: 'Per-run maximum · worst of 12 opens', pick: run => run.dialogDecode?.p95 },
+  { label: 'First open · 2 RAFs p95', note: 'Per-run maximum · worst of 12 opens', pick: run => run.dialogTwoFrame?.p95 },
+  { label: 'Warm browse · RAF p95', note: 'Per-run interval p95', pick: run => run.browseFrames?.p95 },
+  { label: 'Warm browse · RAF max', note: 'Per-run maximum interval', pick: run => run.browseFrames?.max },
+  { label: 'Scroll · RAF p95', note: 'Per-run interval p95', pick: run => run.scrollFrames?.p95 },
+  { label: 'Scroll · RAF max', note: 'Per-run maximum interval', pick: run => run.scrollFrames?.max },
   { label: 'Initial document DOM', note: 'Element count', format: 'count', pick: run => run.nodes?.documentInitial },
   { label: 'Gallery DOM', note: 'Element count', format: 'count', pick: run => run.nodes?.gallery },
 ];
@@ -382,7 +386,7 @@ export function renderReport(dataset) {
       <nav class="section-nav" aria-label="Report sections"><a href="#measurements">01 / Measurements</a><a href="#html-size">02 / HTML sizes</a><a href="#provenance">03 / Provenance</a><a href="#reading">04 / How to read this</a></nav>
       <section class="section" id="measurements" aria-labelledby="measurements-title">
         <div class="section-heading"><span class="section-number">01</span><h2 id="measurements-title">The measured workload.</h2></div>
-        <p class="section-copy">Each cell is the <strong>median [min–max] of four run-level values</strong> for one edition, engine and viewport. For p95 metrics, it is the median and range of the four recorded p95s; frames are never pooled or averaged across runs. Four replicates show observed spread, not confidence intervals.</p>
+        <p class="section-copy">Each cell is the <strong>median [min–max] across four run-level scalars</strong> for one edition, engine and viewport. A median, p95 or max row summarizes the four recorded medians, p95s or maxima respectively; samples are never pooled across runs. First-open p95 is the maximum of 12 opens under the nearest-rank rule. Four replicates show observed spread, not confidence intervals.</p>
         <p class="fine">Timing units: milliseconds. Traffic units: KiB (1,024 bytes). “Unavailable” preserves missing or unsupported measurements, including null FCP; no value is replaced with zero. Partial reporting shows n/4 and receives no four-round summary. Tables scroll horizontally on narrow screens.</p>
         <nav class="group-nav" aria-label="Engine and viewport groups">${groups.map(({ engine, viewport }, index) => `<a href="#group-${index + 1}">${ENGINE_NAMES[engine]} / ${escapeHTML(viewport.name)} · ${escapeHTML(viewport.width)} × ${escapeHTML(viewport.height)}</a>`).join('')}</nav>
         ${groups.map(({ engine, viewport }, index) => groupSection(dataset, engine, viewport, index + 1)).join('\n')}
@@ -400,10 +404,12 @@ export function renderReport(dataset) {
       <section class="section" id="reading" aria-labelledby="reading-title">
         <div class="section-heading"><span class="section-number">04</span><h2 id="reading-title">Keep the numbers in context.</h2></div>
         <div class="limits">
-          <div><h3>Art direction changes the comparison</h3><p>SVG, CSS polygons and CSS primitives are stylized interpretations. Hybrid uses approximately 550 × 700 px source art with live text. A 1280px export adds no source-art detail. This is not a pixel-perfect comparison, and the measurements establish no universal winner.</p></div>
+          <div><h3>Art direction changes the comparison</h3><p>SVG, CSS polygons and CSS primitives are stylized interpretations. Hybrid uses approximately 550 × 700 px source art with live text. A 1280px export adds no source-art detail. This is not a pixel-perfect comparison, and the measurements establish no universal winner. No actual Discord implementation was benchmarked, so these results cannot establish beating it.</p></div>
           <div><h3>One revision, one workload</h3><p>R2 is not directly comparable with <a href="/compare/">R1</a>: content, workload and viewport definitions changed. All R2 editions share the full editor. PNG export is excluded from these measurements; its rendering and download costs are not represented.</p></div>
           <div><h3>Desktop engines, emulated layouts</h3><p>Runs use headless browsers at DPR 1, unthrottled CPU and network, on localhost. A narrow viewport models layout, not phone hardware. Playwright WebKit on Windows is not Mac Safari, iOS Safari or a real phone; do not generalize these timings to those devices.</p></div>
-          <div><h3>Read latency and intervals separately</h3><p>Decoded first-open p95 measures click-to-decoded readiness, not decode CPU time alone. Two-frame latency waits for two requestAnimationFrame callbacks. Warm browse and scroll p95s describe RAF intervals, not real FPS or INP. Headless scheduling and browser instrumentation affect these values.</p></div>
+          <div><h3>“Ready” is a harness checkpoint</h3><p>Timing starts immediately before the programmatic click: two requestAnimationFrame (RAF) callbacks, then an image-ready/decode await (empty for pure CSS), then two additional callbacks. The 2 RAFs row stops at the original second callback; ready includes the full sequence. The stored “decoded” endpoint is elapsed time, not CPU decode time. Callbacks offer rendering opportunities, with no guarantee of actual presentation. This is not INP.</p></div>
+          <div><h3>Fixed order limits attribution</h3><p>All 12 cards first-open in fixed order, with the same card first each run. Card identity and order are confounded, especially first-modal overhead. Warm browsing starts only after all 12 first opens; it does not measure cold switching.</p></div>
+          <div><h3>Read p95 alongside max</h3><p>Warm browsing records 180 RAF intervals with only 12 card changes; its p95 is not specific to transitions. Warm browse and scroll each use 180 intervals: nearest-rank p95 selects rank 171, leaving the nine largest intervals beyond its rank. Max exposes the worst interval. These are callback intervals, not display FPS; headless scheduling and instrumentation affect them.</p></div>
           <div><h3>Four replicates, no confidence intervals</h3><p>Each summary uses four separately recorded run values within its engine/viewport/edition group. The median is the midpoint of the two central values; brackets show the smallest and largest run values. Four replicates are not confidence intervals, and small differences need more evidence.</p></div>
           <div><h3>Read availability literally</h3><p>FCP remains unavailable when the browser does not expose it; observed gallery readiness is a separate harness measurement. Null response transfer, request bytes or response headers remain unavailable even when body accounting is complete. A recorded zero is distinct from an unavailable value. A Resource-Timing-only favicon needs matching evidence from the original server response; a later fetch of the icon cannot establish its status or hash.</p></div>
         </div>
