@@ -6,6 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { brotliDecompressSync, gunzipSync } from 'node:zlib';
 import { publishedBenchHTML } from './bench-navigation.mjs';
+import { normalizeRevision2Gzip } from './normalize-r2-gzip.mjs';
 
 const root = await realpath(fileURLToPath(new URL('../', import.meta.url)));
 const output = path.resolve(root, 'site');
@@ -22,6 +23,7 @@ try {
 }
 
 for (const script of ['build.mjs', 'benchmarks/four-build-report.mjs', 'revision-2/build.mjs', 'revision-2/build-hub.mjs', 'revision-2/benchmarks/report.mjs']) {
+  if (script === 'revision-2/benchmarks/report.mjs') await normalizeRevision2Gzip();
   const result = spawnSync(process.execPath, [script], { cwd: root, stdio: 'inherit' });
   if (result.error) throw result.error;
   assert.equal(result.status, 0, `${script} failed; refusing to publish an unvalidated build`);

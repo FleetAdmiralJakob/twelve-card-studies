@@ -27,6 +27,8 @@ Open http://localhost:4173. Use `npm run preview -- --port 4180` to select anoth
 
 Vercel references: [project configuration](https://vercel.com/docs/project-configuration/vercel-json), [Node.js versions](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions), [deployment environment variables](https://vercel.com/docs/environment-variables/system-environment-variables).
 
+Linux deployment builds normalize the generated Revision 2 gzip OS header byte to the recorded Windows value, only when the complete result matches the selected snapshot's hash and size. Compressed payloads, decoded HTML, Brotli, frozen sources and measurement records remain unchanged; the original validators still run.
+
 ## Revision 2: Elements of the game
 
 The second supplied reference introduces twelve named cards in a 4 × 3 desktop composition: VALOR, FROST, BLAZE, VOLT, RIVERA, NEXUS, SILVAH, AURUM, DRIFT, MAJESTIC, LEGACY and PRISM. A **revision** changes the reference collection; an **approach** changes its rendering technique. The hub exposes all eight edition links, both references, reports and downloads.
